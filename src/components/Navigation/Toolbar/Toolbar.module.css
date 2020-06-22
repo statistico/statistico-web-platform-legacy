@@ -1,0 +1,23 @@
+.Toolbar {
+    height: 60px;
+    display: flex;
+    background-color: #181831;
+    position: relative;
+    justify-content: space-between;
+    text-transform: uppercase;
+    border-bottom: 2px solid #22ccde;
+    margin: 0 auto;
+    padding: 0.5vw 2vw;
+    z-index: 2;
+    align-self: center;
+}
+
+@media (max-width: 768px) {
+    .Toolbar {
+        position: sticky;
+        height: 50px;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+}
