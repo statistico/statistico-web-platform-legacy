@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import './App.css';
 import Toolbar from './components/Navigation/Toolbar/Toolbar';
 
 class App extends Component {
