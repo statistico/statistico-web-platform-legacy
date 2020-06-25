@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import NavItem from "./NavItem/NavItem";
 
-const NavBox = styled.div`
+const NavBox = styled.nav`
     display: flex;
     height: 100%;
     justify-content: flex-end;
