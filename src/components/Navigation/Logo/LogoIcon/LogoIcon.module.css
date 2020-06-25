@@ -1,0 +1,12 @@
+.LogoIcon {
+    max-width: 50px;
+    margin: 0 10px 0 5px;
+}
+
+@media (max-width: 768px) {
+    .LogoIcon {
+        max-width: 42px;
+        margin: 0 10px 0 5px;
+    }
+}
+

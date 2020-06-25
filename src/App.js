@@ -5,12 +5,11 @@ import Toolbar from './components/Navigation/Toolbar/Toolbar';
 class App extends Component {
     render() {
         return (
-            <div style={{height: '100%'}}>
+            <div>
                 <Toolbar />
                 <main>
                     <p>Statistico Web Platform</p>
                 </main>
-
             </div>
         )
     }

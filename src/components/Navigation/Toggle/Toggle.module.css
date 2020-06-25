@@ -1,12 +1,12 @@
 .Toggle {
-    display: none;
+    display: flex;
     height: 100%;
     cursor: pointer;
-    padding: 0 2vw;
+    padding: 0 1vw;
 }
 
 @media (max-width: 768px) {
     .Toggle {
-        display: flex;
+        margin-left: 10px;
     }
 }

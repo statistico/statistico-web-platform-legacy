@@ -8,26 +8,6 @@
     position: relative;
 }
 
-.Link:hover {
-    color: goldenrod;
-}
-
-.Link:hover::after {
-    width: 100%;
-}
-
-.Link:after {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    content: ".";
-    color: transparent;
-    background: goldenrod;
-    height: 1px;
-    transition: all 0.4s ease-in;
-}
-
 @media(max-width: 768px) {
     .Link {
         padding: 20px 0;

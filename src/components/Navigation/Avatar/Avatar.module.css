@@ -1,0 +1,17 @@
+.Avatar {
+    height: 48px;
+    margin-left: auto;
+}
+
+.Avatar img {
+    max-width:100%;
+    max-height:100%;
+    border-radius: 50%;
+    border: 2px solid #22ccde;
+}
+
+@media (max-width: 768px) {
+    .Avatar {
+        height: 40px;
+    }
+}
