@@ -4,7 +4,7 @@ import Aux from '../../hoc/Aux/Aux';
 import SidebarMenu from "../../components/Navigation/SidebarMenu/SidebarMenu";
 import TeamStats from '../TeamStats/TeamStats';
 import Toolbar from "../../components/Navigation/Toolbar/Toolbar";
-import { useTogglesMenu } from "../../hooks/useTogglesMenu";
+import { useTogglesMenu } from "../../hooks";
 import classes from './Layout.module.css';
 
 const Layout = () => {
@@ -13,7 +13,9 @@ const Layout = () => {
     return (
         <Aux>
             <Toolbar open={menuOpen} clicked={menuToggleHandler}/>
-            <SidebarMenu open={menuOpen} />
+            {menuOpen
+                ? <SidebarMenu />
+                : null }
             <main className={classes.Layout}>
                 <TeamStats />
             </main>

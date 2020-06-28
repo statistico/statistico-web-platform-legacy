@@ -3,7 +3,7 @@ import React from "react";
 import Dashboard from '../../components/Dashboard/Dashboard';
 import SidebarMax from '../../components/Sidebar/SidebarMax/SidebarMax';
 import SidebarMin from '../../components/Sidebar/SidebarMin/SidebarMin';
-import { useTogglesMenu } from "../../hooks/useTogglesMenu";
+import { useTogglesMenu } from "../../hooks";
 import classes from './TeamStats.module.css';
 
 const TeamStats = () => {
@@ -11,9 +11,9 @@ const TeamStats = () => {
 
     return (
         <div className={classes.TeamStats}>
-            { menuOpen ?
-                <SidebarMax clicked={menuToggleHandler} open={menuOpen} /> :
-                <SidebarMin clicked={menuToggleHandler} open={menuOpen} /> }
+            { menuOpen
+                ? <SidebarMax clicked={menuToggleHandler} open={menuOpen} />
+                : <SidebarMin clicked={menuToggleHandler} open={menuOpen} /> }
             <Dashboard />
         </div>
     )
