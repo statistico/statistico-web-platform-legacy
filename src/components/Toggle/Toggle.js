@@ -7,6 +7,7 @@ const Hamburger = styled.div`
     background-color: #22ccde;
     width: 30px;
     height: 3px;
+    cursor: pointer;
     transition: all .3s linear;
     align-self: center;
     position: relative;

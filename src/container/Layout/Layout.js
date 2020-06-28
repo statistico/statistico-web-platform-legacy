@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
-import Aux from '../Aux/Aux';
+import Aux from '../../hoc/Aux/Aux';
 import SidebarMenu from "../../components/Navigation/SidebarMenu/SidebarMenu";
-import TeamStats from '../../components/TeamStats/TeamStats';
+import TeamStats from '../TeamStats/TeamStats';
 import Toolbar from "../../components/Navigation/Toolbar/Toolbar";
 import classes from './Layout.module.css';
 

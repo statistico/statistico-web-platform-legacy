@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
-import Dashboard from './Dashboard/Dashboard';
-import SidebarMax from './Sidebar/SidebarMax/SidebarMax';
-import SidebarMin from './Sidebar/SidebarMin/SidebarMin';
+import Dashboard from '../../components/Dashboard/Dashboard';
+import SidebarMax from '../../components/Sidebar/SidebarMax/SidebarMax';
+import SidebarMin from '../../components/Sidebar/SidebarMin/SidebarMin';
 import classes from './TeamStats.module.css';
 
 const TeamStats = () => {
@@ -15,8 +15,8 @@ const TeamStats = () => {
     return (
         <div className={classes.TeamStats}>
             { sidebarOpen ?
-                <SidebarMax clicked={sidebarToggleHandler} /> :
-                <SidebarMin clicked={sidebarToggleHandler} /> }
+                <SidebarMax clicked={sidebarToggleHandler} open={sidebarOpen} /> :
+                <SidebarMin clicked={sidebarToggleHandler} open={sidebarOpen} /> }
             <Dashboard />
         </div>
     )
