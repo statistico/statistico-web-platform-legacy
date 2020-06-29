@@ -1,4 +1,26 @@
-.Sidebar {
+.SidebarMax {
+    display: flex;
+    justify-items: flex-start;
+    flex-direction: column;
     background-color: #ffffff;
     width: 15%;
+    margin-top: 10px;
+    box-sizing: border-box;
+}
+
+.Icon {
+    color: #22ccde;
+    display: flex;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+.Icon svg {
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .SidebarMax {
+        width: 50%;
+    }
 }
