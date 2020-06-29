@@ -1,12 +1,15 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 import classes from './SidebarMin.module.css';
 
 const sidebarMin = props => {
     return (
         <div className={classes.SidebarMin}>
-            <p>Closed</p>
-            <button onClick={props.clicked}>Click Me</button>
+            <div className={classes.Icon}>
+                <FontAwesomeIcon icon={faArrowRight} size="2x" onClick={props.clicked} />
+            </div>
         </div>
 
     )
