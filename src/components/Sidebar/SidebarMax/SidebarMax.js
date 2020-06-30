@@ -8,7 +8,7 @@ const sidebarMax = props => {
     return (
         <div className={classes.SidebarMax}>
             <div className={classes.Icon}>
-                <FontAwesomeIcon icon={faArrowLeft} size="2x" onClick={props.clicked} />
+                <FontAwesomeIcon icon={faArrowLeft} size="2x" onClick={props.clicked} id="sidebar-arrow" />
             </div>
         </div>
 

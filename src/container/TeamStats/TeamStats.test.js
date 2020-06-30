@@ -1,39 +1,37 @@
 import React from "react";
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 
 import SidebarMax from '../../components/Sidebar/SidebarMax/SidebarMax';
 import SidebarMin from '../../components/Sidebar/SidebarMin/SidebarMin';
 import TeamStats from "./TeamStats";
-import { useTogglesMenu } from '../../hooks';
 
-jest.mock('../../hooks')
+describe('<TeamStats /> integration', () => {
+    let wrapper;
 
-describe('<TeamStats />', () => {
-    const setMock = bool => {
-        useTogglesMenu.mockReturnValue({menuOpen: bool});
-    };
+    beforeEach(() => (wrapper = mount(<TeamStats />)))
 
-    it('should render <SidebarMax /> component when menuOpen state is true', () => {
-        setMock(true);
-        const wrapper = shallow(<TeamStats />);
+    it('should render <SidebarMin /> component when arrow is clicked', () => {
+        expect(wrapper.find(SidebarMin)).toHaveLength(0);
         expect(wrapper.find(SidebarMax)).toHaveLength(1);
-    });
 
-    it('should render <SidebarMix /> component when menuOpen state is false', () => {
-        setMock(false);
-        const wrapper = shallow(<TeamStats />);
+        const icon = wrapper.find('#sidebar-arrow').first();
+        icon.simulate('click')
+
         expect(wrapper.find(SidebarMin)).toHaveLength(1);
-    })
-
-    it('should not render <SidebarMax /> component when menuOpen state is false', () => {
-        setMock(false);
-        const wrapper = shallow(<TeamStats />);
         expect(wrapper.find(SidebarMax)).toHaveLength(0);
     });
 
-    it('should not render <SidebarMix /> component when menuOpen state is true', () => {
-        setMock(true);
-        const wrapper = shallow(<TeamStats />);
+    it('should render <SidebarMix /> component when arrow in <SidebarMin /> is clicked', () => {
+        let icon = wrapper.find('#sidebar-arrow').first();
+        icon.simulate('click')
+
+        expect(wrapper.find(SidebarMin)).toHaveLength(1);
+        expect(wrapper.find(SidebarMax)).toHaveLength(0);
+
+        icon = wrapper.find('#sidebar-arrow').first();
+        icon.simulate('click')
+
         expect(wrapper.find(SidebarMin)).toHaveLength(0);
+        expect(wrapper.find(SidebarMax)).toHaveLength(1);
     })
 });

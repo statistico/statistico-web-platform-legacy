@@ -8,7 +8,7 @@ const sidebarMin = props => {
     return (
         <div className={classes.SidebarMin}>
             <div className={classes.Icon}>
-                <FontAwesomeIcon icon={faArrowRight} size="2x" onClick={props.clicked} />
+                <FontAwesomeIcon icon={faArrowRight} size="2x" onClick={props.clicked} id="sidebar-arrow" />
             </div>
         </div>
 
