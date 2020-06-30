@@ -8,7 +8,7 @@ import TeamStats from "./TeamStats";
 describe('<TeamStats /> integration', () => {
     let wrapper;
 
-    beforeEach(() => (wrapper = mount(<TeamStats />)))
+    beforeEach(() => (wrapper = mount(<TeamStats />)));
 
     it('should render <SidebarMin /> component when arrow is clicked', () => {
         expect(wrapper.find(SidebarMin)).toHaveLength(0);
