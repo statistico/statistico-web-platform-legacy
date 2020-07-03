@@ -1,14 +1,19 @@
 import React from "react";
 import { mount } from 'enzyme';
 
-import SidebarMax from '../../components/Sidebar/SidebarMax/SidebarMax';
-import SidebarMin from '../../components/Sidebar/SidebarMin/SidebarMin';
-import TeamStats from "./TeamStats";
+import SidebarMax from '../../../components/Sidebar/SidebarMax/SidebarMax';
+import SidebarMin from '../../../components/Sidebar/SidebarMin/SidebarMin';
+import TeamStatsSideBar from "./TeamStatsSideBar";
 
-describe('<TeamStats /> integration', () => {
+describe('<TeamStatsSideBar />', () => {
     let wrapper;
 
-    beforeEach(() => (wrapper = mount(<TeamStats />)));
+    beforeEach(() => {
+        const props = {
+            team: {}
+        }
+        wrapper = mount(<TeamStatsSideBar {...props} />)
+    });
 
     it('should render <SidebarMin /> component when arrow is clicked', () => {
         expect(wrapper.find(SidebarMin)).toHaveLength(0);

@@ -17,23 +17,29 @@ describe('getTeam', () => {
         }
     }
 
-    it('fetches data successfully from API', () => {
-        axiosMock.get.mockImplementationOnce(() => Promise.resolve(data));
+    afterEach(() => {
+        jest.resetAllMocks();
+    });
 
-        expect(getTeam(1)).resolves.toEqual(team);
+    it('fetches data successfully from API', async () => {
+        axiosMock.get = jest.fn().mockImplementationOnce(() => Promise.resolve(data))
+        const response = await getTeam(1);
+
+        await expect(response).toEqual(team);
     })
 
-    it('fetches data used expected url', () => {
-        axiosMock.get.mockImplementationOnce(() => Promise.resolve(data));
+    it('fetches data used expected url', async () => {
+        axiosMock.get = jest.fn().mockImplementationOnce(() => Promise.resolve(data))
+        await getTeam(1);
 
-        expect(axiosMock.get).toHaveBeenCalledTimes(1);
-        expect(axiosMock.get).toHaveBeenCalledWith('/team/1')
+        await expect(axiosMock.get).toHaveBeenCalledTimes(1);
+        await expect(axiosMock.get).toHaveBeenCalledWith('/team/1')
     })
 
-    it('throws error if error thrown from API', () => {
+    it('throws error if error thrown from API', async () => {
         const error = 'Not found';
+        axiosMock.get = jest.fn().mockImplementationOnce(() => Promise.reject(new Error(error)))
 
-        axiosMock.get.mockImplementationOnce(() => Promise.reject(new Error(error)));
-        expect(getTeam(999)).rejects.toThrow(error);
+        await expect(getTeam(999)).rejects.toThrow(error);
     })
 })
