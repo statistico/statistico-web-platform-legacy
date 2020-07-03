@@ -1,20 +1,20 @@
 import React from "react";
 
 import Dashboard from '../../components/Dashboard/Dashboard';
-import SidebarMax from '../../components/Sidebar/SidebarMax/SidebarMax';
-import SidebarMin from '../../components/Sidebar/SidebarMin/SidebarMin';
-import { useTogglesMenu } from "../../hooks";
+import TeamStatsSideBar from "../../components/TeamStats/TeamStatsSideBar/TeamStatsSideBar";
 import classes from './TeamStats.module.css';
+import {useFetchesTeam} from "../../hooks/useFetchesTeam";
+import Loader from "../../components/Loader/Loader";
 
 const TeamStats = () => {
-    const {menuOpen, menuToggleHandler} = useTogglesMenu(true);
+    const { team, loading } = useFetchesTeam(101);
 
     return (
         <div className={classes.TeamStats}>
-            { menuOpen
-                ? <SidebarMax clicked={menuToggleHandler} open={menuOpen} />
-                : <SidebarMin clicked={menuToggleHandler} open={menuOpen} /> }
-            <Dashboard />
+            <Loader loading={loading}>
+                <TeamStatsSideBar team={team} />
+                <Dashboard />
+            </Loader>
         </div>
     )
 }

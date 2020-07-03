@@ -1,0 +1,25 @@
+.TeamDetails {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #22ccde;
+    width: 80%;
+    box-sizing: border-box;
+    margin-top: 20px;
+}
+
+.TeamDetails img {
+    width: 60%;
+    height: 70%;
+    margin-bottom: 10px;
+}
+
+.TeamDetails span {
+    margin-top: 10px;
+}
+
+.TeamDetails .Bold {
+    font-weight: bold;
+}

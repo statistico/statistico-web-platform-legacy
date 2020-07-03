@@ -10,6 +10,7 @@ const sidebarMax = props => {
             <div className={classes.Icon}>
                 <FontAwesomeIcon icon={faArrowLeft} size="2x" onClick={props.clicked} id="sidebar-arrow" />
             </div>
+            {props.children}
         </div>
 
     )

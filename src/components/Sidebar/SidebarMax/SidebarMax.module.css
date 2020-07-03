@@ -1,6 +1,7 @@
 .SidebarMax {
     display: flex;
     justify-items: flex-start;
+    align-items: center;
     flex-direction: column;
     background-color: #ffffff;
     width: 15%;

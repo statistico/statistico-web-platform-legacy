@@ -6,6 +6,7 @@ import TeamStats from '../TeamStats/TeamStats';
 import Toolbar from "../../components/Navigation/Toolbar/Toolbar";
 import { useTogglesMenu } from "../../hooks";
 import classes from './Layout.module.css';
+import ErrorBoundary from "../../components/ErrorBoundary/ErrorBoundary";
 
 const Layout = () => {
     const {menuOpen, menuToggleHandler} = useTogglesMenu(false);
@@ -17,7 +18,9 @@ const Layout = () => {
                 ? <SidebarMenu />
                 : null }
             <main className={classes.Layout}>
-                <TeamStats />
+                <ErrorBoundary>
+                    <TeamStats />
+                </ErrorBoundary>
             </main>
         </Aux>
     )
