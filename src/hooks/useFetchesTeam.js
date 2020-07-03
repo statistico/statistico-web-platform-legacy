@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import useAsyncError from '../hooks/useAsyncError';
+import useAsyncError from './useAsyncError';
 import { getTeam } from '../packages/api'
 
 export const useFetchesTeam = id => {
@@ -15,7 +15,6 @@ export const useFetchesTeam = id => {
                 setLoading(false);
             })
             .catch(error => {
-                setLoading(false);
                 throwError(error);
             })
     }, [id, throwError]);
