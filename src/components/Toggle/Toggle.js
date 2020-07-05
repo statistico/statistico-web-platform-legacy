@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import styled from "styled-components";
-import classes from "./Toggle.module.css";
+import styled from 'styled-components';
+import classes from './Toggle.module.css';
 
 const Hamburger = styled.div`
   background-color: #22ccde;
@@ -12,7 +12,7 @@ const Hamburger = styled.div`
   transition: all 0.3s linear;
   align-self: center;
   position: relative;
-  transform: ${(props) => (props.open ? "rotate(-45deg)" : "inherit")};
+  transform: ${(props) => (props.open ? 'rotate(-45deg)' : 'inherit')};
 
   ::before,
   ::after {
@@ -25,14 +25,13 @@ const Hamburger = styled.div`
   }
 
   ::before {
-    transform: ${(props) =>
-      props.open ? "rotate(-90deg) translate(-10px, 0px)" : "rotate(0deg)"};
+    transform: ${(props) => (props.open ? 'rotate(-90deg) translate(-10px, 0px)' : 'rotate(0deg)')};
     top: -10px;
   }
 
   ::after {
-    opacity: ${(props) => (props.open ? "0" : "1")};
-    transform: ${(props) => (props.open ? "rotate(90deg)" : "rotate(0deg)")};
+    opacity: ${(props) => (props.open ? '0' : '1')};
+    transform: ${(props) => (props.open ? 'rotate(90deg)' : 'rotate(0deg)')};
     top: 10px;
   }
 `;

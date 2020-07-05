@@ -1,9 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
-import classes from "./SidebarMin.module.css";
+import classes from './SidebarMin.module.css';
 
 const sidebarMin = (props) => {
   const { clicked } = props;

@@ -4,8 +4,8 @@
   },
   "extends": [
     "react-app",
-    "airbnb"
-//    "airbnb/hooks"
+    "airbnb",
+    "airbnb/hooks"
   ],
   "ignorePatterns": [
     "config/*",

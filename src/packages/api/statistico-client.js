@@ -1,4 +1,4 @@
-import axios from "./axios-client";
+import axios from './axios-client';
 
 const getTeam = async (id) => {
   const response = await axios.get(`/team/${id}`);

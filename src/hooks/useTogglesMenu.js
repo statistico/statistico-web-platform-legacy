@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useState } from 'react';
 
 const useTogglesMenu = (open) => {
   const [menuOpen, setMenuOpen] = useState(open);

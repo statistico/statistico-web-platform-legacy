@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import classes from "./Dashboard.module.css";
+import classes from './Dashboard.module.css';
 
 const dashboard = () => (
   <div className={classes.Dashboard}>

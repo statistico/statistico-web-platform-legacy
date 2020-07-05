@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
-import useAsyncError from "./useAsyncError";
-import getTeam from "../packages/api/statistico-client";
+import useAsyncError from './useAsyncError';
+import getTeam from '../packages/api/statistico-client';
 
 const useFetchesTeam = (id) => {
   const [team, setTeam] = useState({});
