@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-import classes from './TeamDetails.module.css';
+import classes from "./TeamDetails.module.css";
 
 const teamDetails = (props) => {
   const { team } = props;

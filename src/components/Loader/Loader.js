@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-import classes from './Loader.module.css';
+import classes from "./Loader.module.css";
 
 const loader = (props) => {
   const { loading, children } = props;

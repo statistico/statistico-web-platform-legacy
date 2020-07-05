@@ -1,14 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-import classes from './NavigationItem.module.css';
+import classes from "./NavigationItem.module.css";
 
 const navigationItem = (props) => {
   const { children } = props;
 
-  return (
-    <li className={classes.NavigationItem}>{children}</li>
-  );
+  return <li className={classes.NavigationItem}>{children}</li>;
 };
 
 navigationItem.propTypes = {

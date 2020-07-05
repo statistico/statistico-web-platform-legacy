@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useState } from "react";
 
 const useAsyncError = () => {
   const [, setError] = useState();
@@ -9,7 +9,7 @@ const useAsyncError = () => {
         throw error;
       });
     },
-    [setError],
+    [setError]
   );
 };
 

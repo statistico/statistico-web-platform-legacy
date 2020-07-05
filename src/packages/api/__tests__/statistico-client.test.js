@@ -1,14 +1,14 @@
-import axiosMock from '../axios-client';
+import axiosMock from "../axios-client";
 
-import getTeam from '../statistico-client';
+import getTeam from "../statistico-client";
 
-jest.mock('../axios-client');
+jest.mock("../axios-client");
 
-describe('getTeam', () => {
+describe("getTeam", () => {
   const team = {
     id: 1,
-    name: 'West Ham United',
-    logo: 'https://logo.com',
+    name: "West Ham United",
+    logo: "https://logo.com",
   };
 
   const data = {
@@ -21,7 +21,7 @@ describe('getTeam', () => {
     jest.resetAllMocks();
   });
 
-  it('fetches data successfully from API', async () => {
+  it("fetches data successfully from API", async () => {
     axiosMock.get = jest
       .fn()
       .mockImplementationOnce(() => Promise.resolve(data));
@@ -30,18 +30,18 @@ describe('getTeam', () => {
     await expect(response).toEqual(team);
   });
 
-  it('fetches data used expected url', async () => {
+  it("fetches data used expected url", async () => {
     axiosMock.get = jest
       .fn()
       .mockImplementationOnce(() => Promise.resolve(data));
     await getTeam(1);
 
     await expect(axiosMock.get).toHaveBeenCalledTimes(1);
-    await expect(axiosMock.get).toHaveBeenCalledWith('/team/1');
+    await expect(axiosMock.get).toHaveBeenCalledWith("/team/1");
   });
 
-  it('throws error if error thrown from API', async () => {
-    const error = 'Not found';
+  it("throws error if error thrown from API", async () => {
+    const error = "Not found";
     axiosMock.get = jest
       .fn()
       .mockImplementationOnce(() => Promise.reject(new Error(error)));

@@ -1,11 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-import Aux from '../../../hoc/Aux/Aux';
-import SidebarMax from '../../Sidebar/SidebarMax/SidebarMax';
-import SidebarMin from '../../Sidebar/SidebarMin/SidebarMin';
-import TeamDetails from '../../TeamDetails/TeamDetails';
-import useTogglesMenu from '../../../hooks/useTogglesMenu';
+import Aux from "../../../hoc/Aux/Aux";
+import SidebarMax from "../../Sidebar/SidebarMax/SidebarMax";
+import SidebarMin from "../../Sidebar/SidebarMin/SidebarMin";
+import TeamDetails from "../../TeamDetails/TeamDetails";
+import useTogglesMenu from "../../../hooks/useTogglesMenu";
 
 const TeamStatsSideBar = (props) => {
   const { team } = props;
