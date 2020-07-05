@@ -1,13 +1,13 @@
 import React from "react";
 
-import Dashboard from '../../components/Dashboard/Dashboard';
-import TeamStatsSideBar from "../../components/TeamStats/TeamStatsSideBar/TeamStatsSideBar";
+import Dashboard from '../Dashboard/Dashboard';
+import TeamStatsSideBar from "./TeamStatsSideBar/TeamStatsSideBar";
 import classes from './TeamStats.module.css';
 import {useFetchesTeam} from "../../hooks/useFetchesTeam";
-import Loader from "../../components/Loader/Loader";
+import Loader from "../Loader/Loader";
 
 const TeamStats = () => {
-    const { team, loading } = useFetchesTeam(101);
+    const { team, loading } = useFetchesTeam(82);
 
     return (
         <div className={classes.TeamStats}>

@@ -2,7 +2,7 @@ import React from "react";
 
 import Aux from '../../hoc/Aux/Aux';
 import SidebarMenu from "../../components/Navigation/SidebarMenu/SidebarMenu";
-import TeamStats from '../TeamStats/TeamStats';
+import TeamStats from '../../components/TeamStats/TeamStats';
 import Toolbar from "../../components/Navigation/Toolbar/Toolbar";
 import { useTogglesMenu } from "../../hooks";
 import classes from './Layout.module.css';
