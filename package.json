@@ -25,7 +25,6 @@
     "eslint-config-react-app": "^5.2.1",
     "eslint-plugin-flowtype": "4.6.0",
     "eslint-plugin-import": "2.20.1",
-    "eslint-plugin-jsx-a11y": "6.2.3",
     "eslint-plugin-react-hooks": "^1.6.1",
     "file-loader": "4.3.0",
     "fs-extra": "^8.1.0",
@@ -43,6 +42,7 @@
     "postcss-normalize": "8.0.1",
     "postcss-preset-env": "6.7.0",
     "postcss-safe-parser": "4.0.1",
+    "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-app-polyfill": "^1.0.6",
     "react-dev-utils": "^10.2.1",
@@ -62,9 +62,11 @@
     "workbox-webpack-plugin": "4.3.1"
   },
   "scripts": {
+    "format": "prettier --write \"{,!(node_modules)/**/}*.js\"",
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "lint": "eslint .",
+    "lint:fix": "npm run lint -- --fix",
     "test": "node scripts/test.js"
   },
   "eslintConfig": {
@@ -89,9 +91,15 @@
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-prettier": "^6.11.0",
     "eslint-loader": "^3.0.3",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.19.0",
-    "react-test-renderer": "^16.13.1"
+    "prettier": "^2.0.5",
+    "react-test-renderer": "^16.13.1",
+    "typescript-eslint": "0.0.1-alpha.0"
   },
   "jest": {
     "roots": [
