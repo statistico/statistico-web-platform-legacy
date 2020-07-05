@@ -1,0 +1,11 @@
+.Error {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    color: #22ccde;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}

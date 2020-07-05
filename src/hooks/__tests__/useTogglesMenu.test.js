@@ -1,6 +1,6 @@
 import { act, renderHook } from '@testing-library/react-hooks';
 
-import { useTogglesMenu } from "./useTogglesMenu";
+import { useTogglesMenu } from "../useTogglesMenu";
 
 describe('useTogglesMenu', () => {
     describe('menuOpen', () => {
