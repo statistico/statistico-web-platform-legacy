@@ -3,23 +3,25 @@
     "jest": true
   },
   "extends": [
-    "react-app",
     "airbnb",
     "airbnb/hooks",
+    "plugin:jsx-a11y/recommended",
     "plugin:prettier/recommended",
-    "prettier/react"
+    "prettier/react",
+    "react-app"
   ],
   "ignorePatterns": [
+    "*.test.js",
     "config/*",
     "public/*",
     "scripts/*",
-    "src/serviceWorker.js",
-    "*.test.js"
+    "src/serviceWorker.js"
   ],
   "parser": "babel-eslint",
   "plugins": [
-    "react",
-    "prettier"
+    "jsx-a11y",
+    "prettier",
+    "react"
   ],
   "rules": {
     "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
