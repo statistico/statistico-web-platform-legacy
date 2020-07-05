@@ -18,13 +18,15 @@
   ],
   "parser": "babel-eslint",
   "plugins": [
-    "react"
+    "react",
+    "prettier"
   ],
   "rules": {
     "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
-    "space-in-parens": [ 0, "always" ],
-    "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
     "no-use-before-define": [ 2, { "functions": false } ],
-    "no-underscore-dangle" : [0, "always"]
+    "no-underscore-dangle" : [0, "always"],
+    "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
+    "prettier/prettier": ["error"],
+    "space-in-parens": [ 0, "always" ]
   }
 }
