@@ -19,13 +19,14 @@ const Hamburger = styled.div`
     width: 30px;
     height: 3px;
     background-color: #22ccde;
-    content: "";
+    content: '';
     position: absolute;
     transition: all 0.3s linear;
   }
 
   ::before {
-    transform: ${(props) => (props.open ? 'rotate(-90deg) translate(-10px, 0px)' : 'rotate(0deg)')};
+    transform: ${(props) =>
+      props.open ? 'rotate(-90deg) translate(-10px, 0px)' : 'rotate(0deg)'};
     top: -10px;
   }
 
