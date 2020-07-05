@@ -1,11 +1,16 @@
-import React from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import classes from './NavigationItem.module.css';
 
-const navigationItem = props => (
-    <li className={classes.NavigationItem}>
-        {props.children}
-    </li>
-);
+const navigationItem = (props) => {
+  const { children } = props;
+
+  return <li className={classes.NavigationItem}>{children}</li>;
+};
+
+navigationItem.propTypes = {
+  children: PropTypes.string.isRequired,
+};
 
 export default navigationItem;

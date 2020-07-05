@@ -1,14 +1,16 @@
 import { useCallback, useState } from 'react';
 
-export const useTogglesMenu = open => {
-    const [menuOpen, setMenuOpen] = useState(open);
+const useTogglesMenu = (open) => {
+  const [menuOpen, setMenuOpen] = useState(open);
 
-    const menuToggleHandler = useCallback(() => {
-        setMenuOpen(!menuOpen);
-    }, [menuOpen]);
+  const menuToggleHandler = useCallback(() => {
+    setMenuOpen(!menuOpen);
+  }, [menuOpen]);
 
-    return {
-        menuOpen,
-        menuToggleHandler
-    }
-}
+  return {
+    menuOpen,
+    menuToggleHandler,
+  };
+};
+
+export default useTogglesMenu;

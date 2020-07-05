@@ -1,16 +1,23 @@
-import React from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import classes from './Loader.module.css';
 
-const loader = props => {
-    if (!props.loading) return props.children;
+const loader = (props) => {
+  const { loading, children } = props;
+  if (!loading) return children;
 
-    return (
-        <div className={classes.Loader}>
-            <p className={classes.Spinner} />
-            <p>Loading</p>
-        </div>
-    )
-}
+  return (
+    <div className={classes.Loader}>
+      <p className={classes.Spinner} />
+      <p>Loading</p>
+    </div>
+  );
+};
+
+loader.propTypes = {
+  loading: PropTypes.bool.isRequired,
+  children: PropTypes.node.isRequired,
+};
 
 export default loader;
