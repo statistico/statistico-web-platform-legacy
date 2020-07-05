@@ -16,12 +16,12 @@ jobs:
       - run:
           name: Run install
           command: |
-            npm run install
+            npm install
       - run:
           name: Run Eslint
           command: |
-            npm run lint
+            npm lint
       - run:
           name: Run test
           command: |
-            npm run test
+            npm test
