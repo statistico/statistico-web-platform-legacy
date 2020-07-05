@@ -20,8 +20,8 @@ workflows:
       jobs:
         - react/install
         - react/eslint:
-        requires:
-        - react/install
+            requires:
+              - react/install
         - react/test:
             requires:
               - react/install
