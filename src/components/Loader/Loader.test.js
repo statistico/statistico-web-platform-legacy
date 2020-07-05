@@ -1,28 +1,29 @@
-import React from "react";
-import { shallow, mount } from "enzyme";
+import React from 'react';
+import { shallow, mount } from 'enzyme';
 
-import Loader from "./Loader";
+import Loader from './Loader';
 
-describe("<Loader />", () => {
-  it("renders loading text if props loading is true", () => {
+describe('<Loader />', () => {
+  it('renders loading text if props loading is true', () => {
     const Dummy = () => {};
-    const props = { loading: true };
-    const wrapper = shallow(<Loader {...props} children={<Dummy />} />);
-    expect(wrapper.text()).toEqual("Loading");
+    const wrapper = shallow(
+      <Loader loading>
+        <Dummy />
+      </Loader>
+    );
+    expect(wrapper.text()).toEqual('Loading');
   });
 
-  it("render props children if props loading is false", () => {
-    const props = { loading: false };
-
+  it('render props children if props loading is false', () => {
     const Dummy = () => <div>Hello</div>;
 
     const wrapper = mount(
-      <Loader {...props}>
+      <Loader loading={false}>
         <Dummy />
       </Loader>
     );
 
-    expect(wrapper.text()).toEqual("Hello");
+    expect(wrapper.text()).toEqual('Hello');
     expect(wrapper.find(Dummy)).toHaveLength(1);
   });
 });
