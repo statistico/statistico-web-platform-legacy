@@ -2,9 +2,9 @@ import { renderHook } from '@testing-library/react-hooks';
 
 import useAsyncError from '../useAsyncError';
 import useFetchesTeam from '../useFetchesTeam';
-import { getTeam } from '../../packages/api/index';
+import { getTeam } from '../../packages/api';
 
-jest.mock('../../packages/api/index');
+jest.mock('../../packages/api');
 jest.mock('../useAsyncError');
 
 describe('useFetchesTeam', () => {

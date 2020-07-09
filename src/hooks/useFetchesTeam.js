@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import useAsyncError from './useAsyncError';
-import { getTeam } from '../packages/api/index';
+import { getTeam } from '../packages/api';
 
 const useFetchesTeam = (id) => {
   const [team, setTeam] = useState({});

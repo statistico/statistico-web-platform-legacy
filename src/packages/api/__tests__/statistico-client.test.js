@@ -1,6 +1,6 @@
 import axiosMock from '../axios-client';
 
-import { getTeam, getTeamResults } from '../index';
+import { getTeam, getTeamResults } from '..';
 
 jest.mock('../axios-client');
 
@@ -53,45 +53,49 @@ describe('getTeam', () => {
 });
 
 describe('getTeamResults', () => {
-  // const results = [];
-  //
-  // const data = {
-  //   data: {
-  //     data: {
-  //       results,
-  //     },
-  //   },
-  // };
-  //
-  // afterEach(() => {
-  //   jest.resetAllMocks();
-  // });
-  //
-  // it('fetches data successfully from API', async () => {
-  //   axiosMock.get = jest
-  //     .fn()
-  //     .mockImplementationOnce(() => Promise.resolve(data));
-  //   const response = await getTeamResults({ team: { id: 1 } });
-  //
-  //   await expect(response).toEqual(results);
-  // });
+  const results = [];
 
-  // it('fetches data used expected url', async () => {
-  //   axiosMock.get = jest
-  //     .fn()
-  //     .mockImplementationOnce(() => Promise.resolve(data));
-  //   await getTeam(1);
-  //
-  //   await expect(axiosMock.get).toHaveBeenCalledTimes(1);
-  //   await expect(axiosMock.get).toHaveBeenCalledWith('/team/1');
-  // });
-  //
-  // it('throws error if error thrown from API', async () => {
-  //   const error = 'Not found';
-  //   axiosMock.get = jest
-  //     .fn()
-  //     .mockImplementationOnce(() => Promise.reject(new Error(error)));
-  //
-  //   await expect(getTeam(999)).rejects.toThrow(error);
-  // });
+  const data = {
+    data: {
+      data: {
+        results,
+      },
+    },
+  };
+
+  afterEach(() => {
+    jest.resetAllMocks();
+  });
+
+  it('fetches data successfully from API', async () => {
+    axiosMock.post = jest
+      .fn()
+      .mockImplementationOnce(() => Promise.resolve(data));
+
+    const response = await getTeamResults({ team: { id: 1 } });
+
+    await expect(response).toEqual(results);
+  });
+
+  it('fetches data used expected url', async () => {
+    axiosMock.post = jest
+      .fn()
+      .mockImplementationOnce(() => Promise.resolve(data));
+
+    await getTeamResults({ sort: 'date_asc' });
+
+    await expect(axiosMock.post).toHaveBeenCalledTimes(1);
+    await expect(axiosMock.post).toHaveBeenCalledWith('/result-search', {
+      sort: 'date_asc',
+    });
+  });
+
+  it('throws error if error thrown from API', async () => {
+    const error = 'Not found';
+    axiosMock.post = jest
+      .fn()
+      .mockImplementationOnce(() => Promise.reject(new Error(error)));
+
+    await expect(getTeamResults({ sort: 'date_asc' })).rejects.toThrow(error);
+  });
 });

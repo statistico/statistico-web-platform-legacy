@@ -6,6 +6,6 @@ export const getTeam = async (id) => {
 };
 
 export const getTeamResults = async (payload) => {
-  const response = await axios.post('result-search', payload);
+  const response = await axios.post('/result-search', payload);
   return response.data.data.results;
 };
