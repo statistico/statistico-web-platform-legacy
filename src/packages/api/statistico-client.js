@@ -1,8 +1,11 @@
 import axios from './axios-client';
 
-const getTeam = async (id) => {
+export const getTeam = async (id) => {
   const response = await axios.get(`/team/${id}`);
-  return response.data.data;
+  return response.data.data.team;
 };
 
-export default getTeam;
+export const getTeamResults = async (payload) => {
+  const response = await axios.post('result-search', payload);
+  return response.data.data.results;
+};
