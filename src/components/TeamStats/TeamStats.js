@@ -1,10 +1,10 @@
 import React from 'react';
 
 import Dashboard from '../Dashboard/Dashboard';
-import TeamStatsSideBar from './TeamStatsSideBar/TeamStatsSideBar';
-import classes from './TeamStats.module.css';
-import useFetchesTeam from '../../hooks/useFetchesTeam';
 import Loader from '../Loader/Loader';
+import TeamStatsSideBar from './TeamStatsSideBar/TeamStatsSideBar';
+import useFetchesTeam from '../../hooks/useFetchesTeam';
+import classes from './TeamStats.module.css';
 
 const TeamStats = () => {
   const { team, loading } = useFetchesTeam(1);
@@ -13,7 +13,7 @@ const TeamStats = () => {
     <div className={classes.TeamStats}>
       <Loader loading={loading}>
         <TeamStatsSideBar team={team} />
-        <Dashboard team={team} />
+        <Dashboard />
       </Loader>
     </div>
   );
