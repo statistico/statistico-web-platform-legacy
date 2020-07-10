@@ -1,17 +1,17 @@
 import { useEffect, useState } from 'react';
 
 import useAsyncError from './useAsyncError';
-import { getTeam } from '../packages/api';
+import { getTeamResults } from '../packages/api';
 
-const useFetchesTeam = (id) => {
-  const [team, setTeam] = useState({});
+const useFetchesTeamResult = (payload) => {
+  const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(true);
   const throwError = useAsyncError();
 
   useEffect(() => {
-    getTeam(id)
+    getTeamResults(payload)
       .then((data) => {
-        setTeam(data);
+        setResults(data);
         setLoading(false);
       })
       .catch((error) => {
@@ -20,9 +20,9 @@ const useFetchesTeam = (id) => {
   }, []);
 
   return {
-    team,
+    results,
     loading,
   };
 };
 
-export default useFetchesTeam;
+export default useFetchesTeamResult;
