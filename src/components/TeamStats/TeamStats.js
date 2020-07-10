@@ -7,13 +7,13 @@ import useFetchesTeam from '../../hooks/useFetchesTeam';
 import Loader from '../Loader/Loader';
 
 const TeamStats = () => {
-  const { team, loading } = useFetchesTeam(82);
+  const { team, loading } = useFetchesTeam(1);
 
   return (
     <div className={classes.TeamStats}>
       <Loader loading={loading}>
         <TeamStatsSideBar team={team} />
-        <Dashboard />
+        <Dashboard team={team} />
       </Loader>
     </div>
   );

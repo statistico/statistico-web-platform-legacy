@@ -17,7 +17,7 @@ const useFetchesTeam = (id) => {
       .catch((error) => {
         throwError(error);
       });
-  }, [id, throwError]);
+  }, []);
 
   return {
     team,

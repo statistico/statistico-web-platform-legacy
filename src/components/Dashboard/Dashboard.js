@@ -1,11 +1,21 @@
 import React from 'react';
 
 import classes from './Dashboard.module.css';
+import useFetchesTeamResult from '../../hooks/useFetchesTeamResults';
 
-const dashboard = () => (
-  <div className={classes.Dashboard}>
-    <p>This is the dashboard</p>
-  </div>
-);
+const Dashboard = () => {
+  const payload = {
+    team: {
+      id: 1,
+      venue: 'home',
+    },
+    limit: 1,
+  };
 
-export default dashboard;
+  const { results, loading } = useFetchesTeamResult(payload);
+
+  const res = results.map((result) => <p>{result.homeTeam.name}</p>);
+  return <div className={classes.Dashboard}>{res}</div>;
+};
+
+export default Dashboard;

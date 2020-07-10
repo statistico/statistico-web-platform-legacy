@@ -1,1 +1,1 @@
-export { getTeam, getTeamResults } from './statistico-client';
+export { getTeamResults, getTeam } from './statistico-client';
