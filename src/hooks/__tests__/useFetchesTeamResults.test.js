@@ -1,7 +1,7 @@
 import { renderHook } from '@testing-library/react-hooks';
 
 import useAsyncError from '../useAsyncError';
-import useFetchesTeamResult from '../useFetchesTeamResults';
+import useFetchesTeamResults from '../useFetchesTeamResults';
 import resultsPresenter from '../../presenters/result';
 
 jest.mock('../../presenters/result');
@@ -17,7 +17,7 @@ describe('useFetchesTeamResult', () => {
     resultsPresenter.mockImplementationOnce(() => Promise.resolve(results));
 
     const { result, waitForNextUpdate } = renderHook(() =>
-      useFetchesTeamResult({})
+      useFetchesTeamResults({})
     );
 
     await waitForNextUpdate();
@@ -30,7 +30,7 @@ describe('useFetchesTeamResult', () => {
     resultsPresenter.mockImplementationOnce(() => Promise.resolve([]));
 
     const { result, waitForNextUpdate } = renderHook(() =>
-      useFetchesTeamResult({})
+      useFetchesTeamResults({})
     );
 
     expect(result.current.loading).toBe(true);
@@ -49,7 +49,7 @@ describe('useFetchesTeamResult', () => {
       throw error;
     });
 
-    const { result } = renderHook(() => useFetchesTeamResult({}));
+    const { result } = renderHook(() => useFetchesTeamResults({}));
 
     expect(result.error).toEqual(error);
   });
