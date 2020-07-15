@@ -2,9 +2,9 @@ import { renderHook } from '@testing-library/react-hooks';
 
 import useAsyncError from '../useAsyncError';
 import useFetchesTeamResult from '../useFetchesTeamResults';
-import { getTeamResults } from '../../packages/api';
+import resultsPresenter from '../../presenters/result';
 
-jest.mock('../../packages/api/statistico-client');
+jest.mock('../../presenters/result');
 jest.mock('../useAsyncError');
 
 describe('useFetchesTeamResult', () => {
@@ -14,7 +14,7 @@ describe('useFetchesTeamResult', () => {
 
   it('returns fetched results', async () => {
     const results = [{ id: 1234, venue: 'London Stadium' }];
-    getTeamResults.mockImplementationOnce(() => Promise.resolve(results));
+    resultsPresenter.mockImplementationOnce(() => Promise.resolve(results));
 
     const { result, waitForNextUpdate } = renderHook(() =>
       useFetchesTeamResult({})
@@ -27,7 +27,7 @@ describe('useFetchesTeamResult', () => {
   });
 
   it('returns loading true on first render', async () => {
-    getTeamResults.mockImplementationOnce(() => Promise.resolve([]));
+    resultsPresenter.mockImplementationOnce(() => Promise.resolve([]));
 
     const { result, waitForNextUpdate } = renderHook(() =>
       useFetchesTeamResult({})
@@ -43,7 +43,7 @@ describe('useFetchesTeamResult', () => {
 
   it('throws an error if thrown by getTeamResults call', async () => {
     const error = new Error('Not found');
-    getTeamResults.mockImplementationOnce(() => Promise.reject(error));
+    resultsPresenter.mockImplementationOnce(() => Promise.reject(error));
 
     useAsyncError.mockImplementation(() => {
       throw error;
