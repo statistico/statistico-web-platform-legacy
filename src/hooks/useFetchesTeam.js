@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import useAsyncError from './useAsyncError';
-import { getTeam } from '../packages/api';
+import teamPresenter from '../presenters/team';
 
 const useFetchesTeam = (id) => {
   const [team, setTeam] = useState({});
@@ -9,7 +9,7 @@ const useFetchesTeam = (id) => {
   const throwError = useAsyncError();
 
   useEffect(() => {
-    getTeam(id)
+    teamPresenter(id)
       .then((data) => {
         setTeam(data);
         setLoading(false);

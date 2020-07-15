@@ -1,6 +1,6 @@
 import axiosMock from '../axios-client';
 
-import { getTeam, getTeamResults } from '..';
+import { getTeam, getTeamResults } from '../statistico';
 
 jest.mock('../axios-client');
 
