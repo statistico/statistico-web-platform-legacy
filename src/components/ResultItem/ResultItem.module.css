@@ -1,0 +1,20 @@
+.ResultItem {
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 5px 0;
+}
+
+.Home {
+    width: 40%;
+}
+
+.Away {
+    width: 40%;
+    text-align: right;
+}
+
+.Score {
+    width: 20%;
+    text-align: center;
+}

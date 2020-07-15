@@ -1,0 +1,15 @@
+.ResultList {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #181831;
+    margin: 15px;
+    padding: 0 10px 10px 10px;
+    color: white;
+    width: 25%;
+    font-size: 12px;
+}
+
+h3 {
+    text-align: center;
+}

@@ -1,11 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import classes from './Dashboard.module.css';
 
-const dashboard = () => (
-  <div className={classes.Dashboard}>
-    <p>Dashboard</p>
-  </div>
-);
+const dashboard = (props) => {
+  const { children } = props;
+
+  return <div className={classes.Dashboard}>{children}</div>;
+};
+
+dashboard.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export default dashboard;

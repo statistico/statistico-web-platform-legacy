@@ -1,0 +1,5 @@
+.StatsPanel {
+    flex-grow: 1;
+    /*background-color: #181831;*/
+    margin: 15px;
+}
