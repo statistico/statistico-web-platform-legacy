@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import useAsyncError from './useAsyncError';
 import resultPresenter from '../presenters/result';
 
-const useFetchesTeamResult = (payload) => {
+const useFetchesTeamResults = (payload) => {
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(true);
   const throwError = useAsyncError();
@@ -25,4 +25,4 @@ const useFetchesTeamResult = (payload) => {
   };
 };
 
-export default useFetchesTeamResult;
+export default useFetchesTeamResults;
