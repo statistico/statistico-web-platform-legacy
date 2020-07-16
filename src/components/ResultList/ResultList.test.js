@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
+import Loader from '../Loader/Loader';
 import ResultItem from '../ResultItem/ResultItem';
 import ResultList from './ResultList';
 import useFetchesTeamResults from '../../hooks/useFetchesTeamResults';
@@ -8,6 +9,10 @@ import useFetchesTeamResults from '../../hooks/useFetchesTeamResults';
 jest.mock('../../hooks/useFetchesTeamResults');
 
 describe('<ResultList />', () => {
+  afterEach(() => {
+    jest.resetAllMocks();
+  });
+
   it('display a <ResultItem /> component for each result returned', () => {
     const results = [
       {
@@ -56,5 +61,19 @@ describe('<ResultList />', () => {
     const wrapper = mount(<ResultList seasonId={16036} teamId={1} />);
 
     expect(wrapper.find(ResultItem)).toHaveLength(2);
+  });
+
+  it('should display <Loader /> component is loading is returned true from hook', () => {
+    const object = {
+      results: [],
+      loading: true,
+    };
+
+    useFetchesTeamResults.mockReturnValueOnce(object);
+
+    const wrapper = mount(<ResultList seasonId={16036} teamId={1} />);
+
+    expect(wrapper.find(Loader)).toHaveLength(1);
+    expect(wrapper.find(ResultItem)).toHaveLength(0);
   });
 });
