@@ -11,7 +11,7 @@ import useFetchesTeam from '../../hooks/useFetchesTeam';
 import classes from './TeamStats.module.css';
 
 const TeamStats = () => {
-  const teamId = 13;
+  const teamId = 1;
   const seasonId = 16036;
   const { team, loading } = useFetchesTeam(teamId);
 
