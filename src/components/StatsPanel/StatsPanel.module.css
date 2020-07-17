@@ -1,4 +1,5 @@
 .StatsPanel {
     flex-grow: 1;
     margin: 15px;
+    background-color: #181831;
 }

@@ -1,10 +1,12 @@
 import React from 'react';
 
 import Dashboard from '../Dashboard/Dashboard';
+import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 import Loader from '../Loader/Loader';
 import ResultList from '../ResultList/ResultList';
 import StatsPanel from '../StatsPanel/StatsPanel';
 import TeamStatsSideBar from './TeamStatsSideBar/TeamStatsSideBar';
+import Wrapper from '../Wrapper/Wrapper';
 import useFetchesTeam from '../../hooks/useFetchesTeam';
 import classes from './TeamStats.module.css';
 
@@ -19,7 +21,11 @@ const TeamStats = () => {
         <TeamStatsSideBar team={team} />
         <Dashboard>
           <StatsPanel />
-          <ResultList teamId={teamId} seasonId={seasonId} />
+          <Wrapper styles={classes.ResultList}>
+            <ErrorBoundary>
+              <ResultList teamId={teamId} seasonId={seasonId} />
+            </ErrorBoundary>
+          </Wrapper>
         </Dashboard>
       </Loader>
     </div>
