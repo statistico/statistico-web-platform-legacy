@@ -3,5 +3,19 @@
     justify-content: space-between;
     width: 100%;
     margin: 0 auto;
-    height: 100%;
+    min-height: 100vh;
+}
+
+.ResultList {
+    justify-content: flex-start;
+    background-color: #181831;
+    margin: 15px;
+    padding: 0 10px 10px 10px;
+    color: white;
+    width: 25%;
+    font-size: 12px;
+}
+
+.ResultList h3 {
+    text-align: center;
 }

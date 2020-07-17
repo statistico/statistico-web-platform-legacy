@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import Loader from '../Loader/Loader';
 import ResultItem from '../ResultItem/ResultItem';
 import useFetchesTeamResults from '../../hooks/useFetchesTeamResults';
-import classes from './ResultList.module.css';
 
 const ResultList = (props) => {
   const { seasonId, teamId } = props;
@@ -20,14 +19,12 @@ const ResultList = (props) => {
   const { results, loading } = useFetchesTeamResults(payload);
 
   return (
-    <div className={classes.ResultList}>
-      <Loader loading={loading}>
-        <h3>Results</h3>
-        {results.map((result) => {
-          return <ResultItem result={result} key={result.id} />;
-        })}
-      </Loader>
-    </div>
+    <Loader loading={loading}>
+      <h3>Results</h3>
+      {results.map((result) => {
+        return <ResultItem result={result} key={result.id} />;
+      })}
+    </Loader>
   );
 };
 
