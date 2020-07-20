@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 
 import Loader from '../Loader/Loader';
 import ResultItem from '../ResultItem/ResultItem';
+import VenueToggle from '../VenueToggle/VenueToggle';
 import useFetchTeamReducer from '../../hooks/useFetchTeamReducer';
+import useTogglesActiveState from '../../hooks/useTogglesActiveState';
+import classes from './ResultList.module.css';
 
 const ResultList = (props) => {
   const { seasonId, teamId } = props;
@@ -18,27 +21,29 @@ const ResultList = (props) => {
     limit: null,
   };
 
+  const { selected, selectionToggleHandler } = useTogglesActiveState(null);
   const { results, loading, dispatch } = useFetchTeamReducer(payload);
 
-  const toggleVenue = (v) => {
-    dispatch({ type: 'UPDATE_VENUE', venue: v });
+  const updateResults = (venue) => {
+    dispatch({ type: 'UPDATE_REQUEST_VENUE', venue });
   };
 
   return (
     <Loader loading={loading}>
-      <h3>Results</h3>
-      <button type="button" onClick={() => toggleVenue('home')}>
-        Click Home
-      </button>
-      <button type="button" onClick={() => toggleVenue('away')}>
-        Click Away
-      </button>
-      <button type="button" onClick={() => toggleVenue(null)}>
-        Click Both
-      </button>
-      {results.map((result) => {
-        return <ResultItem result={result} key={result.id} />;
-      })}
+      <div className={classes.Header}>
+        <h3>Results</h3>
+        <VenueToggle
+          dispatch={updateResults}
+          styles={classes.VenueToggle}
+          selected={selected}
+          updateSelected={selectionToggleHandler}
+        />
+      </div>
+      <div className={classes.Results}>
+        {results.map((result) => {
+          return <ResultItem result={result} key={result.id} />;
+        })}
+      </div>
     </Loader>
   );
 };

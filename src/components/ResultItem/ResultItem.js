@@ -6,8 +6,11 @@ import classes from './ResultItem.module.css';
 const resultItem = (props) => {
   const { result } = props;
 
+  const date = new Date(result.date);
+
   return (
     <div className={classes.ResultItem}>
+      <span className={classes.Date}>{date.toDateString()}</span>
       <span className={classes.Home}>{result.homeTeam.name}</span>
       <span className={classes.Score}>
         {result.homeScore} - {result.awayScore}

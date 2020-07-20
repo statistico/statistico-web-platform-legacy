@@ -5,7 +5,7 @@ import useAsyncError from './useAsyncError';
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case 'UPDATE_VENUE':
+    case 'UPDATE_REQUEST_VENUE':
       return {
         ...state,
         team: {
