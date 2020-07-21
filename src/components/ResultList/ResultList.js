@@ -4,8 +4,9 @@ import PropTypes from 'prop-types';
 import Loader from '../Loader/Loader';
 import ResultItem from '../ResultItem/ResultItem';
 import VenueToggle from '../VenueToggle/VenueToggle';
-import useFetchTeamReducer from '../../hooks/useFetchTeamReducer';
+import useFetchesTeamResults from '../../hooks/useFetchesTeamResults';
 import useTogglesActiveState from '../../hooks/useTogglesActiveState';
+import { UPDATE_REQUEST_VENUE } from '../../actions/actionTypes';
 import classes from './ResultList.module.css';
 
 const ResultList = (props) => {
@@ -22,10 +23,10 @@ const ResultList = (props) => {
   };
 
   const { selected, selectionToggleHandler } = useTogglesActiveState(null);
-  const { results, loading, dispatch } = useFetchTeamReducer(payload);
+  const { results, loading, dispatch } = useFetchesTeamResults(payload);
 
   const updateResults = (venue) => {
-    dispatch({ type: 'UPDATE_REQUEST_VENUE', venue });
+    dispatch({ type: UPDATE_REQUEST_VENUE, venue });
   };
 
   return (
