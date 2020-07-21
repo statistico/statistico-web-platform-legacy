@@ -24,11 +24,6 @@ const TeamStats = () => {
               <ResultList teamId={teamId} seasonId={seasonId} />
             </ErrorBoundary>
           </Wrapper>
-          <Wrapper styles={classes.ResultList}>
-            <ErrorBoundary>
-              <ResultList teamId={teamId} seasonId={seasonId} />
-            </ErrorBoundary>
-          </Wrapper>
         </Dashboard>
       </Loader>
     </div>
