@@ -5,7 +5,6 @@ import Aux from '../../../hoc/Aux/Aux';
 import SidebarMax from '../../Sidebar/SidebarMax/SidebarMax';
 import SidebarMin from '../../Sidebar/SidebarMin/SidebarMin';
 import TeamDetails from '../../TeamDetails/TeamDetails';
-import TeamStatsMenu from '../TeamStatsMenu/TeamStatsMenu';
 import useTogglesMenu from '../../../hooks/useTogglesMenu';
 
 const TeamStatsSideBar = (props) => {
@@ -17,7 +16,6 @@ const TeamStatsSideBar = (props) => {
       {menuOpen ? (
         <SidebarMax clicked={menuToggleHandler} open={menuOpen}>
           <TeamDetails team={team} />
-          <TeamStatsMenu />
         </SidebarMax>
       ) : (
         <SidebarMin clicked={menuToggleHandler} open={menuOpen} />
