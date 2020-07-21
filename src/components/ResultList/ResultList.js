@@ -3,7 +3,11 @@ import PropTypes from 'prop-types';
 
 import Loader from '../Loader/Loader';
 import ResultItem from '../ResultItem/ResultItem';
+import VenueToggle from '../VenueToggle/VenueToggle';
 import useFetchesTeamResults from '../../hooks/useFetchesTeamResults';
+import useTogglesActiveState from '../../hooks/useTogglesActiveState';
+import { UPDATE_REQUEST_VENUE } from '../../actions/actionTypes';
+import classes from './ResultList.module.css';
 
 const ResultList = (props) => {
   const { seasonId, teamId } = props;
@@ -11,19 +15,36 @@ const ResultList = (props) => {
   const payload = {
     team: {
       id: teamId,
+      venue: null,
     },
     seasonIds: [seasonId],
     sort: 'date_asc',
+    limit: null,
   };
 
-  const { results, loading } = useFetchesTeamResults(payload);
+  const { selected, selectionToggleHandler } = useTogglesActiveState(null);
+  const { results, loading, dispatch } = useFetchesTeamResults(payload);
+
+  const updateResults = (venue) => {
+    dispatch({ type: UPDATE_REQUEST_VENUE, venue });
+  };
 
   return (
     <Loader loading={loading}>
-      <h3>Results</h3>
-      {results.map((result) => {
-        return <ResultItem result={result} key={result.id} />;
-      })}
+      <div className={classes.Header}>
+        <h3>Results</h3>
+        <VenueToggle
+          dispatch={updateResults}
+          styles={classes.VenueToggle}
+          selected={selected}
+          updateSelected={selectionToggleHandler}
+        />
+      </div>
+      <div className={classes.Results}>
+        {results.map((result) => {
+          return <ResultItem result={result} key={result.id} />;
+        })}
+      </div>
     </Loader>
   );
 };
