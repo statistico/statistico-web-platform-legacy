@@ -31,9 +31,16 @@ const VenueToggle = (props) => {
 
 VenueToggle.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  selected: PropTypes.string.isRequired,
+  selected: PropTypes.oneOfType([
+    PropTypes.string.isRequired,
+    PropTypes.oneOf([null]).isRequired,
+  ]),
   styles: PropTypes.string.isRequired,
   updateSelected: PropTypes.func.isRequired,
+};
+
+VenueToggle.defaultProps = {
+  selected: null,
 };
 
 export default VenueToggle;
