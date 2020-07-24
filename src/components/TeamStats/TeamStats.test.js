@@ -12,7 +12,7 @@ describe('<TeamStats />', () => {
 
   beforeEach(() => {
     useFetchesTeam.mockReturnValue({
-      team: { name: 'West Ham', logo: 'Hello' },
+      team: {},
       loading: false,
     });
     wrapper = mount(<TeamStats />);
