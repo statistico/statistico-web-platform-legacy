@@ -5,7 +5,9 @@ import ContentWrapper from './ContentWrapper';
 
 describe('<ContentWrapper />', () => {
   it('displays props children is active prop is true', () => {
-    const wrapper = shallow(<ContentWrapper active>Hello there</ContentWrapper>);
+    const wrapper = shallow(
+      <ContentWrapper active>Hello there</ContentWrapper>
+    );
 
     expect(wrapper.text()).toEqual('Hello there');
   });
