@@ -9,7 +9,9 @@ describe('<TeamStatsSideBar />', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = mount(<TeamStatsSideBar team={{}} />);
+    wrapper = mount(
+      <TeamStatsSideBar team={{}} selected={0} toggleDisplay={() => {}} />
+    );
   });
 
   it('should render <SidebarMin /> component when arrow is clicked', () => {

@@ -41,6 +41,7 @@ const TeamStatsSideBar = (props) => {
               <SidebarTab
                 onClick={() => toggleDisplay(option.id)}
                 active={selected === option.id}
+                key={option.id}
               >
                 {option.name}
               </SidebarTab>
