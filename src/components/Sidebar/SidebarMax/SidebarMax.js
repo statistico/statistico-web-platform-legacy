@@ -25,7 +25,7 @@ const sidebarMax = (props) => {
 
 sidebarMax.propTypes = {
   clicked: PropTypes.func.isRequired,
-  children: PropTypes.element.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 export default sidebarMax;
