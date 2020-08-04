@@ -8,7 +8,7 @@ const routes = () => (
   <BrowserRouter>
     <Switch>
       <Route path="/team/:id" component={TeamStats} />
-      <Route path="/" component={HomeDashboard} />
+      <Route path="/" exact component={HomeDashboard} />
       <Redirect to="/" />
     </Switch>
   </BrowserRouter>
