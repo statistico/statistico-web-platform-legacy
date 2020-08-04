@@ -8,13 +8,13 @@ import Wrapper from '../../Wrapper/Wrapper';
 import classes from './TeamStatsMatch.module.css';
 
 const teamStatsMatch = (props) => {
-  const { seasonId, teamId } = props;
+  const { seasonIds, teamId } = props;
 
   return (
     <Aux>
       <Wrapper styles={classes.ResultList}>
         <ErrorBoundary>
-          <ResultList teamId={teamId} seasonId={seasonId} />
+          <ResultList teamId={teamId} seasonIds={seasonIds} />
         </ErrorBoundary>
       </Wrapper>
     </Aux>
@@ -22,7 +22,7 @@ const teamStatsMatch = (props) => {
 };
 
 teamStatsMatch.propTypes = {
-  seasonId: PropTypes.number.isRequired,
+  seasonIds: PropTypes.arrayOf(PropTypes.number).isRequired,
   teamId: PropTypes.number.isRequired,
 };
 
