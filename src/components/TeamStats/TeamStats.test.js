@@ -29,11 +29,11 @@ describe('<TeamStats />', () => {
     wrapper = mount(<TeamStats />);
   });
 
-  it('it renders TeamStatsMatch component by default once loading is complete', () => {
+  it('it renders TeamStatsMatch component by default once loading is complete', async () => {
     expect(wrapper.find(TeamStatsMatch)).toHaveLength(1);
   });
 
-  it('it does not render TeamStatsMatch component when another component is selected via TeamStatsSideBar', () => {
+  it('it does not render TeamStatsMatch component when another component is selected via TeamStatsSideBar', async () => {
     const component = wrapper.find('#Sidebar1').first();
 
     component.simulate('click');
