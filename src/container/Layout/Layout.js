@@ -1,8 +1,8 @@
 import React from 'react';
 
 import Aux from '../../hoc/Aux/Aux';
+import Routes from '../../components/Routes/Routes';
 import SidebarMenu from '../../components/Navigation/SidebarMenu/SidebarMenu';
-import TeamStats from '../../components/TeamStats/TeamStats';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import useTogglesMenu from '../../hooks/useTogglesMenu';
 import classes from './Layout.module.css';
@@ -17,7 +17,7 @@ const Layout = () => {
       {menuOpen ? <SidebarMenu /> : null}
       <main className={classes.Layout}>
         <ErrorBoundary>
-          <TeamStats />
+          <Routes />
         </ErrorBoundary>
       </main>
     </Aux>
