@@ -6,6 +6,16 @@ import TeamStatsMatch from './TeamStatsMatch/TeamStatsMatch';
 import useFetchesTeam from '../../hooks/useFetchesTeam';
 
 jest.mock('../../hooks/useFetchesTeam');
+jest.mock('react-router', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useParams: () => ({
+    match: {
+      params: {
+        id: 1,
+      },
+    },
+  }),
+}));
 
 describe('<TeamStats />', () => {
   let wrapper;
@@ -15,6 +25,7 @@ describe('<TeamStats />', () => {
       team: {},
       loading: false,
     });
+
     wrapper = mount(<TeamStats />);
   });
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useParams } from 'react-router';
 
 import ContentWrapper from '../ContentWrapper/ContentWrapper';
 import Dashboard from '../Dashboard/Dashboard';
@@ -10,9 +11,10 @@ import useTogglesActiveState from '../../hooks/useTogglesActiveState';
 import classes from './TeamStats.module.css';
 
 const TeamStats = () => {
-  const teamId = 1;
+  const { id } = useParams();
+  const teamId = Number(id);
   const seasonId = 16036;
-  const { team, loading } = useFetchesTeam(teamId);
+  const { team, loading } = useFetchesTeam(id);
   const { selected, selectionToggleHandler } = useTogglesActiveState(0);
 
   return (
