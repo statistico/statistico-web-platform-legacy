@@ -1,4 +1,4 @@
-import { getTeam, getTeamSeasons } from '../../gateway/statistico'
+import { getTeam, getTeamSeasons } from '../../gateway/statistico';
 
 import { teamPresenter, teamSeasonsPresenter } from '../team';
 
