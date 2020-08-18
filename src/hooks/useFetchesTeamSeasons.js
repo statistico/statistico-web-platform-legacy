@@ -1,23 +1,22 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react'
 
 import { teamSeasonsPresenter } from '../presenters/team';
 import useAsyncError from './useAsyncError';
 
 const useFetchesTeamSeasons = (id) => {
   const [seasons, setSeasons] = useState([]);
-  const [selectedSeasons, setSelectedSeasons] = useState(null);
+  const [selectedSeasons, setSelectedSeasons] = useState({});
   const throwError = useAsyncError();
+
+  const selectedSeasonsToggleHandler = useCallback((s) => {
+    setSelectedSeasons(s);
+  }, []);
 
   useEffect(() => {
     teamSeasonsPresenter(id)
       .then((data) => {
-        setSelectedSeasons(data['2018/2019']);
-        data.forEach((s) => {
-          if (s.current) {
-            setSelectedSeasons(s);
-          }
-        });
-
+        const current = data.find((s) => s.current);
+        setSelectedSeasons(current);
         setSeasons(data);
       })
       .catch((error) => throwError(error));
@@ -26,7 +25,7 @@ const useFetchesTeamSeasons = (id) => {
   return {
     seasons,
     selectedSeasons,
-    setSelectedSeasons,
+    selectedSeasonsToggleHandler,
   };
 };
 
