@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react';
 
 import { teamSeasonsPresenter } from '../presenters/team';
 import useAsyncError from './useAsyncError';
