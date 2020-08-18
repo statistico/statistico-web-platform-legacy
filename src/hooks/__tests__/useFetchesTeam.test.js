@@ -2,7 +2,7 @@ import { renderHook } from '@testing-library/react-hooks';
 
 import useAsyncError from '../useAsyncError';
 import useFetchesTeam from '../useFetchesTeam';
-import teamPresenter from '../../presenters/team';
+import { teamPresenter } from '../../presenters/team';
 
 jest.mock('../../presenters/team');
 jest.mock('../useAsyncError');
