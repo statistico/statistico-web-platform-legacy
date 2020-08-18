@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import useAsyncError from './useAsyncError';
-import teamPresenter from '../presenters/team';
+import { teamPresenter } from '../presenters/team';
 
 const useFetchesTeam = (id) => {
   const [team, setTeam] = useState({});
