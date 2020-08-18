@@ -15,7 +15,7 @@ describe('<ResultList />', () => {
     jest.resetAllMocks();
   });
 
-  it('display a <ResultItem /> component for each result returned', () => {
+  it('display a <ResultItem /> component for each result returned', async () => {
     const results = [
       {
         id: 129810,
@@ -66,12 +66,12 @@ describe('<ResultList />', () => {
 
     useFetchesTeamResults.mockReturnValueOnce(object);
 
-    const wrapper = mount(<ResultList seasonId={16036} teamId={1} />);
+    const wrapper = mount(<ResultList seasonIds={[16036]} teamId={1} />);
 
     expect(wrapper.find(ResultItem)).toHaveLength(2);
   });
 
-  it('should display <Loader /> component is loading is returned true from hook', () => {
+  it('should display <Loader /> component is loading is returned true from hook', async () => {
     useTogglesActiveState.mockReturnValueOnce({
       selected: 'home',
       selectionToggleHandler: () => {},
@@ -85,7 +85,7 @@ describe('<ResultList />', () => {
 
     useFetchesTeamResults.mockReturnValueOnce(object);
 
-    const wrapper = mount(<ResultList seasonId={16036} teamId={1} />);
+    const wrapper = mount(<ResultList seasonIds={[16036]} teamId={1} />);
 
     expect(wrapper.find(Loader)).toHaveLength(1);
     expect(wrapper.find(ResultItem)).toHaveLength(0);

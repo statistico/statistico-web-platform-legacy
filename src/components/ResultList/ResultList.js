@@ -10,14 +10,14 @@ import { UPDATE_REQUEST_VENUE } from '../../actions/actionTypes';
 import classes from './ResultList.module.css';
 
 const ResultList = (props) => {
-  const { seasonId, teamId } = props;
+  const { seasonIds, teamId } = props;
 
   const payload = {
     team: {
       id: teamId,
       venue: null,
     },
-    seasonIds: [seasonId],
+    seasonIds,
     sort: 'date_asc',
     limit: null,
   };
@@ -50,7 +50,7 @@ const ResultList = (props) => {
 };
 
 ResultList.propTypes = {
-  seasonId: PropTypes.number.isRequired,
+  seasonIds: PropTypes.arrayOf(PropTypes.number).isRequired,
   teamId: PropTypes.number.isRequired,
 };
 

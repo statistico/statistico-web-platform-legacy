@@ -13,7 +13,7 @@ import classes from './TeamStats.module.css';
 const TeamStats = () => {
   const { id } = useParams();
   const teamId = Number(id);
-  const seasonId = 16036;
+  const seasonIds = [16036];
   const { team, loading } = useFetchesTeam(id);
   const { selected, selectionToggleHandler } = useTogglesActiveState(0);
 
@@ -27,7 +27,7 @@ const TeamStats = () => {
         />
         <Dashboard>
           <ContentWrapper active={selected === 0}>
-            <TeamStatsMatch seasonId={seasonId} teamId={teamId} />
+            <TeamStatsMatch seasonIds={seasonIds} teamId={teamId} />
           </ContentWrapper>
           <ContentWrapper active={selected === 1}>
             Players - To be implemented
