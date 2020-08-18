@@ -16,16 +16,20 @@ export const teamSeasonsPresenter = async (id) => {
   const converted = [];
 
   seasons.forEach((season) => {
-    if (season.name in converted) {
-      const s = converted[season.name];
-      s.seasonIds.push(season.id);
+    const filtered = converted.filter((s) => s.name === season.name);
+
+    if (filtered.length > 0) {
+      filtered[0].seasonIds.push(season.id);
       return;
     }
 
-    converted[season.name] = {
+    const obj = {
+      name: season.name,
       current: season.isCurrent,
       seasonIds: [season.id],
     };
+
+    converted.push(obj);
   });
 
   return converted;

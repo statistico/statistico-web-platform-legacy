@@ -51,23 +51,24 @@ describe('teamSeasonsPresenter', () => {
 
     const seasons = await teamSeasonsPresenter(1);
 
-    const one = {
-      current: true,
-      seasonIds: [1, 2],
-    };
+    const expected = [
+      {
+        name: '2019/2020',
+        current: true,
+        seasonIds: [1, 2],
+      },
+      {
+        name: '2018/2019',
+        current: false,
+        seasonIds: [3],
+      },
+      {
+        name: '2017/2018',
+        current: false,
+        seasonIds: [4],
+      },
+    ];
 
-    const two = {
-      current: false,
-      seasonIds: [3],
-    };
-
-    const three = {
-      current: false,
-      seasonIds: [4],
-    };
-
-    await expect(seasons['2019/2020']).toEqual(one);
-    await expect(seasons['2018/2019']).toEqual(two);
-    await expect(seasons['2017/2018']).toEqual(three);
+    await expect(seasons).toEqual(expected);
   });
 });
