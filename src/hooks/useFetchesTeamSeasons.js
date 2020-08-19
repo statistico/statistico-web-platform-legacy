@@ -15,7 +15,7 @@ const useFetchesTeamSeasons = (id) => {
   useEffect(() => {
     teamSeasonsPresenter(id)
       .then((data) => {
-        const current = data.find((s) => s.current);
+        const current = data.find((s) => s.current === true);
         setSelectedSeasons(current);
         setSeasons(data);
       })
