@@ -20,6 +20,7 @@ const ResultList = (props) => {
     seasonIds,
     sort: 'date_asc',
     limit: null,
+    dateBefore: new Date().toISOString(),
   };
 
   const { selected, selectionToggleHandler } = useTogglesActiveState(null);

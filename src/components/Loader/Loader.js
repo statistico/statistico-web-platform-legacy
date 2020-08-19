@@ -17,7 +17,11 @@ const loader = (props) => {
 
 loader.propTypes = {
   loading: PropTypes.bool.isRequired,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
+};
+
+loader.defaultProps = {
+  children: null,
 };
 
 export default loader;
