@@ -22,7 +22,6 @@ const useFetchesTeamResults = (teamId, seasonIds, venue) => {
 
     resultPresenter(payload)
       .then((data) => {
-        setLoading(true);
         setResults(data);
         setLoading(false);
       })

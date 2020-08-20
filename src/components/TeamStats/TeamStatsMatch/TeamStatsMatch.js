@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Aux from '../../../hoc/Aux/Aux';
 import ErrorBoundary from '../../ErrorBoundary/ErrorBoundary';
 import ResultList from '../../ResultList/ResultList';
 import Wrapper from '../../Wrapper/Wrapper';
@@ -11,13 +10,11 @@ const teamStatsMatch = (props) => {
   const { seasonIds, teamId } = props;
 
   return (
-    <Aux>
-      <Wrapper styles={classes.ResultList}>
-        <ErrorBoundary>
-          <ResultList teamId={teamId} seasonIds={seasonIds} />
-        </ErrorBoundary>
-      </Wrapper>
-    </Aux>
+    <Wrapper styles={classes.ResultList}>
+      <ErrorBoundary>
+        <ResultList teamId={teamId} seasonIds={seasonIds} />
+      </ErrorBoundary>
+    </Wrapper>
   );
 };
 
