@@ -3,7 +3,7 @@ import Select from 'react-select';
 import PropTypes from 'prop-types';
 
 const seasonSelect = (props) => {
-  const { seasons, selectedSeason, toggleSeason } = props;
+  const { seasons, selectedSeason, styles, toggleSeason } = props;
 
   const options = seasons.map((season) => {
     return {
@@ -24,33 +24,12 @@ const seasonSelect = (props) => {
     };
   };
 
-  const customStyles = {
-    container: (provided) => ({
-      ...provided,
-      width: '80%',
-      textAlign: 'center',
-      margin: '0 0 10px 0',
-      padding: '10px 0 10px 0',
-    }),
-
-    valueContainer: (provided) => ({
-      ...provided,
-      justifyContent: 'center',
-      color: '#22ccde',
-    }),
-
-    singleValue: (provided) => ({
-      ...provided,
-      fontWeight: 'bold',
-    }),
-  };
-
   return (
     <Select
       options={options}
       defaultValue={defaultValue()}
       onChange={onChangeInput}
-      styles={customStyles}
+      styles={styles}
     />
   );
 };
@@ -67,6 +46,11 @@ seasonSelect.propTypes = {
     name: PropTypes.string,
     current: PropTypes.bool,
     seasonIds: PropTypes.arrayOf(PropTypes.number),
+  }).isRequired,
+  styles: PropTypes.shape({
+    container: PropTypes.func,
+    singleValue: PropTypes.func,
+    valueContainer: PropTypes.func,
   }).isRequired,
   toggleSeason: PropTypes.func.isRequired,
 };
