@@ -2,10 +2,8 @@ import React from 'react';
 import Select from 'react-select';
 import PropTypes from 'prop-types';
 
-import classes from './SeasonSelect.module.css';
-
 const seasonSelect = (props) => {
-  const { seasons, selectedSeason, toggleSeason } = props;
+  const { seasons, selectedSeason, styles, toggleSeason } = props;
 
   const options = seasons.map((season) => {
     return {
@@ -27,13 +25,12 @@ const seasonSelect = (props) => {
   };
 
   return (
-    <div className={classes.SeasonSelect}>
-      <Select
-        options={options}
-        defaultValue={defaultValue()}
-        onChange={onChangeInput}
-      />
-    </div>
+    <Select
+      options={options}
+      defaultValue={defaultValue()}
+      onChange={onChangeInput}
+      styles={styles}
+    />
   );
 };
 
@@ -49,6 +46,11 @@ seasonSelect.propTypes = {
     name: PropTypes.string,
     current: PropTypes.bool,
     seasonIds: PropTypes.arrayOf(PropTypes.number),
+  }).isRequired,
+  styles: PropTypes.shape({
+    container: PropTypes.func,
+    singleValue: PropTypes.func,
+    valueContainer: PropTypes.func,
   }).isRequired,
   toggleSeason: PropTypes.func.isRequired,
 };
