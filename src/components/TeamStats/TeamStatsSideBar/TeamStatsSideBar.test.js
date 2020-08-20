@@ -10,7 +10,14 @@ describe('<TeamStatsSideBar />', () => {
 
   beforeEach(() => {
     wrapper = mount(
-      <TeamStatsSideBar team={{}} selected={0} toggleDisplay={() => {}} />
+      <TeamStatsSideBar
+        team={{}}
+        selected={0}
+        toggleDisplay={() => {}}
+        seasons={[]}
+        selectedSeasons={{}}
+        toggleSeasons={() => {}}
+      />
     );
   });
 

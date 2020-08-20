@@ -1,4 +1,4 @@
-import { act, renderHook } from '@testing-library/react-hooks';
+import { renderHook } from '@testing-library/react-hooks';
 
 import useAsyncError from '../useAsyncError';
 import useFetchesTeamResults from '../useFetchesTeamResults';
@@ -16,8 +16,10 @@ describe('useFetchesTeamResults', () => {
     const results = [{ id: 1234, venue: 'London Stadium' }];
     resultsPresenter.mockImplementationOnce(() => Promise.resolve(results));
 
+    const seasonIds = [1, 2];
+
     const { result, waitForNextUpdate } = renderHook(() =>
-      useFetchesTeamResults({})
+      useFetchesTeamResults(1, seasonIds, 'venue')
     );
 
     await waitForNextUpdate();
@@ -28,8 +30,10 @@ describe('useFetchesTeamResults', () => {
   it('returns loading true on first render', async () => {
     resultsPresenter.mockImplementationOnce(() => Promise.resolve([]));
 
+    const seasonIds = [1, 2];
+
     const { result, waitForNextUpdate } = renderHook(() =>
-      useFetchesTeamResults({})
+      useFetchesTeamResults(1, seasonIds, 'venue')
     );
 
     expect(result.current.loading).toEqual(true);
@@ -37,33 +41,6 @@ describe('useFetchesTeamResults', () => {
     await waitForNextUpdate();
 
     expect(result.current.results).toEqual([]);
-    expect(result.current.loading).toEqual(false);
-  });
-
-  it('fetches results when reducer payload is dispatched', async () => {
-    const results = [{ id: 1234, venue: 'London Stadium' }];
-
-    resultsPresenter
-      .mockImplementationOnce(() => Promise.resolve([]))
-      .mockImplementationOnce(() => Promise.resolve(results));
-
-    const { result, waitForNextUpdate } = renderHook(() =>
-      useFetchesTeamResults({})
-    );
-
-    expect(result.current.results).toEqual([]);
-    expect(result.current.loading).toEqual(true);
-
-    const action = {
-      venue: 'venue',
-      type: 'UPDATE_REQUEST_VENUE',
-    };
-
-    act(() => result.current.dispatch(action));
-
-    await waitForNextUpdate();
-
-    expect(result.current.results).toEqual(results);
     expect(result.current.loading).toEqual(false);
   });
 
@@ -75,7 +52,7 @@ describe('useFetchesTeamResults', () => {
       throw error;
     });
 
-    const { result } = renderHook(() => useFetchesTeamResults({}));
+    const { result } = renderHook(() => useFetchesTeamResults(1, [], 'venue'));
 
     expect(result.error).toEqual(error);
   });

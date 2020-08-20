@@ -18,6 +18,7 @@ const TeamStatsSideBar = (props) => {
     selectedSeasons,
     toggleSeasons,
   } = props;
+
   const { menuOpen, menuToggleHandler } = useTogglesMenu(true);
 
   const options = [

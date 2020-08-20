@@ -133,7 +133,9 @@ describe('getTeamSeasons', () => {
     await getTeamSeasons(1);
 
     await expect(axiosMock.get).toHaveBeenCalledTimes(1);
-    await expect(axiosMock.get).toHaveBeenCalledWith('/team/1/seasons');
+    await expect(axiosMock.get).toHaveBeenCalledWith(
+      '/team/1/seasons?sort=name_desc'
+    );
   });
 
   it('throws error if error thrown from API', async () => {
