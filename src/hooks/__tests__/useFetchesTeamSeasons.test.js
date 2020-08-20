@@ -57,7 +57,7 @@ describe('useFetchesTeamSeasons', () => {
       seasonIds: [1, 2],
     };
 
-    expect(result.current.selectedSeasons).toEqual(expected);
+    expect(result.current.selectedSeason).toEqual(expected);
   });
 
   it('updates selected seasons using selectedSeasonsToggleHandler function', async () => {
@@ -75,9 +75,9 @@ describe('useFetchesTeamSeasons', () => {
       seasonIds: [5, 6, 7],
     };
 
-    act(() => result.current.selectedSeasonsToggleHandler(updated));
+    act(() => result.current.toggleSeason(updated));
 
-    expect(result.current.selectedSeasons).toEqual(updated);
+    expect(result.current.selectedSeason).toEqual(updated);
   });
 
   it('throws an error if thrown by useFetchesTeamSeasons call', async () => {

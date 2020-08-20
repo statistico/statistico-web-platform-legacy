@@ -12,11 +12,9 @@ import useFetchesTeamSeasons from '../../../hooks/useFetchesTeamSeasons';
 
 const TeamStatsDashBoard = (props) => {
   const { team } = props;
-  const {
-    seasons,
-    selectedSeasons,
-    selectedSeasonsToggleHandler,
-  } = useFetchesTeamSeasons(team.id);
+  const { seasons, selectedSeason, toggleSeason } = useFetchesTeamSeasons(
+    team.id
+  );
   const { selected, selectionToggleHandler } = useTogglesActiveState(0);
 
   if (seasons.length === 0) {
@@ -29,11 +27,14 @@ const TeamStatsDashBoard = (props) => {
         team={team}
         selected={selected}
         toggleDisplay={selectionToggleHandler}
+        seasons={seasons}
+        selectedSeason={selectedSeason}
+        toggleSeason={toggleSeason}
       />
       <Dashboard>
         <ContentWrapper active={selected === 0}>
           <TeamStatsMatch
-            seasonIds={selectedSeasons.seasonIds}
+            seasonIds={selectedSeason.seasonIds}
             teamId={team.id}
           />
         </ContentWrapper>

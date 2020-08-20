@@ -11,6 +11,6 @@ export const getTeamResults = async (payload) => {
 };
 
 export const getTeamSeasons = async (id) => {
-  const response = await axios.get(`/team/${id}/seasons`);
+  const response = await axios.get(`/team/${id}/seasons?sort=name_desc`);
   return response.data.data.seasons;
 };

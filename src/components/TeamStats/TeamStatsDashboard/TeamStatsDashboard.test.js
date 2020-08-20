@@ -26,12 +26,12 @@ describe('<TeamStatsDashBoard />', () => {
           seasonIds: [1, 2, 3],
         },
       ],
-      selectedSeasons: {
+      selectedSeason: {
         current: true,
         name: '2019/2020',
         seasonIds: [1, 2, 3],
       },
-      selectedSeasonsToggleHandler: () => {},
+      toggleSeason: () => {},
     });
 
     wrapper = mount(<TeamStatsDashBoard team={team} />);
@@ -48,12 +48,12 @@ describe('<TeamStatsDashBoard />', () => {
           seasonIds: [1, 2, 3],
         },
       ],
-      selectedSeasons: {
+      selectedSeason: {
         current: true,
         name: '2019/2020',
         seasonIds: [1, 2, 3],
       },
-      selectedSeasonsToggleHandler: () => {},
+      toggleSeason: () => {},
     });
 
     wrapper = mount(<TeamStatsDashBoard team={team} />);
@@ -68,12 +68,12 @@ describe('<TeamStatsDashBoard />', () => {
   it('renders <Loading /> component is seasons returned from hook is an empty array', async () => {
     useFetchesTeamSeasons.mockReturnValue({
       seasons: [],
-      selectedSeasons: {
+      selectedSeason: {
         current: true,
         name: '2019/2020',
         seasonIds: [1, 2, 3],
       },
-      selectedSeasonsToggleHandler: () => {},
+      toggleSeason: () => {},
     });
 
     wrapper = mount(<TeamStatsDashBoard team={team} />);

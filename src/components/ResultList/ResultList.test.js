@@ -5,10 +5,8 @@ import Loader from '../Loader/Loader';
 import ResultItem from '../ResultItem/ResultItem';
 import ResultList from './ResultList';
 import useFetchesTeamResults from '../../hooks/useFetchesTeamResults';
-import useTogglesActiveState from '../../hooks/useTogglesActiveState';
 
 jest.mock('../../hooks/useFetchesTeamResults');
-jest.mock('../../hooks/useTogglesActiveState');
 
 describe('<ResultList />', () => {
   afterEach(() => {
@@ -53,11 +51,6 @@ describe('<ResultList />', () => {
       },
     ];
 
-    useTogglesActiveState.mockReturnValueOnce({
-      selected: 'home',
-      selectionToggleHandler: () => {},
-    });
-
     const object = {
       results,
       loading: false,
@@ -72,11 +65,6 @@ describe('<ResultList />', () => {
   });
 
   it('should display <Loader /> component is loading is returned true from hook', async () => {
-    useTogglesActiveState.mockReturnValueOnce({
-      selected: 'home',
-      selectionToggleHandler: () => {},
-    });
-
     const object = {
       results: [],
       loading: true,

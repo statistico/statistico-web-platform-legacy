@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Aux from '../../../hoc/Aux/Aux';
+import SeasonSelect from '../../SeasonSelect/SeasonSelect';
 import SidebarMax from '../../Sidebar/SidebarMax/SidebarMax';
 import SidebarMin from '../../Sidebar/SidebarMin/SidebarMin';
 import SidebarTab from '../../Sidebar/SidebarTab/SidebarTab';
@@ -9,7 +10,15 @@ import TeamDetails from '../../TeamDetails/TeamDetails';
 import useTogglesMenu from '../../../hooks/useTogglesMenu';
 
 const TeamStatsSideBar = (props) => {
-  const { selected, team, toggleDisplay } = props;
+  const {
+    selected,
+    team,
+    toggleDisplay,
+    seasons,
+    selectedSeason,
+    toggleSeason,
+  } = props;
+
   const { menuOpen, menuToggleHandler } = useTogglesMenu(true);
 
   const options = [
@@ -36,6 +45,11 @@ const TeamStatsSideBar = (props) => {
       {menuOpen ? (
         <SidebarMax clicked={menuToggleHandler} open={menuOpen}>
           <TeamDetails team={team} />
+          <SeasonSelect
+            seasons={seasons}
+            selectedSeason={selectedSeason}
+            toggleSeason={toggleSeason}
+          />
           {options.map((option) => {
             return (
               <SidebarTab
@@ -63,6 +77,19 @@ TeamStatsSideBar.propTypes = {
     name: PropTypes.string,
   }).isRequired,
   toggleDisplay: PropTypes.func.isRequired,
+  seasons: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      current: PropTypes.bool,
+      seasonIds: PropTypes.arrayOf(PropTypes.number),
+    })
+  ).isRequired,
+  selectedSeason: PropTypes.shape({
+    name: PropTypes.string,
+    current: PropTypes.bool,
+    seasonIds: PropTypes.arrayOf(PropTypes.number),
+  }).isRequired,
+  toggleSeason: PropTypes.func.isRequired,
 };
 
 export default TeamStatsSideBar;
