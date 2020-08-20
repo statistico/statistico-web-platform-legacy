@@ -29,6 +29,9 @@ const TeamStatsDashBoard = (props) => {
         team={team}
         selected={selected}
         toggleDisplay={selectionToggleHandler}
+        seasons={seasons}
+        selectedSeasons={selectedSeasons}
+        toggleSeasons={selectedSeasonsToggleHandler}
       />
       <Dashboard>
         <ContentWrapper active={selected === 0}>

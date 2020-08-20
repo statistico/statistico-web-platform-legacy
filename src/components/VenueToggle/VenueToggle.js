@@ -4,13 +4,12 @@ import PropTypes from 'prop-types';
 import Button from '../Button/Button';
 
 const VenueToggle = (props) => {
-  const { dispatch, selected, styles, updateSelected } = props;
+  const { selected, styles, updateSelected } = props;
 
   const types = ['home', 'away', null];
 
   const toggle = (venue) => {
     updateSelected(venue);
-    dispatch(venue);
   };
 
   return (
@@ -30,7 +29,6 @@ const VenueToggle = (props) => {
 };
 
 VenueToggle.propTypes = {
-  dispatch: PropTypes.func.isRequired,
   selected: PropTypes.oneOfType([
     PropTypes.string.isRequired,
     PropTypes.oneOf([null]).isRequired,

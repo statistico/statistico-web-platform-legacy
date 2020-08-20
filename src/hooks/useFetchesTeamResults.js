@@ -1,17 +1,26 @@
-import { useEffect, useReducer, useState } from 'react';
+import { useEffect, useState } from 'react';
 
-import requestPayloadReducer from '../reducers/request';
 import resultPresenter from '../presenters/result';
 import useAsyncError from './useAsyncError';
 
-const useFetchesTeamResults = (payload) => {
-  const [state, dispatch] = useReducer(requestPayloadReducer, payload);
+const useFetchesTeamResults = (teamId, seasonIds, venue) => {
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(true);
   const throwError = useAsyncError();
 
   useEffect(() => {
-    resultPresenter(state)
+    const payload = {
+      team: {
+        id: teamId,
+        venue,
+      },
+      seasonIds,
+      sort: 'date_asc',
+      limit: null,
+      dateBefore: new Date().toISOString(),
+    };
+
+    resultPresenter(payload)
       .then((data) => {
         setLoading(true);
         setResults(data);
@@ -20,12 +29,11 @@ const useFetchesTeamResults = (payload) => {
       .catch((error) => {
         throwError(error);
       });
-  }, [state, throwError]);
+  }, [teamId, seasonIds, venue, throwError]);
 
   return {
     results,
     loading,
-    dispatch,
   };
 };
 
