@@ -2,8 +2,6 @@ import React from 'react';
 import Select from 'react-select';
 import PropTypes from 'prop-types';
 
-import classes from './SeasonSelect.module.css';
-
 const seasonSelect = (props) => {
   const { seasons, selectedSeason, toggleSeason } = props;
 
@@ -26,14 +24,34 @@ const seasonSelect = (props) => {
     };
   };
 
+  const customStyles = {
+    container: (provided) => ({
+      ...provided,
+      width: '80%',
+      textAlign: 'center',
+      margin: '0 0 10px 0',
+      padding: '10px 0 10px 0',
+    }),
+
+    valueContainer: (provided) => ({
+      ...provided,
+      justifyContent: 'center',
+      color: '#22ccde',
+    }),
+
+    singleValue: (provided) => ({
+      ...provided,
+      fontWeight: 'bold',
+    }),
+  };
+
   return (
-    <div className={classes.SeasonSelect}>
-      <Select
-        options={options}
-        defaultValue={defaultValue()}
-        onChange={onChangeInput}
-      />
-    </div>
+    <Select
+      options={options}
+      defaultValue={defaultValue()}
+      onChange={onChangeInput}
+      styles={customStyles}
+    />
   );
 };
 
