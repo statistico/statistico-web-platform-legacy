@@ -5,10 +5,10 @@ import useAsyncError from './useAsyncError';
 
 const useFetchesTeamSeasons = (id) => {
   const [seasons, setSeasons] = useState([]);
-  const [selectedSeasons, setSelectedSeasons] = useState({});
+  const [selectedSeason, setSelectedSeasons] = useState({});
   const throwError = useAsyncError();
 
-  const selectedSeasonsToggleHandler = useCallback((s) => {
+  const toggleSeason = useCallback((s) => {
     setSelectedSeasons(s);
   }, []);
 
@@ -24,8 +24,8 @@ const useFetchesTeamSeasons = (id) => {
 
   return {
     seasons,
-    selectedSeasons,
-    selectedSeasonsToggleHandler,
+    selectedSeason,
+    toggleSeason,
   };
 };
 

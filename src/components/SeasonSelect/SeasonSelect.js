@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import classes from './SeasonSelect.module.css';
 
 const seasonSelect = (props) => {
-  const { seasons, selectedSeasons, toggleSeasons } = props;
+  const { seasons, selectedSeason, toggleSeason } = props;
 
   const options = seasons.map((season) => {
     return {
@@ -15,13 +15,15 @@ const seasonSelect = (props) => {
   });
 
   const onChangeInput = (value) => {
-    const s = seasons.filter((season) => season.name === value.label);
-    toggleSeasons(s[0]);
+    const s = seasons.find((season) => season.name === value.label);
+    toggleSeason(s);
   };
 
   const defaultValue = () => {
-    const s = options.filter((option) => option.label === selectedSeasons.name);
-    return s[0];
+    return {
+      value: selectedSeason.seasonIds,
+      label: selectedSeason.name,
+    };
   };
 
   return (
@@ -43,12 +45,12 @@ seasonSelect.propTypes = {
       seasonIds: PropTypes.arrayOf(PropTypes.number),
     })
   ).isRequired,
-  selectedSeasons: PropTypes.shape({
+  selectedSeason: PropTypes.shape({
     name: PropTypes.string,
     current: PropTypes.bool,
     seasonIds: PropTypes.arrayOf(PropTypes.number),
   }).isRequired,
-  toggleSeasons: PropTypes.func.isRequired,
+  toggleSeason: PropTypes.func.isRequired,
 };
 
 export default seasonSelect;

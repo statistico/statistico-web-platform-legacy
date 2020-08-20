@@ -15,8 +15,8 @@ const TeamStatsSideBar = (props) => {
     team,
     toggleDisplay,
     seasons,
-    selectedSeasons,
-    toggleSeasons,
+    selectedSeason,
+    toggleSeason,
   } = props;
 
   const { menuOpen, menuToggleHandler } = useTogglesMenu(true);
@@ -47,8 +47,8 @@ const TeamStatsSideBar = (props) => {
           <TeamDetails team={team} />
           <SeasonSelect
             seasons={seasons}
-            selectedSeasons={selectedSeasons}
-            toggleSeasons={toggleSeasons}
+            selectedSeason={selectedSeason}
+            toggleSeason={toggleSeason}
           />
           {options.map((option) => {
             return (
@@ -84,12 +84,12 @@ TeamStatsSideBar.propTypes = {
       seasonIds: PropTypes.arrayOf(PropTypes.number),
     })
   ).isRequired,
-  selectedSeasons: PropTypes.shape({
+  selectedSeason: PropTypes.shape({
     name: PropTypes.string,
     current: PropTypes.bool,
     seasonIds: PropTypes.arrayOf(PropTypes.number),
   }).isRequired,
-  toggleSeasons: PropTypes.func.isRequired,
+  toggleSeason: PropTypes.func.isRequired,
 };
 
 export default TeamStatsSideBar;

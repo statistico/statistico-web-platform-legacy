@@ -15,8 +15,8 @@ describe('<TeamStatsSideBar />', () => {
         selected={0}
         toggleDisplay={() => {}}
         seasons={[]}
-        selectedSeasons={{}}
-        toggleSeasons={() => {}}
+        selectedSeason={{}}
+        toggleSeason={() => {}}
       />
     );
   });
