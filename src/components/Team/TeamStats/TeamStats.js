@@ -3,8 +3,8 @@ import { v4 as uuidV4 } from 'uuid';
 import PropTypes from 'prop-types';
 
 import Aux from '../../../hoc/Aux/Aux';
-import TeamStatMenu from './TeamStatsMenu/TeamStatsMenu';
 import TeamStatsCards from './TeamStatsCards/TeamStatsCards';
+import TeamStatsMenu from './TeamStatsMenu/TeamStatsMenu';
 import classes from './TeamStats.module.css';
 
 const TeamStats = (props) => {
@@ -29,7 +29,7 @@ const TeamStats = (props) => {
         <TeamStatsCards stats={stats} />
       </div>
       <div className={classes.TeamStatsMenu}>
-        <TeamStatMenu addStat={addStatHandler} />
+        <TeamStatsMenu addStat={addStatHandler} />
       </div>
     </Aux>
   );
