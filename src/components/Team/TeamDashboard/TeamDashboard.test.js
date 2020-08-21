@@ -2,8 +2,8 @@ import React from 'react';
 import { mount } from 'enzyme';
 
 import Loader from '../../Loader/Loader';
-import TeamStatsDashBoard from './TeamStatsDashboard';
-import TeamStatsMatch from '../TeamStatsMatch/TeamStatsMatch';
+import TeamDashboard from './TeamDashboard';
+import TeamStatsMatch from '../TeamMatch/TeamMatch';
 import useFetchesTeamSeasons from '../../../hooks/useFetchesTeamSeasons';
 
 jest.mock('../../../hooks/useFetchesTeamSeasons');
@@ -34,7 +34,7 @@ describe('<TeamStatsDashBoard />', () => {
       toggleSeason: () => {},
     });
 
-    wrapper = mount(<TeamStatsDashBoard team={team} />);
+    wrapper = mount(<TeamDashboard team={team} />);
 
     expect(wrapper.find(TeamStatsMatch)).toHaveLength(1);
   });
@@ -56,7 +56,7 @@ describe('<TeamStatsDashBoard />', () => {
       toggleSeason: () => {},
     });
 
-    wrapper = mount(<TeamStatsDashBoard team={team} />);
+    wrapper = mount(<TeamDashboard team={team} />);
 
     const component = wrapper.find('#Sidebar1').first();
 
@@ -76,7 +76,7 @@ describe('<TeamStatsDashBoard />', () => {
       toggleSeason: () => {},
     });
 
-    wrapper = mount(<TeamStatsDashBoard team={team} />);
+    wrapper = mount(<TeamDashboard team={team} />);
 
     expect(wrapper.find(Loader)).toHaveLength(1);
   });
