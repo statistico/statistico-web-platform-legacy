@@ -3,14 +3,14 @@ import { mount } from 'enzyme';
 
 import SidebarMax from '../../Sidebar/SidebarMax/SidebarMax';
 import SidebarMin from '../../Sidebar/SidebarMin/SidebarMin';
-import TeamStatsSideBar from './TeamStatsSideBar';
+import TeamSideBar from './TeamSideBar';
 
 describe('<TeamStatsSideBar />', () => {
   let wrapper;
 
   beforeEach(() => {
     wrapper = mount(
-      <TeamStatsSideBar
+      <TeamSideBar
         team={{}}
         selected={0}
         toggleDisplay={() => {}}

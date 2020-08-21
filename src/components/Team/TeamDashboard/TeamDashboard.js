@@ -5,12 +5,12 @@ import Aux from '../../../hoc/Aux/Aux';
 import ContentWrapper from '../../ContentWrapper/ContentWrapper';
 import Dashboard from '../../Dashboard/Dashboard';
 import Loader from '../../Loader/Loader';
-import TeamStatsMatch from '../TeamStatsMatch/TeamStatsMatch';
-import TeamStatsSideBar from '../TeamStatsSideBar/TeamStatsSideBar';
+import TeamStatsMatch from '../TeamMatch/TeamMatch';
+import TeamSideBar from '../TeamSideBar/TeamSideBar';
 import useTogglesActiveState from '../../../hooks/useTogglesActiveState';
 import useFetchesTeamSeasons from '../../../hooks/useFetchesTeamSeasons';
 
-const TeamStatsDashBoard = (props) => {
+const TeamDashboard = (props) => {
   const { team } = props;
   const { seasons, selectedSeason, toggleSeason } = useFetchesTeamSeasons(
     team.id
@@ -23,7 +23,7 @@ const TeamStatsDashBoard = (props) => {
 
   return (
     <Aux>
-      <TeamStatsSideBar
+      <TeamSideBar
         team={team}
         selected={selected}
         toggleDisplay={selectionToggleHandler}
@@ -52,7 +52,7 @@ const TeamStatsDashBoard = (props) => {
   );
 };
 
-TeamStatsDashBoard.propTypes = {
+TeamDashboard.propTypes = {
   team: PropTypes.shape({
     id: PropTypes.number,
     logo: PropTypes.string,
@@ -60,4 +60,4 @@ TeamStatsDashBoard.propTypes = {
   }).isRequired,
 };
 
-export default TeamStatsDashBoard;
+export default TeamDashboard;

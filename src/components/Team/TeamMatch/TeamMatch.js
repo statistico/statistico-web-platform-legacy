@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import ErrorBoundary from '../../ErrorBoundary/ErrorBoundary';
 import ResultList from '../../ResultList/ResultList';
 import Wrapper from '../../Wrapper/Wrapper';
-import classes from './TeamStatsMatch.module.css';
+import classes from './TeamMatch.module.css';
 
-const teamStatsMatch = (props) => {
+const teamMatch = (props) => {
   const { seasonIds, teamId } = props;
 
   return (
@@ -18,9 +18,9 @@ const teamStatsMatch = (props) => {
   );
 };
 
-teamStatsMatch.propTypes = {
+teamMatch.propTypes = {
   seasonIds: PropTypes.arrayOf(PropTypes.number).isRequired,
   teamId: PropTypes.number.isRequired,
 };
 
-export default teamStatsMatch;
+export default teamMatch;

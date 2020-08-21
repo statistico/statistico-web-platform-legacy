@@ -50,7 +50,7 @@ const options = [
   },
 ];
 
-const TeamStatsSideBar = (props) => {
+const TeamSideBar = (props) => {
   const {
     selected,
     team,
@@ -93,7 +93,7 @@ const TeamStatsSideBar = (props) => {
   );
 };
 
-TeamStatsSideBar.propTypes = {
+TeamSideBar.propTypes = {
   selected: PropTypes.number.isRequired,
   team: PropTypes.shape({
     logo: PropTypes.string,
@@ -115,4 +115,4 @@ TeamStatsSideBar.propTypes = {
   toggleSeason: PropTypes.func.isRequired,
 };
 
-export default TeamStatsSideBar;
+export default TeamSideBar;

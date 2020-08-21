@@ -2,11 +2,11 @@ import React from 'react';
 import { useParams } from 'react-router';
 
 import Loader from '../Loader/Loader';
-import TeamStatsDashBoard from './TeamStatsDashboard/TeamStatsDashboard';
+import TeamStatsDashBoard from './TeamDashboard/TeamDashboard';
 import useFetchesTeam from '../../hooks/useFetchesTeam';
-import classes from './TeamStats.module.css';
+import classes from './Team.module.css';
 
-const TeamStats = () => {
+const Team = () => {
   const { id } = useParams();
   const { team, loading } = useFetchesTeam(id);
 
@@ -19,4 +19,4 @@ const TeamStats = () => {
   );
 };
 
-export default TeamStats;
+export default Team;
