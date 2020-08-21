@@ -1,14 +1,8 @@
-import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-const contentWrapper = (props) => {
-  const { active, children } = props;
+const ContentWrapper = styled.div`
+  display: ${(props) => (props.active ? 'flex' : 'none')};
+  width: 100%;
+`;
 
-  return active ? children : null;
-};
-
-contentWrapper.propTypes = {
-  active: PropTypes.bool.isRequired,
-  children: PropTypes.node.isRequired,
-};
-
-export default contentWrapper;
+export default ContentWrapper;
