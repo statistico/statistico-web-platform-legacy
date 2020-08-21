@@ -11,7 +11,7 @@ const Team = () => {
   const { team, loading } = useFetchesTeam(id);
 
   return (
-    <div className={classes.TeamStats}>
+    <div className={classes.Team}>
       <Loader loading={loading}>
         <TeamStatsDashBoard team={team} />
       </Loader>
