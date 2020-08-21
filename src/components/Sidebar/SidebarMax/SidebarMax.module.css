@@ -1,5 +1,4 @@
 .SidebarMax {
-    float: left;
     display: flex;
     justify-items: flex-start;
     align-items: center;
