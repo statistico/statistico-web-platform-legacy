@@ -20,9 +20,10 @@ const useFetchesTeamResults = (teamId, seasonIds, venue) => {
       dateBefore: new Date().toISOString(),
     };
 
+    setLoading(true);
+
     resultPresenter(payload)
       .then((data) => {
-        setLoading(true);
         setResults(data);
         setLoading(false);
       })

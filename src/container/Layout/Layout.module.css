@@ -2,7 +2,7 @@
     display: flex;
     margin-top: 70px;
     width: 100%;
-    min-height: 100vh;
+    min-height: auto;
     top: 0;
     left: 0;
 }

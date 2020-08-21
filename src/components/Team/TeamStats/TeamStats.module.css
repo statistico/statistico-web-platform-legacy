@@ -1,19 +1,25 @@
-.ResultList {
+.TeamStatsMenu {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     background-color: #181831;
     margin: 15px 20px;
     padding: 10px 20px 20px 20px;
     color: white;
     font-weight: normal;
-    width: 50%;
-    height: fit-content;
-    font-size: 18px;
+    width: 15%;
+    font-size: 16px;
     box-sizing: border-box;
+    height: fit-content;
 }
 
-.ResultList h3 {
-    text-align: left;
-    font-size: 22px;
+.TeamStatsCards {
+    flex-grow: 1;
+    height: inherit;
+}
+
+svg {
+    cursor: pointer;
     color: #22ccde;
+    padding: 0 15px 0 0;
 }
