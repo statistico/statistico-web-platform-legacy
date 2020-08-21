@@ -15,7 +15,9 @@ const TeamStats = (props) => {
       <div className={classes.TeamStatsCards}>
         <TeamStatsCards stats={stats} />
       </div>
-      <TeamStatMenu styles={classes.TeamStatsMenu} />
+      <div className={classes.TeamStatsMenu}>
+        <TeamStatMenu />
+      </div>
     </Aux>
   );
 };

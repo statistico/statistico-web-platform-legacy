@@ -8,7 +8,7 @@ import classes from './TeamStatsMenuItem.module.css';
 const teamStatsMenuItem = ({ option }) => {
   return (
     <div className={classes.TeamStatsMenuItem}>
-      <span className={classes.Icon}>
+      <span>
         <FontAwesomeIcon icon={faPlusCircle} />
       </span>
       <span>{option}</span>
