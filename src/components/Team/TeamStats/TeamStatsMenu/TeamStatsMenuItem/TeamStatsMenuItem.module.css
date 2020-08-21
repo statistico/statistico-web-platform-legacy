@@ -1,0 +1,12 @@
+.TeamStatsMenuItem {
+    padding: 10px;
+}
+
+.Icon {
+    color: #22ccde;
+    padding: 0 15px 0 0;
+}
+
+.Icon svg {
+    cursor: pointer;
+}

@@ -5,6 +5,7 @@ import Aux from '../../../hoc/Aux/Aux';
 import ContentWrapper from '../../ContentWrapper/ContentWrapper';
 import Dashboard from '../../Dashboard/Dashboard';
 import Loader from '../../Loader/Loader';
+import TeamStats from '../TeamStats/TeamStats';
 import TeamStatsMatch from '../TeamMatch/TeamMatch';
 import TeamSideBar from '../TeamSideBar/TeamSideBar';
 import useTogglesActiveState from '../../../hooks/useTogglesActiveState';
@@ -42,7 +43,7 @@ const TeamDashboard = (props) => {
           Players - To be implemented
         </ContentWrapper>
         <ContentWrapper active={selected === 2}>
-          Stats - To be implemented
+          <TeamStats seasonIds={selectedSeason.seasonIds} teamId={team.id} />
         </ContentWrapper>
         <ContentWrapper active={selected === 3}>
           Timelines - To be implemented

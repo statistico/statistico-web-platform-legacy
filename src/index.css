@@ -1,5 +1,5 @@
 html {
-  height: 100%
+  height: auto;
 }
 
 body {
@@ -9,7 +9,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  height: 100%;
+  height: auto;
   padding: 0;
 }
 
