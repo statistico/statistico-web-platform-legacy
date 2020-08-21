@@ -20,7 +20,7 @@ const TeamStats = (props) => {
 
     const updatedStats = [...stats, s];
 
-    setStats(updatedStats);
+    setStats(updatedStats.reverse());
   };
 
   return (
