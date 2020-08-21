@@ -13,9 +13,9 @@
     height: fit-content;
 }
 
-.TeamStatsCards {
-    flex-grow: 1;
-    height: inherit;
+.TeamStatsCardsContainer {
+    width: 85%;
+    box-sizing: border-box;
 }
 
 svg {

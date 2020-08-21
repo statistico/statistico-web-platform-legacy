@@ -5,3 +5,21 @@
     font-size: 20px;
     color: #181831;
 }
+
+.TeamStatsCards {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+.TeamStatsCard {
+    display: inline-block;
+    width: 400px;
+    height: 400px;
+    margin: 10px;
+    background-color: #181831;
+    color: white;
+}

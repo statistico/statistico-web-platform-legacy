@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import TeamStatsMenuItem from './TeamStatsMenuItem/TeamStatsMenuItem';
 
-const teamStatsMenu = () => {
+const teamStatsMenu = ({ addStat }) => {
   const options = [
     'Attacks Dangerous',
     'Attacks Total',
@@ -30,10 +31,16 @@ const teamStatsMenu = () => {
   return (
     <div>
       {options.map((option) => {
-        return <TeamStatsMenuItem option={option} />;
+        return (
+          <TeamStatsMenuItem option={option} clicked={addStat} key={option} />
+        );
       })}
     </div>
   );
+};
+
+teamStatsMenu.propTypes = {
+  addStat: PropTypes.func.isRequired,
 };
 
 export default teamStatsMenu;
