@@ -1,0 +1,26 @@
+.TeamStatsMenu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #181831;
+    padding: 0 30px 0 20px;
+    border-radius: 20px;
+}
+
+.TeamStatsMenu svg {
+    cursor: pointer;
+    color: #22ccde;
+    padding: 0 15px 0 0;
+}
+
+.Icons {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.Icons span {
+    padding-left: 20px;
+}
