@@ -37,7 +37,7 @@ const teamStatsSelect = ({ addStat }) => {
   const styles = {
     container: (provided) => ({
       ...provided,
-      width: '250px',
+      width: '15%',
       padding: '10px 0 10px 0',
     }),
   };
