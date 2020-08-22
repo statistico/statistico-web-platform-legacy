@@ -39,33 +39,7 @@ describe('<TeamStatsDashBoard />', () => {
     expect(wrapper.find(TeamStatsMatch)).toHaveLength(1);
   });
 
-  it('it does not render TeamStatsMatch component when another component is selected via TeamStatsSideBar', async () => {
-    useFetchesTeamSeasons.mockReturnValue({
-      seasons: [
-        {
-          current: true,
-          name: '2019/2020',
-          seasonIds: [1, 2, 3],
-        },
-      ],
-      selectedSeason: {
-        current: true,
-        name: '2019/2020',
-        seasonIds: [1, 2, 3],
-      },
-      toggleSeason: () => {},
-    });
-
-    wrapper = mount(<TeamDashboard team={team} />);
-
-    const component = wrapper.find('#Sidebar1').first();
-
-    component.simulate('click');
-
-    expect(wrapper.find(TeamStatsMatch)).toHaveLength(0);
-  });
-
-  it('renders <Loading /> component is seasons returned from hook is an empty array', async () => {
+  it('renders <Loading /> component if seasons returned from hook is an empty array', async () => {
     useFetchesTeamSeasons.mockReturnValue({
       seasons: [],
       selectedSeason: {
