@@ -12,14 +12,16 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    align-content: center;
+    box-sizing: border-box;
 }
 
 .TeamStatsCard {
     display: inline-block;
-    width: 400px;
-    height: 400px;
     margin: 10px;
     background-color: #181831;
     color: white;
+    flex: 0 0 32%; /*grow | shrink | basis */
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 10px;
 }

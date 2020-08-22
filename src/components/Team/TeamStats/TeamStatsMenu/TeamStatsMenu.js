@@ -1,40 +1,42 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faChartBar,
+  faChartLine,
+  faSortNumericUp,
+  faTh,
+} from '@fortawesome/free-solid-svg-icons';
 
-import TeamStatsMenuItem from './TeamStatsMenuItem/TeamStatsMenuItem';
+import TeamStatsSelect from '../TeamStatsSelect/TeamStatsSelect';
+import classes from './TeamStatsMenu.module.css';
 
 const teamStatsMenu = ({ addStat }) => {
-  const options = [
-    'Attacks Dangerous',
-    'Attacks Total',
-    'Corners',
-    'Fouls',
-    'Goals',
-    'Goal Attempts',
-    'Offsides',
-    'Passes Accuracy',
-    'Passes Percentage',
-    'Passes Total',
-    'Possession',
-    'Red Cards',
-    'Saves',
-    'Shots Blocked',
-    'Shots Inside Box',
-    'Shots Off Goal',
-    'Shots On Goal',
-    'Shots Outside Box',
-    'Shots Total',
-    'Yellow Cards',
-    'xG',
-  ];
+  const selectStyles = {
+    container: (provided) => ({
+      ...provided,
+      width: '15%',
+      padding: '10px 0 10px 0',
+    }),
+  };
 
   return (
-    <div>
-      {options.map((option) => {
-        return (
-          <TeamStatsMenuItem option={option} clicked={addStat} key={option} />
-        );
-      })}
+    <div className={classes.TeamStatsMenu}>
+      <div className={classes.Icons}>
+        <span>
+          <FontAwesomeIcon icon={faSortNumericUp} size="2x" />
+        </span>
+        <span>
+          <FontAwesomeIcon icon={faChartLine} size="2x" />
+        </span>
+        <span>
+          <FontAwesomeIcon icon={faChartBar} size="2x" />
+        </span>
+        <span>
+          <FontAwesomeIcon icon={faTh} size="2x" />
+        </span>
+      </div>
+      <TeamStatsSelect addStat={addStat} styles={selectStyles} />
     </div>
   );
 };
