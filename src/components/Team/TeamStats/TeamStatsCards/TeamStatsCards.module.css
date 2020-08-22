@@ -19,6 +19,7 @@
     display: inline-block;
     margin: 10px;
     background-color: #43434e;
+    background-color: #181831;
     color: white;
     flex: 0 0 32%; /*grow | shrink | basis */
     padding: 10px;

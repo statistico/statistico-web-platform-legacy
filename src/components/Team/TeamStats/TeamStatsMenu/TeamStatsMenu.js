@@ -12,6 +12,14 @@ import TeamStatsSelect from '../TeamStatsSelect/TeamStatsSelect';
 import classes from './TeamStatsMenu.module.css';
 
 const teamStatsMenu = ({ addStat }) => {
+  const selectStyles = {
+    container: (provided) => ({
+      ...provided,
+      width: '15%',
+      padding: '10px 0 10px 0',
+    }),
+  };
+
   return (
     <div className={classes.TeamStatsMenu}>
       <div className={classes.Icons}>
@@ -28,7 +36,7 @@ const teamStatsMenu = ({ addStat }) => {
           <FontAwesomeIcon icon={faTh} size="2x" />
         </span>
       </div>
-      <TeamStatsSelect addStat={addStat} />
+      <TeamStatsSelect addStat={addStat} styles={selectStyles} />
     </div>
   );
 };

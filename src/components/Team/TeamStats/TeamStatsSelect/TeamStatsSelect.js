@@ -26,21 +26,13 @@ const stats = [
   'xG',
 ];
 
-const teamStatsSelect = ({ addStat }) => {
+const teamStatsSelect = ({ addStat, styles }) => {
   const options = stats.map((stat) => {
     return {
       value: stat,
       label: stat,
     };
   });
-
-  const styles = {
-    container: (provided) => ({
-      ...provided,
-      width: '15%',
-      padding: '10px 0 10px 0',
-    }),
-  };
 
   return (
     <Select
@@ -55,6 +47,9 @@ const teamStatsSelect = ({ addStat }) => {
 
 teamStatsSelect.propTypes = {
   addStat: PropTypes.func.isRequired,
+  styles: PropTypes.shape({
+    container: PropTypes.func,
+  }).isRequired,
 };
 
 export default teamStatsSelect;
