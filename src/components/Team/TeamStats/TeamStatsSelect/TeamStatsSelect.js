@@ -44,11 +44,11 @@ const teamStatsSelect = ({ addStat }) => {
 
   return (
     <Select
-      clearValue
       options={options}
       onChange={(value) => addStat(value.value)}
       placeholder="Add a stat..."
       styles={styles}
+      value={null}
     />
   );
 };
