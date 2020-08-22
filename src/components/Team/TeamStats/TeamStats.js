@@ -23,10 +23,15 @@ const TeamStats = (props) => {
     setStats(updatedStats.reverse());
   };
 
+  const removeStatHandler = (id) => {
+    const filtered = stats.filter((stat) => stat.id !== id);
+    setStats(filtered);
+  };
+
   return (
     <Aux>
       <div className={classes.TeamStatsCardsContainer}>
-        <TeamStatsCards stats={stats} />
+        <TeamStatsCards stats={stats} removeStat={removeStatHandler} />
       </div>
       <div className={classes.TeamStatsMenu}>
         <TeamStatsMenu addStat={addStatHandler} />
