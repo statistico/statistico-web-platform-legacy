@@ -2,10 +2,8 @@ import React, { useState } from 'react';
 import { v4 as uuidV4 } from 'uuid';
 import PropTypes from 'prop-types';
 
-import Aux from '../../../hoc/Aux/Aux';
 import TeamStatsCards from './TeamStatsCards/TeamStatsCards';
 import TeamStatsMenu from './TeamStatsMenu/TeamStatsMenu';
-import TeamStatsSelect from './TeamStatsSelect/TeamStatsSelect';
 import classes from './TeamStats.module.css';
 
 const TeamStats = (props) => {
@@ -30,12 +28,10 @@ const TeamStats = (props) => {
   };
 
   return (
-    <Aux>
-      <div className={classes.TeamStatsCardsContainer}>
-        <TeamStatsMenu addStat={addStatHandler} />
-        <TeamStatsCards stats={stats} removeStat={removeStatHandler} />
-      </div>
-    </Aux>
+    <div className={classes.TeamStatsCardsContainer}>
+      <TeamStatsMenu addStat={addStatHandler} />
+      <TeamStatsCards stats={stats} removeStat={removeStatHandler} />
+    </div>
   );
 };
 
