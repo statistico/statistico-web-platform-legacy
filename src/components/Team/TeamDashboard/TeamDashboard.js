@@ -46,6 +46,9 @@ const TeamDashboard = (props) => {
           <TeamStats seasonIds={selectedSeason.seasonIds} teamId={team.id} />
         </ContentWrapper>
         <ContentWrapper active={selected === 3}>
+          Stats Overview - To be implemented
+        </ContentWrapper>
+        <ContentWrapper active={selected === 4}>
           Timelines - To be implemented
         </ContentWrapper>
       </Dashboard>
