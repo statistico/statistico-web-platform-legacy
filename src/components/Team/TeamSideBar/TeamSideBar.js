@@ -42,10 +42,14 @@ const options = [
   },
   {
     id: 2,
-    name: 'STATS',
+    name: 'STATS FILTER',
   },
   {
     id: 3,
+    name: 'STATS OVERVIEW',
+  },
+  {
+    id: 4,
     name: 'TIMELINES',
   },
 ];
