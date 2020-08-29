@@ -1,8 +1,11 @@
 import axiosMock from '../axios-client';
 
-import { getTeam, getTeamResults, getTeamSeasons } from '../statistico';
-
-jest.mock('../axios-client');
+import {
+  getTeam,
+  getTeamResults,
+  getTeamSeasons,
+  getTeamStats,
+} from '../statistico';
 
 describe('getTeam', () => {
   const team = {
@@ -145,5 +148,49 @@ describe('getTeamSeasons', () => {
       .mockImplementationOnce(() => Promise.reject(new Error(error)));
 
     await expect(getTeam(999)).rejects.toThrow(error);
+  });
+});
+
+describe('getTeamStats', () => {
+  const stats = [];
+
+  const data = {
+    data: {
+      data: {
+        stats,
+      },
+    },
+  };
+
+  it('fetches data successfully from the API', async () => {
+    axiosMock.post = jest
+      .fn()
+      .mockImplementationOnce(() => Promise.resolve(data));
+
+    const response = await getTeamStats({ team: { id: 1 } });
+
+    await expect(response).toEqual(stats);
+  });
+
+  it('fetches data used from expected url', async () => {
+    axiosMock.post = jest
+      .fn()
+      .mockImplementationOnce(() => Promise.resolve(data));
+
+    await getTeamStats({ sort: 'date_asc' });
+
+    await expect(axiosMock.post).toHaveBeenCalledTimes(1);
+    await expect(axiosMock.post).toHaveBeenCalledWith('/team-stat-search', {
+      sort: 'date_asc',
+    });
+  });
+
+  it('throws error in error thrown from the API', async () => {
+    const error = 'Not found';
+    axiosMock.post = jest
+      .fn()
+      .mockImplementationOnce(() => Promise.reject(new Error(error)));
+
+    await expect(getTeamStats({ sort: 'date_asc' })).rejects.toThrow(error);
   });
 });
