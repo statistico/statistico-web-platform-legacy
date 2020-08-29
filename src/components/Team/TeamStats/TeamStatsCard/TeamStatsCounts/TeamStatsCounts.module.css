@@ -1,0 +1,41 @@
+.TeamStatsCounts {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.TeamStatsCounts h3 {
+    text-transform: uppercase;
+    color: white;
+    font-size: 26px;
+    margin: 10px 0 10px 0;
+}
+
+.Totals {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+
+.Calculated {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.Calculated .Count {
+    font-size: 20px;
+}
+
+.Calculated h3 {
+    font-size: 18px;
+}
+
+.Count {
+    color: #22ccde;
+    font-weight: bold;
+    font-size: 50px;
+    padding: 0 10px 0 10px;
+}

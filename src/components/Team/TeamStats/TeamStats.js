@@ -14,7 +14,6 @@ const TeamStats = (props) => {
     const s = {
       id: uuidV4(),
       label: stat,
-      value: 2.75,
     };
 
     const updatedStats = [...stats, s];
@@ -30,7 +29,12 @@ const TeamStats = (props) => {
   return (
     <div className={classes.TeamStatsCardsContainer}>
       <TeamStatsMenu addStat={addStatHandler} />
-      <TeamStatsCards stats={stats} removeStat={removeStatHandler} />
+      <TeamStatsCards
+        seasonIds={seasonIds}
+        stats={stats}
+        removeStat={removeStatHandler}
+        teamId={teamId}
+      />
     </div>
   );
 };
