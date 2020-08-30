@@ -33,7 +33,6 @@ teamStatsCardHeader.propTypes = {
   stat: PropTypes.shape({
     id: PropTypes.string,
     label: PropTypes.string,
-    value: PropTypes.number,
   }).isRequired,
 };
 
