@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 import TeamStatsCard from '../TeamStatsCard/TeamStatsCard';
 import classes from './TeamStatsCards.module.css';
 
-const teamStatsCards = ({ removeStat, stats }) => {
+const teamStatsCards = (props) => {
+  const { removeStat, seasonIds, stats, teamId } = props;
+
   if (stats.length === 0) {
     return <div className={classes.Empty}>Please select a stat to begin</div>;
   }
@@ -15,7 +17,9 @@ const teamStatsCards = ({ removeStat, stats }) => {
         return (
           <TeamStatsCard
             remove={removeStat}
+            seasonIds={seasonIds}
             stat={stat}
+            teamId={teamId}
             styles={classes.TeamStatsCard}
             key={stat.id}
           />
@@ -27,13 +31,14 @@ const teamStatsCards = ({ removeStat, stats }) => {
 
 teamStatsCards.propTypes = {
   removeStat: PropTypes.func.isRequired,
+  seasonIds: PropTypes.arrayOf(PropTypes.number).isRequired,
   stats: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
       label: PropTypes.string,
-      value: PropTypes.number,
     })
   ).isRequired,
+  teamId: PropTypes.number.isRequired,
 };
 
 export default teamStatsCards;

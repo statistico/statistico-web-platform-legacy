@@ -1,0 +1,21 @@
+.TeamStatsCardHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: #22ccde;
+    text-transform: capitalize;
+    border-bottom: 2px solid #43434e;
+}
+
+.TeamStatsCardHeader svg {
+    cursor: pointer;
+}
+
+.TeamStatsCardHeader h2 {
+    margin: 5px;
+}
+
+.TeamStatsCardHeader span {
+    padding: 0 5px 0 5px;
+}

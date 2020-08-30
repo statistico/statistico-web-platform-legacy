@@ -1,34 +1,44 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
-const teamStatsCard = ({ remove, stat, styles }) => {
+import Loader from '../../../Loader/Loader';
+import useFetchesTeamStat from '../../../../hooks/useFetchesTeamStat';
+import TeamStatsCardHeader from './TeamStatsCardHeader/TeamStatsCardHeader';
+import TeamStatsCounts from './TeamStatsCounts/TeamStatsCounts';
+
+const TeamStatsCard = (props) => {
+  const { remove, seasonIds, stat, styles, teamId } = props;
+
+  const { stats, loading } = useFetchesTeamStat(
+    null,
+    null,
+    null,
+    null,
+    seasonIds,
+    stat.label.split(' ').join('_').toLowerCase(),
+    teamId,
+    null
+  );
+
   return (
     <div className={styles}>
-      <p>ID: {stat.id}</p>
-      <p>Stat: {stat.label}</p>
-      <p>Value: {stat.value}</p>
-      <span
-        onClick={() => remove(stat.id)}
-        onKeyDown={() => remove(stat.id)}
-        role="button"
-        tabIndex={0}
-      >
-        <FontAwesomeIcon icon={faTimesCircle} />
-      </span>
+      <Loader loading={loading}>
+        <TeamStatsCardHeader remove={remove} stat={stat} />
+        <TeamStatsCounts stat={stat.label} stats={stats} />
+      </Loader>
     </div>
   );
 };
 
-teamStatsCard.propTypes = {
+TeamStatsCard.propTypes = {
   remove: PropTypes.func.isRequired,
+  seasonIds: PropTypes.arrayOf(PropTypes.number).isRequired,
   stat: PropTypes.shape({
     id: PropTypes.string,
     label: PropTypes.string,
-    value: PropTypes.number,
   }).isRequired,
   styles: PropTypes.string.isRequired,
+  teamId: PropTypes.number.isRequired,
 };
 
-export default teamStatsCard;
+export default TeamStatsCard;
