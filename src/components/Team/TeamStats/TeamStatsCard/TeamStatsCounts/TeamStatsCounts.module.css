@@ -19,20 +19,6 @@
     margin-bottom: 10px;
 }
 
-.Calculated {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-.Calculated .Count {
-    font-size: 20px;
-}
-
-.Calculated h3 {
-    font-size: 18px;
-}
-
 .Count {
     color: #22ccde;
     font-weight: bold;
