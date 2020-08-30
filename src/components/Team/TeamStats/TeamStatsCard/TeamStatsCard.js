@@ -36,7 +36,6 @@ TeamStatsCard.propTypes = {
   stat: PropTypes.shape({
     id: PropTypes.string,
     label: PropTypes.string,
-    value: PropTypes.number,
   }).isRequired,
   styles: PropTypes.string.isRequired,
   teamId: PropTypes.number.isRequired,
