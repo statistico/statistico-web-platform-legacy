@@ -3,13 +3,14 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    color: #22ccde;
+    color: white;
     text-transform: capitalize;
     border-bottom: 2px solid #43434e;
 }
 
 .TeamStatsCardHeader svg {
     cursor: pointer;
+    color: #22ccde;
 }
 
 .TeamStatsCardHeader h2 {

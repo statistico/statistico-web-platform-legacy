@@ -5,7 +5,14 @@ import TeamStatsCard from '../TeamStatsCard/TeamStatsCard';
 import classes from './TeamStatsCards.module.css';
 
 const teamStatsCards = (props) => {
-  const { removeStat, seasonIds, stats, teamId } = props;
+  const {
+    displayCounts,
+    displayGraph,
+    removeStat,
+    seasonIds,
+    stats,
+    teamId,
+  } = props;
 
   if (stats.length === 0) {
     return <div className={classes.Empty}>Please select a stat to begin</div>;
@@ -16,6 +23,8 @@ const teamStatsCards = (props) => {
       {stats.map((stat) => {
         return (
           <TeamStatsCard
+            displayCounts={displayCounts}
+            displayGraph={displayGraph}
             remove={removeStat}
             seasonIds={seasonIds}
             stat={stat}
@@ -30,6 +39,8 @@ const teamStatsCards = (props) => {
 };
 
 teamStatsCards.propTypes = {
+  displayCounts: PropTypes.bool.isRequired,
+  displayGraph: PropTypes.bool.isRequired,
   removeStat: PropTypes.func.isRequired,
   seasonIds: PropTypes.arrayOf(PropTypes.number).isRequired,
   stats: PropTypes.arrayOf(
