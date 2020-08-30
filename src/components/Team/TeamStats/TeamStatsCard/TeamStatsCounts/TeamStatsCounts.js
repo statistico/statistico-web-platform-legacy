@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import CountUp from 'react-countup';
 
 import classes from './TeamStatsCounts.module.css';
 
@@ -26,29 +27,29 @@ const teamStatsCounts = ({ stats }) => {
       <div className={classes.Totals}>
         <div className={classes.Count}>
           <h3>Matches</h3>
-          <span>{stats.length}</span>
+          <CountUp start={0} end={stats.length} duration={2} />
         </div>
         <div className={classes.Count}>
           <h3>Total</h3>
-          {total}
+          <CountUp start={0} end={total} duration={2} />
         </div>
       </div>
       <div className={classes.Calculated}>
         <div className={classes.Count}>
           <h3>Average</h3>
-          <span>{average.toFixed(2)}</span>
+          <CountUp start={0} end={average} decimals={2} duration={2} />
         </div>
         <div className={classes.Count}>
           <h3>Max</h3>
-          {max}
+          <CountUp start={0} end={max} duration={2} />
         </div>
         <div className={classes.Count}>
           <h3>Median</h3>
-          <span>{median}</span>
+          <CountUp start={0} end={median} duration={2} />
         </div>
         <div className={classes.Count}>
           <h3>Mode</h3>
-          {mode.join(' & ')}
+          {mode.join(' | ')}
         </div>
       </div>
     </div>
