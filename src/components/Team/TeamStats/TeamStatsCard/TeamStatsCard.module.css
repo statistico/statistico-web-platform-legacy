@@ -1,0 +1,15 @@
+.TeamStatsCard {
+    margin: 10px;
+    background-color: #181831;
+    color: white;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    height: fit-content;
+    flex: 0 0 48%; /*grow | shrink | basis */
+}
+
+.TeamStatsCardDisplay {
+    padding-top: 10px;
+    height: 300px;
+}
