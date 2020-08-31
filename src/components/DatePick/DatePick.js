@@ -5,13 +5,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSyncAlt } from '@fortawesome/free-solid-svg-icons';
 
 import 'react-datepicker/dist/react-datepicker.css';
-import classes from './DatePick.module.css';
 
 const DatePick = (props) => {
-  const { date, placeholder, toggleDate } = props;
+  const { date, placeholder, styles, toggleDate } = props;
 
   return (
-    <div className={classes.DatePick}>
+    <div className={styles}>
       <DatePicker
         selected={date}
         onChange={(x) => toggleDate(x)}
@@ -39,6 +38,7 @@ DatePick.propTypes = {
     PropTypes.oneOf([null]).isRequired,
   ]),
   placeholder: PropTypes.string.isRequired,
+  styles: PropTypes.string.isRequired,
   toggleDate: PropTypes.func.isRequired,
 };
 
