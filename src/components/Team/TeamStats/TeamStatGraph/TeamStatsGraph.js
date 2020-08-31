@@ -18,7 +18,7 @@ const teamStatGraph = ({ stats }) => {
         margin={{ top: 20, right: 50, left: 0, bottom: 20 }}
       >
         <XAxis />
-        <YAxis />
+        <YAxis allowDecimals={false} />
         <Tooltip />
         <Legend />
         <Line

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import Loader from '../../../Loader/Loader';
@@ -6,6 +6,7 @@ import useFetchesTeamStat from '../../../../hooks/useFetchesTeamStat';
 import TeamStatsCardHeader from './TeamStatsCardHeader/TeamStatsCardHeader';
 import TeamStatsCounts from './TeamStatsCounts/TeamStatsCounts';
 import TeamStatGraph from '../TeamStatGraph/TeamStatsGraph';
+import TeamStatToggle from './TeamStatsToggle/TeamStatsToggle';
 
 const TeamStatsCard = (props) => {
   const {
@@ -18,6 +19,8 @@ const TeamStatsCard = (props) => {
     teamId,
   } = props;
 
+  const [venue, setVenue] = useState(null);
+
   const { stats, loading } = useFetchesTeamStat(
     null,
     null,
@@ -26,7 +29,7 @@ const TeamStatsCard = (props) => {
     seasonIds,
     stat.label.split(' ').join('_').toLowerCase(),
     teamId,
-    null
+    venue
   );
 
   let display = null;
@@ -45,10 +48,9 @@ const TeamStatsCard = (props) => {
 
   return (
     <div className={styles}>
-      <Loader loading={loading}>
-        <TeamStatsCardHeader remove={remove} stat={stat} />
-        {display}
-      </Loader>
+      <TeamStatsCardHeader remove={remove} stat={stat} />
+      <Loader loading={loading}>{display}</Loader>
+      <TeamStatToggle venue={venue} toggleVenue={setVenue} />
     </div>
   );
 };
