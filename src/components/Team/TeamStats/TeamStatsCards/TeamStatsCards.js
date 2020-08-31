@@ -29,7 +29,6 @@ const teamStatsCards = (props) => {
             seasonIds={seasonIds}
             stat={stat}
             teamId={teamId}
-            styles={classes.TeamStatsCard}
             key={stat.id}
           />
         );

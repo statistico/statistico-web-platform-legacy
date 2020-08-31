@@ -1,0 +1,31 @@
+.TeamStatsCard {
+    margin: 10px;
+    background-color: #181831;
+    color: white;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    height: fit-content;
+    flex: 0 0 48%; /*grow | shrink | basis */
+}
+
+.TeamStatsCardDisplay {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex: 0 0 100%; /*grow | shrink | basis */
+    max-width: 100%;
+}
+
+.TeamStatsCardGraph {
+    flex: 1;
+}
+
+.TeamStatsCardFilter {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 20%;
+}
+
+

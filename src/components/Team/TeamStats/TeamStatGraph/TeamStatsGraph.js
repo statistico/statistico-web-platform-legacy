@@ -12,10 +12,10 @@ import PropTypes from 'prop-types';
 
 const teamStatGraph = ({ stats }) => {
   return (
-    <ResponsiveContainer width={750} height={400}>
+    <ResponsiveContainer width="100%" height={400}>
       <LineChart
         data={stats}
-        margin={{ top: 20, right: 50, left: 0, bottom: 20 }}
+        margin={{ top: 20, right: 40, left: 0, bottom: 20 }}
       >
         <XAxis />
         <YAxis allowDecimals={false} />

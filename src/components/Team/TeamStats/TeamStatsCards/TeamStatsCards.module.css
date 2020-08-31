@@ -14,15 +14,3 @@
     justify-content: center;
     box-sizing: border-box;
 }
-
-.TeamStatsCard {
-    display: inline-block;
-    margin: 10px;
-    background-color: #181831;
-    color: white;
-    flex: 0 0 32%; /*grow | shrink | basis */
-    padding: 10px;
-    box-sizing: border-box;
-    border-radius: 10px;
-    height: fit-content;
-}

@@ -1,0 +1,34 @@
+.ShowOpponent {
+    font-weight: bold;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: white;
+    padding-left: 10px;
+}
+
+.ShowOpponent svg {
+    cursor: pointer;
+}
+
+.ShowOpponent span {
+    padding: 0 5px 0 5px;
+}
+
+.Active svg:hover {
+    color: white;
+}
+
+.Active svg {
+    color: #22ccde;
+}
+
+.Inactive svg {
+    color: white;
+}
+
+.Inactive svg:hover {
+    color: #22ccde;
+}
+

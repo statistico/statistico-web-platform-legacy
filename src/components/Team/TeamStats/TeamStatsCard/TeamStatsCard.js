@@ -8,6 +8,8 @@ import TeamStatsCounts from './TeamStatsCounts/TeamStatsCounts';
 import TeamStatGraph from '../TeamStatGraph/TeamStatsGraph';
 import TeamStatToggle from './TeamStatsToggle/TeamStatsToggle';
 
+import classes from './TeamStatsCard.module.css';
+
 const TeamStatsCard = (props) => {
   const {
     displayCounts,
@@ -15,22 +17,29 @@ const TeamStatsCard = (props) => {
     remove,
     seasonIds,
     stat,
-    styles,
     teamId,
   } = props;
 
+  const [dateAfter, setDateAfter] = useState(null);
+  const [dateBefore, setDateBefore] = useState(null);
+  const [showOpponent, setShowOpponent] = useState(false);
+  const [showFilters, setShowFilters] = useState(false);
   const [venue, setVenue] = useState(null);
 
   const { stats, loading } = useFetchesTeamStat(
+    dateAfter,
+    dateBefore,
     null,
-    null,
-    null,
-    null,
+    showOpponent,
     seasonIds,
     stat.label.split(' ').join('_').toLowerCase(),
     teamId,
     venue
   );
+
+  const toggleFilters = () => {
+    setShowFilters(!showFilters);
+  };
 
   let display = null;
 
@@ -47,10 +56,25 @@ const TeamStatsCard = (props) => {
   }
 
   return (
-    <div className={styles}>
-      <TeamStatsCardHeader remove={remove} stat={stat} />
+    <div className={classes.TeamStatsCard}>
+      <TeamStatsCardHeader
+        remove={remove}
+        stat={stat}
+        toggleFilters={toggleFilters}
+      />
       <Loader loading={loading}>{display}</Loader>
-      <TeamStatToggle venue={venue} toggleVenue={setVenue} />
+      {showFilters ? (
+        <TeamStatToggle
+          dateAfter={dateAfter}
+          dateBefore={dateBefore}
+          showOpponent={showOpponent}
+          toggleDateAfter={setDateAfter}
+          toggleDateBefore={setDateBefore}
+          toggleOpponent={setShowOpponent}
+          toggleVenue={setVenue}
+          venue={venue}
+        />
+      ) : null}
     </div>
   );
 };
@@ -64,7 +88,6 @@ TeamStatsCard.propTypes = {
     id: PropTypes.string,
     label: PropTypes.string,
   }).isRequired,
-  styles: PropTypes.string.isRequired,
   teamId: PropTypes.number.isRequired,
 };
 
