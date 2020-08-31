@@ -39,6 +39,10 @@ const TeamStatsCard = (props) => {
     display = <TeamStatGraph stats={stats} />;
   }
 
+  if (stats.length === 0) {
+    display = <p>No stats to show</p>;
+  }
+
   return (
     <div className={styles}>
       <Loader loading={loading}>

@@ -11,10 +11,6 @@ import {
 } from '../../../../../utility/stats_calculator';
 
 const teamStatsCounts = ({ stats }) => {
-  if (stats.length === 0) {
-    return <div>No stats to show</div>;
-  }
-
   const filtered = stats.map((item) => item.value);
   const sum = filtered.reduce((prev, curr) => prev + curr, 0);
   const average = sum / filtered.length;
