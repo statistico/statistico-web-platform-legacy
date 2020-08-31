@@ -18,7 +18,7 @@ const opponentToggle = (props) => {
 
   return (
     <div className={styles}>
-      <span>OPPONENT</span>
+      <span>Opponent</span>
       <span
         className={styles}
         onClick={toggle}
