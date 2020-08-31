@@ -21,12 +21,20 @@ const teamStatsMenu = ({ addStat, statDisplay }) => {
   return (
     <div className={classes.TeamStatsMenu}>
       <div className={classes.Icons}>
-        {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
-        <span onClick={statDisplay}>
+        <span
+          onClick={statDisplay}
+          role="button"
+          onKeyDown={statDisplay}
+          tabIndex={0}
+        >
           <FontAwesomeIcon icon={faSortNumericUp} size="2x" />
         </span>
-        {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
-        <span onClick={statDisplay}>
+        <span
+          onClick={statDisplay}
+          role="button"
+          onKeyDown={statDisplay}
+          tabIndex={0}
+        >
           <FontAwesomeIcon icon={faChartLine} size="2x" />
         </span>
       </div>
