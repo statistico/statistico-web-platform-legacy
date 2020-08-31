@@ -62,7 +62,9 @@ const TeamStatsCard = (props) => {
         stat={stat}
         toggleFilters={toggleFilters}
       />
-      <Loader loading={loading}>{display}</Loader>
+      <div className={classes.TeamStatsCardDisplay}>
+        <Loader loading={loading}>{display}</Loader>
+      </div>
       {showFilters ? (
         <TeamStatToggle
           dateAfter={dateAfter}
