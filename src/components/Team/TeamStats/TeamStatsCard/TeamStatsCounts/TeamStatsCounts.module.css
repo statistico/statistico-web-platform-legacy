@@ -7,7 +7,7 @@
 
 .TeamStatsCounts h3 {
     text-transform: uppercase;
-    color: white;
+    color: #22ccde;
     font-size: 26px;
     margin: 10px 0 10px 0;
 }
@@ -20,7 +20,7 @@
 }
 
 .Count {
-    color: #22ccde;
+    color: white;
     font-weight: bold;
     font-size: 50px;
     padding: 0 10px 0 10px;

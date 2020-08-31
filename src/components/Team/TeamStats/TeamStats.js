@@ -9,6 +9,8 @@ import classes from './TeamStats.module.css';
 const TeamStats = (props) => {
   const { seasonIds, teamId } = props;
   const [stats, setStats] = useState([]);
+  const [showGraph, setShowGraphs] = useState(true);
+  const [showCounts, setShowCounts] = useState(false);
 
   const addStatHandler = (stat) => {
     const s = {
@@ -26,10 +28,17 @@ const TeamStats = (props) => {
     setStats(filtered);
   };
 
+  const toggleDisplay = () => {
+    setShowGraphs(!showGraph);
+    setShowCounts(!showCounts);
+  };
+
   return (
     <div className={classes.TeamStatsCardsContainer}>
-      <TeamStatsMenu addStat={addStatHandler} />
+      <TeamStatsMenu addStat={addStatHandler} statDisplay={toggleDisplay} />
       <TeamStatsCards
+        displayCounts={showCounts}
+        displayGraph={showGraph}
         seasonIds={seasonIds}
         stats={stats}
         removeStat={removeStatHandler}

@@ -11,13 +11,9 @@ import {
 } from '../../../../../utility/stats_calculator';
 
 const teamStatsCounts = ({ stats }) => {
-  if (stats.length === 0) {
-    return <div>No stats to show</div>;
-  }
-
   const filtered = stats.map((item) => item.value);
   const sum = filtered.reduce((prev, curr) => prev + curr, 0);
-  const average = sum / stats.length;
+  const average = sum / filtered.length;
   const max = calculateMax(filtered);
   const median = calculateMedian(filtered);
   const mode = calculateMode(filtered);
@@ -27,7 +23,7 @@ const teamStatsCounts = ({ stats }) => {
       <div className={classes.Totals}>
         <div className={classes.Count}>
           <h3>Matches</h3>
-          <CountUp start={0} end={stats.length} duration={2} />
+          <CountUp start={0} end={filtered.length} duration={2} />
         </div>
         <div className={classes.Count}>
           <h3>Sum</h3>
