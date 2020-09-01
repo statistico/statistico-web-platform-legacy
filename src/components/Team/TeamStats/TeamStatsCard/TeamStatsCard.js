@@ -23,7 +23,7 @@ const TeamStatsCard = (props) => {
   const [dateAfter, setDateAfter] = useState(null);
   const [dateBefore, setDateBefore] = useState(null);
   const [showOpponent, setShowOpponent] = useState(false);
-  const [showFilters, setShowFilters] = useState(false);
+  const [showFilters, setShowFilters] = useState(true);
   const [venue, setVenue] = useState(null);
 
   const { stats, loading } = useFetchesTeamStat(
