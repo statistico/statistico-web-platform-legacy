@@ -1,4 +1,4 @@
-import { renderHook } from '@testing-library/react-hooks';
+import { act, renderHook } from '@testing-library/react-hooks';
 
 import useAsyncError from '../useAsyncError';
 import useFetchesTeamStat from '../useFetchesTeamStat';
@@ -57,6 +57,31 @@ describe('useFetchesTeamStat', () => {
 
     expect(result.current.stats).toEqual([]);
     expect(result.current.loading).toEqual(false);
+  });
+
+  it('calls teamStatPresenter when reload function is executed', async() => {
+    teamStatPresenter.mockImplementation(() => Promise.resolve([]));
+
+    const { result, waitForNextUpdate } = renderHook(() =>
+      useFetchesTeamStat(
+        null,
+        null,
+        5,
+        false,
+        seasonIds,
+        'shots_total',
+        1,
+        null
+      )
+    );
+
+    await waitForNextUpdate();
+
+    act(() => result.current.reload());
+
+    await waitForNextUpdate();
+
+    expect(teamStatPresenter.mock.calls.length).toBe(2);
   });
 
   it('throws an error if thrown by teamStatPresenter', async () => {
