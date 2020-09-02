@@ -35,5 +35,5 @@ describe('calculateMode', () => {
     const mode = calculateMode(values);
 
     expect(mode).toEqual([2, 5]);
-  })
+  });
 });
