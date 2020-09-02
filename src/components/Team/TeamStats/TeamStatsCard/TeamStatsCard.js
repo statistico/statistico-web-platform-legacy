@@ -26,7 +26,7 @@ const TeamStatsCard = (props) => {
   const [showFilters, setShowFilters] = useState(true);
   const [venue, setVenue] = useState(null);
 
-  const { stats, loading } = useFetchesTeamStat(
+  const { stats, loading, reload } = useFetchesTeamStat(
     dateAfter,
     dateBefore,
     null,
@@ -48,7 +48,7 @@ const TeamStatsCard = (props) => {
   }
 
   if (displayGraph) {
-    display = <TeamStatGraph stats={stats} />;
+    display = <TeamStatGraph isOpponent={showOpponent} stats={stats} />;
   }
 
   if (stats.length === 0) {
@@ -58,6 +58,7 @@ const TeamStatsCard = (props) => {
   return (
     <div className={classes.TeamStatsCard}>
       <TeamStatsCardHeader
+        reload={reload}
         remove={remove}
         stat={stat}
         toggleFilters={toggleFilters}
