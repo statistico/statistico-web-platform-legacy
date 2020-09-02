@@ -59,7 +59,7 @@ describe('useFetchesTeamStat', () => {
     expect(result.current.loading).toEqual(false);
   });
 
-  it('calls teamStatPresenter when reload function is executed', async() => {
+  it('calls teamStatPresenter when reload function is executed', async () => {
     teamStatPresenter.mockImplementation(() => Promise.resolve([]));
 
     const { result, waitForNextUpdate } = renderHook(() =>
