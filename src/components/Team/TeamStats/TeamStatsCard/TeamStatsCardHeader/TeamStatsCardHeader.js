@@ -10,7 +10,7 @@ import {
 import classes from './TeamStatsCardHeader.module.css';
 
 const teamStatsCardHeader = (props) => {
-  const { stat, remove, toggleFilters } = props;
+  const { reload, remove, stat, toggleFilters } = props;
 
   return (
     <div className={classes.TeamStatsCardHeader}>
@@ -24,7 +24,7 @@ const teamStatsCardHeader = (props) => {
         >
           <FontAwesomeIcon icon={faFilter} />
         </span>
-        <span>
+        <span onClick={reload} onKeyDown={reload} role="button" tabIndex={0}>
           <FontAwesomeIcon icon={faSyncAlt} />
         </span>
         <span
@@ -41,6 +41,7 @@ const teamStatsCardHeader = (props) => {
 };
 
 teamStatsCardHeader.propTypes = {
+  reload: PropTypes.func.isRequired,
   remove: PropTypes.func.isRequired,
   stat: PropTypes.shape({
     id: PropTypes.string,

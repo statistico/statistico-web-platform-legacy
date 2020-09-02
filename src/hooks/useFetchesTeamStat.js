@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import teamStatPresenter from '../presenters/team_stat';
 import useAsyncError from './useAsyncError';
@@ -17,7 +17,7 @@ const useFetchesTeamStat = (
   const [loading, setLoading] = useState(true);
   const throwError = useAsyncError();
 
-  useEffect(() => {
+  const load = useCallback(() => {
     const payload = {
       dateAfter,
       dateBefore,
@@ -54,9 +54,14 @@ const useFetchesTeamStat = (
     throwError,
   ]);
 
+  useEffect(() => {
+    load();
+  }, [load]);
+
   return {
     stats,
     loading,
+    reload: load,
   };
 };
 

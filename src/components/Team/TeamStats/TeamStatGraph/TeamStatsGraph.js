@@ -10,7 +10,10 @@ import {
 } from 'recharts';
 import PropTypes from 'prop-types';
 
-const teamStatGraph = ({ stats }) => {
+const teamStatGraph = ({ isOpponent, stats }) => {
+  const name = isOpponent ? 'Opponent Stat Total' : 'Stat Total';
+  const stroke = isOpponent ? '#e91e63' : '#22ccde';
+
   return (
     <ResponsiveContainer>
       <LineChart
@@ -22,10 +25,10 @@ const teamStatGraph = ({ stats }) => {
         <Tooltip />
         <Legend />
         <Line
-          name="Match Total"
+          name={name}
           type="natural"
           dataKey="value"
-          stroke="#22ccde"
+          stroke={stroke}
           strokeWidth={2}
           activeDot={{ r: 6 }}
         />
@@ -35,6 +38,7 @@ const teamStatGraph = ({ stats }) => {
 };
 
 teamStatGraph.propTypes = {
+  isOpponent: PropTypes.bool.isRequired,
   stats: PropTypes.arrayOf(
     PropTypes.shape({
       fixtureId: PropTypes.number.isRequired,
