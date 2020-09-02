@@ -44,7 +44,13 @@ const TeamStatsCard = (props) => {
   let display = null;
 
   if (displayCounts) {
-    display = <TeamStatsCounts stats={stats} />;
+    display = (
+      <TeamStatsCounts
+        isOpponent={showOpponent}
+        stat={stat.label}
+        stats={stats}
+      />
+    );
   }
 
   if (displayGraph) {
