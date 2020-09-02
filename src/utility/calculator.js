@@ -1,25 +1,14 @@
-export const calculateMedian = (numbers) => {
-  // median of [3, 5, 4, 4, 1, 1, 2, 3] = 3
-  let m = 0;
-  const numsLen = numbers.length;
-  numbers.sort();
-
-  if (numsLen % 2 === 0) {
-    // average of two middle numbers
-    m = (numbers[numsLen / 2 - 1] + numbers[numsLen / 2]) / 2;
-  } else {
-    // is odd
-    // middle number only
-    m = numbers[(numsLen - 1) / 2];
-  }
-
-  return m;
-};
-
 export const calculateMax = (numbers) => {
   const sorted = numbers.sort((a, b) => a - b);
 
   return sorted[sorted.length - 1];
+};
+
+export const calculateMedian = (numbers) => {
+  const mid = Math.floor(numbers.length / 2);
+  const nums = [...numbers].sort((a, b) => a - b);
+
+  return numbers.length % 2 !== 0 ? nums[mid] : (nums[mid - 1] + nums[mid]) / 2;
 };
 
 export const calculateMode = (numbers) => {
