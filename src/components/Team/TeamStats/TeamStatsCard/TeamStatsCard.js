@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Loader from '../../../Loader/Loader';
 import useFetchesTeamStat from '../../../../hooks/useFetchesTeamStat';
 import TeamStatsCardHeader from './TeamStatsCardHeader/TeamStatsCardHeader';
-import TeamStatsCounts from './TeamStatsCounts/TeamStatsCounts';
+import TeamStatsCounts from '../TeamStatsCounts/TeamStatsCounts';
 import TeamStatGraph from '../TeamStatGraph/TeamStatsGraph';
 import TeamStatToggle from './TeamStatsToggle/TeamStatsToggle';
 
