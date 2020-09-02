@@ -8,7 +8,7 @@ import {
   calculateMax,
   calculateMedian,
   calculateMode,
-} from '../../../../../utility/stats_calculator';
+} from '../../../../../utility/calculator';
 
 const teamStatsCounts = ({ stats }) => {
   const filtered = stats.map((item) => item.value);
