@@ -21,6 +21,7 @@ const useFetchesTeamStat = (
     const payload = {
       dateAfter,
       dateBefore,
+      include: ['result'],
       limit,
       opponent,
       seasonIds,
