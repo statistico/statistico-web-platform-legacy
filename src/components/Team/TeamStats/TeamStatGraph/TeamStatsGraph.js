@@ -1,8 +1,8 @@
 import React from 'react';
 import {
-  LineChart,
+  BarChart,
+  Bar,
   Legend,
-  Line,
   ResponsiveContainer,
   Tooltip,
   XAxis,
@@ -10,29 +10,24 @@ import {
 } from 'recharts';
 import PropTypes from 'prop-types';
 
+import TeamStatsTooltip from '../TeamStatsTooltip/TeamStatsTooltip';
+
 const teamStatGraph = ({ isOpponent, stats }) => {
   const name = isOpponent ? 'Opponent Stat Total' : 'Stat Total';
-  const stroke = isOpponent ? '#e91e63' : '#22ccde';
+  const fill = isOpponent ? '#e91e63' : '#22ccde';
 
   return (
     <ResponsiveContainer>
-      <LineChart
+      <BarChart
         data={stats}
         margin={{ top: 20, right: 50, left: 0, bottom: 20 }}
       >
         <XAxis />
         <YAxis allowDecimals={false} />
-        <Tooltip />
+        <Tooltip content={<TeamStatsTooltip />} />
         <Legend />
-        <Line
-          name={name}
-          type="natural"
-          dataKey="value"
-          stroke={stroke}
-          strokeWidth={2}
-          activeDot={{ r: 6 }}
-        />
-      </LineChart>
+        <Bar name={name} type="natural" dataKey="value" fill={fill} />
+      </BarChart>
     </ResponsiveContainer>
   );
 };

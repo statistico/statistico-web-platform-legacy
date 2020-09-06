@@ -1,0 +1,17 @@
+.TeamStatsTooltip {
+    background-color: white;
+    opacity: 0.95;
+    color: #43434e;
+    padding: 10px;
+}
+
+.TeamStatsTooltip span {
+    color: black;
+    font-weight: bold;
+    padding-right: 5px;
+}
+
+.TeamStatsTooltip h3 {
+    border-bottom: 1px solid #43434e;
+    padding-bottom: 10px;
+}

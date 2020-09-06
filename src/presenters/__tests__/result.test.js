@@ -5,7 +5,7 @@ import resultsPresenter from '../result';
 jest.mock('../../gateway/statistico');
 
 describe('resultsPresenter', () => {
-  it('returns an object containing team data', async () => {
+  it('returns an array of result object data', async () => {
     const fetched = [
       {
         id: 129810,
