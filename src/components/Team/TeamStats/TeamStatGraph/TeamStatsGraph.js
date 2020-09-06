@@ -12,15 +12,16 @@ import PropTypes from 'prop-types';
 
 import TeamStatsTooltip from '../TeamStatsTooltip/TeamStatsTooltip';
 
-const teamStatGraph = ({ isOpponent, stats }) => {
+const teamStatGraph = ({ fullSize, isOpponent, stats }) => {
   const name = isOpponent ? 'Opponent Stat Total' : 'Stat Total';
   const fill = isOpponent ? '#e91e63' : '#22ccde';
+  const height = fullSize ? '100%' : '95%';
 
   return (
-    <ResponsiveContainer>
+    <ResponsiveContainer height={height}>
       <BarChart
         data={stats}
-        margin={{ top: 20, right: 50, left: 0, bottom: 20 }}
+        margin={{ top: 15, right: 50, left: 0, bottom: 15 }}
       >
         <XAxis />
         <YAxis allowDecimals={false} />
@@ -33,6 +34,7 @@ const teamStatGraph = ({ isOpponent, stats }) => {
 };
 
 teamStatGraph.propTypes = {
+  fullSize: PropTypes.bool.isRequired,
   isOpponent: PropTypes.bool.isRequired,
   stats: PropTypes.arrayOf(
     PropTypes.shape({

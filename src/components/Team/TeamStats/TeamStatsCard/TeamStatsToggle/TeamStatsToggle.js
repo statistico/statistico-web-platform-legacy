@@ -8,6 +8,7 @@ import classes from './TeamStatsToggle.module.css';
 
 const teamStatsToggle = (props) => {
   const {
+    active,
     dateAfter,
     dateBefore,
     showOpponent,
@@ -18,8 +19,12 @@ const teamStatsToggle = (props) => {
     venue,
   } = props;
 
+  const styles = active
+    ? `${classes.TeamStatsToggle}`
+    : `${classes.TeamStatsToggle} ${classes.Hide}`;
+
   return (
-    <div className={classes.TeamStatsToggle}>
+    <div className={styles}>
       <VenueToggle
         styles={classes.VenueToggle}
         selected={venue}
@@ -46,6 +51,7 @@ const teamStatsToggle = (props) => {
 };
 
 teamStatsToggle.propTypes = {
+  active: PropTypes.bool.isRequired,
   dateAfter: PropTypes.oneOfType([
     PropTypes.string.isRequired,
     PropTypes.oneOf([null]).isRequired,

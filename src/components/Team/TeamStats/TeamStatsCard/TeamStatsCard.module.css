@@ -9,7 +9,14 @@
     flex: 0 0 48%; /*grow | shrink | basis */
 }
 
-.TeamStatsCardDisplay {
+.TeamStatsCardBody {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 320px;
     padding-top: 10px;
-    height: 300px;
+}
+
+.TeamStatsCardDisplay {
+    flex: 1;
 }

@@ -54,7 +54,13 @@ const TeamStatsCard = (props) => {
   }
 
   if (displayGraph) {
-    display = <TeamStatGraph isOpponent={showOpponent} stats={stats} />;
+    display = (
+      <TeamStatGraph
+        fullSize={!showFilters}
+        isOpponent={showOpponent}
+        stats={stats}
+      />
+    );
   }
 
   if (stats.length === 0) {
@@ -69,11 +75,12 @@ const TeamStatsCard = (props) => {
         stat={stat}
         toggleFilters={toggleFilters}
       />
-      <div className={classes.TeamStatsCardDisplay}>
-        <Loader loading={loading}>{display}</Loader>
-      </div>
-      {showFilters ? (
+      <div className={classes.TeamStatsCardBody}>
+        <div className={classes.TeamStatsCardDisplay}>
+          <Loader loading={loading}>{display}</Loader>
+        </div>
         <TeamStatToggle
+          active={showFilters}
           dateAfter={dateAfter}
           dateBefore={dateBefore}
           showOpponent={showOpponent}
@@ -83,7 +90,7 @@ const TeamStatsCard = (props) => {
           toggleVenue={setVenue}
           venue={venue}
         />
-      ) : null}
+      </div>
     </div>
   );
 };
