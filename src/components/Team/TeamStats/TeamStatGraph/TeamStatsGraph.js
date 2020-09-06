@@ -14,7 +14,7 @@ import TeamStatsTooltip from '../TeamStatsTooltip/TeamStatsTooltip';
 
 const teamStatGraph = ({ isOpponent, stats }) => {
   const name = isOpponent ? 'Opponent Stat Total' : 'Stat Total';
-  const stroke = isOpponent ? '#e91e63' : '#22ccde';
+  const fill = isOpponent ? '#e91e63' : '#22ccde';
 
   return (
     <ResponsiveContainer>
@@ -22,11 +22,11 @@ const teamStatGraph = ({ isOpponent, stats }) => {
         data={stats}
         margin={{ top: 20, right: 50, left: 0, bottom: 20 }}
       >
-        <XAxis interval="preserveStart" />
+        <XAxis />
         <YAxis allowDecimals={false} />
         <Tooltip content={<TeamStatsTooltip />} />
         <Legend />
-        <Bar name={name} type="natural" dataKey="value" fill={stroke} />
+        <Bar name={name} type="natural" dataKey="value" fill={fill} />
       </BarChart>
     </ResponsiveContainer>
   );
