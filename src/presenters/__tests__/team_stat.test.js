@@ -18,7 +18,7 @@ describe('teamStatPresenter', () => {
             venueId: 449,
             nationalTeam: false,
             founded: 1892,
-            logo: 'https://cdn.sportmonks.com/images//soccer/teams/20/20.png'
+            logo: 'https://cdn.sportmonks.com/images//soccer/teams/20/20.png',
           },
           awayTeam: {
             id: 8,
@@ -28,7 +28,7 @@ describe('teamStatPresenter', () => {
             venueId: 230,
             nationalTeam: false,
             founded: 1892,
-            logo: 'https://cdn.sportmonks.com/images//soccer/teams/8/8.png'
+            logo: 'https://cdn.sportmonks.com/images//soccer/teams/8/8.png',
           },
           season: {
             id: 16036,
