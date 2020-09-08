@@ -1,10 +1,8 @@
 import React from 'react';
+import ReactTooltip from 'react-tooltip';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faChartLine,
-  faSortNumericUp,
-} from '@fortawesome/free-solid-svg-icons';
+import { faCalculator, faChartBar } from '@fortawesome/free-solid-svg-icons';
 
 import TeamStatsSelect from '../TeamStatsSelect/TeamStatsSelect';
 import classes from './TeamStatsMenu.module.css';
@@ -26,19 +24,29 @@ const teamStatsMenu = ({ addStat, statDisplay }) => {
           role="button"
           onKeyDown={statDisplay}
           tabIndex={0}
+          data-tip
+          data-for="countsToggle"
         >
-          <FontAwesomeIcon icon={faSortNumericUp} size="2x" />
+          <FontAwesomeIcon icon={faCalculator} size="2x" />
         </span>
         <span
           onClick={statDisplay}
           role="button"
           onKeyDown={statDisplay}
           tabIndex={0}
+          data-tip
+          data-for="graphToggle"
         >
-          <FontAwesomeIcon icon={faChartLine} size="2x" />
+          <FontAwesomeIcon icon={faChartBar} size="2x" />
         </span>
       </div>
       <TeamStatsSelect addStat={addStat} styles={selectStyles} />
+      <ReactTooltip id="countsToggle" place="top" effect="float">
+        Display stats as count data
+      </ReactTooltip>
+      <ReactTooltip id="graphToggle" place="top" effect="float">
+        Display stats as bar charts
+      </ReactTooltip>
     </div>
   );
 };
