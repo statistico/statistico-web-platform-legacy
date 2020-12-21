@@ -7,23 +7,8 @@
     left: 0;
 }
 
-.Sidebar {
-    background-color: #181831;
-    color: white;
-    position: fixed;
-    right: 0;
-    width: 20%;
-}
-
-@media (max-width: 480px) {
+@media (max-width: 768px) {
     .Layout {
         margin-top: 60px;
-    }
-
-    .Sidebar {
-        padding: 4vh 4vh;
-        justify-content: space-between;
-        align-items: center;
-        /*right: ${props => (props.open) ? "-0%" : "0"};   */
     }
 }

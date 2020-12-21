@@ -2,7 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import styled from 'styled-components';
-import classes from './Toggle.module.css';
+
+const Toggle = styled.div`
+  margin: 0 15px 0 0;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+`;
 
 const Hamburger = styled.div`
   background-color: #22ccde;
@@ -41,15 +48,9 @@ const toggle = (props) => {
   const { open, clicked } = props;
 
   return (
-    <div
-      className={classes.Toggle}
-      onClick={clicked}
-      role="button"
-      tabIndex={0}
-      onKeyDown={clicked}
-    >
+    <Toggle onClick={clicked} role="button" tabIndex={0} onKeyDown={clicked}>
       {open ? <Hamburger open /> : <Hamburger />}
-    </div>
+    </Toggle>
   );
 };
 

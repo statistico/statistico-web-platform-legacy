@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 
 import Layout from './Layout';
 import SidebarMenu from '../../components/Navigation/SidebarMenu/SidebarMenu';
-import Toggle from '../../components/Toggle/Toggle';
+import Toggle from '../../components/Navigation/Toggle/Toggle';
 
 describe('<Layout />', () => {
   let wrapper;
