@@ -6,7 +6,7 @@ const NavBarWrapper = styled.div`
   top: 0;
   left: 0;
   display: flex;
-  background-color: #181831;
+  background-color: #1d1d1d;
   position: fixed;
   justify-content: flex-start;
   align-items: center;
