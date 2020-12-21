@@ -2,8 +2,8 @@ import React from 'react';
 
 import Aux from '../../hoc/Aux/Aux';
 import Routes from '../../components/Routes/Routes';
-import SidebarMenu from '../../components/Navigation/SidebarMenu/SidebarMenu';
-import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
+import ResponsiveMenu from '../../components/Navigation/ResponsiveMenu/ResponsiveMenu';
+import NavBar from '../../components/Navigation/Navbar/NavBar';
 import useTogglesMenu from '../../hooks/useTogglesMenu';
 import classes from './Layout.module.css';
 import ErrorBoundary from '../../components/ErrorBoundary/ErrorBoundary';
@@ -13,8 +13,8 @@ const Layout = () => {
 
   return (
     <Aux>
-      <Toolbar open={menuOpen} clicked={menuToggleHandler} />
-      {menuOpen ? <SidebarMenu /> : null}
+      <NavBar open={menuOpen} clicked={menuToggleHandler} />
+      {menuOpen ? <ResponsiveMenu /> : null}
       <main className={classes.Layout}>
         <ErrorBoundary>
           <Routes />
