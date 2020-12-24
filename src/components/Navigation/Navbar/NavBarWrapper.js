@@ -11,6 +11,8 @@ const NavBarWrapper = styled.div`
   justify-content: flex-start;
   align-items: center;
   box-sizing: border-box;
+  z-index: 1;
+  border-bottom: 1px solid #6b7475;
 
   @media (max-width: 769px) {
     height: 60px;

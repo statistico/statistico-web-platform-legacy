@@ -1,14 +1,15 @@
 import React from 'react';
+import styled from 'styled-components';
 
-import StrategySearchWrapper from './StrategySearchWrapper';
+const Dashboard = styled.nav`
+  background-color: #2d2d2d;
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-between;
+`;
 
 const StrategySearch = () => {
-  return (
-    <StrategySearchWrapper>
-      <div>Filter panel will go here</div>
-      <div>Main dashboard will go head</div>
-    </StrategySearchWrapper>
-  );
+  return <Dashboard>Main dashboard will go head</Dashboard>;
 };
 
 export default StrategySearch;
