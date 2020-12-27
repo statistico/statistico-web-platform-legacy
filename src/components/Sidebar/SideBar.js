@@ -2,6 +2,7 @@ import React from 'react';
 
 import Brand from './Brand/Brand';
 import Menu from '../Menu/Menu';
+import SideBarToggle from './SideBarToggle/SideBarToggle';
 import SideBarWrapper from './SideBarWrapper';
 
 const SideBar = () => {
@@ -9,6 +10,7 @@ const SideBar = () => {
     <SideBarWrapper>
       <Brand />
       <Menu />
+      <SideBarToggle />
     </SideBarWrapper>
   );
 };
