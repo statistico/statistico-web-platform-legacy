@@ -10,31 +10,33 @@ const Icon = styled.div`
   flex-direction: row;
   justify-content: center;
   margin: 15px 0 15px 0;
-  padding: 0 10px 0 0;
   width: 30%;
 `;
 
 const Title = styled.div`
-  display: flex;
+  display: ${(props) => (props.open ? 'flex' : 'none')};
   justify-content: flex-start;
-  margin: 15px 30px 15px 10px;
+  padding: 15px 30px 15px 20px;
   width: 70%;
 `;
 
 const MenuItem = (props) => {
-  const { icon, title } = props;
+  const { open, icon, title } = props;
   return (
-    <MenuItemWrapper>
+    <MenuItemWrapper open={open}>
       <Icon>
         <FontAwesomeIcon icon={icon} size="1x" />
       </Icon>
-      <Title>{title}</Title>
+      <Title open={open}>{title}</Title>
     </MenuItemWrapper>
   );
 };
 
 MenuItem.propTypes = {
-  icon: PropTypes.elementType.isRequired,
+  open: PropTypes.bool.isRequired,
+  icon: PropTypes.shape({
+    icon: PropTypes.array,
+  }).isRequired,
   title: PropTypes.string.isRequired,
 };
 
