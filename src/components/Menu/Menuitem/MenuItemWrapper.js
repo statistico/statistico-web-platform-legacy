@@ -6,11 +6,12 @@ const MenuItemWrapper = styled.div`
   align-items: center;
   height: 56;
   cursor: pointer;
-  padding-left: 32px;
-  padding-right: 32px;
+  width: 100%;
+  padding: 0 32px 0 52px;
 
   &:hover {
     color: #22ccde;
+    font-weight: 600;
   }
 `;
 

@@ -7,8 +7,10 @@ import MenuItemWrapper from './MenuItemWrapper';
 
 const Icon = styled.div`
   display: flex;
-  justify-content: flex-end;
-  margin: 15px 10px 15px 30px;
+  flex-direction: row;
+  justify-content: center;
+  margin: 15px 0 15px 0;
+  padding: 0 10px 0 0;
   width: 30%;
 `;
 
