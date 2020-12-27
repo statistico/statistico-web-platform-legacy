@@ -7,7 +7,7 @@ const BrandWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   border-bottom: 2px solid #909090;
 `;
 

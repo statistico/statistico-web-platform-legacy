@@ -5,7 +5,7 @@ const SideBarWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   background-color: #1d1d1d;
-  width: 255px;
+  width: ${(props) => (props.open ? '255px' : '80px')};
   border-right: 2px solid #909090;
 `;
 
