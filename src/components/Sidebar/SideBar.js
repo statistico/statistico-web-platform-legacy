@@ -7,7 +7,7 @@ import SideBarWrapper from './SideBarWrapper';
 import useTogglesMenu from '../../hooks/useTogglesMenu';
 
 const SideBar = () => {
-  const { menuOpen, menuToggleHandler } = useTogglesMenu(true);
+  const { menuOpen, menuToggleHandler } = useTogglesMenu(false);
 
   return (
     <SideBarWrapper open={menuOpen}>
