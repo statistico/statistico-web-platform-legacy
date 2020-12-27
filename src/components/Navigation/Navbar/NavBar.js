@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Avatar from '../Avatar/Avatar';
-import Brand from '../Brand/Brand';
+import Brand from '../../Sidebar/Brand/Brand';
 import NavBarWrapper from './NavBarWrapper';
 import NavLinks from '../NavLinks/NavLinks';
 import Toggle from '../Toggle/Toggle';
