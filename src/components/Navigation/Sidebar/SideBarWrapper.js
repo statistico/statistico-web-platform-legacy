@@ -7,6 +7,10 @@ const SideBarWrapper = styled.div`
   background-color: #1d1d1d;
   width: ${(props) => (props.open ? '255px' : '80px')};
   border-right: 2px solid #909090;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export default SideBarWrapper;

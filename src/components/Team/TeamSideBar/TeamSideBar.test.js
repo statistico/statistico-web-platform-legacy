@@ -1,8 +1,8 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-import SidebarMax from '../../Sidebar/SidebarMax/SidebarMax';
-import SidebarMin from '../../Sidebar/SidebarMin/SidebarMin';
+import SidebarMax from '../../Navigation/Sidebar/SidebarMax/SidebarMax';
+import SidebarMin from '../../Navigation/Sidebar/SidebarMin/SidebarMin';
 import TeamSideBar from './TeamSideBar';
 
 describe('<TeamStatsSideBar />', () => {

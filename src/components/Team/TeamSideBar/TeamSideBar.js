@@ -1,13 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import Aux from '../../../hoc/Aux/Aux';
-import SeasonSelect from '../../SeasonSelect/SeasonSelect';
-import SidebarMax from '../../Sidebar/SidebarMax/SidebarMax';
-import SidebarMin from '../../Sidebar/SidebarMin/SidebarMin';
-import SidebarTab from '../../Sidebar/SidebarTab/SidebarTab';
-import TeamDetails from '../../TeamDetails/TeamDetails';
-import useTogglesMenu from '../../../hooks/useTogglesMenu';
 
 const selectStyles = {
   container: (provided) => ({
@@ -54,69 +47,8 @@ const options = [
   },
 ];
 
-const TeamSideBar = (props) => {
-  const {
-    selected,
-    team,
-    toggleDisplay,
-    seasons,
-    selectedSeason,
-    toggleSeason,
-  } = props;
-
-  const { menuOpen, menuToggleHandler } = useTogglesMenu(true);
-
-  return (
-    <Aux>
-      {menuOpen ? (
-        <SidebarMax clicked={menuToggleHandler} open={menuOpen}>
-          <TeamDetails team={team} />
-          <SeasonSelect
-            seasons={seasons}
-            selectedSeason={selectedSeason}
-            styles={selectStyles}
-            toggleSeason={toggleSeason}
-          />
-          {options.map((option) => {
-            return (
-              <SidebarTab
-                onClick={() => toggleDisplay(option.id)}
-                active={selected === option.id}
-                key={option.id}
-                id={`Sidebar${option.id}`}
-              >
-                {option.name}
-              </SidebarTab>
-            );
-          })}
-        </SidebarMax>
-      ) : (
-        <SidebarMin clicked={menuToggleHandler} open={menuOpen} />
-      )}
-    </Aux>
-  );
-};
-
-TeamSideBar.propTypes = {
-  selected: PropTypes.number.isRequired,
-  team: PropTypes.shape({
-    logo: PropTypes.string,
-    name: PropTypes.string,
-  }).isRequired,
-  toggleDisplay: PropTypes.func.isRequired,
-  seasons: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string,
-      current: PropTypes.bool,
-      seasonIds: PropTypes.arrayOf(PropTypes.number),
-    })
-  ).isRequired,
-  selectedSeason: PropTypes.shape({
-    name: PropTypes.string,
-    current: PropTypes.bool,
-    seasonIds: PropTypes.arrayOf(PropTypes.number),
-  }).isRequired,
-  toggleSeason: PropTypes.func.isRequired,
+const TeamSideBar = () => {
+  return <Aux>Replace me</Aux>;
 };
 
 export default TeamSideBar;

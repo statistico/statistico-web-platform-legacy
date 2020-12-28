@@ -4,15 +4,14 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Toggle = styled.div`
-  margin: 0 15px 0 0;
-
-  @media (min-width: 768px) {
-    display: none;
-  }
+  display: flex;
+  justify-content: flex-end;
+  width: 100px;
+  padding-right: 15px;
 `;
 
 const Hamburger = styled.div`
-  background-color: #22ccde;
+  background-color: #909090;
   width: 30px;
   height: 3px;
   cursor: pointer;
@@ -25,7 +24,7 @@ const Hamburger = styled.div`
   ::after {
     width: 30px;
     height: 3px;
-    background-color: #22ccde;
+    background-color: #909090;
     content: '';
     position: absolute;
     transition: all 0.3s linear;

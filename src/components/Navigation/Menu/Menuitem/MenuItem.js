@@ -9,8 +9,13 @@ const Icon = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin: 15px 0 15px 0;
+  padding: 15px 0 15px 0;
   width: 30%;
+
+  @media (max-width: 768px) {
+    width: 40%;
+    justify-content: flex-end;
+  }
 `;
 
 const Title = styled.div`
@@ -18,6 +23,11 @@ const Title = styled.div`
   justify-content: flex-start;
   padding: 15px 30px 15px 20px;
   width: 70%;
+
+  @media (max-width: 768px) {
+    width: 60%;
+    padding: 15px 30px 15px 20px;
+  }
 `;
 
 const MenuItem = (props) => {
