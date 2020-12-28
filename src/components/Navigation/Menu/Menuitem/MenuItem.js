@@ -26,7 +26,6 @@ const Title = styled.div`
 
   @media (max-width: 768px) {
     width: 60%;
-    padding: 15px 30px 15px 20px;
   }
 `;
 
