@@ -3,9 +3,9 @@ import styled from 'styled-components';
 const DashboardWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  background-colour: #e6ecef;
+  background-color: #d9dbdc;
   flex-grow: 1;
-  margin: 25px;
+  padding: 25px;
 `;
 
 export default DashboardWrapper;
