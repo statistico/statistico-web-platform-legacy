@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import StrategyFilterPanel from './StrategyFilterPanel/StrategyFilterPanel';
 import StrategySearchWrapper from './StrategySearchWrapper';
 
 const Title = styled.div`
@@ -16,7 +17,7 @@ const Content = styled.div`
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
-  padding: 20px;
+  margin-top: 20px;
 `;
 
 const StrategySearch = () => {
@@ -25,7 +26,7 @@ const StrategySearch = () => {
       <Title>Trade Strategy Search</Title>
       <Content>
         <div>Main display of breakdowns go here</div>
-        <div>Filters panel goes here</div>
+        <StrategyFilterPanel />
       </Content>
     </StrategySearchWrapper>
   );
