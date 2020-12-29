@@ -8,7 +8,7 @@ import {
   string,
 } from 'prop-types';
 
-import MarketSelect from '../../../MarketSelect/MarketSelect';
+import SingleSelect from '../../../../SingleSelect/SingleSelect';
 import MarketFiltersWrapper from './MarketFiltersWrapper';
 
 const selectStyles = {
@@ -25,11 +25,6 @@ const selectStyles = {
     color: '#1d1d1d',
   }),
 
-  option: (styles, state) => ({
-    ...styles,
-    cursor: 'pointer',
-  }),
-
   control: (styles) => ({
     ...styles,
     cursor: 'pointer',
@@ -42,11 +37,11 @@ const MarketFilters = (props) => {
   return (
     <MarketFiltersWrapper>
       <p>Market:</p>
-      <MarketSelect
-        markets={markets}
-        selectedMarket={market}
+      <SingleSelect
+        selections={markets}
+        selection={market}
         styles={selectStyles}
-        toggleMarket={toggleMarket}
+        toggleSelection={toggleMarket}
       />
     </MarketFiltersWrapper>
   );

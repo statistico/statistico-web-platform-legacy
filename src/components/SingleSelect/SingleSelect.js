@@ -9,29 +9,29 @@ import {
 } from 'prop-types';
 import Select from 'react-select';
 
-const MarketSelect = (props) => {
-  const { markets, selectedMarket, styles, toggleMarket } = props;
+const SingleSelect = (props) => {
+  const { selections, selection, styles, toggleSelection } = props;
 
-  const options = markets.map((market) => {
+  const options = selections.map((s) => {
     return {
-      value: market.name,
-      label: market.label,
+      value: s.name,
+      label: s.label,
     };
   });
 
   const onChangeInput = (value) => {
-    const m = markets.find((market) => market.name === value.value);
-    toggleMarket(m);
+    const m = selections.find((market) => market.name === value.value);
+    toggleSelection(m);
   };
 
   const defaultValue = () => {
-    if (selectedMarket == null) {
+    if (selection == null) {
       return null;
     }
 
     return {
-      value: selectedMarket.name,
-      label: selectedMarket.label,
+      value: selection.name,
+      label: selection.label,
     };
   };
 
@@ -46,14 +46,14 @@ const MarketSelect = (props) => {
   );
 };
 
-MarketSelect.propTypes = {
-  markets: arrayOf(
+SingleSelect.propTypes = {
+  selections: arrayOf(
     shape({
       name: string.isRequired,
       label: string.isRequired,
     })
   ).isRequired,
-  selectedMarket: oneOfType([
+  selection: oneOfType([
     shape({
       name: string.isRequired,
       label: string.isRequired,
@@ -65,11 +65,11 @@ MarketSelect.propTypes = {
     singleValue: func,
     valueContainer: func,
   }).isRequired,
-  toggleMarket: func.isRequired,
+  toggleSelection: func.isRequired,
 };
 
-MarketSelect.defaultProps = {
-  selectedMarket: null,
+SingleSelect.defaultProps = {
+  selection: null,
 };
 
-export default MarketSelect;
+export default SingleSelect;
