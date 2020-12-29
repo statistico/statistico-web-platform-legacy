@@ -1,25 +1,21 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useState } from 'react';
 
 import MarketFilters from './MarketFilters/MarketFilters';
 import StrategyFilterPanelWrapper from './StrategyFilterPanelWrapper';
-
-const Title = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  color: black;
-  font-size: 24px;
-  font-weight: 500;
-  padding-bottom: 20px;
-`;
+import { markets } from '../../../../config/config';
 
 const StrategyFilterPanel = () => {
+  const [market, toggleMarket] = useState(null);
+
   return (
     <StrategyFilterPanelWrapper>
-      <Title>Filters</Title>
-      <MarketFilters />
+      <MarketFilters
+        market={market}
+        toggleMarket={toggleMarket}
+        markets={markets}
+      />
+      <div>Runner Filters here</div>
+      <div>League Filters here</div>
       <div>Result Filters here</div>
       <div>Stat Filters here</div>
     </StrategyFilterPanelWrapper>
