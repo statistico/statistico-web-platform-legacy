@@ -6,7 +6,7 @@ import competitions from '../../../../../config/competitions';
 import selectStyles from '../../../../../config/form-styles';
 
 const CompetitionFilter = () => {
-  const [comps, toggleCompetitions] = useState([]);
+  const [comps, toggleCompetitions] = useState(competitions);
 
   return (
     <CompetitionFilterWrapper>
