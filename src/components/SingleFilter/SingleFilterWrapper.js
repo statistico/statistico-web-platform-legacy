@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const MarketFiltersWrapper = styled.div`
+const SingleFilterWrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: fit-content;
@@ -14,4 +14,4 @@ const MarketFiltersWrapper = styled.div`
   }
 `;
 
-export default MarketFiltersWrapper;
+export default SingleFilterWrapper;
