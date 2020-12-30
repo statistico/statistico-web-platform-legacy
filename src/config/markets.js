@@ -1,4 +1,4 @@
-export const markets = [
+const markets = [
   {
     name: 'MATCH_ODDS',
     label: '1x2',
@@ -33,4 +33,4 @@ export const markets = [
   },
 ];
 
-export const competitions = [];
+export default markets;

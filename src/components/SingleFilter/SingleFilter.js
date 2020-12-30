@@ -11,28 +11,8 @@ import {
 
 import SingleFilterWrapper from './SingleFilterWrapper';
 
-const styles = {
-  container: (provided) => ({
-    ...provided,
-    width: '100%',
-    textAlign: 'left',
-    fontSize: '18px',
-  }),
-
-  valueContainer: (provided) => ({
-    ...provided,
-    justifyContent: 'left',
-    color: '#1d1d1d',
-  }),
-
-  control: (provided) => ({
-    ...provided,
-    cursor: 'pointer',
-  }),
-};
-
 const SingleFilter = (props) => {
-  const { selection, selections, title, toggleSelection } = props;
+  const { selection, selections, styles, title, toggleSelection } = props;
 
   const options = selections.map((s) => {
     return {
@@ -91,6 +71,11 @@ SingleFilter.propTypes = {
       label: string.isRequired,
     })
   ).isRequired,
+  styles: shape({
+    container: func.isRequired,
+    valueContainer: func.isRequired,
+    control: func.isRequired,
+  }).isRequired,
   title: string.isRequired,
   toggleSelection: func.isRequired,
 };
