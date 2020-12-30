@@ -3,26 +3,7 @@ import React, { useCallback, useState } from 'react';
 import MarketFilterWrapper from './MarketFilterWrapper';
 import SingleFilter from '../../../../SingleFilter/SingleFilter';
 import markets from '../../../../../config/markets';
-
-const styles = {
-  container: (provided) => ({
-    ...provided,
-    width: '100%',
-    textAlign: 'left',
-    fontSize: '18px',
-  }),
-
-  valueContainer: (provided) => ({
-    ...provided,
-    justifyContent: 'left',
-    color: '#1d1d1d',
-  }),
-
-  control: (provided) => ({
-    ...provided,
-    cursor: 'pointer',
-  }),
-};
+import selectStyles from '../../../../../config/form-styles';
 
 const MarketFilter = () => {
   const [market, toggleMarket] = useState(null);
@@ -38,14 +19,14 @@ const MarketFilter = () => {
       <SingleFilter
         selection={market}
         selections={markets}
-        styles={styles}
+        styles={selectStyles}
         title="Market"
         toggleSelection={updateMarket}
       />
       <SingleFilter
         selection={runner}
         selections={market != null ? market.runners : []}
-        styles={styles}
+        styles={selectStyles}
         title="Selection"
         toggleSelection={toggleRunner}
       />

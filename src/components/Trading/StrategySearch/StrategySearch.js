@@ -25,8 +25,8 @@ const StrategySearch = () => {
     <StrategySearchWrapper>
       <Title>Trade Strategy Search</Title>
       <Content>
-        <div>Main display of breakdowns go here</div>
         <StrategyFilterPanel />
+        <div>Main display of breakdowns go here</div>
       </Content>
     </StrategySearchWrapper>
   );
