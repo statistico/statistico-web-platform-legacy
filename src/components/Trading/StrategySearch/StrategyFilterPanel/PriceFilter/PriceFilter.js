@@ -4,26 +4,7 @@ import styled from 'styled-components';
 import PriceFilterWrapper from './PriceFilterWrapper';
 import SingleFilter from '../../../../SingleFilter/SingleFilter';
 import odds from '../../../../../config/odds';
-
-const styles = {
-  container: (provided) => ({
-    ...provided,
-    width: '100%',
-    textAlign: 'left',
-    fontSize: '18px',
-  }),
-
-  valueContainer: (provided) => ({
-    ...provided,
-    justifyContent: 'left',
-    color: '#1d1d1d',
-  }),
-
-  control: (provided) => ({
-    ...provided,
-    cursor: 'pointer',
-  }),
-};
+import selectStyles from '../../../../../config/form-styles';
 
 const MinOdds = styled.div`
   width: 90%;
@@ -45,7 +26,7 @@ const PriceFilter = () => {
         <SingleFilter
           selection={minOdds}
           selections={odds}
-          styles={styles}
+          styles={selectStyles}
           title="Min Odds"
           toggleSelection={toggleMinOdds}
         />
@@ -54,7 +35,7 @@ const PriceFilter = () => {
         <SingleFilter
           selection={maxOdds}
           selections={odds}
-          styles={styles}
+          styles={selectStyles}
           title="Max Odds"
           toggleSelection={toggleMaxOdds}
         />
