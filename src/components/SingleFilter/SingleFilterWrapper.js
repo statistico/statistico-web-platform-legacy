@@ -6,11 +6,12 @@ const SingleFilterWrapper = styled.div`
   height: fit-content;
   width: 100%;
   padding-bottom: 10px;
+  font-size: 18px;
 
   p {
     color: black;
     font-weight: 500;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
   }
 `;
 
