@@ -8,7 +8,7 @@ const ModalWrapper = styled.div`
   border-radius: 10px 20px 10px 20px;
   padding: 16px;
   left: 50%;
-  top: 25%;
+  top: 35%;
   transform: translate(-50%, -50%);
   transition: all 0.3s ease-out;
   z-index: 1050;

@@ -13,6 +13,7 @@ const Header = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
+  margin-bottom: 20px;
 
   svg {
     cursor: pointer;
@@ -33,7 +34,7 @@ const Modal = (props) => {
         <Header>
           <FontAwesomeIcon icon={faTimesCircle} size="1x" onClick={clicked} />
         </Header>
-        <p>{children}</p>
+        {children}
       </ModalWrapper>
     </Aux>,
     document.querySelector('#modal-root')

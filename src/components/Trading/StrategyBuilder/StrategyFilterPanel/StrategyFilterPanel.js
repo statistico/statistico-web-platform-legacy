@@ -9,10 +9,9 @@ const StrategyFilterPanel = () => {
   return (
     <StrategyFilterPanelWrapper>
       <ResultFilterPanel />
+      <div>Stat Filters here</div>
       <PriceFilter />
       <CompetitionFilter />
-      <div>Result Filters here</div>
-      <div>Stat Filters here</div>
     </StrategyFilterPanelWrapper>
   );
 };
