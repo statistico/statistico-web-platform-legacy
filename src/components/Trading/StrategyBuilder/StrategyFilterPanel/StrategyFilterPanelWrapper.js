@@ -4,12 +4,11 @@ const StrategyFilterPanelWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  width: 18%;
-  background-color: #7d7c7c;
+  width: 20%;
   height: fit-content;
-  padding: 20px;
+  padding: 0 0 20px 20px;
   border-radius: 10px 20px 10px 20px;
-  font-size: 16px;
+  font-size: 14px;
 `;
 
 export default StrategyFilterPanelWrapper;
