@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import StrategyBuilderHeader from './StrategyBuilderHeader/StrategyBuilderHeader';
 import StrategyFilterPanel from './StrategyFilterPanel/StrategyFilterPanel';
 import StrategyBuilderWrapper from './StrategyBuilderWrapper';
+import TradeStatPanel from './TradeStatPanel/TradeStatPanel';
 
 const Content = styled.div`
   display: flex;
@@ -20,6 +21,7 @@ const StrategyBuilder = () => {
   return (
     <StrategyBuilderWrapper>
       <StrategyBuilderHeader market={market} selection={selection} />
+      <TradeStatPanel />
       <Content>
         <div>Main display of breakdowns go here</div>
         <StrategyFilterPanel />
