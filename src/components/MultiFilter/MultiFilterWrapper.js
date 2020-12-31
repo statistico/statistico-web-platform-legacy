@@ -9,7 +9,7 @@ const MultiFilterWrapper = styled.div`
   font-size: 18px;
 
   p {
-    color: black;
+    color: #22ccde;
     font-weight: 500;
     margin-bottom: 5px;
   }
