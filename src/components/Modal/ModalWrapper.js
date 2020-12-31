@@ -2,18 +2,17 @@ import styled from 'styled-components';
 
 const ModalWrapper = styled.div`
   position: fixed;
-  background-color: #7d7c7c;
-  width: 70%;
-  border: 1px solid #ccc;
-  box-shadow: 1px 1px 1px black;
+  z-index: 500;
+  background-color: white;
+  width: 450px;
+  height: fit-content;
+  border-radius: 10px 20px 10px 20px;
   padding: 16px;
-  left: 15%;
-  top: 30%;
-  box-sizing: border-box;
+  left: 50%;
+  top: 25%;
+  transform: translate(-50%, -50%);
   transition: all 0.3s ease-out;
-  transform: ${(props) =>
-    props.show ? 'translateY(0)' : 'translateY(-100vh)'};
-  opacity: ${(props) => (props.show ? '1' : '0')};
+  z-index: 1050;
 `;
 
 export default ModalWrapper;
