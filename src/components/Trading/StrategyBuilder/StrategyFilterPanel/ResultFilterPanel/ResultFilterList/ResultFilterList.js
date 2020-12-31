@@ -1,30 +1,68 @@
-import React from 'react';
-import { number, shape, string } from 'prop-types';
+import React, { useMemo } from 'react';
+import { arrayOf, func, shape, string } from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
 import ResultFilterListWrapper from './ResultFilterListWrapper';
+import Table from '../../../../../Table/Table';
 
 const ResultFilterList = (props) => {
-  const { filter, index } = props;
+  const { filters, removeFilter } = props;
+
+  const columns = useMemo(
+    () => [
+      {
+        Header: 'Team',
+        accessor: 'team',
+      },
+      {
+        Header: 'Result',
+        accessor: 'result',
+      },
+      {
+        Header: 'Games',
+        accessor: 'games',
+      },
+      {
+        Header: 'Venue',
+        accessor: 'venue',
+      },
+      {
+        Header: () => null,
+        id: 'delete-row',
+        Cell: (tableProps) => (
+          <FontAwesomeIcon
+            icon={faTimesCircle}
+            size="1x"
+            onClick={() => removeFilter(tableProps.row.index, filters)}
+          />
+        ),
+      },
+    ],
+    [filters, removeFilter]
+  );
+
+  if (filters.length === 0) {
+    return null;
+  }
 
   return (
     <ResultFilterListWrapper>
-      <p>{index + 1}</p>
-      <p>{filter.team}</p>
-      <p>{filter.result}</p>
-      <p>{filter.games}</p>
-      <p>{filter.venue}</p>
+      <Table columns={columns} data={filters} />
     </ResultFilterListWrapper>
   );
 };
 
 ResultFilterList.propTypes = {
-  index: number.isRequired,
-  filter: shape({
-    team: string.isRequired,
-    result: string.isRequired,
-    games: string.isRequired,
-    venue: string.isRequired,
-  }).isRequired,
+  filters: arrayOf(
+    shape({
+      team: string.isRequired,
+      result: string.isRequired,
+      games: string.isRequired,
+      venue: string.isRequired,
+    })
+  ).isRequired,
+  removeFilter: func.isRequired,
 };
 
 export default ResultFilterList;

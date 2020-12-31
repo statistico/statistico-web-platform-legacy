@@ -4,6 +4,7 @@ import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 
 import Modal from '../../../../Modal/Modal';
 import ResultFilter from './ResultFilter/ResultFilter';
+import ResultFilterList from './ResultFilterList/ResultFilterList';
 import ResultFilterPanelWrapper from './ResultFilterPanelWrapper';
 import useModal from '../../../../../hooks/useModal';
 
@@ -16,6 +17,11 @@ const ResultFilterPanel = () => {
     toggle();
   };
 
+  const removeFilter = (i, f) => {
+    const newList = f.filter((filter, index) => index !== i);
+    setFilters(newList);
+  };
+
   return (
     <ResultFilterPanelWrapper>
       <Modal clicked={toggle} show={isShowing}>
@@ -25,17 +31,7 @@ const ResultFilterPanel = () => {
         <FontAwesomeIcon icon={faPlusCircle} size="1x" onClick={toggle} />
         <span>Result Filter</span>
       </div>
-      {filters &&
-        filters.map((filter) => {
-          return (
-            <div>
-              <p>{filter.team}</p>
-              <p>{filter.result}</p>
-              <p>{filter.games}</p>
-              <p>{filter.venue}</p>
-            </div>
-          );
-        })}
+      <ResultFilterList filters={filters} removeFilter={removeFilter} />
     </ResultFilterPanelWrapper>
   );
 };
