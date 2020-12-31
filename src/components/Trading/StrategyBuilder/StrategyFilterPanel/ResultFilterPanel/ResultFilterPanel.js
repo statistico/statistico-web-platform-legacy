@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 
+import Modal from '../../../../Modal/Modal';
 import ResultFilter from './ResultFilter/ResultFilter';
 import ResultFilterPanelWrapper from './ResultFilterPanelWrapper';
 import useModal from '../../../../../hooks/useModal';
-import Modal from '../../../../Modal/Modal';
 
 const ResultFilterPanel = () => {
   const { isShowing, toggle } = useModal(false);
