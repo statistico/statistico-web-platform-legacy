@@ -5,7 +5,7 @@ const StrategyBuilderHeaderWrapper = styled.div`
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid #909090;
 `;
 
 export default StrategyBuilderHeaderWrapper;
