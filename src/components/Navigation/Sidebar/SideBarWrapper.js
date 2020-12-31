@@ -4,7 +4,7 @@ const SideBarWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: #1d1d1d;
+  background-color: black;
   width: ${(props) => (props.open ? '255px' : '80px')};
 
   @media (max-width: 768px) {

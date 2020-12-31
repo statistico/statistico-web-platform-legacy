@@ -5,10 +5,10 @@ import { string } from 'prop-types';
 import StrategyBuilderHeaderWrapper from './StrategyBuilderHeaderWrapper';
 
 const Title = styled.div`
-  color: black;
+  color: #22ccde;
   font-size: 40px;
   font-weight: 500;
-  padding: 20px 0 30px 0px;
+  padding: 20px 0 26px 0px;
 `;
 
 const MarketSelectionWrapper = styled.div`
@@ -17,7 +17,7 @@ const MarketSelectionWrapper = styled.div`
 
   h3,
   p {
-    text-align: right;
+    text-align: left;
     padding-bottom: 5px;
   }
 `;
@@ -35,7 +35,6 @@ const StrategyBuilderHeader = (props) => {
 
   return (
     <StrategyBuilderHeaderWrapper>
-      <Title>Strategy Builder</Title>
       <MarketSelectionWrapper>
         <Market>
           <h3>Market</h3>
@@ -46,6 +45,7 @@ const StrategyBuilderHeader = (props) => {
           <p>{selection}</p>
         </Selection>
       </MarketSelectionWrapper>
+      <Title>Strategy Builder</Title>
     </StrategyBuilderHeaderWrapper>
   );
 };
