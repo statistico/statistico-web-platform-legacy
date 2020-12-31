@@ -5,7 +5,6 @@ import { useTable } from 'react-table';
 
 const Table = (props) => {
   const { columns, data } = props;
-  // Use the state and functions returned from useTable to build your UI
   const {
     getTableProps,
     getTableBodyProps,
