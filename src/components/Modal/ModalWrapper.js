@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 const ModalWrapper = styled.div`
   position: fixed;
-  z-index: 500;
   background-color: white;
   width: 450px;
   height: fit-content;
