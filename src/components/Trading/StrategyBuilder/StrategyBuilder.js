@@ -18,6 +18,7 @@ const StrategyBuilder = () => {
   return (
     <StrategyBuilderWrapper>
       <StrategyBuilderHeader />
+      <StrategyFilterPanel />
       <TradeStatPanel />
     </StrategyBuilderWrapper>
   );

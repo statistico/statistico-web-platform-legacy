@@ -7,12 +7,6 @@ const SingleFilterWrapper = styled.div`
   width: 100%;
   padding-bottom: 10px;
   font-size: 18px;
-
-  p {
-    color: black;
-    font-weight: 500;
-    margin-bottom: 5px;
-  }
 `;
 
 export default SingleFilterWrapper;
