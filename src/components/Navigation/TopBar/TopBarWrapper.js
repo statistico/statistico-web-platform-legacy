@@ -4,7 +4,7 @@ const TopBarWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background-color: black;
+  background-color: #1b1e22;
   height: 70px;
 
   @media (min-width: 768px) {

@@ -5,9 +5,9 @@ const SideBarToggleWrapper = styled.div`
   flex-direction: row;
   justify-content: center;
   padding: 20px 0 20px 0;
-  border-top: 2px solid #909090;
   color: #909090;
   cursor: pointer;
+  margin: auto 0 0 0;
 
   &:hover {
     color: #22ccde;

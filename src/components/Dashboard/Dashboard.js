@@ -1,16 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { bool, node } from 'prop-types';
 
 import DashboardWrapper from './DashboardWrapper';
 
 const dashboard = (props) => {
-  const { children } = props;
+  const { children, open } = props;
 
-  return <DashboardWrapper>{children}</DashboardWrapper>;
+  return <DashboardWrapper open={open}>{children}</DashboardWrapper>;
 };
 
 dashboard.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: node.isRequired,
+  open: bool.isRequired,
 };
 
 export default dashboard;

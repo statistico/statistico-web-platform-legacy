@@ -6,7 +6,7 @@ const ResponsiveMenuWrapper = styled.div`
   justify-content: flex-start;
   width: 100vw;
   height: 90%;
-  background-color: #1d1d1d;
+  background-color: #1b1e22;
   position: absolute;
   margin-top: 70px;
 
