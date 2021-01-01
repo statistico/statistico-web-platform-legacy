@@ -1,14 +1,13 @@
 import styled from 'styled-components';
 
 const BrandWrapper = styled.div`
-  padding: 20px 10px 20px 10px;
+  padding: 35px 10px 20px 10px;
   width: 100%;
   height: 10%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-bottom: 2px solid #909090;
 `;
 
 export default BrandWrapper;

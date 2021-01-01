@@ -1,21 +1,26 @@
 import React from 'react';
+import { bool, func } from 'prop-types';
 
 import Aux from '../../hoc/Aux/Aux';
 import ResponsiveMenu from './ResponsiveMenu/ResponsiveMenu';
 import SideBar from './Sidebar/SideBar';
 import TopBar from './TopBar/TopBar';
-import useTogglesMenu from '../../hooks/useTogglesMenu';
 
-const Navigation = () => {
-  const { menuOpen, menuToggleHandler } = useTogglesMenu(false);
+const Navigation = (props) => {
+  const { open, clicked } = props;
 
   return (
     <Aux>
-      <SideBar open={menuOpen} clicked={menuToggleHandler} />
-      <TopBar open={menuOpen} clicked={menuToggleHandler} />
-      <ResponsiveMenu open={menuOpen} />
+      <SideBar open={open} clicked={clicked} />
+      <TopBar open={open} clicked={clicked} />
+      <ResponsiveMenu open={open} />
     </Aux>
   );
+};
+
+Navigation.propTypes = {
+  open: bool.isRequired,
+  clicked: func.isRequired,
 };
 
 export default Navigation;

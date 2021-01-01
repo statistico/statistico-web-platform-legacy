@@ -15,17 +15,10 @@ const Content = styled.div`
 `;
 
 const StrategyBuilder = () => {
-  const market = 'Over/Under 2.5 Goals';
-  const selection = 'Over 2.5 Goals';
-
   return (
     <StrategyBuilderWrapper>
-      <StrategyBuilderHeader market={market} selection={selection} />
+      <StrategyBuilderHeader />
       <TradeStatPanel />
-      <Content>
-        <div>Main display of breakdowns go here</div>
-        <StrategyFilterPanel />
-      </Content>
     </StrategyBuilderWrapper>
   );
 };

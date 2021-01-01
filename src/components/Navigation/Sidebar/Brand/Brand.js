@@ -11,13 +11,13 @@ const LogoIcon = styled.img`
   flex-direction: row;
   justify-content: center;
   max-width: 50px;
-  margin: 0 10px 0 10px;
+  margin: ${(props) => (props.open ? '0 10px 15px 10px' : '0 10px 50px 10px')};
 `;
 
 const LogoText = styled.img`
-  height: 18px;
+  height: 25px;
   max-width: 200px;
-  margin: 0 5px 0 15px;
+  margin: 0 5px 10px 5px;
   display: ${(props) => (props.open ? 'flex' : 'none')};
 
   @media (max-width: 768px) {
@@ -30,7 +30,7 @@ const brand = (props) => {
 
   return (
     <BrandWrapper>
-      <LogoIcon src={icon} />
+      <LogoIcon src={icon} open={menuOpen} />
       <LogoText src={text} open={menuOpen} />
     </BrandWrapper>
   );

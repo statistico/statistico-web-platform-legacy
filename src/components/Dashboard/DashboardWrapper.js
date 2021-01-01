@@ -2,11 +2,14 @@ import styled from 'styled-components';
 
 const DashboardWrapper = styled.div`
   display: flex;
-  flex-direction: row;
-  background: #232526;
-  background: linear-gradient(to bottom, #18191bdb, #141415);
+  flex-direction: column;
+  background-color: #23262b;
+  color: #6f7580;
   flex-grow: 1;
-  padding: 25px;
+  padding: 50px;
+  transition: width 0.25s ease, background 0.25s ease;
+  width: calc(100% - ${(props) => (props.open ? '240px' : '80px')});
+  margin-left: ${(props) => (props.open ? '240px' : '80px')};
 `;
 
 export default DashboardWrapper;

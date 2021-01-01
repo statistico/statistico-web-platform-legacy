@@ -12,7 +12,6 @@ const TradeStatPanel = () => {
       <TradeStat />
       <TradeStat />
       <TradeStat />
-      <TradeStat />
     </TradeStatPanelWrapper>
   );
 };
