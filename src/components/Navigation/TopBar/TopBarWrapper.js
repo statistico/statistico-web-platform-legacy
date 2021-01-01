@@ -6,7 +6,6 @@ const TopBarWrapper = styled.div`
   justify-content: space-between;
   background-color: #1b1e22;
   height: 70px;
-  width: 100vw;
 
   @media (min-width: 768px) {
     display: none;

@@ -10,6 +10,10 @@ const DashboardWrapper = styled.div`
   transition: width 0.25s ease, background 0.25s ease;
   width: calc(100% - ${(props) => (props.open ? '240px' : '80px')});
   margin-left: ${(props) => (props.open ? '240px' : '80px')};
+
+  @media (max-width: 768px) {
+    margin-top: 70px;
+  }
 `;
 
 export default DashboardWrapper;
