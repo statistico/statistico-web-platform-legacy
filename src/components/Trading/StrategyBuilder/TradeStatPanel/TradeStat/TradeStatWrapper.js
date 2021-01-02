@@ -9,8 +9,8 @@ const TradeStatWrapper = styled.div`
   background-color: #1b1e22;
   font-size: 32px;
   color: #ccc;
-  margin: 20px 10px 20px 10px;
-  padding: 20px;
+  margin: 10px;
+  padding: 30px;
   width: 100px;
   border-radius: 10px;
   box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.23);
