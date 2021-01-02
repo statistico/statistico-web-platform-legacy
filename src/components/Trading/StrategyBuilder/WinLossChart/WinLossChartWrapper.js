@@ -12,10 +12,6 @@ const WinLossChartWrapper = styled.div`
   background-color: #1b1e22;
   box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.23);
   height: 350px;
-
-  tspan {
-    color: blue;
-  }
 `;
 
 export default WinLossChartWrapper;
