@@ -1,23 +1,20 @@
 import React from 'react';
-import styled from 'styled-components';
 
 import StrategyBuilderHeader from './StrategyBuilderHeader/StrategyBuilderHeader';
-import StrategyFilterPanel from './StrategyFilterPanel/StrategyFilterPanel';
+import StrategyBuilderRow from './StrategyBuilderRow';
 import StrategyBuilderWrapper from './StrategyBuilderWrapper';
+import TradeGraph from './TradeGraph/TradeGraph';
 import TradeStatPanel from './TradeStatPanel/TradeStatPanel';
-
-const Content = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-  margin-top: 20px;
-`;
+import WinLossChart from './WinLossChart/WinLossChart';
 
 const StrategyBuilder = () => {
   return (
     <StrategyBuilderWrapper>
       <StrategyBuilderHeader />
+      <StrategyBuilderRow>
+        <WinLossChart />
+        <TradeGraph />
+      </StrategyBuilderRow>
       <TradeStatPanel />
     </StrategyBuilderWrapper>
   );

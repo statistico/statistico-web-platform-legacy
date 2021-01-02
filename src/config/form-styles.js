@@ -4,12 +4,13 @@ const selectStyles = {
     width: '100%',
     textAlign: 'left',
     fontSize: '14px',
+    color: 'black',
   }),
 
   valueContainer: (provided) => ({
     ...provided,
     justifyContent: 'left',
-    color: '#1d1d1d',
+    color: 'black',
   }),
 
   control: (provided) => ({

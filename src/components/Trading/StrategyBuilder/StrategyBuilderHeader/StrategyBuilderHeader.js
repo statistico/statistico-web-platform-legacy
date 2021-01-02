@@ -1,20 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import StrategyBuilderHeaderWrapper from './StrategyBuilderHeaderWrapper';
+import StrategyBuilderRow from '../StrategyBuilderRow';
 
 const Title = styled.div`
   color: #22ccde;
-  font-size: 40px;
+  font-size: 32px;
   font-weight: 500;
-  padding: 20px 0 26px 0px;
+  padding: 20px 0 26px 15px;
 `;
 
 const StrategyBuilderHeader = () => {
   return (
-    <StrategyBuilderHeaderWrapper>
+    <StrategyBuilderRow>
       <Title>Strategy Builder</Title>
-    </StrategyBuilderHeaderWrapper>
+    </StrategyBuilderRow>
   );
 };
 
