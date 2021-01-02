@@ -11,11 +11,9 @@ import {
 import WinLossChartWrapper from './WinLossChartWrapper';
 
 const data = [
-  { name: 'Win', value: 69 },
-  { name: 'Loss', value: 31 },
+  { name: 'Win', value: 69, colour: 'green' },
+  { name: 'Loss', value: 31, colour: 'red' },
 ];
-
-const COLORS = ['green', 'red'];
 
 const WinLossChart = () => {
   return (
@@ -29,13 +27,8 @@ const WinLossChart = () => {
             paddingAngle={3}
           >
             <Label value="59%" position="center" fontSize="50px" fill="#ccc" />
-            {/* eslint-disable-next-line react/jsx-no-undef,react/no-array-index-key */}
             {data.map((entry, index) => (
-              // eslint-disable-next-line react/jsx-no-undef
-              <Cell
-                fill={COLORS[index % COLORS.length]}
-                stroke={COLORS[index % COLORS.length]}
-              />
+              <Cell fill={entry.colour} stroke={entry.colour} />
             ))}
           </Pie>
           <Legend
