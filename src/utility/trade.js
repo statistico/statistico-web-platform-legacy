@@ -61,5 +61,5 @@ export const winPercentage = (trades) => {
     return trade.Result === 'SUCCESS';
   });
 
-  return +((win.length / trades.length) * 100).toFixed(2);
+  return Math.round((win.length / trades.length) * 100);
 };

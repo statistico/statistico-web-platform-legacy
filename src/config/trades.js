@@ -1,7 +1,7 @@
 const trades = [
   {
     Result: 'SUCCESS',
-    RunnerPrice: 5.08,
+    RunnerPrice: 1.78,
   },
   {
     Result: 'SUCCESS',
@@ -46,6 +46,14 @@ const trades = [
   {
     Result: 'SUCCESS',
     RunnerPrice: 1.93,
+  },
+  {
+    Result: 'SUCCESS',
+    RunnerPrice: 1.41,
+  },
+  {
+    Result: 'SUCCESS',
+    RunnerPrice: 1.29,
   },
 ];
 
