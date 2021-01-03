@@ -44,7 +44,7 @@ const TradeStatPanel = (props) => {
         title="Yield"
       />
       <TradeStat
-        colour="green"
+        colour={profit(trades, 1) > 0 ? 'green' : 'red'}
         count={profit(trades, 1)}
         decimals={2}
         metric="u"
