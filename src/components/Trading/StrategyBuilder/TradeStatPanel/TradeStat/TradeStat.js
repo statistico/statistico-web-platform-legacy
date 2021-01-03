@@ -1,7 +1,8 @@
 import React from 'react';
 import { instanceOf, number, oneOfType, string } from 'prop-types';
-import styled from 'styled-components';
+import CountUp from 'react-countup';
 
+import styled from 'styled-components';
 import TradeStatWrapper from './TradeStatWrapper';
 
 const CountWrapper = styled.div`
@@ -12,7 +13,7 @@ const CountWrapper = styled.div`
 `;
 
 const Count = styled.div`
-  font-size: 50px;
+  font-size: 60px;
   font-weight: 500;
   color: ${(props) => props.colour};
   padding-top: 20px;
@@ -23,6 +24,7 @@ const Metric = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   font-size: 18px;
+  font-weight: 600;
   padding-left: 5px;
   height: 100%;
 `;
@@ -30,16 +32,18 @@ const Metric = styled.div`
 const Title = styled.div`
   font-size: 18px;
   font-weight: 500;
-  padding: 20px 0 10px 0;
+  padding: 30px 0 10px 0;
 `;
 
 const TradeStat = (props) => {
-  const { colour, count, metric, title } = props;
+  const { colour, count, decimals, metric, title } = props;
 
   return (
     <TradeStatWrapper>
       <CountWrapper>
-        <Count colour={colour}>{count}</Count>
+        <Count colour={colour}>
+          <CountUp start={0} end={count} duration={3} decimals={decimals} />
+        </Count>
         <Metric>{metric}</Metric>
       </CountWrapper>
       <Title>{title}</Title>
@@ -50,6 +54,7 @@ const TradeStat = (props) => {
 TradeStat.propTypes = {
   colour: string.isRequired,
   count: number.isRequired,
+  decimals: number.isRequired,
   metric: oneOfType([string.isRequired, instanceOf(null)]).isRequired,
   title: string.isRequired,
 };

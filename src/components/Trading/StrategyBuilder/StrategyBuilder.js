@@ -6,16 +6,17 @@ import StrategyBuilderWrapper from './StrategyBuilderWrapper';
 import TradeGraph from './TradeGraph/TradeGraph';
 import TradeStatPanel from './TradeStatPanel/TradeStatPanel';
 import WinLossChart from './WinLossChart/WinLossChart';
+import trades from '../../../config/trades';
 
 const StrategyBuilder = () => {
   return (
     <StrategyBuilderWrapper>
       <StrategyBuilderHeader />
       <StrategyBuilderRow>
-        <WinLossChart />
+        <WinLossChart trades={trades} />
         <TradeGraph />
       </StrategyBuilderRow>
-      <TradeStatPanel />
+      <TradeStatPanel trades={trades} />
     </StrategyBuilderWrapper>
   );
 };

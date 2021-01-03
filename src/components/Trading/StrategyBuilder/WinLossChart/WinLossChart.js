@@ -1,4 +1,5 @@
 import React from 'react';
+import { arrayOf, number, shape, string } from 'prop-types';
 import {
   Cell,
   Label,
@@ -9,13 +10,18 @@ import {
 } from 'recharts';
 
 import WinLossChartWrapper from './WinLossChartWrapper';
+import { winPercentage } from '../../../../utility/trade';
 
-const data = [
-  { name: 'Win', value: 69, colour: 'green' },
-  { name: 'Loss', value: 31, colour: 'red' },
-];
+const WinLossChart = (props) => {
+  const { trades } = props;
 
-const WinLossChart = () => {
+  const win = winPercentage(trades);
+
+  const data = [
+    { name: 'Win', value: win, colour: 'green' },
+    { name: 'Loss', value: 100 - win, colour: 'red' },
+  ];
+
   return (
     <WinLossChartWrapper>
       <ResponsiveContainer height="80%" width="80%">
@@ -26,7 +32,12 @@ const WinLossChart = () => {
             outerRadius="100%"
             paddingAngle={3}
           >
-            <Label value="59%" position="center" fontSize="50px" fill="#ccc" />
+            <Label
+              value={`${win.toString()}%`}
+              position="center"
+              fontSize="50px"
+              fill="#ccc"
+            />
             {data.map((entry, index) => (
               <Cell fill={entry.colour} stroke={entry.colour} />
             ))}
@@ -35,13 +46,22 @@ const WinLossChart = () => {
             align="center"
             verticalAlign="bottom"
             layout="horizontal"
-            iconSize={20}
-            wrapperStyle={{ bottom: -10 }}
+            iconSize={30}
+            wrapperStyle={{ bottom: -10, left: 10 }}
           />
         </PieChart>
       </ResponsiveContainer>
     </WinLossChartWrapper>
   );
+};
+
+WinLossChart.propTypes = {
+  trades: arrayOf(
+    shape({
+      Result: string.isRequired,
+      RunnerPrice: number.isRequired,
+    })
+  ).isRequired,
 };
 
 export default WinLossChart;

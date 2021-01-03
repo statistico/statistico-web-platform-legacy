@@ -1,34 +1,66 @@
 import React from 'react';
+import { arrayOf, number, shape, string } from 'prop-types';
 
 import StrategyBuilderRow from '../StrategyBuilderRow';
 import TradeStat from './TradeStat/TradeStat';
+import {
+  averageRunnerPrice,
+  maxDrawdown,
+  profit,
+  tradeYield,
+} from '../../../../utility/trade';
 
-const TradeStatPanel = () => {
+const TradeStatPanel = (props) => {
+  const { trades } = props;
+
   return (
     <StrategyBuilderRow>
       <TradeStat
         colour="#22ccde"
-        count={1528}
+        count={trades.length}
+        decimals={0}
         metric={null}
         title="Total Trades"
       />
       <TradeStat
         colour="#22ccde"
-        count={2.08}
+        count={averageRunnerPrice(trades)}
+        decimals={2}
         metric={null}
         title="Average Odds"
       />
       <TradeStat
         colour="#ff0000"
-        count={-25}
+        count={maxDrawdown(trades)}
+        decimals={0}
         metric="u"
         title="Maximum Drawdown"
       />
-      <TradeStat colour="green" count={15.25} metric="%" title="Yield" />
-      <TradeStat colour="green" count={256} metric="u" title="Profit / Loss" />
-      <TradeStat colour="green" count={22} metric="%" title="ROI" />
+      <TradeStat
+        colour={tradeYield(trades, 1) > 0 ? 'green' : 'red'}
+        count={tradeYield(trades, 1)}
+        decimals={2}
+        metric="%"
+        title="Yield"
+      />
+      <TradeStat
+        colour={profit(trades, 1) > 0 ? 'green' : 'red'}
+        count={profit(trades, 1)}
+        decimals={2}
+        metric="u"
+        title="Profit / Loss"
+      />
     </StrategyBuilderRow>
   );
+};
+
+TradeStatPanel.propTypes = {
+  trades: arrayOf(
+    shape({
+      Result: string.isRequired,
+      RunnerPrice: number.isRequired,
+    })
+  ).isRequired,
 };
 
 export default TradeStatPanel;
