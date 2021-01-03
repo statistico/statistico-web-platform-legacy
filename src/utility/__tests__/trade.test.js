@@ -101,4 +101,4 @@ describe('winPercentage', () => {
 
     expect(avg).toBe(50.0);
   });
-})
+});
