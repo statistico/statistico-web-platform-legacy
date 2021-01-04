@@ -1,5 +1,6 @@
 import {
   averageRunnerPrice,
+  cumulativeProfit,
   maxDrawdown,
   orderByEventDate,
   profit,
@@ -132,5 +133,24 @@ describe('orderByEventDate', () => {
     expect(ordered[9].RunnerPrice).toBe(2.56);
     expect(ordered[10].RunnerPrice).toBe(2.0);
     expect(ordered[11].RunnerPrice).toBe(1.35);
+  });
+});
+
+describe('cumulativeProfit', () => {
+  it('returns an array of objects containing the cumulative profit total', () => {
+    const totals = cumulativeProfit(trades, 1);
+
+    expect(totals[0].profit).toBe(5.08);
+    expect(totals[1].profit).toBe(6.59);
+    expect(totals[2].profit).toBe(9.84);
+    expect(totals[3].profit).toBe(8.84);
+    expect(totals[4].profit).toBe(7.84);
+    expect(totals[5].profit).toBe(9.35);
+    expect(totals[6].profit).toBe(11.35);
+    expect(totals[7].profit).toBe(10.35);
+    expect(totals[8].profit).toBe(9.35);
+    expect(totals[9].profit).toBe(8.35);
+    expect(totals[10].profit).toBe(7.35);
+    expect(totals[11].profit).toBe(9.28);
   });
 });

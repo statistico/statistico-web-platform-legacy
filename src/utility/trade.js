@@ -6,6 +6,19 @@ export const averageRunnerPrice = (trades) => {
   return +(sum / trades.length).toFixed(2);
 };
 
+export const cumulativeProfit = (trades, stake) => {
+  let total = 0;
+
+  return trades.map((trade) => {
+    total += trade.Result === 'SUCCESS' ? trade.RunnerPrice * stake : -stake;
+
+    return {
+      ...trade,
+      profit: total,
+    };
+  });
+};
+
 export const maxDrawdown = (trades) => {
   let currentDD = 0;
   let maxDD = 0;
