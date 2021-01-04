@@ -10,7 +10,8 @@ export const cumulativeProfit = (trades, stake) => {
   let total = 0;
 
   return trades.map((trade) => {
-    total += trade.Result === 'SUCCESS' ? trade.RunnerPrice * stake : -stake;
+    total +=
+      trade.Result === 'SUCCESS' ? trade.RunnerPrice * stake - stake : -stake;
 
     return {
       ...trade,

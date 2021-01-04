@@ -17,7 +17,7 @@ const StrategyBuilder = () => {
       <StrategyBuilderHeader />
       <StrategyBuilderRow>
         <WinLossChart trades={t} />
-        <TradeGraph />
+        <TradeGraph trades={t} />
       </StrategyBuilderRow>
       <TradeStatPanel trades={t} />
     </StrategyBuilderWrapper>
