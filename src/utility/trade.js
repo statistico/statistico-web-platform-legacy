@@ -26,6 +26,17 @@ export const maxDrawdown = (trades) => {
   return maxDD;
 };
 
+export const orderByEventDate = (trades) => {
+  const t = trades.map((trade) => {
+    return {
+      ...trade,
+      EventDate: new Date(trade.EventDate),
+    };
+  });
+
+  return t.slice().sort((a, b) => a.EventDate - b.EventDate);
+};
+
 export const profit = (trades, stake) => {
   const sum = trades.reduce((prev, cur) => {
     const { Result, RunnerPrice } = cur;
