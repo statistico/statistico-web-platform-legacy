@@ -6,6 +6,20 @@ export const averageRunnerPrice = (trades) => {
   return +(sum / trades.length).toFixed(2);
 };
 
+export const cumulativeProfit = (trades, stake) => {
+  let total = 0;
+
+  return trades.map((trade) => {
+    total +=
+      trade.Result === 'SUCCESS' ? trade.RunnerPrice * stake - stake : -stake;
+
+    return {
+      ...trade,
+      profit: total,
+    };
+  });
+};
+
 export const maxDrawdown = (trades) => {
   let currentDD = 0;
   let maxDD = 0;
@@ -24,6 +38,17 @@ export const maxDrawdown = (trades) => {
   });
 
   return maxDD;
+};
+
+export const orderByEventDate = (trades) => {
+  const t = trades.map((trade) => {
+    return {
+      ...trade,
+      EventDate: new Date(trade.EventDate),
+    };
+  });
+
+  return t.slice().sort((a, b) => a.EventDate - b.EventDate);
 };
 
 export const profit = (trades, stake) => {

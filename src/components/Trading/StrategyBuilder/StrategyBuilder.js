@@ -7,16 +7,19 @@ import TradeGraph from './TradeGraph/TradeGraph';
 import TradeStatPanel from './TradeStatPanel/TradeStatPanel';
 import WinLossChart from './WinLossChart/WinLossChart';
 import trades from '../../../config/trades';
+import { orderByEventDate } from '../../../utility/trade';
 
 const StrategyBuilder = () => {
+  const t = orderByEventDate(trades);
+
   return (
     <StrategyBuilderWrapper>
       <StrategyBuilderHeader />
       <StrategyBuilderRow>
-        <WinLossChart trades={trades} />
-        <TradeGraph />
+        <WinLossChart trades={t} />
+        <TradeGraph trades={t} />
       </StrategyBuilderRow>
-      <TradeStatPanel trades={trades} />
+      <TradeStatPanel trades={t} />
     </StrategyBuilderWrapper>
   );
 };
