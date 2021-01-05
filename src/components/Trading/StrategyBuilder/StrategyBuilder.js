@@ -22,7 +22,7 @@ const StrategyBuilder = () => {
       </StrategyBuilderRow>
       <TradeStatPanel trades={t} />
       <StrategyBuilderRow>
-        <CompetitionList />
+        <CompetitionList trades={t} />
       </StrategyBuilderRow>
     </StrategyBuilderWrapper>
   );

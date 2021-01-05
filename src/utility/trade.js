@@ -1,6 +1,6 @@
 export const averageRunnerPrice = (trades) => {
   const sum = trades.reduce((prev, cur) => {
-    return prev + cur.RunnerPrice;
+    return prev + cur.runnerPrice;
   }, 0);
 
   return +(sum / trades.length).toFixed(2);
@@ -11,7 +11,7 @@ export const cumulativeProfit = (trades, stake) => {
 
   return trades.map((trade) => {
     total +=
-      trade.Result === 'SUCCESS' ? trade.RunnerPrice * stake - stake : -stake;
+      trade.result === 'SUCCESS' ? trade.runnerPrice * stake - stake : -stake;
 
     return {
       ...trade,
@@ -20,12 +20,19 @@ export const cumulativeProfit = (trades, stake) => {
   });
 };
 
+export const filterByCompetition = (trades, id) => {
+  return trades.filter((trade) => {
+    const { competitionId } = trade;
+    return competitionId === id;
+  });
+};
+
 export const maxDrawdown = (trades) => {
   let currentDD = 0;
   let maxDD = 0;
 
   trades.forEach((trade) => {
-    if (trade.Result === 'FAIL') {
+    if (trade.result === 'FAIL') {
       currentDD += 1;
       return;
     }
@@ -44,19 +51,19 @@ export const orderByEventDate = (trades) => {
   const t = trades.map((trade) => {
     return {
       ...trade,
-      EventDate: new Date(trade.EventDate),
+      eventDate: new Date(trade.eventDate),
     };
   });
 
-  return t.slice().sort((a, b) => a.EventDate - b.EventDate);
+  return t.slice().sort((a, b) => a.eventDate - b.eventDate);
 };
 
 export const profit = (trades, stake) => {
   const sum = trades.reduce((prev, cur) => {
-    const { Result, RunnerPrice } = cur;
+    const { result, runnerPrice } = cur;
 
-    if (Result === 'SUCCESS') {
-      return prev + (RunnerPrice * stake - stake);
+    if (result === 'SUCCESS') {
+      return prev + (runnerPrice * stake - stake);
     }
 
     return prev - stake;
@@ -66,24 +73,16 @@ export const profit = (trades, stake) => {
 };
 
 export const tradeYield = (trades, stake) => {
-  const p = trades.reduce((prev, cur) => {
-    const { Result, RunnerPrice } = cur;
-
-    if (Result === 'SUCCESS') {
-      return prev + RunnerPrice;
-    }
-
-    return prev;
-  }, 0);
+  const p = profit(trades, stake);
 
   const s = trades.length * stake;
 
-  return +(((p - s) / s) * 100).toFixed(2);
+  return +((p / s) * 100).toFixed(2);
 };
 
 export const winPercentage = (trades) => {
   const win = trades.filter((trade) => {
-    return trade.Result === 'SUCCESS';
+    return trade.result === 'SUCCESS';
   });
 
   return Math.round((win.length / trades.length) * 100);

@@ -1,6 +1,7 @@
 import {
   averageRunnerPrice,
   cumulativeProfit,
+  filterByCompetition,
   maxDrawdown,
   orderByEventDate,
   profit,
@@ -10,64 +11,76 @@ import {
 
 const trades = [
   {
-    EventDate: '2020-01-01T03:00:00',
-    Result: 'SUCCESS',
-    RunnerPrice: 5.08,
+    competitionId: 55,
+    eventDate: '2020-01-01T03:00:00',
+    result: 'SUCCESS',
+    runnerPrice: 5.08,
   },
   {
-    EventDate: '2020-01-01T01:00:00',
-    Result: 'SUCCESS',
-    RunnerPrice: 1.51,
+    competitionId: 100,
+    eventDate: '2020-01-01T01:00:00',
+    result: 'SUCCESS',
+    runnerPrice: 1.51,
   },
   {
-    EventDate: '2020-01-02T02:00:00',
-    Result: 'SUCCESS',
-    RunnerPrice: 3.25,
+    competitionId: 55,
+    eventDate: '2020-01-02T02:00:00',
+    result: 'SUCCESS',
+    runnerPrice: 3.25,
   },
   {
-    EventDate: '2020-01-02T11:00:00',
-    Result: 'FAIL',
-    RunnerPrice: 1.23,
+    competitionId: 55,
+    eventDate: '2020-01-02T11:00:00',
+    result: 'FAIL',
+    runnerPrice: 1.23,
   },
   {
-    EventDate: '2020-01-02T10:00:00',
-    Result: 'FAIL',
-    RunnerPrice: 2.08,
+    competitionId: 2,
+    eventDate: '2020-01-02T10:00:00',
+    result: 'FAIL',
+    runnerPrice: 2.08,
   },
   {
-    EventDate: '2020-01-03T00:30:00',
-    Result: 'SUCCESS',
-    RunnerPrice: 1.51,
+    competitionId: 15,
+    eventDate: '2020-01-03T00:30:00',
+    result: 'SUCCESS',
+    runnerPrice: 1.51,
   },
   {
-    EventDate: '2020-01-03T01:00:00',
-    Result: 'SUCCESS',
-    RunnerPrice: 2.0,
+    competitionId: 550,
+    eventDate: '2020-01-03T01:00:00',
+    result: 'SUCCESS',
+    runnerPrice: 2.0,
   },
   {
-    EventDate: '2020-01-04T20:00:00',
-    Result: 'FAIL',
-    RunnerPrice: 1.35,
+    competitionId: 20,
+    eventDate: '2020-01-04T20:00:00',
+    result: 'FAIL',
+    runnerPrice: 1.35,
   },
   {
-    EventDate: '2020-01-04T10:00:00',
-    Result: 'FAIL',
-    RunnerPrice: 2.56,
+    competitionId: 1,
+    eventDate: '2020-01-04T10:00:00',
+    result: 'FAIL',
+    runnerPrice: 2.56,
   },
   {
-    EventDate: '2020-01-04T08:00:00',
-    Result: 'FAIL',
-    RunnerPrice: 1.55,
+    competitionId: 2,
+    eventDate: '2020-01-04T08:00:00',
+    result: 'FAIL',
+    runnerPrice: 1.55,
   },
   {
-    EventDate: '2020-01-04T16:00:00',
-    Result: 'FAIL',
-    RunnerPrice: 2.0,
+    competitionId: 1,
+    eventDate: '2020-01-04T16:00:00',
+    result: 'FAIL',
+    runnerPrice: 2.0,
   },
   {
-    EventDate: '2019-12-31T01:00:00',
-    Result: 'SUCCESS',
-    RunnerPrice: 1.93,
+    competitionId: 10,
+    eventDate: '2019-12-31T01:00:00',
+    result: 'SUCCESS',
+    runnerPrice: 1.93,
   },
 ];
 
@@ -121,18 +134,18 @@ describe('orderByEventDate', () => {
   it('returns average of runner price object field in array', () => {
     const ordered = orderByEventDate(trades);
 
-    expect(ordered[0].RunnerPrice).toBe(1.93);
-    expect(ordered[1].RunnerPrice).toBe(1.51);
-    expect(ordered[2].RunnerPrice).toBe(5.08);
-    expect(ordered[3].RunnerPrice).toBe(3.25);
-    expect(ordered[4].RunnerPrice).toBe(2.08);
-    expect(ordered[5].RunnerPrice).toBe(1.23);
-    expect(ordered[6].RunnerPrice).toBe(1.51);
-    expect(ordered[7].RunnerPrice).toBe(2.0);
-    expect(ordered[8].RunnerPrice).toBe(1.55);
-    expect(ordered[9].RunnerPrice).toBe(2.56);
-    expect(ordered[10].RunnerPrice).toBe(2.0);
-    expect(ordered[11].RunnerPrice).toBe(1.35);
+    expect(ordered[0].runnerPrice).toBe(1.93);
+    expect(ordered[1].runnerPrice).toBe(1.51);
+    expect(ordered[2].runnerPrice).toBe(5.08);
+    expect(ordered[3].runnerPrice).toBe(3.25);
+    expect(ordered[4].runnerPrice).toBe(2.08);
+    expect(ordered[5].runnerPrice).toBe(1.23);
+    expect(ordered[6].runnerPrice).toBe(1.51);
+    expect(ordered[7].runnerPrice).toBe(2.0);
+    expect(ordered[8].runnerPrice).toBe(1.55);
+    expect(ordered[9].runnerPrice).toBe(2.56);
+    expect(ordered[10].runnerPrice).toBe(2.0);
+    expect(ordered[11].runnerPrice).toBe(1.35);
   });
 });
 
@@ -152,5 +165,13 @@ describe('cumulativeProfit', () => {
     expect(totals[9].profit).toBe(3.3499999999999996);
     expect(totals[10].profit).toBe(2.3499999999999996);
     expect(totals[11].profit).toBe(3.2799999999999994);
+  });
+});
+
+describe('filterByCompetition', () => {
+  it('returns an array of objects containing trades for a specific competition', () => {
+    const filtered = filterByCompetition(trades, 55);
+
+    expect(filtered.length).toBe(3);
   });
 });
