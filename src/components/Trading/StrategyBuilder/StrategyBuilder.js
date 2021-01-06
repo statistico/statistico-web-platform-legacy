@@ -1,12 +1,12 @@
 import React from 'react';
 
 import StrategyBuilderHeader from './StrategyBuilderHeader/StrategyBuilderHeader';
+import StrategyFilterPanel from './StrategyFilterPanel/StrategyFilterPanel';
+import StrategyBuilderStats from './StrategyBuilderStats/StrategyBuilderStats';
 import StrategyBuilderWrapper from './StrategyBuilderWrapper';
 import trades from '../../../config/trades';
 import { orderByEventDate } from '../../../utility/trade';
 import useTogglesActiveState from '../../../hooks/useTogglesActiveState';
-import StrategyBuilderStats from './StrategyBuilderStats/StrategyBuilderStats';
-import StrategyFilterPanel from './StrategyFilterPanel/StrategyFilterPanel';
 
 const StrategyBuilder = () => {
   const t = orderByEventDate(trades);
