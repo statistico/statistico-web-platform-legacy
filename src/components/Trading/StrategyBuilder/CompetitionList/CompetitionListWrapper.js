@@ -9,7 +9,7 @@ const CompetitionListWrapper = styled.div`
   margin: 15px 10px 40px 10px;
   padding: 20px 30px 20px 30px;
   border-radius: 10px;
-  width: 70%;
+  width: 100%;
   background-color: #1b1e22;
   box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.23);
   height: fit-content;

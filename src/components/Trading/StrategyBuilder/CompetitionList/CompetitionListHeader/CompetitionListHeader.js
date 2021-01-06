@@ -8,9 +8,9 @@ const CompetitionListHeader = () => {
       <p>Competition</p>
       <p>Total Trades</p>
       <p>Average Odds</p>
-      <p>Maximum Drawdown</p>
-      <p>Yield%</p>
-      <p>Profit / Loss</p>
+      <p>Maximum Drawdown (units)</p>
+      <p>Yield (%)</p>
+      <p>Profit / Loss (units)</p>
     </CompetitionRowWrapper>
   );
 };
