@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 
-import PriceFilterWrapper from './PriceFilterWrapper';
+import PriceSelectWrapper from './PriceSelectWrapper';
 import SingleFilter from '../../../../SingleFilter/SingleFilter';
 import odds from '../../../../../config/odds';
 import selectStyles from '../../../../../config/form-styles';
 
-const PriceFilter = () => {
+const PriceSelect = () => {
   const [minOdds, toggleMinOdds] = useState(null);
   const [maxOdds, toggleMaxOdds] = useState(null);
 
   return (
-    <PriceFilterWrapper>
+    <PriceSelectWrapper>
       <SingleFilter
         selection={minOdds}
         selections={odds}
@@ -25,8 +25,8 @@ const PriceFilter = () => {
         title="Max Odds"
         toggleSelection={toggleMaxOdds}
       />
-    </PriceFilterWrapper>
+    </PriceSelectWrapper>
   );
 };
 
-export default PriceFilter;
+export default PriceSelect;

@@ -1,13 +1,21 @@
-import React, { useMemo } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { arrayOf, func, shape, string } from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
-import ResultFilterListWrapper from './ResultFilterListWrapper';
+import FilterListWrapper from './FilterListWrapper';
 import Table from '../../../../../Table/Table';
 
-const ResultFilterList = (props) => {
-  const { filters, removeFilter } = props;
+const FilterList = (props) => {
+  const { filters, updateFilters } = props;
+
+  const removeFilter = useCallback(
+    (i, f) => {
+      const newList = f.filter((filter, index) => index !== i);
+      updateFilters(newList);
+    },
+    [updateFilters]
+  );
 
   const columns = useMemo(
     () => [
@@ -47,13 +55,14 @@ const ResultFilterList = (props) => {
   }
 
   return (
-    <ResultFilterListWrapper>
+    <FilterListWrapper>
+      <p>Result Filters</p>
       <Table columns={columns} data={filters} />
-    </ResultFilterListWrapper>
+    </FilterListWrapper>
   );
 };
 
-ResultFilterList.propTypes = {
+FilterList.propTypes = {
   filters: arrayOf(
     shape({
       team: string.isRequired,
@@ -62,7 +71,7 @@ ResultFilterList.propTypes = {
       venue: string.isRequired,
     })
   ).isRequired,
-  removeFilter: func.isRequired,
+  updateFilters: func.isRequired,
 };
 
-export default ResultFilterList;
+export default FilterList;
