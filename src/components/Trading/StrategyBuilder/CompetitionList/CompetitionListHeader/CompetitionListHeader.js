@@ -1,17 +1,17 @@
 import React from 'react';
 
-import CompetitionListHeaderWrapper from './CompetitionListHeaderWrapper';
+import CompetitionRowWrapper from '../CompetitionRow/CompetitionRowWrapper';
 
 const CompetitionListHeader = () => {
   return (
-    <CompetitionListHeaderWrapper>
+    <CompetitionRowWrapper colour="#22ccde">
       <p>Competition</p>
       <p>Total Trades</p>
       <p>Average Odds</p>
       <p>Maximum Drawdown</p>
-      <p>Yield</p>
+      <p>Yield%</p>
       <p>Profit / Loss</p>
-    </CompetitionListHeaderWrapper>
+    </CompetitionRowWrapper>
   );
 };
 

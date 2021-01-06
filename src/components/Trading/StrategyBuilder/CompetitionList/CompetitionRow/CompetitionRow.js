@@ -20,7 +20,7 @@ const CompetitionRow = (props) => {
   const p = profit(trades, 1);
 
   return (
-    <CompetitionRowWrapper>
+    <CompetitionRowWrapper colour="#dedcdc">
       <p>{competition.label}</p>
       <p>{trades.length}</p>
       <p>{averageRunnerPrice(trades)}</p>

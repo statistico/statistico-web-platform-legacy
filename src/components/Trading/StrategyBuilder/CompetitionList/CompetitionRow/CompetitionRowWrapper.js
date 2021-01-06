@@ -7,19 +7,14 @@ const CompetitionRowWrapper = styled.div`
   align-items: center;
   width: 100%;
   padding: 10px;
-  color: #dedcdc;
+  color: ${(props) => props.colour};
 
   p {
     width: 20%;
     text-align: center;
 
     :first-child {
-      width: 20%;
       text-align: left;
-    }
-
-    :last-child {
-      width: 10%;
     }
   }
 `;
