@@ -1,29 +1,25 @@
 import React from 'react';
 
 import StrategyBuilderHeader from './StrategyBuilderHeader/StrategyBuilderHeader';
-import StrategyBuilderRow from './StrategyBuilderRow';
+import StrategyFilterPanel from './StrategyFilterPanel/StrategyFilterPanel';
+import StrategyBuilderStats from './StrategyBuilderStats/StrategyBuilderStats';
 import StrategyBuilderWrapper from './StrategyBuilderWrapper';
-import TradeGraph from './TradeGraph/TradeGraph';
-import TradeStatPanel from './TradeStatPanel/TradeStatPanel';
-import WinLossChart from './WinLossChart/WinLossChart';
 import trades from '../../../config/trades';
 import { orderByEventDate } from '../../../utility/trade';
-import CompetitionList from './CompetitionList/CompetitionList';
+import useTogglesActiveState from '../../../hooks/useTogglesActiveState';
 
 const StrategyBuilder = () => {
   const t = orderByEventDate(trades);
+  const { selected, selectionToggleHandler } = useTogglesActiveState(true);
 
   return (
     <StrategyBuilderWrapper>
-      <StrategyBuilderHeader />
-      <StrategyBuilderRow>
-        <WinLossChart trades={t} />
-        <TradeGraph trades={t} />
-      </StrategyBuilderRow>
-      <TradeStatPanel trades={t} />
-      <StrategyBuilderRow>
-        <CompetitionList trades={t} />
-      </StrategyBuilderRow>
+      <StrategyBuilderHeader
+        filterActive={selected}
+        toggleFilters={selectionToggleHandler}
+      />
+      <StrategyFilterPanel active={selected} />
+      <StrategyBuilderStats trades={t} />
     </StrategyBuilderWrapper>
   );
 };

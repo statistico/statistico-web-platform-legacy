@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const StrategyFilterPanelWrapper = styled.div`
-  display: flex;
+  display: ${(props) => (props.active ? 'flex' : 'none')};
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
