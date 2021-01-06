@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 
-import CompetitionFilterWrapper from './CompetitionFilterWrapper';
+import CompetitionSelectWrapper from './CompetitionSelectWrapper';
 import MultiFilter from '../../../../MultiFilter/MultiFilter';
 import competitions from '../../../../../config/competitions';
 import selectStyles from '../../../../../config/form-styles';
 
-const CompetitionFilter = () => {
-  const [comps, toggleCompetitions] = useState([]);
+const CompetitionSelect = () => {
+  const [comps, toggleCompetitions] = useState(competitions);
 
   return (
-    <CompetitionFilterWrapper>
+    <CompetitionSelectWrapper>
       <MultiFilter
         selection={comps}
         selections={competitions}
@@ -17,8 +17,8 @@ const CompetitionFilter = () => {
         title="Competition(s)"
         toggleSelection={toggleCompetitions}
       />
-    </CompetitionFilterWrapper>
+    </CompetitionSelectWrapper>
   );
 };
 
-export default CompetitionFilter;
+export default CompetitionSelect;

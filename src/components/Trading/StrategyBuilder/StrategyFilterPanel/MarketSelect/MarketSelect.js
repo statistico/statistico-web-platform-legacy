@@ -1,11 +1,11 @@
 import React, { useCallback, useState } from 'react';
 
-import MarketFilterWrapper from './MarketFilterWrapper';
+import MarketSelectWrapper from './MarketSelectWrapper';
 import SingleFilter from '../../../../SingleFilter/SingleFilter';
 import markets from '../../../../../config/markets';
 import selectStyles from '../../../../../config/form-styles';
 
-const MarketFilter = () => {
+const MarketSelect = () => {
   const [market, toggleMarket] = useState(null);
   const [runner, toggleRunner] = useState(null);
 
@@ -15,7 +15,7 @@ const MarketFilter = () => {
   }, []);
 
   return (
-    <MarketFilterWrapper>
+    <MarketSelectWrapper>
       <SingleFilter
         selection={market}
         selections={markets}
@@ -30,8 +30,8 @@ const MarketFilter = () => {
         title="Selection"
         toggleSelection={toggleRunner}
       />
-    </MarketFilterWrapper>
+    </MarketSelectWrapper>
   );
 };
 
-export default MarketFilter;
+export default MarketSelect;
