@@ -1,5 +1,5 @@
 import React from 'react';
-import { arrayOf, bool, number, shape, string } from 'prop-types';
+import { arrayOf, number, shape, string } from 'prop-types';
 
 import StrategyBuilderStatsWrapper from './StrategyBuilderStatsWrapper';
 import StrategyBuilderRow from '../StrategyBuilderRow';
@@ -9,10 +9,10 @@ import TradeStatPanel from '../TradeStatPanel/TradeStatPanel';
 import CompetitionList from '../CompetitionList/CompetitionList';
 
 const StrategyBuilderStats = (props) => {
-  const { active, trades } = props;
+  const { trades } = props;
 
   return (
-    <StrategyBuilderStatsWrapper active={active}>
+    <StrategyBuilderStatsWrapper>
       <StrategyBuilderRow>
         <WinLossChart trades={trades} />
         <TradeGraph trades={trades} />
@@ -26,7 +26,6 @@ const StrategyBuilderStats = (props) => {
 };
 
 StrategyBuilderStats.propTypes = {
-  active: bool.isRequired,
   trades: arrayOf(
     shape({
       competitionId: number.isRequired,
