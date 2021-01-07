@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { bool } from 'prop-types';
 import styled from 'styled-components';
 
 import CompetitionSelect from './CompetitionSelect/CompetitionSelect';
 import MarketSelect from './MarketSelect/MarketSelect';
 import PriceSelect from './PriceSelect/PriceSelect';
-import FilterList from './FilterPanel/FilterList/FilterList';
-import FilterPanel from './FilterPanel/FilterPanel';
+import ResultFilterList from './ResultFilterList/ResultFilterList';
+import StatFilterList from './StatFilterList/StatFilterList';
 import StrategyBuilderRow from '../StrategyBuilderRow';
 import StrategyFilterPanelWrapper from './StrategyFilterPanelWrapper';
 
@@ -19,27 +19,20 @@ const Panel = styled.div`
 
 const StrategyFilterPanel = (props) => {
   const { active } = props;
-  const [resultFilters, setResultFilters] = useState([]);
 
   return (
     <StrategyFilterPanelWrapper active={active}>
       <StrategyBuilderRow>
-        <Panel width="20%">
-          <CompetitionSelect />
-        </Panel>
         <Panel width="25%">
           <MarketSelect />
           <PriceSelect />
-          <FilterPanel
-            filters={resultFilters}
-            updateFilters={setResultFilters}
-          />
+        </Panel>
+        <Panel width="20%">
+          <CompetitionSelect />
         </Panel>
         <Panel width="45%">
-          <FilterList
-            filters={resultFilters}
-            updateFilters={setResultFilters}
-          />
+          <ResultFilterList />
+          <StatFilterList />
         </Panel>
       </StrategyBuilderRow>
     </StrategyFilterPanelWrapper>

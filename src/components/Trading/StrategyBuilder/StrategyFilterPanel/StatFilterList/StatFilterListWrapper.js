@@ -1,6 +1,14 @@
 import styled from 'styled-components';
 
-const FilterListWrapper = styled.div`
+const StatFilterListWrapper = styled.div`
+  height: 50%;
+
+  span {
+    padding: 0 10px 0 10px;
+    font-weight: 600;
+    font-size: 16px;
+  }
+
   table {
     text-align: left;
     width: 100%;
@@ -23,8 +31,16 @@ const FilterListWrapper = styled.div`
       margin: 0;
       border-bottom: 1px solid #ccc;
       padding: 5px 0 5px 0;
+      text-align: left;
+    }
+  }
+
+  svg {
+    :hover {
+      cursor: pointer;
+      color: #22ccde;
     }
   }
 `;
 
-export default FilterListWrapper;
+export default StatFilterListWrapper;
