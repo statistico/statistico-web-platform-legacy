@@ -52,6 +52,17 @@ export const games = [
   },
 ];
 
+export const line = [
+  {
+    name: 'CLOSING',
+    label: 'Closing',
+  },
+  {
+    name: 'MAX',
+    label: 'Max',
+  },
+];
+
 export const measure = [
   {
     name: 'AVG',
