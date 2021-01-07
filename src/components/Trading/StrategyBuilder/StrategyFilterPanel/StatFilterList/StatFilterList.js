@@ -9,7 +9,7 @@ import useModal from '../../../../../hooks/useModal';
 import StatFilter from './StatFilter/StatFilter';
 
 const StatFilterList = () => {
-  const [isShowing, toggle] = useModal(false);
+  const { isShowing, toggle } = useModal(false);
   const [filters, setFilters] = useState([]);
 
   const addFilter = (filter) => {

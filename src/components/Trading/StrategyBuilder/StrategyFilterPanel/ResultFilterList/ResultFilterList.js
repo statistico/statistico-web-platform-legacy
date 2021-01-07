@@ -9,7 +9,7 @@ import Table from '../../../../Table/Table';
 import useModal from '../../../../../hooks/useModal';
 
 const ResultFilterList = () => {
-  const [isShowing, toggle] = useModal(false);
+  const { isShowing, toggle } = useModal(false);
   const [filters, setFilters] = useState([]);
 
   const addFilter = (filter) => {
