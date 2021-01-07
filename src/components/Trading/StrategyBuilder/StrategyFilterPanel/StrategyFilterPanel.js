@@ -3,6 +3,7 @@ import { bool } from 'prop-types';
 import styled from 'styled-components';
 
 import CompetitionSelect from './CompetitionSelect/CompetitionSelect';
+import LineSelect from './LineSelect/LineSelect';
 import MarketSelect from './MarketSelect/MarketSelect';
 import PriceSelect from './PriceSelect/PriceSelect';
 import ResultFilterList from './ResultFilterList/ResultFilterList';
@@ -25,12 +26,13 @@ const StrategyFilterPanel = (props) => {
       <StrategyBuilderRow>
         <Panel width="25%">
           <MarketSelect />
+          <LineSelect />
           <PriceSelect />
         </Panel>
         <Panel width="20%">
           <CompetitionSelect />
         </Panel>
-        <Panel width="45%">
+        <Panel width="50%">
           <ResultFilterList />
           <StatFilterList />
         </Panel>

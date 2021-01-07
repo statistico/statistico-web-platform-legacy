@@ -5,7 +5,7 @@ const SingleFilterWrapper = styled.div`
   flex-direction: column;
   height: fit-content;
   width: 100%;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
   font-size: 18px;
 `;
 
