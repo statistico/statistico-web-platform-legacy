@@ -23,6 +23,14 @@ const FilterListWrapper = styled.div`
       margin: 0;
       border-bottom: 1px solid #ccc;
       padding: 5px 0 5px 0;
+      text-align: left;
+    }
+  }
+
+  svg {
+    :hover {
+      cursor: pointer;
+      color: #22ccde;
     }
   }
 `;

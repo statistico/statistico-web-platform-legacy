@@ -1,3 +1,14 @@
+export const action = [
+  {
+    name: 'FOR',
+    label: 'For',
+  },
+  {
+    name: 'AGAINST',
+    label: 'Against',
+  },
+];
+
 export const games = [
   {
     name: '1',
@@ -38,6 +49,43 @@ export const games = [
   {
     name: '10',
     label: '10',
+  },
+];
+
+export const measure = [
+  {
+    name: 'AVG',
+    label: 'Average',
+  },
+  {
+    name: 'TOTAL',
+    label: 'Total',
+  },
+];
+
+export const metric = [
+  {
+    name: 'GTE',
+    label: 'Greater than equal to',
+  },
+  {
+    name: 'LTE',
+    label: 'Less than equal to',
+  },
+];
+
+export const stats = [
+  {
+    name: 'GOALS',
+    label: 'Goals',
+  },
+  {
+    name: 'SHOTS_ON_GOAL',
+    label: 'Shots on goal',
+  },
+  {
+    name: 'XG',
+    label: 'xG',
   },
 ];
 

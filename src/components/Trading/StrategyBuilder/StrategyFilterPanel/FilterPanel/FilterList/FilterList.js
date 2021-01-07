@@ -4,10 +4,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
 import FilterListWrapper from './FilterListWrapper';
+import Modal from '../../../../../Modal/Modal';
 import Table from '../../../../../Table/Table';
+import useModal from '../../../../../../hooks/useModal';
 
 const FilterList = (props) => {
-  const { filters, updateFilters } = props;
+  const { columns, filters, title, updateFilters } = props;
+
+  const addFilter = (filter) => {
+    updateFilters([...filters, filter]);
+  };
 
   const removeFilter = useCallback(
     (i, f) => {
@@ -17,24 +23,9 @@ const FilterList = (props) => {
     [updateFilters]
   );
 
-  const columns = useMemo(
+  const cols = useMemo(
     () => [
-      {
-        Header: 'Team',
-        accessor: 'team',
-      },
-      {
-        Header: 'Result',
-        accessor: 'result',
-      },
-      {
-        Header: 'Games',
-        accessor: 'games',
-      },
-      {
-        Header: 'Venue',
-        accessor: 'venue',
-      },
+      ...columns,
       {
         Header: () => null,
         id: 'delete-row',
@@ -47,22 +38,24 @@ const FilterList = (props) => {
         ),
       },
     ],
-    [filters, removeFilter]
+    [columns, filters, removeFilter]
   );
-
-  if (filters.length === 0) {
-    return null;
-  }
 
   return (
     <FilterListWrapper>
-      <p>Result Filters</p>
-      <Table columns={columns} data={filters} />
+      <p>{title}</p>
+      <Table columns={cols} data={filters} />
     </FilterListWrapper>
   );
 };
 
 FilterList.propTypes = {
+  columns: arrayOf(
+    shape({
+      Header: string.isRequired,
+      accessor: string.isRequired,
+    })
+  ).isRequired,
   filters: arrayOf(
     shape({
       team: string.isRequired,
@@ -71,6 +64,7 @@ FilterList.propTypes = {
       venue: string.isRequired,
     })
   ).isRequired,
+  title: string.isRequired,
   updateFilters: func.isRequired,
 };
 

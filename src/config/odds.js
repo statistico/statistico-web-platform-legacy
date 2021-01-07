@@ -203,6 +203,22 @@ const odds = [
     name: '16.00',
     label: '16.00',
   },
+  {
+    name: '17.00',
+    label: '17.00',
+  },
+  {
+    name: '18.00',
+    label: '18.00',
+  },
+  {
+    name: '19.00',
+    label: '19.00',
+  },
+  {
+    name: '20.00',
+    label: '20.00',
+  },
 ];
 
 export default odds;
