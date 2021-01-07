@@ -1,6 +1,14 @@
 import styled from 'styled-components';
 
-const FilterListWrapper = styled.div`
+const StatFilterListWrapper = styled.div`
+  height: 50%;
+
+  span {
+    padding: 0 10px 0 10px;
+    font-weight: 600;
+    font-size: 16px;
+  }
+
   table {
     text-align: left;
     width: 100%;
@@ -35,4 +43,4 @@ const FilterListWrapper = styled.div`
   }
 `;
 
-export default FilterListWrapper;
+export default StatFilterListWrapper;
