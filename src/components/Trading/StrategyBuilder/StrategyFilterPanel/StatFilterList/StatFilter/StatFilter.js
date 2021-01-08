@@ -19,6 +19,7 @@ import selectStyles from '../../../../../../config/form-styles';
 const SubmitButton = styled.button`
   margin: 20px 0 20px 0;
   cursor: pointer;
+  font-size: 14px;
 `;
 
 const StatFilter = (props) => {

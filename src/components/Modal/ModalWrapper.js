@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const ModalWrapper = styled.div`
   position: fixed;
-  background-color: white;
+  background-color: #404344;
   width: 450px;
   height: fit-content;
   border-radius: 10px 20px 10px 20px;
@@ -12,6 +12,11 @@ const ModalWrapper = styled.div`
   transform: translate(-50%, -50%);
   transition: all 0.3s ease-out;
   z-index: 1050;
+  color: black;
+
+  p {
+    font-size: 16px;
+  }
 `;
 
 export default ModalWrapper;
