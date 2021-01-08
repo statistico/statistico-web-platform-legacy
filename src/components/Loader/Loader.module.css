@@ -10,11 +10,15 @@
     height: 100%;
 }
 
+.Loader p {
+    margin: 5px;
+}
+
 .Spinner,
 .Spinner:after {
     border-radius: 50%;
-    width: 5em;
-    height: 5em;
+    width: 10em;
+    height: 10em;
 }
 .Spinner {
     font-size: 10px;

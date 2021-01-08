@@ -1,31 +1,35 @@
 import React from 'react';
-import { arrayOf, number, shape, string } from 'prop-types';
+import { arrayOf, bool, number, shape, string } from 'prop-types';
 
+import CompetitionList from '../CompetitionList/CompetitionList';
+import Loader from '../../../Loader/Loader';
 import StrategyBuilderStatsWrapper from './StrategyBuilderStatsWrapper';
 import StrategyBuilderRow from '../StrategyBuilderRow';
-import WinLossChart from '../WinLossChart/WinLossChart';
 import TradeGraph from '../TradeGraph/TradeGraph';
 import TradeStatPanel from '../TradeStatPanel/TradeStatPanel';
-import CompetitionList from '../CompetitionList/CompetitionList';
+import WinLossChart from '../WinLossChart/WinLossChart';
 
 const StrategyBuilderStats = (props) => {
-  const { trades } = props;
+  const { loading, trades } = props;
 
   return (
     <StrategyBuilderStatsWrapper>
-      <StrategyBuilderRow>
-        <WinLossChart trades={trades} />
-        <TradeGraph trades={trades} />
-      </StrategyBuilderRow>
-      <TradeStatPanel trades={trades} />
-      <StrategyBuilderRow>
-        <CompetitionList trades={trades} />
-      </StrategyBuilderRow>
+      <Loader loading={loading}>
+        <StrategyBuilderRow>
+          <WinLossChart loading={loading} trades={trades} />
+          <TradeGraph loading={loading} trades={trades} />
+        </StrategyBuilderRow>
+        <TradeStatPanel loading={loading} trades={trades} />
+        <StrategyBuilderRow>
+          <CompetitionList loading={loading} trades={trades} />
+        </StrategyBuilderRow>
+      </Loader>
     </StrategyBuilderStatsWrapper>
   );
 };
 
 StrategyBuilderStats.propTypes = {
+  loading: bool.isRequired,
   trades: arrayOf(
     shape({
       competitionId: number.isRequired,
