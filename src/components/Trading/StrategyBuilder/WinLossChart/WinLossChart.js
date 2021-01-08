@@ -31,6 +31,7 @@ const WinLossChart = (props) => {
             innerRadius="80%"
             outerRadius="100%"
             paddingAngle={3}
+            dataKey="value"
           >
             <Label
               value={`${win.toString()}%`}
@@ -39,7 +40,11 @@ const WinLossChart = (props) => {
               fill="#ccc"
             />
             {data.map((entry, index) => (
-              <Cell fill={entry.colour} stroke={entry.colour} />
+              <Cell
+                fill={entry.colour}
+                stroke={entry.colour}
+                key={entry.name}
+              />
             ))}
           </Pie>
           <Legend
@@ -58,8 +63,8 @@ const WinLossChart = (props) => {
 WinLossChart.propTypes = {
   trades: arrayOf(
     shape({
-      Result: string.isRequired,
-      RunnerPrice: number.isRequired,
+      result: string.isRequired,
+      runnerPrice: number.isRequired,
     })
   ).isRequired,
 };

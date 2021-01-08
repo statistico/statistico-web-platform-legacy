@@ -57,8 +57,8 @@ const TradeStatPanel = (props) => {
 TradeStatPanel.propTypes = {
   trades: arrayOf(
     shape({
-      Result: string.isRequired,
-      RunnerPrice: number.isRequired,
+      result: string.isRequired,
+      runnerPrice: number.isRequired,
     })
   ).isRequired,
 };

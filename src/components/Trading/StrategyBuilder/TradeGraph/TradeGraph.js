@@ -45,7 +45,7 @@ const TradeGraph = (props) => {
 TradeGraph.propTypes = {
   trades: arrayOf(
     shape({
-      profit: number.isRequired,
+      profit: number,
     })
   ).isRequired,
 };
