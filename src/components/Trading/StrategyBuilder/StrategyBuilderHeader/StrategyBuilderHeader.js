@@ -2,7 +2,7 @@ import React from 'react';
 import { bool, func } from 'prop-types';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFilter } from '@fortawesome/free-solid-svg-icons';
+import { faFilter, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 
 import StrategyBuilderRow from '../StrategyBuilderRow';
 
@@ -29,7 +29,7 @@ const IconCollection = styled.div`
 `;
 
 const StrategyBuilderHeader = (props) => {
-  const { filterActive, toggleFilters } = props;
+  const { buildStrategy, filterActive, toggleFilters } = props;
 
   return (
     <StrategyBuilderRow>
@@ -40,12 +40,18 @@ const StrategyBuilderHeader = (props) => {
           size="2x"
           onClick={() => toggleFilters(!filterActive)}
         />
+        <FontAwesomeIcon
+          icon={faPlusCircle}
+          size="2x"
+          onClick={() => buildStrategy()}
+        />
       </IconCollection>
     </StrategyBuilderRow>
   );
 };
 
 StrategyBuilderHeader.propTypes = {
+  buildStrategy: func.isRequired,
   filterActive: bool.isRequired,
   toggleFilters: func.isRequired,
 };

@@ -7,10 +7,7 @@ const useTogglesActiveState = (state) => {
     setSelected(active);
   }, []);
 
-  return {
-    selected,
-    selectionToggleHandler,
-  };
+  return [selected, selectionToggleHandler];
 };
 
 export default useTogglesActiveState;

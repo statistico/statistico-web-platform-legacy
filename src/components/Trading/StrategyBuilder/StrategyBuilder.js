@@ -1,25 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import StrategyBuilderHeader from './StrategyBuilderHeader/StrategyBuilderHeader';
 import StrategyFilterPanel from './StrategyFilterPanel/StrategyFilterPanel';
 import StrategyBuilderStats from './StrategyBuilderStats/StrategyBuilderStats';
 import StrategyBuilderWrapper from './StrategyBuilderWrapper';
-import trades from '../../../config/trades';
 import { orderByEventDate } from '../../../utility/trade';
 import useTogglesActiveState from '../../../hooks/useTogglesActiveState';
+import useBuildsTradeStrategy from '../../../hooks/useBuildsTradeStrategy';
 
 const StrategyBuilder = () => {
-  const t = orderByEventDate(trades);
-  const { selected, selectionToggleHandler } = useTogglesActiveState(true);
+  const [filtersActive, setFiltersActive] = useTogglesActiveState(true);
+  const [built, setBuilt] = useState(false);
+  const { tr, loading, reload } = useBuildsTradeStrategy();
+  const t = orderByEventDate(tr);
+
+  const buildStrategy = () => {
+    setFiltersActive(false);
+    setBuilt(true);
+    reload();
+  };
 
   return (
     <StrategyBuilderWrapper>
       <StrategyBuilderHeader
-        filterActive={selected}
-        toggleFilters={selectionToggleHandler}
+        buildStrategy={buildStrategy}
+        filterActive={filtersActive}
+        toggleFilters={setFiltersActive}
       />
-      <StrategyFilterPanel active={selected} />
-      <StrategyBuilderStats trades={t} />
+      <StrategyFilterPanel active={filtersActive} />
+      {built ? <StrategyBuilderStats loading={loading} trades={t} /> : null}
     </StrategyBuilderWrapper>
   );
 };
