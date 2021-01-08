@@ -19,6 +19,7 @@ const CompetitionList = (props) => {
             competition={competition}
             trades={filterByCompetition(trades, parseInt(competition.name, 10))}
             className="competition-row"
+            key={competition.name}
           />
         );
       })}

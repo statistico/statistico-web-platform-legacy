@@ -1,5 +1,5 @@
 import React from 'react';
-import { instanceOf, number, oneOfType, string } from 'prop-types';
+import { number, oneOf, oneOfType, string } from 'prop-types';
 import CountUp from 'react-countup';
 
 import styled from 'styled-components';
@@ -55,8 +55,12 @@ TradeStat.propTypes = {
   colour: string.isRequired,
   count: number.isRequired,
   decimals: number.isRequired,
-  metric: oneOfType([string.isRequired, instanceOf(null)]).isRequired,
+  metric: oneOfType([string.isRequired, oneOf([null]).isRequired]),
   title: string.isRequired,
+};
+
+TradeStat.defaultProps = {
+  metric: null,
 };
 
 export default TradeStat;
