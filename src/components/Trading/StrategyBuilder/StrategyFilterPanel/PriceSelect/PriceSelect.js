@@ -1,29 +1,41 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 
 import PriceSelectWrapper from './PriceSelectWrapper';
 import SingleFilter from '../../../../SingleFilter/SingleFilter';
 import odds from '../../../../../config/odds';
 import selectStyles from '../../../../../config/form-styles';
+import {
+  StrategyBuilderActionContext,
+  StrategyBuilderContext,
+} from '../../../../../context/StrategyBuilderContext';
 
 const PriceSelect = () => {
-  const [minOdds, toggleMinOdds] = useState(null);
-  const [maxOdds, toggleMaxOdds] = useState(null);
+  const { filters } = useContext(StrategyBuilderContext);
+  const { setFilters } = useContext(StrategyBuilderActionContext);
+
+  const updateMaxOdds = (o) => {
+    setFilters({ ...filters, maxOdds: o });
+  };
+
+  const updateMinOdds = (o) => {
+    setFilters({ ...filters, minOdds: o });
+  };
 
   return (
     <PriceSelectWrapper>
       <SingleFilter
-        selection={minOdds}
+        selection={filters.minOdds}
         selections={odds}
         styles={selectStyles}
         title="Min Odds"
-        toggleSelection={toggleMinOdds}
+        toggleSelection={updateMinOdds}
       />
       <SingleFilter
-        selection={maxOdds}
+        selection={filters.maxOdds}
         selections={odds}
         styles={selectStyles}
         title="Max Odds"
-        toggleSelection={toggleMaxOdds}
+        toggleSelection={updateMaxOdds}
       />
     </PriceSelectWrapper>
   );

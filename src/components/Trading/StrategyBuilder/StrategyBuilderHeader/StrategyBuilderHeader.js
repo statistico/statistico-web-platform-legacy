@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { bool, func } from 'prop-types';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFilter, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 
+import { faFilter, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
+import { StrategyBuilderActionContext } from '../../../../context/StrategyBuilderContext';
 import StrategyBuilderRow from '../StrategyBuilderRow';
 
 const Title = styled.div`
@@ -29,16 +30,23 @@ const IconCollection = styled.div`
 `;
 
 const StrategyBuilderHeader = (props) => {
-  const { buildStrategy, filterActive, toggleFilters } = props;
+  const { filtersActive, setBuilding, toggleFilters } = props;
+  const { loadTrades } = useContext(StrategyBuilderActionContext);
+
+  const buildStrategy = () => {
+    toggleFilters(false);
+    setBuilding(true);
+    loadTrades();
+  };
 
   return (
     <StrategyBuilderRow>
       <Title>Strategy Builder</Title>
-      <IconCollection filterActive={filterActive}>
+      <IconCollection filterActive={filtersActive}>
         <FontAwesomeIcon
           icon={faFilter}
           size="2x"
-          onClick={() => toggleFilters(!filterActive)}
+          onClick={() => toggleFilters(!filtersActive)}
         />
         <FontAwesomeIcon
           icon={faPlusCircle}
@@ -51,8 +59,8 @@ const StrategyBuilderHeader = (props) => {
 };
 
 StrategyBuilderHeader.propTypes = {
-  buildStrategy: func.isRequired,
-  filterActive: bool.isRequired,
+  filtersActive: bool.isRequired,
+  setBuilding: func.isRequired,
   toggleFilters: func.isRequired,
 };
 

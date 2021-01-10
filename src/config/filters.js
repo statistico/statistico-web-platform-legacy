@@ -52,7 +52,7 @@ export const games = [
   },
 ];
 
-export const line = [
+export const lines = [
   {
     name: 'CLOSING',
     label: 'Closing',

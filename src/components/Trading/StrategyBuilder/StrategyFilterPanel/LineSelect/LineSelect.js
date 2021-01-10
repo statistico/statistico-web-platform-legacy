@@ -1,22 +1,27 @@
-import React, { useCallback, useState } from 'react';
+import React, { useContext } from 'react';
 
+import {
+  StrategyBuilderContext,
+  StrategyBuilderActionContext,
+} from '../../../../../context/StrategyBuilderContext';
 import LineSelectWrapper from './LineSelectWrapper';
 import SingleFilter from '../../../../SingleFilter/SingleFilter';
-import { line } from '../../../../../config/filters';
+import { lines } from '../../../../../config/filters';
 import selectStyles from '../../../../../config/form-styles';
 
 const LineSelect = () => {
-  const [selectedLine, setLine] = useState(null);
+  const { filters } = useContext(StrategyBuilderContext);
+  const { setFilters } = useContext(StrategyBuilderActionContext);
 
-  const updateLine = useCallback((l) => {
-    setLine(l);
-  }, []);
+  const updateLine = (l) => {
+    setFilters({ ...filters, line: l });
+  };
 
   return (
     <LineSelectWrapper>
       <SingleFilter
-        selection={selectedLine}
-        selections={line}
+        selection={filters.line}
+        selections={lines}
         styles={selectStyles}
         title="Line"
         toggleSelection={updateLine}

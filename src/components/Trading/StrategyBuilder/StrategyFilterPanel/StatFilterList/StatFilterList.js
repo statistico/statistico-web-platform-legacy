@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useContext, useMemo } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
@@ -7,22 +7,33 @@ import Modal from '../../../../Modal/Modal';
 import Table from '../../../../Table/Table';
 import useModal from '../../../../../hooks/useModal';
 import StatFilter from './StatFilter/StatFilter';
+import {
+  StrategyBuilderActionContext,
+  StrategyBuilderContext,
+} from '../../../../../context/StrategyBuilderContext';
 
 const StatFilterList = () => {
   const { isShowing, toggle } = useModal(false);
-  const [filters, setFilters] = useState([]);
+  const { filters } = useContext(StrategyBuilderContext);
+  const { setFilters } = useContext(StrategyBuilderActionContext);
 
   const addFilter = (filter) => {
-    setFilters([...filters, filter]);
+    setFilters({
+      ...filters,
+      statFilters: [...filters.statFilters, filter],
+    });
     toggle();
   };
 
   const removeFilter = useCallback(
     (i, f) => {
       const newList = f.filter((filter, index) => index !== i);
-      setFilters(newList);
+      setFilters({
+        ...filters,
+        statFilters: [...newList],
+      });
     },
-    [setFilters]
+    [filters, setFilters]
   );
 
   const cols = useMemo(
@@ -66,7 +77,9 @@ const StatFilterList = () => {
           <FontAwesomeIcon
             icon={faTimesCircle}
             size="1x"
-            onClick={() => removeFilter(tableProps.row.index, filters)}
+            onClick={() =>
+              removeFilter(tableProps.row.index, filters.statFilters)
+            }
           />
         ),
       },
@@ -81,7 +94,7 @@ const StatFilterList = () => {
       </Modal>
       <FontAwesomeIcon icon={faPlusCircle} size="1x" onClick={() => toggle()} />
       <span>Stat Filters</span>
-      <Table columns={cols} data={filters} />
+      <Table columns={cols} data={filters.statFilters} />
     </StatFilterListWrapper>
   );
 };

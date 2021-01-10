@@ -1,57 +1,26 @@
-import React, { useContext, useState } from 'react';
+import React from 'react';
 
 import StrategyBuilderHeader from './StrategyBuilderHeader/StrategyBuilderHeader';
-import StrategyBuilderFilterContextProvider, {
-  StrategyBuilderFilterContext,
-} from '../../../context/StrategyBuilderFilterContext';
 import StrategyFilterPanel from './StrategyFilterPanel/StrategyFilterPanel';
 import StrategyBuilderStats from './StrategyBuilderStats/StrategyBuilderStats';
 import StrategyBuilderWrapper from './StrategyBuilderWrapper';
-import { orderByEventDate } from '../../../utility/trade';
 import useTogglesActiveState from '../../../hooks/useTogglesActiveState';
-import useBuildsTradeStrategy from '../../../hooks/useBuildsTradeStrategy';
+import StrategyBuilderFilterContextProvider from '../../../context/StrategyBuilderContext';
 
 const StrategyBuilder = () => {
   const [filtersActive, setFiltersActive] = useTogglesActiveState(true);
-  const [built, setBuilt] = useState(false);
-  const { tr, loading, reload } = useBuildsTradeStrategy();
-  const t = orderByEventDate(tr);
-  const {
-    competitions,
-    line,
-    market,
-    runner,
-    minOdds,
-    maxOdds,
-    resultFilters,
-    statFilters,
-  } = useContext(StrategyBuilderFilterContext);
-
-  const buildStrategy = () => {
-    setFiltersActive(false);
-    setBuilt(true);
-    reload(
-      competitions,
-      line,
-      market,
-      runner,
-      minOdds,
-      maxOdds,
-      resultFilters,
-      statFilters
-    );
-  };
+  const [isBuilding, setIsBuilding] = useTogglesActiveState(false);
 
   return (
     <StrategyBuilderFilterContextProvider>
       <StrategyBuilderWrapper>
         <StrategyBuilderHeader
-          buildStrategy={buildStrategy}
-          filterActive={filtersActive}
+          filtersActive={filtersActive}
           toggleFilters={setFiltersActive}
+          setBuilding={setIsBuilding}
         />
         <StrategyFilterPanel active={filtersActive} />
-        {built ? <StrategyBuilderStats loading={loading} trades={t} /> : null}
+        {isBuilding ? <StrategyBuilderStats /> : null}
       </StrategyBuilderWrapper>
     </StrategyBuilderFilterContextProvider>
   );
