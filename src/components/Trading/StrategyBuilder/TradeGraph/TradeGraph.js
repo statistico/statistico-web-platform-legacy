@@ -1,5 +1,4 @@
-import React from 'react';
-import { arrayOf, number, shape } from 'prop-types';
+import React, { useContext } from 'react';
 import {
   Legend,
   Line,
@@ -12,10 +11,11 @@ import {
 
 import TradeGraphWrapper from './TradeGraphWrapper';
 import { cumulativeProfit } from '../../../../utility/trade';
+import { StrategyBuilderContext } from '../../../../context/StrategyBuilderContext';
 
-const TradeGraph = (props) => {
-  const { trades } = props;
-  const profit = cumulativeProfit(trades, 1);
+const TradeGraph = () => {
+  const { tr } = useContext(StrategyBuilderContext);
+  const profit = cumulativeProfit(tr, 1);
 
   return (
     <TradeGraphWrapper>
@@ -40,14 +40,6 @@ const TradeGraph = (props) => {
       </ResponsiveContainer>
     </TradeGraphWrapper>
   );
-};
-
-TradeGraph.propTypes = {
-  trades: arrayOf(
-    shape({
-      profit: number,
-    })
-  ).isRequired,
 };
 
 export default TradeGraph;

@@ -1,5 +1,4 @@
-import React from 'react';
-import { arrayOf, number, shape, string } from 'prop-types';
+import React, { useContext } from 'react';
 import {
   Cell,
   Label,
@@ -11,11 +10,12 @@ import {
 
 import WinLossChartWrapper from './WinLossChartWrapper';
 import { winPercentage } from '../../../../utility/trade';
+import { StrategyBuilderContext } from '../../../../context/StrategyBuilderContext';
 
-const WinLossChart = (props) => {
-  const { trades } = props;
+const WinLossChart = () => {
+  const { tr } = useContext(StrategyBuilderContext);
 
-  const win = winPercentage(trades);
+  const win = winPercentage(tr);
 
   const data = [
     { name: 'Win', value: win, colour: 'green' },
@@ -58,15 +58,6 @@ const WinLossChart = (props) => {
       </ResponsiveContainer>
     </WinLossChartWrapper>
   );
-};
-
-WinLossChart.propTypes = {
-  trades: arrayOf(
-    shape({
-      result: string.isRequired,
-      runnerPrice: number.isRequired,
-    })
-  ).isRequired,
 };
 
 export default WinLossChart;

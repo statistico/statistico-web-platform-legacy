@@ -1,34 +1,45 @@
-import React, { useCallback, useState } from 'react';
+import React, { useContext } from 'react';
 
 import MarketSelectWrapper from './MarketSelectWrapper';
 import SingleFilter from '../../../../SingleFilter/SingleFilter';
 import markets from '../../../../../config/markets';
 import selectStyles from '../../../../../config/form-styles';
+import {
+  StrategyBuilderActionContext,
+  StrategyBuilderContext,
+} from '../../../../../context/StrategyBuilderContext';
 
 const MarketSelect = () => {
-  const [market, toggleMarket] = useState(null);
-  const [runner, toggleRunner] = useState(null);
+  const { filters } = useContext(StrategyBuilderContext);
+  const { setFilters } = useContext(StrategyBuilderActionContext);
 
-  const updateMarket = useCallback((m) => {
-    toggleRunner(null);
-    toggleMarket(m);
-  }, []);
+  const updateMarket = (m) => {
+    setFilters({
+      ...filters,
+      market: m,
+      runner: null,
+    });
+  };
+
+  const updateRunner = (r) => {
+    setFilters({ ...filters, runner: r });
+  };
 
   return (
     <MarketSelectWrapper>
       <SingleFilter
-        selection={market}
+        selection={filters.market}
         selections={markets}
         styles={selectStyles}
         title="Market"
         toggleSelection={updateMarket}
       />
       <SingleFilter
-        selection={runner}
-        selections={market != null ? market.runners : []}
+        selection={filters.runner}
+        selections={filters.market != null ? filters.market.runners : []}
         styles={selectStyles}
         title="Selection"
-        toggleSelection={toggleRunner}
+        toggleSelection={updateRunner}
       />
     </MarketSelectWrapper>
   );

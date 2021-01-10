@@ -46,10 +46,10 @@ const MultiFilter = (props) => {
 MultiFilter.propTypes = {
   selection: arrayOf(
     shape({
-      name: string.isRequired,
+      value: string.isRequired,
       label: string.isRequired,
     })
-  ).isRequired,
+  ),
   selections: arrayOf(
     shape({
       name: string.isRequired,
@@ -63,6 +63,10 @@ MultiFilter.propTypes = {
   }).isRequired,
   title: string.isRequired,
   toggleSelection: func.isRequired,
+};
+
+MultiFilter.defaultProps = {
+  selection: [],
 };
 
 export default MultiFilter;
