@@ -2,8 +2,8 @@ import React, { useContext } from 'react';
 import { bool, func } from 'prop-types';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import { faFilter, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
+
 import { StrategyBuilderActionContext } from '../../../../context/StrategyBuilderContext';
 import StrategyBuilderRow from '../StrategyBuilderRow';
 

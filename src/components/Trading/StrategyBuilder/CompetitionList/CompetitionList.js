@@ -1,14 +1,14 @@
-import React from 'react';
-import { arrayOf, number, shape, string } from 'prop-types';
+import React, { useContext } from 'react';
 
 import CompetitionListWrapper from './CompetitionListWrapper';
 import CompetitionRow from './CompetitionRow/CompetitionRow';
 import competitions from '../../../../config/competitions';
 import CompetitionListHeader from './CompetitionListHeader/CompetitionListHeader';
 import { filterByCompetition } from '../../../../utility/trade';
+import { StrategyBuilderContext } from '../../../../context/StrategyBuilderContext';
 
-const CompetitionList = (props) => {
-  const { trades } = props;
+const CompetitionList = () => {
+  const { tr } = useContext(StrategyBuilderContext);
 
   return (
     <CompetitionListWrapper>
@@ -17,7 +17,7 @@ const CompetitionList = (props) => {
         return (
           <CompetitionRow
             competition={competition}
-            trades={filterByCompetition(trades, parseInt(competition.name, 10))}
+            trades={filterByCompetition(tr, parseInt(competition.name, 10))}
             className="competition-row"
             key={competition.name}
           />
@@ -25,16 +25,6 @@ const CompetitionList = (props) => {
       })}
     </CompetitionListWrapper>
   );
-};
-
-CompetitionList.propTypes = {
-  trades: arrayOf(
-    shape({
-      competitionId: number.isRequired,
-      result: string.isRequired,
-      runnerPrice: number.isRequired,
-    })
-  ).isRequired,
 };
 
 export default CompetitionList;

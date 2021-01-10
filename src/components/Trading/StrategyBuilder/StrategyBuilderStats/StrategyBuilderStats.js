@@ -10,18 +10,18 @@ import WinLossChart from '../WinLossChart/WinLossChart';
 import { StrategyBuilderContext } from '../../../../context/StrategyBuilderContext';
 
 const StrategyBuilderStats = () => {
-  const { loading, tr } = useContext(StrategyBuilderContext);
+  const { loading } = useContext(StrategyBuilderContext);
 
   return (
     <StrategyBuilderStatsWrapper>
       <Loader loading={loading}>
         <StrategyBuilderRow>
-          <WinLossChart loading={loading} trades={tr} />
-          <TradeGraph loading={loading} trades={tr} />
+          <WinLossChart />
+          <TradeGraph />
         </StrategyBuilderRow>
-        <TradeStatPanel loading={loading} trades={tr} />
+        <TradeStatPanel />
         <StrategyBuilderRow>
-          <CompetitionList loading={loading} trades={tr} />
+          <CompetitionList />
         </StrategyBuilderRow>
       </Loader>
     </StrategyBuilderStatsWrapper>

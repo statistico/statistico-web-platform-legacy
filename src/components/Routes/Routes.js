@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 
-import Team from '../Team/Team';
 import StrategyBuilder from '../Trading/StrategyBuilder/StrategyBuilder';
+import Team from '../Team/Team';
 
 const routes = () => (
   <BrowserRouter>

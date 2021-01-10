@@ -5,7 +5,7 @@ import trades from '../config/trades';
 export const StrategyBuilderContext = createContext(null);
 export const StrategyBuilderActionContext = createContext(null);
 
-const StrategyBuilderFilterContextProvider = (props) => {
+const StrategyBuilderContextProvider = (props) => {
   const { children } = props;
   const [filters, setFilters] = useState({
     competitions: [],
@@ -52,8 +52,8 @@ const StrategyBuilderFilterContextProvider = (props) => {
   );
 };
 
-StrategyBuilderFilterContextProvider.propTypes = {
+StrategyBuilderContextProvider.propTypes = {
   children: node.isRequired,
 };
 
-export default StrategyBuilderFilterContextProvider;
+export default StrategyBuilderContextProvider;
