@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'https://api.statistico.io',
+  baseURL: 'http://localhost:8080',
 });
 
 export default instance;
