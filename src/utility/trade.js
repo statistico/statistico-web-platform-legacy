@@ -10,8 +10,7 @@ export const cumulativeProfit = (trades, stake) => {
   let total = 0;
 
   return trades.map((trade) => {
-    total +=
-      trade.result === 'SUCCESS' ? trade.runnerPrice * stake - stake : -stake;
+    total += trade.result === 1 ? trade.runnerPrice * stake - stake : -stake;
 
     return {
       ...trade,
@@ -32,7 +31,7 @@ export const maxDrawdown = (trades) => {
   let maxDD = 0;
 
   trades.forEach((trade) => {
-    if (trade.result === 'FAIL') {
+    if (trade.result === 0) {
       currentDD += 1;
       return;
     }
@@ -62,7 +61,7 @@ export const profit = (trades, stake) => {
   const sum = trades.reduce((prev, cur) => {
     const { result, runnerPrice } = cur;
 
-    if (result === 'SUCCESS') {
+    if (result === 1) {
       return prev + (runnerPrice * stake - stake);
     }
 
@@ -82,7 +81,7 @@ export const tradeYield = (trades, stake) => {
 
 export const winPercentage = (trades) => {
   const win = trades.filter((trade) => {
-    return trade.result === 'SUCCESS';
+    return trade.result === 1;
   });
 
   return Math.round((win.length / trades.length) * 100);
