@@ -49,10 +49,10 @@ const ResultFilter = (props) => {
 
   const submit = () => {
     addFilter({
-      team: filter.team.label,
-      result: filter.result.label,
-      games: filter.games.label,
-      venue: filter.venue.label,
+      team: filter.team,
+      result: filter.result,
+      games: filter.games,
+      venue: filter.venue,
     });
   };
 

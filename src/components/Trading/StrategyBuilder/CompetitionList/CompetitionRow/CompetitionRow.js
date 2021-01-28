@@ -16,6 +16,11 @@ const Count = styled.p`
 
 const CompetitionRow = (props) => {
   const { competition, trades } = props;
+
+  if (trades.length === 0) {
+    return null;
+  }
+
   const yd = tradeYield(trades, 1);
   const p = profit(trades, 1);
 
@@ -39,7 +44,7 @@ CompetitionRow.propTypes = {
   trades: arrayOf(
     shape({
       competitionId: number.isRequired,
-      result: string.isRequired,
+      result: number.isRequired,
       runnerPrice: number.isRequired,
     })
   ).isRequired,

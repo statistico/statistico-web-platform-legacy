@@ -1,6 +1,8 @@
 import React, { useState, createContext, useMemo, useCallback } from 'react';
 import { node } from 'prop-types';
-import trades from '../config/trades';
+
+import strategyRequestFromFilters from '../utility/strategy';
+import { StrategyServiceClient } from '../proto/strategy_grpc_web_pb';
 
 export const StrategyBuilderContext = createContext(null);
 export const StrategyBuilderActionContext = createContext(null);
@@ -21,13 +23,30 @@ const StrategyBuilderContextProvider = (props) => {
   const [loading, setLoading] = useState(true);
 
   const loadTrades = useCallback(() => {
+    setTrades([]);
     setLoading(true);
 
-    setTimeout(() => {
-      setTrades(trades);
+    const request = strategyRequestFromFilters(filters);
+
+    setLoading(true);
+
+    const client = new StrategyServiceClient('http://localhost:8080');
+    const stream = client.strategyTradeSearch(request, {});
+
+    stream.on('data', (t) => {
+      setTrades((prev) => {
+        return [...prev, t.toObject()];
+      });
+    });
+
+    stream.on('end', (t) => {
       setLoading(false);
-    }, 2000);
-  }, [setLoading, setTrades]);
+    });
+
+    stream.on('error', (t) => {
+      console.log('Error', t);
+    });
+  }, [setLoading, setTrades, filters]);
 
   const store = useMemo(
     () => ({

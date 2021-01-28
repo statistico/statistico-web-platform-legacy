@@ -1,7 +1,5 @@
 import axios from './axios-client';
 
-import trades from '../config/trades';
-
 export const getTeam = async (id) => {
   const response = await axios.get(`/team/${id}`);
   return response.data.data.team;
@@ -23,7 +21,17 @@ export const getTeamStats = async (payload) => {
 };
 
 export const buildStrategy = async (payload) => {
-  console.log('Strategy request made');
-  // const response = await axios.post('/v1/strategy/trade-search');
-  return trades;
+  const response = await fetch(
+    'http://localhost:8080/v1/strategy/trade-search',
+    {
+      headers: {
+        accept: 'application/json, text/plain, */*',
+      },
+      referrerPolicy: 'strict-origin-when-cross-origin',
+      body: JSON.stringify(payload),
+      method: 'POST',
+    }
+  ).then((res) => res.json());
+
+  return response.trades;
 };

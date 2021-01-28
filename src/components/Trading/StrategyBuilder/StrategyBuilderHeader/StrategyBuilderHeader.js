@@ -4,7 +4,10 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilter, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 
-import { StrategyBuilderActionContext } from '../../../../context/StrategyBuilderContext';
+import {
+  StrategyBuilderActionContext,
+  StrategyBuilderContext,
+} from '../../../../context/StrategyBuilderContext';
 import StrategyBuilderRow from '../StrategyBuilderRow';
 
 const Title = styled.div`
@@ -32,6 +35,7 @@ const IconCollection = styled.div`
 const StrategyBuilderHeader = (props) => {
   const { filtersActive, setBuilding, toggleFilters } = props;
   const { loadTrades } = useContext(StrategyBuilderActionContext);
+  const { tr, loading } = useContext(StrategyBuilderContext);
 
   const buildStrategy = () => {
     toggleFilters(false);
@@ -42,6 +46,9 @@ const StrategyBuilderHeader = (props) => {
   return (
     <StrategyBuilderRow>
       <Title>Strategy Builder</Title>
+      <div>
+        {loading && tr.length > 0 ? `Trades Returned ${tr.length}` : null}
+      </div>
       <IconCollection filterActive={filtersActive}>
         <FontAwesomeIcon
           icon={faFilter}
