@@ -17,6 +17,19 @@ const StatFilterList = () => {
   const { filters } = useContext(StrategyBuilderContext);
   const { setFilters } = useContext(StrategyBuilderActionContext);
 
+  const statFilters = filters.statFilters.map((f) => {
+    return {
+      action: f.action.label,
+      games: f.games.label,
+      measure: f.measure.label,
+      metric: f.metric.label,
+      stat: f.stat.label,
+      team: f.team.label,
+      value: f.value.label,
+      venue: f.venue.label,
+    };
+  });
+
   const addFilter = (filter) => {
     setFilters({
       ...filters,
@@ -94,7 +107,7 @@ const StatFilterList = () => {
       </Modal>
       <FontAwesomeIcon icon={faPlusCircle} size="1x" onClick={() => toggle()} />
       <span>Stat Filters</span>
-      <Table columns={cols} data={filters.statFilters} />
+      <Table columns={cols} data={statFilters} />
     </StatFilterListWrapper>
   );
 };

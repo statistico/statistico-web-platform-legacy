@@ -86,14 +86,14 @@ const StatFilter = (props) => {
 
   const submit = () => {
     addFilter({
-      stat: filter.stat.label,
-      team: filter.team.label,
-      action: filter.action.label,
-      measure: filter.measure.label,
-      metric: filter.metric.label,
-      games: filter.games.label,
-      venue: filter.venue.label,
-      value: filter.value.label,
+      stat: filter.stat,
+      team: filter.team,
+      action: filter.action,
+      measure: filter.measure,
+      metric: filter.metric,
+      games: filter.games,
+      venue: filter.venue,
+      value: filter.value,
     });
   };
 
