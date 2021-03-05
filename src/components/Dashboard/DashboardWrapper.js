@@ -12,7 +12,9 @@ const DashboardWrapper = styled.div`
   margin-left: ${(props) => (props.open ? '240px' : '80px')};
 
   @media (max-width: 768px) {
-    margin-top: 70px;
+    margin-left: 0;
+    padding: 15px;
+    width: 100%;
   }
 `;
 

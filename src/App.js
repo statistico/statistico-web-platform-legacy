@@ -19,7 +19,9 @@ const Container = styled.div`
 `;
 
 const App = () => {
-  const { menuOpen, menuToggleHandler } = useTogglesMenu(true);
+  const { menuOpen, menuToggleHandler } = useTogglesMenu(
+    window.innerWidth > 768
+  );
 
   return (
     <Container>

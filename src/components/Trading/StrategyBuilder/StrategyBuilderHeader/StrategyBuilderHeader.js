@@ -1,74 +1,51 @@
-import React, { useContext } from 'react';
-import { bool, func } from 'prop-types';
+import React from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFilter, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
+import { faFilter, faSave, faSearch } from '@fortawesome/free-solid-svg-icons';
 
-import {
-  StrategyBuilderActionContext,
-  StrategyBuilderContext,
-} from '../../../../context/StrategyBuilderContext';
-import StrategyBuilderRow from '../StrategyBuilderRow';
+import StrategyBuilderHeaderWrapper from './StrategyBuilderHeaderWrapper';
 
 const Title = styled.div`
   color: #22ccde;
   font-size: 32px;
-  font-weight: 500;
-  padding: 20px 0 26px 15px;
+
+  @media (max-width: 768px) {
+    font-size: 26px;
+    padding: 10px 5px 10px 5px;
+  }
 `;
 
 const IconCollection = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  font-size: 38px;
 
   svg {
     cursor: pointer;
-    color: ${(props) => (props.filterActive ? '#22ccde' : '#dedcdc')};
+    margin: 0 10px 0 10px;
+  }
 
-    :hover {
-      color: ${(props) => (!props.filterActive ? '#22ccde' : '#dedcdc')};
+  @media (max-width: 768px) {
+    font-size: 22px;
+
+    svg {
+      margin: 0 5px 0 5px;
     }
   }
 `;
 
-const StrategyBuilderHeader = (props) => {
-  const { filtersActive, setBuilding, toggleFilters } = props;
-  const { loadTrades } = useContext(StrategyBuilderActionContext);
-  const { tr, loading } = useContext(StrategyBuilderContext);
-
-  const buildStrategy = () => {
-    toggleFilters(false);
-    setBuilding(true);
-    loadTrades();
-  };
-
+const StrategyBuilderHeader = () => {
   return (
-    <StrategyBuilderRow>
+    <StrategyBuilderHeaderWrapper>
       <Title>Strategy Builder</Title>
-      <div>
-        {loading && tr.length > 0 ? `Trades Returned ${tr.length}` : null}
-      </div>
-      <IconCollection filterActive={filtersActive}>
-        <FontAwesomeIcon
-          icon={faFilter}
-          size="2x"
-          onClick={() => toggleFilters(!filtersActive)}
-        />
-        <FontAwesomeIcon
-          icon={faPlusCircle}
-          size="2x"
-          onClick={() => buildStrategy()}
-        />
+      <IconCollection>
+        <FontAwesomeIcon icon={faFilter} />
+        <FontAwesomeIcon icon={faSave} />
+        <FontAwesomeIcon icon={faSearch} />
       </IconCollection>
-    </StrategyBuilderRow>
+    </StrategyBuilderHeaderWrapper>
   );
-};
-
-StrategyBuilderHeader.propTypes = {
-  filtersActive: bool.isRequired,
-  setBuilding: func.isRequired,
-  toggleFilters: func.isRequired,
 };
 
 export default StrategyBuilderHeader;
