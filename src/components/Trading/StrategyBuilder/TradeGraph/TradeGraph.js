@@ -10,12 +10,13 @@ import {
 } from 'recharts';
 
 import TradeGraphWrapper from './TradeGraphWrapper';
-import { cumulativeProfit } from '../../../../utility/trade';
+import { cumulativeProfit, orderByEventDate } from '../../../../utility/trade';
 import { StrategyBuilderContext } from '../../../../context/StrategyBuilderContext';
 
 const TradeGraph = () => {
   const { tr } = useContext(StrategyBuilderContext);
-  const profit = cumulativeProfit(tr, 1);
+  const trades = orderByEventDate(tr);
+  const profit = cumulativeProfit(trades, 1);
 
   return (
     <TradeGraphWrapper>
@@ -33,7 +34,7 @@ const TradeGraph = () => {
             type="natural"
             dataKey="profit"
             stroke="#22ccde"
-            strokeWidth={2}
+            strokeWidth={1}
             activeDot={{ r: 2 }}
           />
         </LineChart>
