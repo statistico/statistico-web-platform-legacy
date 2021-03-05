@@ -14,7 +14,7 @@ import { StrategyBuilderContext } from '../../../../context/StrategyBuilderConte
 const TradeStatPanel = () => {
   const { tr } = useContext(StrategyBuilderContext);
   const trades = orderByEventDate(tr);
-  
+
   return (
     <StrategyBuilderRow>
       <TradeStat
