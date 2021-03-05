@@ -27,34 +27,28 @@ export const filterByCompetition = (trades, id) => {
 };
 
 export const maxDrawdown = (trades) => {
-  let currentDD = 0;
-  let maxDD = 0;
+  let current = 0;
+  let max = 0;
 
   trades.forEach((trade) => {
     if (trade.result === 0) {
-      currentDD += 1;
-      return;
+      current += 1;
     }
 
-    if (currentDD > maxDD) {
-      maxDD = currentDD;
+    if (trade.result === 1) {
+      current = 0;
     }
 
-    currentDD = 0;
+    if (current > max) {
+      max = current;
+    }
   });
 
-  return maxDD;
+  return max;
 };
 
 export const orderByEventDate = (trades) => {
-  const t = trades.map((trade) => {
-    return {
-      ...trade,
-      eventDate: new Date(trade.eventDate),
-    };
-  });
-
-  return t.slice().sort((a, b) => a.eventDate - b.eventDate);
+  return trades.sort((a, b) => a.eventDate.seconds - b.eventDate.seconds);
 };
 
 export const profit = (trades, stake) => {
