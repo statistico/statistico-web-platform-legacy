@@ -3,8 +3,8 @@ import React from 'react';
 import Checkbox from '../../../../Checkbox/Checkbox';
 import {
   CheckboxWrapper,
+  CompetitionListWrapper,
   CompetitionPanelWrapper,
-  FilterWrapper,
 } from './CompetitionPanelWrapper';
 import PanelTitle from '../PanelTitle/PanelTitle';
 
@@ -14,7 +14,7 @@ const CompetitionPanel = () => {
   return (
     <CompetitionPanelWrapper>
       <PanelTitle title="Competitions" />
-      <FilterWrapper>
+      <CompetitionListWrapper>
         {competitions.map((item) => (
           <CheckboxWrapper key={item.name}>
             <Checkbox
@@ -25,7 +25,7 @@ const CompetitionPanel = () => {
             />
           </CheckboxWrapper>
         ))}
-      </FilterWrapper>
+      </CompetitionListWrapper>
     </CompetitionPanelWrapper>
   );
 };

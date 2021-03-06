@@ -19,7 +19,7 @@ export const CompetitionPanelWrapper = styled.div`
   }
 `;
 
-export const FilterWrapper = styled.div`
+export const CompetitionListWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
