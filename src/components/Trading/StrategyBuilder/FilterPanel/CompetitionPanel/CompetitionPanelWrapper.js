@@ -33,8 +33,16 @@ export const CheckboxWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  align-items: center;
   width: 50%;
   font-size: 20px;
+
+  label {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
 
   input {
     margin: 12px;
@@ -43,5 +51,11 @@ export const CheckboxWrapper = styled.div`
   @media (max-width: 768px) {
     width: 100%;
     font-size: 16px;
+  }
+
+  img {
+    height: 20px;
+    width: 30px;
+    margin-right: 10px;
   }
 `;

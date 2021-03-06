@@ -18,6 +18,7 @@ const CompetitionPanel = () => {
         {competitions.map((item) => (
           <CheckboxWrapper key={item.name}>
             <Checkbox
+              country={item.country}
               name={item.name}
               label={item.label}
               checked={false}
