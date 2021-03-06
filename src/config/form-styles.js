@@ -20,11 +20,6 @@ const selectStyles = {
     cursor: 'pointer',
   }),
 
-  menuPortal: (provided) => ({
-    ...provided,
-    cursor: 'pointer',
-  }),
-
   multiValue: (provided) => ({
     ...provided,
     width: 'fit-content',
