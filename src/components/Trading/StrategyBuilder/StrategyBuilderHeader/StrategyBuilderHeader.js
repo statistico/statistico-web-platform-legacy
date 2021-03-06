@@ -1,7 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFilter, faSave, faSearch } from '@fortawesome/free-solid-svg-icons';
+import {
+  faChartLine,
+  faFilter,
+  faSave,
+  faSearch,
+} from '@fortawesome/free-solid-svg-icons';
 
 import StrategyBuilderHeaderWrapper from './StrategyBuilderHeaderWrapper';
 
@@ -41,6 +46,7 @@ const StrategyBuilderHeader = () => {
       <Title>Strategy Builder</Title>
       <IconCollection>
         <FontAwesomeIcon icon={faFilter} />
+        <FontAwesomeIcon icon={faChartLine} />
         <FontAwesomeIcon icon={faSave} />
         <FontAwesomeIcon icon={faSearch} />
       </IconCollection>
