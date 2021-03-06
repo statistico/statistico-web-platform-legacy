@@ -134,6 +134,17 @@ export const result = [
   },
 ];
 
+export const type = [
+  {
+    name: 'BACK',
+    label: 'Back',
+  },
+  {
+    name: 'LAY',
+    label: 'Lay',
+  },
+];
+
 export const venue = [
   {
     name: 'HOME',

@@ -1,11 +1,22 @@
 import React from 'react';
 
-import TradePanelWrapper from './TradePanelWrapper';
+import LineSelect from './LineSelect/LineSelect';
+import MarketRunnerSelect from './MarketRunnerSelect/MarketRunnerSelect';
+import OddsSelect from './OddsSelect/OddsSelect';
+import PanelTitle from '../PanelTitle/PanelTitle';
+import { FilterWrapper, TradePanelWrapper } from './TradePanelWrapper';
+import TypeSelect from './TypeSelect/TypeSelect';
 
 const TradePanel = () => {
   return (
     <TradePanelWrapper>
-      <p>This is the trade panel</p>
+      <PanelTitle title="Trade" />
+      <FilterWrapper>
+        <MarketRunnerSelect />
+        <LineSelect />
+        <TypeSelect />
+        <OddsSelect />
+      </FilterWrapper>
     </TradePanelWrapper>
   );
 };
