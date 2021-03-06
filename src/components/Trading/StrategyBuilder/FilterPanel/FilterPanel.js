@@ -1,13 +1,18 @@
 import React from 'react';
 
+import CompetitionPanel from './CompetitionPanel/CompetitionPanel';
 import FilterPanelWrapper from './FilterPanelWrapper';
+import ResultPanel from './ResultPanel/ResultPanel';
+import StatPanel from './StatPanel/StatPanel';
+import TradePanel from './TradePanel/TradePanel';
 
 const FilterPanel = () => {
   return (
     <FilterPanelWrapper>
-      <div>Trade Filters</div>
-      <div>Competition Filters</div>
-      <div>Result and Stat Filters</div>
+      <TradePanel />
+      <CompetitionPanel />
+      <ResultPanel />
+      <StatPanel />
     </FilterPanelWrapper>
   );
 };
