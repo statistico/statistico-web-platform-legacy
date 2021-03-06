@@ -11,8 +11,9 @@ const PanelTitleWrapper = styled.div`
   margin: 0 5px 15px 0;
 
   @media (max-width: 768px) {
+    width: 100%;
     font-size: 18px;
-    padding-bottom: 5px;
+    padding: 0 0 5px 0;
     margin-bottom: 10px;
   }
 `;
