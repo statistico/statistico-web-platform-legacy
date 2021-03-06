@@ -9,6 +9,7 @@ const ResponsiveMenuWrapper = styled.div`
   background-color: #1b1e22;
   position: absolute;
   margin-top: 70px;
+  z-index: 1500;
 
   @media (min-width: 768px) {
     display: none;

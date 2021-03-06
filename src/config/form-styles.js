@@ -5,15 +5,22 @@ const selectStyles = {
     textAlign: 'left',
     fontSize: '14px',
     color: 'black',
+    cursor: 'pointer',
   }),
 
   valueContainer: (provided) => ({
     ...provided,
     justifyContent: 'left',
     color: 'black',
+    cursor: 'pointer',
   }),
 
   control: (provided) => ({
+    ...provided,
+    cursor: 'pointer',
+  }),
+
+  menuPortal: (provided) => ({
     ...provided,
     cursor: 'pointer',
   }),
