@@ -44,7 +44,6 @@ const CompetitionPanel = () => {
     ].sort((a, b) => a.country.localeCompare(b.country) || a.id - b.id);
 
     updateSelections(newSelections);
-
     updateFilters(newSelections);
     setAllChecked(false);
   };
