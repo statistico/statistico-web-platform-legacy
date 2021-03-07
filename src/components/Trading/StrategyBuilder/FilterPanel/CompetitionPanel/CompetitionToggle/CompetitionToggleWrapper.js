@@ -11,6 +11,10 @@ const CompetitionToggleWrapper = styled.div`
     margin-left: 12px;
     cursor: pointer;
   }
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 export default CompetitionToggleWrapper;

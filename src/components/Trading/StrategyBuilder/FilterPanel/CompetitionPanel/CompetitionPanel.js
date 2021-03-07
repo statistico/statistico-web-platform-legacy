@@ -73,7 +73,7 @@ const CompetitionPanel = () => {
             id={item.id}
             checked={item.checked}
             onChange={() => clickCompetition(item.id)}
-            key={item.name}
+            key={item.id}
           />
         ))}
       </CompetitionListWrapper>

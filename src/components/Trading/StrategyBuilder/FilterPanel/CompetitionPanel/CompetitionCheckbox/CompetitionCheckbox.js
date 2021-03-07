@@ -9,12 +9,7 @@ const CompetitionCheckbox = (props) => {
   return (
     <CompetitionCheckboxWrapper checked={checked}>
       <label htmlFor={name}>
-        <input
-          type="checkbox"
-          name={id}
-          checked={checked}
-          onChange={onChange}
-        />
+        <input type="checkbox" checked={checked} onChange={onChange} />
         <img
           src={`${process.env.PUBLIC_URL}/country/${country}.jpg`}
           alt={id}
