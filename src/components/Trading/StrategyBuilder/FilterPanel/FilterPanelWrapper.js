@@ -5,7 +5,7 @@ const FilterPanelWrapper = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
   height: fit-content;
   color: #ccc;

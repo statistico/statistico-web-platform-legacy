@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 const ModalWrapper = styled.div`
   position: fixed;
-  background-color: #404344;
+  background-color: #eeeeee;
   width: 450px;
   height: fit-content;
-  border-radius: 10px 20px 10px 20px;
+  border-radius: 10px;
   padding: 16px;
   left: 50%;
   top: 50%;
@@ -16,6 +16,10 @@ const ModalWrapper = styled.div`
 
   p {
     font-size: 16px;
+  }
+
+  @media (max-width: 768px) {
+    width: 98%;
   }
 `;
 

@@ -8,7 +8,7 @@ const Backdrop = styled.div`
   width: 100vw;
   height: 100vh;
   background-color: #000;
-  opacity: 0.5;
+  opacity: 0.75;
 `;
 
 export default Backdrop;
