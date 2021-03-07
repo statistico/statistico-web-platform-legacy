@@ -16,6 +16,7 @@ const StrategyBuilderContextProvider = (props) => {
     minOdds: null,
     resultFilters: [],
     runner: null,
+    side: null,
     statFilters: [],
   });
   const [tr, setTrades] = useState([]);

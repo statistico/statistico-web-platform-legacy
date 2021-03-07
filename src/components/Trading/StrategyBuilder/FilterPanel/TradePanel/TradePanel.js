@@ -5,7 +5,7 @@ import MarketRunnerSelect from './MarketRunnerSelect/MarketRunnerSelect';
 import OddsSelect from './OddsSelect/OddsSelect';
 import PanelTitle from '../PanelTitle/PanelTitle';
 import { FilterWrapper, TradePanelWrapper } from './TradePanelWrapper';
-import TypeSelect from './TypeSelect/TypeSelect';
+import SideSelect from './SideSelect/SideSelect';
 
 const TradePanel = () => {
   return (
@@ -14,7 +14,7 @@ const TradePanel = () => {
       <FilterWrapper>
         <MarketRunnerSelect />
         <LineSelect />
-        <TypeSelect />
+        <SideSelect />
         <OddsSelect />
       </FilterWrapper>
     </TradePanelWrapper>

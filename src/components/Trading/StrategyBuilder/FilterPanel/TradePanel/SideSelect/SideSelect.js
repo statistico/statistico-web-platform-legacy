@@ -1,34 +1,34 @@
 import React, { useContext } from 'react';
 
-import LineSelectWrapper from './LineSelectWrapper';
+import SideSelectWrapper from './SideSelectWrapper';
 import SingleFilter from '../../../../../SingleFilter/SingleFilter';
 import {
   StrategyBuilderActionContext,
   StrategyBuilderContext,
 } from '../../../../../../context/StrategyBuilderContext';
 
-import { lines } from '../../../../../../config/filters';
+import { side } from '../../../../../../config/filters';
 import selectStyles from '../../../../../../config/form-styles';
 
-const LineSelect = () => {
+const SideSelect = () => {
   const { filters } = useContext(StrategyBuilderContext);
   const { setFilters } = useContext(StrategyBuilderActionContext);
 
-  const updateLine = (l) => {
-    setFilters({ ...filters, line: l });
+  const updateSide = (s) => {
+    setFilters({ ...filters, side: s });
   };
 
   return (
-    <LineSelectWrapper>
+    <SideSelectWrapper>
       <SingleFilter
-        selection={filters.line}
-        selections={lines}
+        selection={filters.side}
+        selections={side}
         styles={selectStyles}
-        title="Line"
-        toggleSelection={updateLine}
+        title="Side"
+        toggleSelection={updateSide}
       />
-    </LineSelectWrapper>
+    </SideSelectWrapper>
   );
 };
 
-export default LineSelect;
+export default SideSelect;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const TypeSelectWrapper = styled.div`
+const SideSelectWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -10,7 +10,8 @@ const TypeSelectWrapper = styled.div`
   @media (max-width: 768px) {
     flex-direction: column;
     width: 100%;
+    margin-bottom: 5px;
   }
 `;
 
-export default TypeSelectWrapper;
+export default SideSelectWrapper;

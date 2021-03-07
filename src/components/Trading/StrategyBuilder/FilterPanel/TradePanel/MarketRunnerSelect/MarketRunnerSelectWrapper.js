@@ -9,6 +9,7 @@ const MarketRunnerSelectWrapper = styled.div`
 
   @media (max-width: 768px) {
     flex-direction: column;
+    margin-bottom: 5px;
   }
 `;
 
