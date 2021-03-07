@@ -1,11 +1,30 @@
 import React from 'react';
 
-import CompetitionPanelWrapper from './CompetitionPanelWrapper';
+import CompetitionCheckbox from './CompetitionCheckbox/CompetitionCheckbox';
+import {
+  CompetitionListWrapper,
+  CompetitionPanelWrapper,
+} from './CompetitionPanelWrapper';
+import PanelTitle from '../PanelTitle/PanelTitle';
+
+import competitions from '../../../../../config/competitions';
 
 const CompetitionPanel = () => {
   return (
     <CompetitionPanelWrapper>
-      <p>This is the competition panel</p>
+      <PanelTitle title="Competitions" />
+      <CompetitionListWrapper>
+        {competitions.map((item) => (
+          <CompetitionCheckbox
+            country={item.country}
+            name={item.name}
+            label={item.label}
+            checked={false}
+            onChange={() => {}}
+            key={item.name}
+          />
+        ))}
+      </CompetitionListWrapper>
     </CompetitionPanelWrapper>
   );
 };
