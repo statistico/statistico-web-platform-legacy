@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { bool, func } from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faChartLine,
@@ -29,6 +30,7 @@ const IconCollection = styled.div`
   svg {
     cursor: pointer;
     margin: 0 10px 0 10px;
+    color: #ccc;
   }
 
   @media (max-width: 768px) {
@@ -40,18 +42,45 @@ const IconCollection = styled.div`
   }
 `;
 
-const StrategyBuilderHeader = () => {
+const StrategyBuilderHeader = (props) => {
+  const { filtersActive, selectFilters, selectTrades, tradesActive } = props;
+
+  const clickFilters = () => {
+    selectFilters(true);
+    selectTrades(false);
+  };
+
+  const clickTrades = () => {
+    selectTrades(true);
+    selectFilters(false);
+  };
+
   return (
     <StrategyBuilderHeaderWrapper>
       <Title>Strategy Builder</Title>
       <IconCollection>
-        <FontAwesomeIcon icon={faFilter} />
-        <FontAwesomeIcon icon={faChartLine} />
+        <FontAwesomeIcon
+          icon={faFilter}
+          onClick={() => clickFilters()}
+          style={{ color: filtersActive ? '#22ccde' : '#ccc' }}
+        />
+        <FontAwesomeIcon
+          icon={faChartLine}
+          onClick={() => clickTrades()}
+          style={{ color: tradesActive ? '#22ccde' : '#ccc' }}
+        />
         <FontAwesomeIcon icon={faSave} />
         <FontAwesomeIcon icon={faSearch} />
       </IconCollection>
     </StrategyBuilderHeaderWrapper>
   );
+};
+
+StrategyBuilderHeader.propTypes = {
+  filtersActive: bool.isRequired,
+  selectFilters: func.isRequired,
+  selectTrades: func.isRequired,
+  tradesActive: bool.isRequired,
 };
 
 export default StrategyBuilderHeader;
