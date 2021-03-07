@@ -1,4 +1,4 @@
-import React, { useCallback, useContext } from 'react';
+import React, { useContext } from 'react';
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -39,7 +39,11 @@ const ResultPanel = () => {
         />
       </PanelTitle>
       <ResultRuleWrapper>
-        {filters.resultFilters.length > 0 ? <ResultRuleList /> : null}
+        {filters.resultFilters.length > 0 ? (
+          <ResultRuleList />
+        ) : (
+          <p>No result rules applied</p>
+        )}
       </ResultRuleWrapper>
     </ResultPanelWrapper>
   );
