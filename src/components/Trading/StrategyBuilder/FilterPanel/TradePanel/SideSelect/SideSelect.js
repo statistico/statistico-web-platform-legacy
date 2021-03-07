@@ -7,7 +7,7 @@ import {
   StrategyBuilderContext,
 } from '../../../../../../context/StrategyBuilderContext';
 
-import { type } from '../../../../../../config/filters';
+import { side } from '../../../../../../config/filters';
 import selectStyles from '../../../../../../config/form-styles';
 
 const SideSelect = () => {
@@ -22,7 +22,7 @@ const SideSelect = () => {
     <SideSelectWrapper>
       <SingleFilter
         selection={filters.side}
-        selections={type}
+        selections={side}
         styles={selectStyles}
         title="Side"
         toggleSelection={updateSide}

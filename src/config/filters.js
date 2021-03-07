@@ -85,6 +85,17 @@ export const metric = [
   },
 ];
 
+export const side = [
+  {
+    name: 'BACK',
+    label: 'Back',
+  },
+  {
+    name: 'LAY',
+    label: 'Lay',
+  },
+];
+
 export const stats = [
   {
     name: 'GOALS',
@@ -131,17 +142,6 @@ export const result = [
   {
     name: 'LOSE_DRAW',
     label: 'Lose or Draw',
-  },
-];
-
-export const type = [
-  {
-    name: 'BACK',
-    label: 'Back',
-  },
-  {
-    name: 'LAY',
-    label: 'Lay',
   },
 ];
 
