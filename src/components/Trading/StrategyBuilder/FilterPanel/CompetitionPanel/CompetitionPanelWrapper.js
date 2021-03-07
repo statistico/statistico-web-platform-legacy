@@ -14,7 +14,7 @@ export const CompetitionPanelWrapper = styled.div`
 
   @media (max-width: 768px) {
     width: 98%;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     height: fit-content;
   }
 `;

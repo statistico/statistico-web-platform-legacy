@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const ModalWrapper = styled.div`
   position: fixed;
-  background-color: #eeeeee;
+  background-color: #dedcdc;
   width: 450px;
   height: fit-content;
   border-radius: 10px;
