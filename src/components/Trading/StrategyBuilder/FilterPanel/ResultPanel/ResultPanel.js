@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Modal from '../../../../Modal/Modal';
 import PanelTitle from '../PanelTitle/PanelTitle';
-import { ResultPanelWrapper, ResultRuleWrapper } from './ResultPanelWrapper';
+import ResultPanelWrapper from './ResultPanelWrapper';
 import ResultRule from './ResultRule/ResultRule';
 import ResultRuleList from './ResultRuleList/ResultRuleList';
 import {
@@ -38,13 +38,7 @@ const ResultPanel = () => {
           onClick={() => toggle()}
         />
       </PanelTitle>
-      <ResultRuleWrapper>
-        {filters.resultFilters.length > 0 ? (
-          <ResultRuleList />
-        ) : (
-          <p>No result rules applied</p>
-        )}
-      </ResultRuleWrapper>
+      <ResultRuleList />
     </ResultPanelWrapper>
   );
 };

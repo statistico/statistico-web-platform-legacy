@@ -1,8 +1,9 @@
-import React, { useCallback, useContext, useMemo } from 'react';
+import React, { useCallback, useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
 
-import Table from '../../../../../Table/Table';
+import ResultRuleListWrapper from './ResultRuleListWrapper';
 import {
   StrategyBuilderActionContext,
   StrategyBuilderContext,
@@ -11,15 +12,6 @@ import {
 const ResultRuleList = () => {
   const { filters } = useContext(StrategyBuilderContext);
   const { setFilters } = useContext(StrategyBuilderActionContext);
-
-  const resultFilters = filters.resultFilters.map((f) => {
-    return {
-      team: f.team.label,
-      result: f.result.label,
-      games: f.games.label,
-      venue: f.venue.label,
-    };
-  });
 
   const removeFilter = useCallback(
     (i, f) => {
@@ -32,42 +24,48 @@ const ResultRuleList = () => {
     [filters, setFilters]
   );
 
-  const cols = useMemo(
-    () => [
-      {
-        Header: () => null,
-        id: 'delete-row',
-        Cell: (tableProps) => (
-          <FontAwesomeIcon
-            icon={faTimesCircle}
-            size="1x"
-            onClick={() =>
-              removeFilter(tableProps.row.index, filters.resultFilters)
-            }
-          />
-        ),
-      },
-      {
-        Header: 'Team',
-        accessor: 'team',
-      },
-      {
-        Header: 'Result',
-        accessor: 'result',
-      },
-      {
-        Header: 'Games',
-        accessor: 'games',
-      },
-      {
-        Header: 'Venue',
-        accessor: 'venue',
-      },
-    ],
-    [filters, removeFilter]
-  );
+  if (filters.resultFilters.length === 0) {
+    return (
+      <ResultRuleListWrapper>
+        <p>No result rules applied</p>
+      </ResultRuleListWrapper>
+    );
+  }
 
-  return <Table columns={cols} data={resultFilters} />;
+  return (
+    <ResultRuleListWrapper>
+      <Table>
+        <Thead>
+          <Tr>
+            <Th />
+            <Th>Team</Th>
+            <Th>Result</Th>
+            <Th>Games</Th>
+            <Th>Venue</Th>
+          </Tr>
+        </Thead>
+        <Tbody>
+          {filters.resultFilters.map((f, index) => {
+            return (
+              <Tr key={`${f.team.label}${f.result.label}${f.games.label}`}>
+                <Td>
+                  <FontAwesomeIcon
+                    icon={faTimesCircle}
+                    size="1x"
+                    onClick={() => removeFilter(index, filters.resultFilters)}
+                  />
+                </Td>
+                <Td>{f.team.label}</Td>
+                <Td>{f.result.label}</Td>
+                <Td>{f.games.label}</Td>
+                <Td>{f.venue.label}</Td>
+              </Tr>
+            );
+          })}
+        </Tbody>
+      </Table>
+    </ResultRuleListWrapper>
+  );
 };
 
 export default ResultRuleList;

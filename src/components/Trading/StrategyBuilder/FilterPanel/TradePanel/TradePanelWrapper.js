@@ -11,10 +11,10 @@ export const TradePanelWrapper = styled.div`
   box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.23);
   height: 360px;
   padding: 15px;
+  margin-bottom: 15px;
 
   @media (max-width: 768px) {
     width: 98%;
-    margin-bottom: 20px;
     height: fit-content;
 
     p {

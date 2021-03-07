@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ResultPanelWrapper = styled.div`
+const ResultPanelWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -13,13 +13,6 @@ export const ResultPanelWrapper = styled.div`
   margin: 20px 0 20px 0;
   padding: 15px;
 
-  table {
-    width: 100%;
-    text-align: left;
-    margin-left: 20px;
-    font-size: 16px;
-  }
-
   svg {
     color: #22ccde;
     cursor: pointer;
@@ -31,24 +24,8 @@ export const ResultPanelWrapper = styled.div`
 
   @media (max-width: 768px) {
     width: 98%;
-    margin: 0 0 20px 0;
-
-    table {
-      text-align: left;
-      margin-left: 10px;
-      font-size: 14px;
-    }
+    margin: 10px 0 10px 0;
   }
 `;
 
-export const ResultRuleWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: left;
-  width: 100%;
-
-  p {
-    margin-left: 15px;
-  }
-`;
+export default ResultPanelWrapper;

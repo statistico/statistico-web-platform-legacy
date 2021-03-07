@@ -4,7 +4,7 @@ import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 
 import Modal from '../../../../Modal/Modal';
 import PanelTitle from '../PanelTitle/PanelTitle';
-import { StatRuleWrapper, StatPanelWrapper } from './StatPanelWrapper';
+import StatPanelWrapper from './StatPanelWrapper';
 import StatRule from './StatRule/StatRule';
 import StatRuleList from './StatRuleList/StatRuleList';
 import {
@@ -38,13 +38,7 @@ const StatPanel = () => {
           onClick={() => toggle()}
         />
       </PanelTitle>
-      <StatRuleWrapper>
-        {filters.statFilters.length > 0 ? (
-          <StatRuleList />
-        ) : (
-          <p>No stat rules applied</p>
-        )}
-      </StatRuleWrapper>
+      <StatRuleList />
     </StatPanelWrapper>
   );
 };
