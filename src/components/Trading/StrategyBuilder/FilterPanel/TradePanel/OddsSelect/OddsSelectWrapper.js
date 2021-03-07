@@ -4,10 +4,9 @@ const OddsSelectWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 50%;
+  width: 100%;
 
   @media (max-width: 768px) {
-    width: 100%;
     flex-direction: column;
   }
 `;

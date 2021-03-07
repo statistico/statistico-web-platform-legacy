@@ -10,6 +10,7 @@ const LineSelectWrapper = styled.div`
   @media (max-width: 768px) {
     flex-direction: column;
     width: 100%;
+    margin-bottom: 5px;
   }
 `;
 

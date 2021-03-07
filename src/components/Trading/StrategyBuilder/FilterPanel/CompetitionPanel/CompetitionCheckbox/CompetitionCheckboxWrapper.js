@@ -17,6 +17,7 @@ const CompetitionCheckboxWrapper = styled.div`
 
   input {
     margin: 12px;
+    cursor: pointer;
   }
 
   @media (max-width: 768px) {

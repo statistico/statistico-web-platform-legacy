@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
 const PanelTitleWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   width: 98%;
   color: #dedcdc;
   font-size: 22px;

@@ -1,67 +1,67 @@
 const competitions = [
   {
-    name: '208',
-    label: 'Pro League',
+    id: '208',
+    name: 'Pro League',
     country: 'BEL',
   },
   {
-    name: '8',
-    label: 'Premier League',
-    country: 'ENG',
-  },
-  {
-    name: '9',
-    label: 'Championship',
-    country: 'ENG',
-  },
-  {
-    name: '12',
-    label: 'League One',
-    country: 'ENG',
-  },
-  {
-    name: '14',
-    label: 'League Two',
-    country: 'ENG',
-  },
-  {
-    name: '301',
-    label: 'Ligue 1',
-    country: 'FRA',
-  },
-  {
-    name: '82',
-    label: 'Bundesliga',
+    id: '82',
+    name: 'Bundesliga',
     country: 'DEU',
   },
   {
-    name: '384',
-    label: 'Serie A',
+    id: '8',
+    name: 'Premier League',
+    country: 'ENG',
+  },
+  {
+    id: '9',
+    name: 'Championship',
+    country: 'ENG',
+  },
+  {
+    id: '12',
+    name: 'League One',
+    country: 'ENG',
+  },
+  {
+    id: '14',
+    name: 'League Two',
+    country: 'ENG',
+  },
+  {
+    id: '301',
+    name: 'Ligue 1',
+    country: 'FRA',
+  },
+  {
+    id: '384',
+    name: 'Serie A',
     country: 'ITA',
   },
   {
-    name: '72',
-    label: 'Eredivisie',
+    id: '72',
+    name: 'Eredivisie',
     country: 'NET',
   },
   {
-    name: '462',
-    label: 'Primeira Liga',
+    id: '462',
+    name: 'Primeira Liga',
     country: 'POR',
   },
   {
-    name: '501',
-    label: 'Premiership',
+    id: '501',
+    name: 'Premier League',
     country: 'SCO',
   },
   {
-    name: '564',
-    label: 'La Liga',
+    id: '564',
+    name: 'La Liga',
     country: 'SPA',
   },
   {
-    name: '573',
-    label: 'Allsvenskan',
+    id: '573',
+    name: 'Allsvenskan',
     country: 'SWE',
   },
 ];
