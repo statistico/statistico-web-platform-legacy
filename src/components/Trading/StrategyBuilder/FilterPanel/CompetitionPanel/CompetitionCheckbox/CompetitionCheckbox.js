@@ -1,13 +1,13 @@
 import React from 'react';
 import { bool, func, string } from 'prop-types';
 
-import Aux from '../../hoc/Aux/Aux';
+import CompetitionCheckboxWrapper from './CompetitionCheckboxWrapper';
 
-const Checkbox = (props) => {
+const CompetitionCheckbox = (props) => {
   const { country, label, name, checked, onChange } = props;
 
   return (
-    <Aux>
+    <CompetitionCheckboxWrapper>
       <label htmlFor={name}>
         <input
           type="checkbox"
@@ -21,11 +21,11 @@ const Checkbox = (props) => {
         />
         {label}
       </label>
-    </Aux>
+    </CompetitionCheckboxWrapper>
   );
 };
 
-Checkbox.propTypes = {
+CompetitionCheckbox.propTypes = {
   country: string.isRequired,
   label: string.isRequired,
   name: string.isRequired,
@@ -33,4 +33,4 @@ Checkbox.propTypes = {
   onChange: func.isRequired,
 };
 
-export default Checkbox;
+export default CompetitionCheckbox;

@@ -1,8 +1,7 @@
 import React from 'react';
 
-import Checkbox from '../../../../Checkbox/Checkbox';
+import CompetitionCheckbox from './CompetitionCheckbox/CompetitionCheckbox';
 import {
-  CheckboxWrapper,
   CompetitionListWrapper,
   CompetitionPanelWrapper,
 } from './CompetitionPanelWrapper';
@@ -16,15 +15,14 @@ const CompetitionPanel = () => {
       <PanelTitle title="Competitions" />
       <CompetitionListWrapper>
         {competitions.map((item) => (
-          <CheckboxWrapper key={item.name}>
-            <Checkbox
-              country={item.country}
-              name={item.name}
-              label={item.label}
-              checked={false}
-              onChange={() => {}}
-            />
-          </CheckboxWrapper>
+          <CompetitionCheckbox
+            country={item.country}
+            name={item.name}
+            label={item.label}
+            checked={false}
+            onChange={() => {}}
+            key={item.name}
+          />
         ))}
       </CompetitionListWrapper>
     </CompetitionPanelWrapper>
