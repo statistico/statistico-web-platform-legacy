@@ -11,8 +11,8 @@ const FilterPanel = () => {
     <FilterPanelWrapper>
       <TradePanel />
       <CompetitionPanel />
-      <ResultPanel />
       <StatPanel />
+      <ResultPanel />
     </FilterPanelWrapper>
   );
 };

@@ -17,7 +17,7 @@ export const ResultPanelWrapper = styled.div`
     width: 100%;
     text-align: left;
     margin-left: 20px;
-    font-size: 18px;
+    font-size: 16px;
   }
 
   svg {
@@ -45,6 +45,10 @@ export const ResultRuleWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
+  align-items: left;
   width: 100%;
+
+  p {
+    margin-left: 15px;
+  }
 `;
