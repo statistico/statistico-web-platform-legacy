@@ -10,7 +10,7 @@ import {
   tradeYield,
 } from '../../../../../../utility/trade';
 
-const Count = styled.p`
+const Count = styled.td`
   color: ${(props) => props.color};
 `;
 
@@ -31,12 +31,8 @@ const CompetitionRow = (props) => {
       <Td>{trades.length}</Td>
       <Td>{averageRunnerPrice(trades)}</Td>
       <Td>{maxDrawdown(trades)}</Td>
-      <Td>
-        <Count color={yd > 0 ? 'green' : 'red'}>{yd.toString()}</Count>
-      </Td>
-      <Td>
-        <Count color={p > 0 ? 'green' : 'red'}>{p.toString()}</Count>
-      </Td>
+      <Count color={yd > 0 ? 'green' : 'red'}>{yd.toString()}</Count>
+      <Count color={p > 0 ? 'green' : 'red'}>{p.toString()}</Count>
     </Tr>
   );
 };
