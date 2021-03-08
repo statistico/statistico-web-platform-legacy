@@ -14,7 +14,7 @@ const DashboardWrapper = styled.div`
   @media (max-width: 768px) {
     margin-left: 0;
     padding: 15px;
-    width: 100%;
+    width: 100vw;
   }
 `;
 

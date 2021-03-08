@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 
+import CompetitionList from './CompetitionList/CompetitionList';
 import TradeGraph from './TradeGraph/TradeGraph';
 import TradeLoader from './TradeLoader/TradeLoader';
 import TradePanelWrapper from './TradePanelWrapper';
@@ -23,6 +24,7 @@ const TradePanel = () => {
       <WinLossChart />
       <TradeGraph />
       <TradeStatPanel />
+      <CompetitionList />
     </TradePanelWrapper>
   );
 };

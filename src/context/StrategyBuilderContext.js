@@ -37,8 +37,8 @@ const StrategyBuilderContextProvider = (props) => {
     setLoading(true);
 
     setTimeout(() => {
-      setLoading(false);
       setTrades(trades);
+      setLoading(false);
     }, 2000);
     // fetchStrategyTrades(
     //   filters,
