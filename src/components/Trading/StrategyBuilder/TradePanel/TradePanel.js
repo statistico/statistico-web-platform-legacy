@@ -1,11 +1,13 @@
 import React, { useContext } from 'react';
 
+import TradeGraph from './TradeGraph/TradeGraph';
 import TradeLoader from './TradeLoader/TradeLoader';
 import TradePanelWrapper from './TradePanelWrapper';
+import WinLossChart from './WinLossChart/WinLossChart';
 import { StrategyBuilderContext } from '../../../../context/StrategyBuilderContext';
 
 const TradePanel = () => {
-  const { tr, loading } = useContext(StrategyBuilderContext);
+  const { loading } = useContext(StrategyBuilderContext);
 
   if (loading) {
     return (
@@ -17,7 +19,8 @@ const TradePanel = () => {
 
   return (
     <TradePanelWrapper>
-      <div>This is the trade panel</div>
+      <WinLossChart />
+      <TradeGraph />
     </TradePanelWrapper>
   );
 };

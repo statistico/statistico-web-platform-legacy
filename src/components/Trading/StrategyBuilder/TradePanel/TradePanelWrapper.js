@@ -11,6 +11,11 @@ const TradePanelWrapper = styled.div`
   color: #ccc;
   padding: 20px 0 20px 0;
   margin: 20px 0 20px 0;
+
+  @media (max-width: 768px) {
+    margin: 0;
+    padding: 0;
+  }
 `;
 
 export default TradePanelWrapper;
