@@ -14,6 +14,10 @@ import {
 const TradeStatPanel = () => {
   const { tr } = useContext(StrategyBuilderContext);
   const trades = orderByEventDate(tr);
+  const avgPrice = averageRunnerPrice(trades);
+  const dd = maxDrawdown(trades);
+  const yieldPercentage = tradeYield(trades, 1);
+  const prof = profit(trades, 1);
 
   return (
     <TradeStatPanelWrapper>
@@ -26,28 +30,28 @@ const TradeStatPanel = () => {
       />
       <TradeStat
         colour="#22ccde"
-        count={averageRunnerPrice(trades)}
+        count={avgPrice}
         decimals={2}
         metric={null}
         title="Average Odds"
       />
       <TradeStat
         colour="#ff0000"
-        count={maxDrawdown(trades)}
+        count={dd}
         decimals={0}
         metric="u"
         title="Maximum Drawdown"
       />
       <TradeStat
-        colour={tradeYield(trades, 1) > 0 ? 'green' : 'red'}
-        count={tradeYield(trades, 1)}
+        colour={yieldPercentage > 0 ? 'green' : 'red'}
+        count={yieldPercentage}
         decimals={2}
         metric="%"
         title="Yield"
       />
       <TradeStat
-        colour={profit(trades, 1) > 0 ? 'green' : 'red'}
-        count={profit(trades, 1)}
+        colour={prof > 0 ? 'green' : 'red'}
+        count={prof}
         decimals={2}
         metric="u"
         title="Profit / Loss"
