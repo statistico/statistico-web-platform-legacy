@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { bool, func } from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,6 +10,10 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 import StrategyBuilderHeaderWrapper from './StrategyBuilderHeaderWrapper';
+import {
+  StrategyBuilderActionContext,
+  StrategyBuilderContext,
+} from '../../../../context/StrategyBuilderContext';
 
 const Title = styled.div`
   color: #22ccde;
@@ -44,6 +48,8 @@ const IconCollection = styled.div`
 
 const StrategyBuilderHeader = (props) => {
   const { filtersActive, selectFilters, selectTrades, tradesActive } = props;
+  const { loadTrades } = useContext(StrategyBuilderActionContext);
+  const { loading } = useContext(StrategyBuilderContext);
 
   const clickFilters = () => {
     selectFilters(true);
@@ -54,6 +60,16 @@ const StrategyBuilderHeader = (props) => {
     selectTrades(true);
     selectFilters(false);
   };
+
+  const buildStrategy = () => {
+    selectTrades(true);
+    selectFilters(false);
+    loadTrades();
+  };
+
+  if (loading) {
+    return null;
+  }
 
   return (
     <StrategyBuilderHeaderWrapper>
@@ -70,7 +86,11 @@ const StrategyBuilderHeader = (props) => {
           style={{ color: tradesActive ? '#22ccde' : '#ccc' }}
         />
         <FontAwesomeIcon icon={faSave} />
-        <FontAwesomeIcon icon={faSearch} />
+        <FontAwesomeIcon
+          icon={faSearch}
+          onClick={() => buildStrategy()}
+          style={{ color: loading ? '#22ccde' : '#ccc' }}
+        />
       </IconCollection>
     </StrategyBuilderHeaderWrapper>
   );
