@@ -2,7 +2,6 @@ import React, { useState, createContext, useMemo, useCallback } from 'react';
 import { node } from 'prop-types';
 
 import fetchStrategyTrades from '../gateway/statistico-grpc';
-import trades from '../config/trades';
 
 export const StrategyBuilderContext = createContext(null);
 export const StrategyBuilderActionContext = createContext(null);
@@ -36,19 +35,15 @@ const StrategyBuilderContextProvider = (props) => {
     setTrades([]);
     setLoading(true);
 
-    setTimeout(() => {
-      setTrades(trades);
-      setLoading(false);
-    }, 2000);
-    // fetchStrategyTrades(
-    //   filters,
-    //   update,
-    //   () => setLoading(false),
-    //   () => {
-    //     console.log('Error');
-    //   }
-    // );
-  }, [setLoading]);
+    fetchStrategyTrades(
+      filters,
+      update,
+      () => setLoading(false),
+      () => {
+        console.log('Error');
+      }
+    );
+  }, [setLoading, filters, update]);
 
   const store = useMemo(
     () => ({
