@@ -13,6 +13,7 @@ const CompetitionListWrapper = styled.div`
   box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.23);
   height: fit-content;
   font-size: 20px;
+  cursor: pointer;
 
   img {
     height: 20px;
