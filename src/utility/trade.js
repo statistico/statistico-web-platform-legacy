@@ -26,6 +26,13 @@ export const filterByCompetition = (trades, id) => {
   });
 };
 
+export const filterBySeason = (trades, id) => {
+  return trades.filter((trade) => {
+    const { seasonId } = trade;
+    return seasonId === id;
+  });
+};
+
 export const maxDrawdown = (trades) => {
   let current = 0;
   let max = 0;
