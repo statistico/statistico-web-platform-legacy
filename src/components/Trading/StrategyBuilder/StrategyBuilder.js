@@ -19,8 +19,8 @@ const StrategyBuilder = () => {
           selectTrades={setTradesActive}
           tradesActive={tradesActive}
         />
-        {filtersActive ? <FilterPanel /> : null}
-        {tradesActive ? <TradePanel /> : null}
+        <FilterPanel isActive={filtersActive} />
+        <TradePanel isActive={tradesActive} />
       </StrategyBuilderWrapper>
     </StrategyBuilderContextProvider>
   );

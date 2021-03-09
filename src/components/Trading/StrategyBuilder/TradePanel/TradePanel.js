@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { bool } from 'prop-types';
 
 import CompetitionList from './CompetitionList/CompetitionList';
 import TradeGraph from './TradeGraph/TradeGraph';
@@ -8,25 +9,30 @@ import TradeStatPanel from './TradeStatPanel/TradeStatPanel';
 import WinLossChart from './WinLossChart/WinLossChart';
 import { StrategyBuilderContext } from '../../../../context/StrategyBuilderContext';
 
-const TradePanel = () => {
+const TradePanel = (props) => {
+  const { isActive } = props;
   const { loading } = useContext(StrategyBuilderContext);
 
   if (loading) {
     return (
-      <TradePanelWrapper>
+      <TradePanelWrapper isActive={isActive}>
         <TradeLoader />
       </TradePanelWrapper>
     );
   }
 
   return (
-    <TradePanelWrapper>
+    <TradePanelWrapper isActive={isActive}>
       <WinLossChart />
       <TradeGraph />
       <TradeStatPanel />
       <CompetitionList />
     </TradePanelWrapper>
   );
+};
+
+TradePanel.propTypes = {
+  isActive: bool.isRequired,
 };
 
 export default TradePanel;
