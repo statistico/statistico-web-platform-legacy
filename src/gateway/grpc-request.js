@@ -17,8 +17,14 @@ import { parseFloatValue } from '../utility/strategy';
 const strategyTradeRequest = (filters) => {
   const request = new StrategyTradeSearchRequest();
 
-  const minOdds = new FloatValue().setValue(parseFloatValue(filters.minOdds));
-  const maxOdds = new FloatValue().setValue(parseFloatValue(filters.maxOdds));
+  const minOdds =
+    filters.minOdds !== null
+      ? new FloatValue().setValue(parseFloatValue(filters.minOdds))
+      : null;
+  const maxOdds =
+    filters.maxOdds !== null
+      ? new FloatValue().setValue(parseFloatValue(filters.maxOdds))
+      : null;
 
   const resultFilters = filters.resultFilters.map((f) => {
     const filter = new ResultFilter();
@@ -47,7 +53,7 @@ const strategyTradeRequest = (filters) => {
   request.setLine(LineEnum[filters.line.name]);
   request.setMinOdds(minOdds);
   request.setMaxOdds(maxOdds);
-  request.setCompetitionIdsList(filters.competitions.map((f) => f.value));
+  request.setCompetitionIdsList(filters.competitions);
   request.setResultFiltersList(resultFilters);
   request.setStatFiltersList(statFilters);
 
