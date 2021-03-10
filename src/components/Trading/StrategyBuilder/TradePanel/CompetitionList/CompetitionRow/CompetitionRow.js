@@ -13,7 +13,7 @@ import {
 } from '../../../../../../utility/trade';
 import SeasonRow from './SeasonRow/SeasonRow';
 
-const Count = styled.td`
+const Count = styled(Td)`
   color: ${(props) => props.color};
 `;
 

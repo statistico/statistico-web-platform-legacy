@@ -11,7 +11,7 @@ import {
   tradeYield,
 } from '../../../../../../../utility/trade';
 
-const Count = styled.td`
+const Count = styled(Td)`
   color: ${(props) => props.color};
 `;
 
