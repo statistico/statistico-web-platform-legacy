@@ -2,6 +2,7 @@ import React, { useCallback, useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
+import { v4 as uuidv4 } from 'uuid';
 
 import ResultRuleListWrapper from './ResultRuleListWrapper';
 import {
@@ -47,7 +48,7 @@ const ResultRuleList = () => {
         <Tbody>
           {filters.resultFilters.map((f, index) => {
             return (
-              <Tr key={`${f.team.label}${f.result.label}${f.games.label}`}>
+              <Tr key={uuidv4()}>
                 <Td>
                   <FontAwesomeIcon
                     icon={faTimesCircle}

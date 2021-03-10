@@ -33,8 +33,8 @@ const CompetitionRow = (props) => {
 
 CompetitionRow.propTypes = {
   competition: shape({
+    id: number.isRequired,
     name: string.isRequired,
-    label: string.isRequired,
   }).isRequired,
   trades: arrayOf(
     shape({

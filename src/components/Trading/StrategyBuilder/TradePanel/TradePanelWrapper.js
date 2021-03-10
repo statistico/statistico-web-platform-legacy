@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const TradePanelWrapper = styled.div`
-  display: flex;
+  display: ${(props) => (props.isActive ? 'flex' : 'none')};
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
