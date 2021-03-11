@@ -13,7 +13,7 @@ const Navigation = (props) => {
     <Aux>
       <SideBar open={open} clicked={clicked} />
       <TopBar open={open} clicked={clicked} />
-      <ResponsiveMenu open={open} />
+      <ResponsiveMenu open={open} clicked={clicked} />
     </Aux>
   );
 };

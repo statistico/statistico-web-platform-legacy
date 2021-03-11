@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
+import { array, bool, func, shape, string } from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import MenuItemWrapper from './MenuItemWrapper';
@@ -30,9 +30,9 @@ const Title = styled.div`
 `;
 
 const MenuItem = (props) => {
-  const { open, icon, title } = props;
+  const { clicked, open, icon, link, title } = props;
   return (
-    <MenuItemWrapper open={open}>
+    <MenuItemWrapper open={open} to={link} onClick={() => clicked()}>
       <Icon>
         <FontAwesomeIcon icon={icon} size="1x" />
       </Icon>
@@ -42,11 +42,13 @@ const MenuItem = (props) => {
 };
 
 MenuItem.propTypes = {
-  open: PropTypes.bool.isRequired,
-  icon: PropTypes.shape({
-    icon: PropTypes.array,
+  clicked: func.isRequired,
+  open: bool.isRequired,
+  icon: shape({
+    icon: array,
   }).isRequired,
-  title: PropTypes.string.isRequired,
+  link: string.isRequired,
+  title: string.isRequired,
 };
 
 export default MenuItem;

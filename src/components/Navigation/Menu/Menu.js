@@ -1,5 +1,5 @@
 import React from 'react';
-import { bool } from 'prop-types';
+import { func, bool } from 'prop-types';
 
 import {
   faBlog,
@@ -11,18 +11,37 @@ import MenuWrapper from './MenuWrapper';
 import MenuItem from './Menuitem/MenuItem';
 
 const Menu = (props) => {
-  const { open } = props;
+  const { clicked, open } = props;
 
   return (
     <MenuWrapper>
-      <MenuItem icon={faMoneyBillAlt} title="Trading" open={open} />
-      <MenuItem icon={faChartPie} title="Stats" open={open} />
-      <MenuItem icon={faBlog} title="Blog" open={open} />
+      <MenuItem
+        icon={faMoneyBillAlt}
+        title="Trading"
+        open={open}
+        link="/trading/strategy/builder"
+        clicked={clicked}
+      />
+      <MenuItem
+        icon={faChartPie}
+        title="Stats"
+        open={open}
+        link="/"
+        clicked={clicked}
+      />
+      <MenuItem
+        icon={faBlog}
+        title="Blog"
+        open={open}
+        link="/"
+        clicked={clicked}
+      />
     </MenuWrapper>
   );
 };
 
 Menu.propTypes = {
+  clicked: func.isRequired,
   open: bool.isRequired,
 };
 
