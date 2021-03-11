@@ -53,6 +53,7 @@ const ResultRuleList = () => {
             <Th>Result</Th>
             <Th>Games</Th>
             <Th>Venue</Th>
+            <Th />
           </Tr>
         </Thead>
         <Tbody>

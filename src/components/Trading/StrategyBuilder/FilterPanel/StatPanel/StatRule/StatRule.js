@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
-import { func } from 'prop-types';
+import { func, shape, string } from 'prop-types';
 
 import { StatRuleRow, StatRuleWrapper } from './StatRuleWrapper';
 import SingleFilter from '../../../../../SingleFilter/SingleFilter';
@@ -27,77 +27,79 @@ const SubmitButton = styled.button`
 `;
 
 const StatRule = (props) => {
-  const { addFilter } = props;
-  const [filter, setFilter] = useState({
-    stat: stats[0],
-    team: team[0],
-    action: action[0],
-    measure: measure[0],
-    metric: metric[0],
-    games: games[0],
-    venue: venue[0],
-    value: odds[0],
-  });
+  const { button, filter, method } = props;
+  const [currentFilter, setCurrentFilter] = useState(
+    filter ?? {
+      stat: stats[0],
+      team: team[0],
+      action: action[0],
+      measure: measure[0],
+      metric: metric[0],
+      games: games[0],
+      venue: venue[0],
+      value: odds[0],
+    }
+  );
 
   const isDisabled = () => {
     return (
-      !filter.stat ||
-      !filter.team ||
-      !filter.games ||
-      !filter.venue ||
-      !filter.action ||
-      !filter.measure ||
-      !filter.metric ||
-      !filter.value
+      !currentFilter.stat ||
+      !currentFilter.team ||
+      !currentFilter.games ||
+      !currentFilter.venue ||
+      !currentFilter.action ||
+      !currentFilter.measure ||
+      !currentFilter.metric ||
+      !currentFilter.value
     );
   };
 
   const updateFilter = useCallback(
     (i, title) => {
       if (title === 'Stat') {
-        setFilter({ ...filter, stat: i });
+        setCurrentFilter({ ...currentFilter, stat: i });
       }
       if (title === 'Team') {
-        setFilter({ ...filter, team: i });
+        setCurrentFilter({ ...currentFilter, team: i });
       }
 
       if (title === 'Action') {
-        setFilter({ ...filter, action: i });
+        setCurrentFilter({ ...currentFilter, action: i });
       }
 
       if (title === 'Measure') {
-        setFilter({ ...filter, measure: i });
+        setCurrentFilter({ ...currentFilter, measure: i });
       }
 
       if (title === 'Metric') {
-        setFilter({ ...filter, metric: i });
+        setCurrentFilter({ ...currentFilter, metric: i });
       }
 
       if (title === 'Games') {
-        setFilter({ ...filter, games: i });
+        setCurrentFilter({ ...currentFilter, games: i });
       }
 
       if (title === 'Venue') {
-        setFilter({ ...filter, venue: i });
+        setCurrentFilter({ ...currentFilter, venue: i });
       }
 
       if (title === 'Value') {
-        setFilter({ ...filter, value: i });
+        setCurrentFilter({ ...currentFilter, value: i });
       }
     },
-    [filter]
+    [currentFilter]
   );
 
   const submit = () => {
-    addFilter({
-      stat: filter.stat,
-      team: filter.team,
-      action: filter.action,
-      measure: filter.measure,
-      metric: filter.metric,
-      games: filter.games,
-      venue: filter.venue,
-      value: filter.value,
+    method({
+      stat: currentFilter.stat,
+      team: currentFilter.team,
+      action: currentFilter.action,
+      measure: currentFilter.measure,
+      metric: currentFilter.metric,
+      games: currentFilter.games,
+      venue: currentFilter.venue,
+      value: currentFilter.value,
     });
   };
 
@@ -105,7 +107,7 @@ const StatRule = (props) => {
     <StatRuleWrapper>
       <StatRuleRow>
         <SingleFilter
-          selection={filter.team}
+          selection={currentFilter.team}
           selections={team}
           styles={selectStyles}
           title="Team"
@@ -114,7 +116,7 @@ const StatRule = (props) => {
       </StatRuleRow>
       <StatRuleRow>
         <SingleFilter
-          selection={filter.stat}
+          selection={currentFilter.stat}
           selections={stats}
           styles={selectStyles}
           title="Stat"
@@ -123,7 +125,7 @@ const StatRule = (props) => {
       </StatRuleRow>
       <StatRuleRow>
         <SingleFilter
-          selection={filter.venue}
+          selection={currentFilter.venue}
           selections={venue}
           styles={selectStyles}
           title="Venue"
@@ -132,14 +134,14 @@ const StatRule = (props) => {
       </StatRuleRow>
       <StatRuleRow>
         <SingleFilter
-          selection={filter.action}
+          selection={currentFilter.action}
           selections={action}
           styles={selectStyles}
           title="Action"
           toggleSelection={(i) => updateFilter(i, 'Action')}
         />
         <SingleFilter
-          selection={filter.measure}
+          selection={currentFilter.measure}
           selections={measure}
           styles={selectStyles}
           title="Measure"
@@ -148,7 +150,7 @@ const StatRule = (props) => {
       </StatRuleRow>
       <StatRuleRow>
         <SingleFilter
-          selection={filter.metric}
+          selection={currentFilter.metric}
           selections={metric}
           styles={selectStyles}
           title="Metric"
@@ -157,14 +159,14 @@ const StatRule = (props) => {
       </StatRuleRow>
       <StatRuleRow>
         <SingleFilter
-          selection={filter.value}
+          selection={currentFilter.value}
           selections={odds}
           styles={selectStyles}
           title="Value"
           toggleSelection={(i) => updateFilter(i, 'Value')}
         />
         <SingleFilter
-          selection={filter.games}
+          selection={currentFilter.games}
           selections={games}
           styles={selectStyles}
           title="Games"
@@ -172,14 +174,45 @@ const StatRule = (props) => {
         />
       </StatRuleRow>
       <SubmitButton disabled={isDisabled()} onClick={submit}>
-        Add
+        {button}
       </SubmitButton>
     </StatRuleWrapper>
   );
 };
 
 StatRule.propTypes = {
-  addFilter: func.isRequired,
+  button: string.isRequired,
+  filter: shape({
+    stat: shape({
+      label: string.isRequired,
+    }),
+    action: shape({
+      label: string.isRequired,
+    }),
+    team: shape({
+      label: string.isRequired,
+    }),
+    measure: shape({
+      label: string.isRequired,
+    }),
+    metric: shape({
+      label: string.isRequired,
+    }),
+    value: shape({
+      label: string.isRequired,
+    }),
+    games: shape({
+      label: string.isRequired,
+    }),
+    venue: shape({
+      label: string.isRequired,
+    }),
+  }),
+  method: func.isRequired,
+};
+
+StatRule.defaultProps = {
+  filter: null,
 };
 
 export default StatRule;

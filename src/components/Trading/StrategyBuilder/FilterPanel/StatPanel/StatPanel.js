@@ -29,7 +29,7 @@ const StatPanel = () => {
   return (
     <StatPanelWrapper>
       <Modal clicked={toggle} show={isShowing}>
-        <StatRule addFilter={addFilter} />
+        <StatRule button="Add" method={addFilter} />
       </Modal>
       <PanelTitle title="Stat Rules">
         <FontAwesomeIcon
