@@ -47,7 +47,12 @@ const toggle = (props) => {
   const { open, clicked } = props;
 
   return (
-    <Toggle onClick={clicked} role="button" tabIndex={0} onKeyDown={clicked}>
+    <Toggle
+      onClick={() => clicked()}
+      role="button"
+      tabIndex={0}
+      onKeyDown={() => clicked()}
+    >
       {open ? <Hamburger open /> : <Hamburger />}
     </Toggle>
   );
