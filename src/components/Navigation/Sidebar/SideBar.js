@@ -9,10 +9,14 @@ import SideBarWrapper from './SideBarWrapper';
 const SideBar = (props) => {
   const { open, clicked } = props;
 
+  const menuItemClicked = () => {
+    clicked(true);
+  };
+
   return (
     <SideBarWrapper open={open}>
       <Brand menuOpen={open} />
-      <Menu open={open} />
+      <Menu open={open} clicked={menuItemClicked} />
       <SideBarToggle clicked={clicked} open={open} />
     </SideBarWrapper>
   );

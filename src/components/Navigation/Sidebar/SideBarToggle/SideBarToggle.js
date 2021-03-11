@@ -12,7 +12,7 @@ const SideBarToggle = (props) => {
   const { open, clicked } = props;
 
   return (
-    <SideBarToggleWrapper onClick={clicked}>
+    <SideBarToggleWrapper onClick={() => clicked()}>
       {open ? (
         <FontAwesomeIcon icon={faChevronCircleLeft} size="1x" />
       ) : (

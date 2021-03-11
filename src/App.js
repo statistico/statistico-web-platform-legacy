@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { BrowserRouter } from 'react-router-dom';
 
 import Dashboard from './components/Dashboard/Dashboard';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
@@ -25,12 +26,14 @@ const App = () => {
 
   return (
     <Container>
-      <Navigation open={menuOpen} clicked={menuToggleHandler} />
-      <Dashboard open={menuOpen}>
-        <ErrorBoundary>
-          <Routes />
-        </ErrorBoundary>
-      </Dashboard>
+      <BrowserRouter>
+        <Navigation open={menuOpen} clicked={menuToggleHandler} />
+        <Dashboard open={menuOpen}>
+          <ErrorBoundary>
+            <Routes />
+          </ErrorBoundary>
+        </Dashboard>
+      </BrowserRouter>
     </Container>
   );
 };
