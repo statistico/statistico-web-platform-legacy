@@ -27,7 +27,7 @@ const SubmitButton = styled.button`
 `;
 
 const StatRule = (props) => {
-  const { button, filter, method } = props;
+  const { buttonText, filter, method } = props;
   const [currentFilter, setCurrentFilter] = useState(
     filter ?? {
       stat: stats[0],
@@ -174,14 +174,14 @@ const StatRule = (props) => {
         />
       </StatRuleRow>
       <SubmitButton disabled={isDisabled()} onClick={submit}>
-        {button}
+        {buttonText}
       </SubmitButton>
     </StatRuleWrapper>
   );
 };
 
 StatRule.propTypes = {
-  button: string.isRequired,
+  buttonText: string.isRequired,
   filter: shape({
     stat: shape({
       label: string.isRequired,

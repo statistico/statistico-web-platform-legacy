@@ -18,7 +18,7 @@ const SubmitButton = styled.div`
 `;
 
 const ResultRule = (props) => {
-  const { action, filter, method } = props;
+  const { buttonText, filter, method } = props;
   const [currentFilter, setCurrentFilter] = useState(
     filter ?? {
       team: team[0],
@@ -98,14 +98,14 @@ const ResultRule = (props) => {
         toggleSelection={(i) => updateFilter(i, 'Venue')}
       />
       <SubmitButton disabled={isDisabled()} onClick={submit}>
-        {action}
+        {buttonText}
       </SubmitButton>
     </ResultRuleWrapper>
   );
 };
 
 ResultRule.propTypes = {
-  action: string.isRequired,
+  buttonText: string.isRequired,
   filter: shape({
     team: shape({
       label: string.isRequired,

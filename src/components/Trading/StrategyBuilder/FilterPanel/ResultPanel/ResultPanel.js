@@ -29,7 +29,7 @@ const ResultPanel = () => {
   return (
     <ResultPanelWrapper>
       <Modal clicked={toggle} show={isShowing}>
-        <ResultRule action="Add" method={addFilter} />
+        <ResultRule buttonText="Add" method={addFilter} />
       </Modal>
       <PanelTitle title="Result Rules">
         <FontAwesomeIcon

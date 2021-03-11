@@ -15,7 +15,7 @@ const ResultRuleRow = (props) => {
   return (
     <Aux>
       <Modal clicked={() => updateFilter(filter)} show={editing}>
-        <ResultRule action="Update" method={updateFilter} filter={filter} />
+        <ResultRule buttonText="Update" method={updateFilter} filter={filter} />
       </Modal>
       <Tr>
         <Td>

@@ -15,7 +15,7 @@ const StatRuleRow = (props) => {
   return (
     <Aux>
       <Modal clicked={() => updateFilter(filter)} show={editing}>
-        <StatRule button="Update" method={updateFilter} filter={filter} />
+        <StatRule buttonText="Update" method={updateFilter} filter={filter} />
       </Modal>
       <Tr>
         <Td>
