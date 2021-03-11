@@ -12,8 +12,9 @@ const StatRuleListWrapper = styled.div`
   }
 
   table {
+    width: 100%;
     text-align: left;
-    margin-left: 15px;
+    margin-left: 5px;
     font-size: 16px;
 
     tr {

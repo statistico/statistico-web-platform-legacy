@@ -1,9 +1,8 @@
 import React, { useCallback, useContext } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
-import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
+import { Table, Thead, Tbody, Tr, Th } from 'react-super-responsive-table';
 import { v4 as uuidv4 } from 'uuid';
 
+import ResultRuleRow from './ResultRuleRow/ResultRuleRow';
 import ResultRuleListWrapper from './ResultRuleListWrapper';
 import {
   StrategyBuilderActionContext,
@@ -13,6 +12,17 @@ import {
 const ResultRuleList = () => {
   const { filters } = useContext(StrategyBuilderContext);
   const { setFilters } = useContext(StrategyBuilderActionContext);
+
+  const updateFilter = useCallback(
+    (i, f) => {
+      filters.resultFilters[i] = f;
+
+      setFilters({
+        ...filters,
+      });
+    },
+    [filters, setFilters]
+  );
 
   const removeFilter = useCallback(
     (i, f) => {
@@ -43,24 +53,18 @@ const ResultRuleList = () => {
             <Th>Result</Th>
             <Th>Games</Th>
             <Th>Venue</Th>
+            <Th />
           </Tr>
         </Thead>
         <Tbody>
           {filters.resultFilters.map((f, index) => {
             return (
-              <Tr key={uuidv4()}>
-                <Td>
-                  <FontAwesomeIcon
-                    icon={faTimesCircle}
-                    size="1x"
-                    onClick={() => removeFilter(index, filters.resultFilters)}
-                  />
-                </Td>
-                <Td>{f.team.label}</Td>
-                <Td>{f.result.label}</Td>
-                <Td>{f.games.label}</Td>
-                <Td>{f.venue.label}</Td>
-              </Tr>
+              <ResultRuleRow
+                filter={f}
+                removeFilter={() => removeFilter(index, filters.resultFilters)}
+                updateFilter={(filter) => updateFilter(index, filter)}
+                key={uuidv4()}
+              />
             );
           })}
         </Tbody>
