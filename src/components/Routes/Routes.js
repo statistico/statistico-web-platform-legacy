@@ -5,8 +5,8 @@ import StrategyBuilder from '../Trading/StrategyBuilder/StrategyBuilder';
 
 const routes = () => (
   <Switch>
-    <Route path="/trading/strategy" exact component={StrategyBuilder} />
-    <Redirect to="/trading/strategy" />
+    <Route path="/trading/strategy/builder" exact component={StrategyBuilder} />
+    <Redirect to="/trading/strategy/builder" />
   </Switch>
 );
 

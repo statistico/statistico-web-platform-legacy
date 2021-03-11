@@ -19,7 +19,7 @@ const Menu = (props) => {
         icon={faMoneyBillAlt}
         title="Trading"
         open={open}
-        link="/trading/strategy"
+        link="/trading/strategy/builder"
         clicked={clicked}
       />
       <MenuItem
