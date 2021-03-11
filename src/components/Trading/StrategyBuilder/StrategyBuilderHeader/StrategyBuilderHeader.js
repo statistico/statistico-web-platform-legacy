@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
 import { bool, func } from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,6 +9,8 @@ import {
   faSearch,
 } from '@fortawesome/free-solid-svg-icons';
 
+import MissingFilterError from './MissingFilterError/MissingFilterError';
+import Modal from '../../../Modal/Modal';
 import StrategyBuilderHeaderWrapper from './StrategyBuilderHeaderWrapper';
 import {
   StrategyBuilderActionContext,
@@ -48,8 +50,9 @@ const IconCollection = styled.div`
 
 const StrategyBuilderHeader = (props) => {
   const { filtersActive, selectFilters, selectTrades, tradesActive } = props;
+  const [hasError, setHasError] = useState(false);
   const { loadTrades } = useContext(StrategyBuilderActionContext);
-  const { loading } = useContext(StrategyBuilderContext);
+  const { filters, loading } = useContext(StrategyBuilderContext);
 
   const clickFilters = () => {
     selectFilters(true);
@@ -62,6 +65,17 @@ const StrategyBuilderHeader = (props) => {
   };
 
   const buildStrategy = () => {
+    if (
+      !filters.line ||
+      !filters.market ||
+      (!filters.maxOdds && !filters.minOdds) ||
+      !filters.runner ||
+      !filters.side ||
+      filters.competitions.length === 0
+    ) {
+      setHasError(true);
+      return;
+    }
     selectTrades(true);
     selectFilters(false);
     loadTrades();
@@ -74,6 +88,9 @@ const StrategyBuilderHeader = (props) => {
   return (
     <StrategyBuilderHeaderWrapper>
       <Title>Strategy Builder</Title>
+      <Modal clicked={() => setHasError(false)} show={hasError}>
+        <MissingFilterError />
+      </Modal>
       <IconCollection>
         <FontAwesomeIcon
           icon={faFilter}
