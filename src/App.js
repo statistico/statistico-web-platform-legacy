@@ -6,6 +6,8 @@ import Dashboard from './components/Dashboard/Dashboard';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
 import Navigation from './components/Navigation/Navigation';
 import Routes from './components/Routes/Routes';
+import UserLogin from './components/UserLogin/UserLogin';
+import useAuthenticatesUser from './hooks/useAuthenticatesUser';
 import useTogglesMenu from './hooks/useTogglesMenu';
 
 const Container = styled.div`
@@ -23,6 +25,11 @@ const App = () => {
   const { menuOpen, menuToggleHandler } = useTogglesMenu(
     window.innerWidth > 768
   );
+  const { isAuthenticated, loading, login, error } = useAuthenticatesUser();
+
+  if (!isAuthenticated) {
+    return <UserLogin loading={loading} login={login} error={error} />;
+  }
 
   return (
     <Container>
