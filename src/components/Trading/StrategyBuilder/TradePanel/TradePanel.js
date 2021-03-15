@@ -11,12 +11,20 @@ import { StrategyBuilderContext } from '../../../../context/StrategyBuilderConte
 
 const TradePanel = (props) => {
   const { isActive } = props;
-  const { loading } = useContext(StrategyBuilderContext);
+  const { built, loading } = useContext(StrategyBuilderContext);
 
   if (loading) {
     return (
       <TradePanelWrapper isActive={isActive}>
         <TradeLoader />
+      </TradePanelWrapper>
+    );
+  }
+
+  if (!built) {
+    return (
+      <TradePanelWrapper isActive={isActive}>
+        <p>Please build a strategy to view the breakdown panel</p>
       </TradePanelWrapper>
     );
   }

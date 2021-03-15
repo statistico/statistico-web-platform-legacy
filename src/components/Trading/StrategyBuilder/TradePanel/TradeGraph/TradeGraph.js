@@ -17,9 +17,9 @@ import {
 } from '../../../../../utility/trade';
 
 const TradeGraph = () => {
-  const { tr } = useContext(StrategyBuilderContext);
+  const { tr, filters } = useContext(StrategyBuilderContext);
   const trades = orderByEventDate(tr);
-  const profit = cumulativeProfit(trades, 1);
+  const profit = cumulativeProfit(trades, 1, filters.side.name);
 
   return (
     <TradeGraphWrapper>

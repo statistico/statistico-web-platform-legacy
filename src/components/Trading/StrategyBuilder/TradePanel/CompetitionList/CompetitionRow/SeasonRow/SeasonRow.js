@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { arrayOf, number, shape, string } from 'prop-types';
 import { Td } from 'react-super-responsive-table';
 import styled from 'styled-components';
 
 import SeasonRowWrapper from './SeasonRowWrapper';
+import { StrategyBuilderContext } from '../../../../../../../context/StrategyBuilderContext';
 import {
   averageRunnerPrice,
   maxDrawdown,
@@ -12,13 +13,14 @@ import {
 } from '../../../../../../../utility/trade';
 
 const Count = styled(Td)`
-  color: ${(props) => props.color};
+  color: ${(props) => props.color};, filters.side.name
 `;
 
 const SeasonRow = (props) => {
   const { season, trades } = props;
-  const yd = tradeYield(trades, 1);
-  const p = profit(trades, 1);
+  const { filters } = useContext(StrategyBuilderContext);
+  const yd = tradeYield(trades, 1, filters.side.name);
+  const p = profit(trades, 1, filters.side.name);
 
   return (
     <SeasonRowWrapper>

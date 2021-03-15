@@ -15,7 +15,8 @@ export const cumulativeProfit = (trades, stake, side) => {
     }
 
     if (side === 'LAY') {
-      total += trade.result === 1 ? stake : trade.runnerPrice * stake - stake;
+      total +=
+        trade.result === 1 ? stake : -(trade.runnerPrice * stake - stake);
     }
 
     return {

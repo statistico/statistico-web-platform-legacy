@@ -65,8 +65,12 @@ export const lines = [
 
 export const measure = [
   {
-    name: 'AVG',
+    name: 'AVERAGE',
     label: 'Average',
+  },
+  {
+    name: 'CONTINUOUS',
+    label: 'Continuous',
   },
   {
     name: 'TOTAL',

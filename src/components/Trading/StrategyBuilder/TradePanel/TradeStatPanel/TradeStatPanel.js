@@ -12,12 +12,12 @@ import {
 } from '../../../../../utility/trade';
 
 const TradeStatPanel = () => {
-  const { tr } = useContext(StrategyBuilderContext);
+  const { tr, filters } = useContext(StrategyBuilderContext);
   const trades = orderByEventDate(tr);
   const avgPrice = averageRunnerPrice(trades);
   const dd = maxDrawdown(trades);
-  const yieldPercentage = tradeYield(trades, 1);
-  const prof = profit(trades, 1);
+  const yieldPercentage = tradeYield(trades, 1, filters.side.name);
+  const prof = profit(trades, 1, filters.side.name);
 
   return (
     <TradeStatPanelWrapper>

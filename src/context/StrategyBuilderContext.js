@@ -21,6 +21,7 @@ const StrategyBuilderContextProvider = (props) => {
   });
   const [tr, setTrades] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [built, setBuilt] = useState(false);
 
   const update = useCallback(
     (t) => {
@@ -34,11 +35,15 @@ const StrategyBuilderContextProvider = (props) => {
   const loadTrades = useCallback(() => {
     setTrades([]);
     setLoading(true);
+    setBuilt(false);
 
     fetchStrategyTrades(
       filters,
       update,
-      () => setLoading(false),
+      () => {
+        setLoading(false);
+        setBuilt(true);
+      },
       () => {
         console.log('Error');
       }
@@ -47,11 +52,12 @@ const StrategyBuilderContextProvider = (props) => {
 
   const store = useMemo(
     () => ({
+      built,
       filters,
       tr,
       loading,
     }),
-    [filters, loading, tr]
+    [built, filters, loading, tr]
   );
 
   const actions = {

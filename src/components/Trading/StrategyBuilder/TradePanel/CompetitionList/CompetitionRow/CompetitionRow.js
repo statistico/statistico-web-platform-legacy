@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { arrayOf, number, shape, string } from 'prop-types';
 import styled from 'styled-components';
 import { Td, Tr } from 'react-super-responsive-table';
 
 import Aux from '../../../../../../hoc/Aux/Aux';
+import { StrategyBuilderContext } from '../../../../../../context/StrategyBuilderContext';
+import SeasonRow from './SeasonRow/SeasonRow';
 import {
   averageRunnerPrice,
   filterBySeason,
@@ -11,7 +13,6 @@ import {
   profit,
   tradeYield,
 } from '../../../../../../utility/trade';
-import SeasonRow from './SeasonRow/SeasonRow';
 
 const Count = styled(Td)`
   color: ${(props) => props.color};
@@ -19,9 +20,10 @@ const Count = styled(Td)`
 
 const CompetitionRow = (props) => {
   const { competition, trades } = props;
+  const { filters } = useContext(StrategyBuilderContext);
   const [showSeasons, setShowSeasons] = useState(false);
-  const yd = tradeYield(trades, 1);
-  const p = profit(trades, 1);
+  const yd = tradeYield(trades, 1, filters.side.name);
+  const p = profit(trades, 1, filters.side.name);
 
   return (
     <Aux>
