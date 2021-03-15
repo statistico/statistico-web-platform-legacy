@@ -143,6 +143,10 @@ export const result = [
     name: 'LOSE_DRAW',
     label: 'Lose or Draw',
   },
+  {
+    name: 'WIN_LOSE',
+    label: 'Win or Lose',
+  },
 ];
 
 export const venue = [

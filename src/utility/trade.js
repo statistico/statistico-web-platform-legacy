@@ -6,11 +6,17 @@ export const averageRunnerPrice = (trades) => {
   return +(sum / trades.length).toFixed(2);
 };
 
-export const cumulativeProfit = (trades, stake) => {
+export const cumulativeProfit = (trades, stake, side) => {
   let total = 0;
 
   return trades.map((trade) => {
-    total += trade.result === 1 ? trade.runnerPrice * stake - stake : -stake;
+    if (side === 'BACK') {
+      total += trade.result === 1 ? trade.runnerPrice * stake - stake : -stake;
+    }
+
+    if (side === 'LAY') {
+      total += trade.result === 1 ? stake : trade.runnerPrice * stake - stake;
+    }
 
     return {
       ...trade,
@@ -58,22 +64,32 @@ export const orderByEventDate = (trades) => {
   return trades.sort((a, b) => a.eventDate.seconds - b.eventDate.seconds);
 };
 
-export const profit = (trades, stake) => {
+export const profit = (trades, stake, side) => {
   const sum = trades.reduce((prev, cur) => {
     const { result, runnerPrice } = cur;
 
     if (result === 1) {
-      return prev + (runnerPrice * stake - stake);
+      if (side === 'BACK') {
+        return prev + (runnerPrice * stake - stake);
+      }
+
+      if (side === 'LAY') {
+        return prev + stake;
+      }
     }
 
-    return prev - stake;
+    if (side === 'BACK') {
+      return prev - stake;
+    }
+
+    return prev - (runnerPrice * stake - stake);
   }, 0);
 
   return +sum.toFixed(2);
 };
 
-export const tradeYield = (trades, stake) => {
-  const p = profit(trades, stake);
+export const tradeYield = (trades, stake, side) => {
+  const p = profit(trades, stake, side);
 
   const s = trades.length * stake;
 

@@ -7,6 +7,7 @@ import {
   MeasureEnum,
   MetricEnum,
   ResultEnum,
+  SideEnum,
   StatEnum,
   TeamEnum,
   VenueEnum,
@@ -51,6 +52,7 @@ const strategyTradeRequest = (filters) => {
   request.setMarket(filters.market.name);
   request.setRunner(filters.runner.name);
   request.setLine(LineEnum[filters.line.name]);
+  request.setSide(SideEnum[filters.side.name]);
   request.setMinOdds(minOdds);
   request.setMaxOdds(maxOdds);
   request.setCompetitionIdsList(filters.competitions);

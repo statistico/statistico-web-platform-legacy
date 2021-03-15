@@ -125,22 +125,22 @@ describe('maxDrawdown', () => {
 });
 
 describe('profit', () => {
-  it('returns profit calculation of trades in array for single unit stake', () => {
-    const avg = profit(trades, 1);
+  it('returns profit calculation of trades in array for single unit stake for back trades', () => {
+    const avg = profit(trades, 1, 'BACK');
 
     expect(avg).toBe(3.28);
   });
 
-  it('returns profit calculation of trades in array for 2.5 unit stake', () => {
-    const avg = profit(trades, 2.5);
+  it('returns profit calculation of trades in array for 2.5 unit stake for back trades', () => {
+    const avg = profit(trades, 2.5, 'BACK');
 
     expect(avg).toBe(8.2);
   });
 });
 
 describe('tradeYield', () => {
-  it('returns yield calculation of trades in array for single unit stake', () => {
-    const avg = tradeYield(trades, 1);
+  it('returns yield calculation of trades in array for single unit stake for back trades', () => {
+    const avg = tradeYield(trades, 1, 'BACK');
 
     expect(avg).toBe(27.33);
   });
@@ -174,8 +174,8 @@ describe('orderByEventDate', () => {
 });
 
 describe('cumulativeProfit', () => {
-  it('returns an array of objects containing the cumulative profit total', () => {
-    const totals = cumulativeProfit(trades, 1);
+  it('returns an array of objects containing the cumulative profit total for back trades', () => {
+    const totals = cumulativeProfit(trades, 1, 'BACK');
 
     expect(totals[0].profit).toBe(0.9299999999999999);
     expect(totals[1].profit).toBe(1.44);
