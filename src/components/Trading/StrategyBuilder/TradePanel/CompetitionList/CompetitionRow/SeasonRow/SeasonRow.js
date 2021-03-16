@@ -12,7 +12,7 @@ import {
 } from '../../../../../../../utility/trade';
 
 const Count = styled(Td)`
-  color: ${(props) => props.color};, filters.side.name
+  color: ${(props) => props.color};
 `;
 
 const SeasonRow = (props) => {
