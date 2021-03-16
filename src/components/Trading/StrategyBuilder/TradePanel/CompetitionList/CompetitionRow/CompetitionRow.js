@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { Td, Tr } from 'react-super-responsive-table';
 
 import Aux from '../../../../../../hoc/Aux/Aux';
+import SeasonRow from './SeasonRow/SeasonRow';
 import {
   averageRunnerPrice,
   filterBySeason,
@@ -11,17 +12,16 @@ import {
   profit,
   tradeYield,
 } from '../../../../../../utility/trade';
-import SeasonRow from './SeasonRow/SeasonRow';
 
 const Count = styled(Td)`
   color: ${(props) => props.color};
 `;
 
 const CompetitionRow = (props) => {
-  const { competition, trades } = props;
+  const { competition, trades, tradeSide } = props;
   const [showSeasons, setShowSeasons] = useState(false);
-  const yd = tradeYield(trades, 1);
-  const p = profit(trades, 1);
+  const yd = tradeYield(trades, 1, tradeSide);
+  const p = profit(trades, 1, tradeSide);
 
   return (
     <Aux>
@@ -45,6 +45,7 @@ const CompetitionRow = (props) => {
               <SeasonRow
                 season={season}
                 trades={filterBySeason(trades, season.id)}
+                tradeSide={tradeSide}
                 key={season.id}
               />
             );
@@ -73,6 +74,7 @@ CompetitionRow.propTypes = {
       runnerPrice: number.isRequired,
     })
   ).isRequired,
+  tradeSide: string.isRequired,
 };
 
 export default CompetitionRow;

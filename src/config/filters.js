@@ -65,8 +65,12 @@ export const lines = [
 
 export const measure = [
   {
-    name: 'AVG',
+    name: 'AVERAGE',
     label: 'Average',
+  },
+  {
+    name: 'CONTINUOUS',
+    label: 'Continuous',
   },
   {
     name: 'TOTAL',
@@ -142,6 +146,10 @@ export const result = [
   {
     name: 'LOSE_DRAW',
     label: 'Lose or Draw',
+  },
+  {
+    name: 'WIN_LOSE',
+    label: 'Win or Lose',
   },
 ];
 

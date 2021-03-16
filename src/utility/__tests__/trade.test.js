@@ -125,22 +125,34 @@ describe('maxDrawdown', () => {
 });
 
 describe('profit', () => {
-  it('returns profit calculation of trades in array for single unit stake', () => {
-    const avg = profit(trades, 1);
+  it('returns profit calculation of trades in array for single unit stake for back trades', () => {
+    const avg = profit(trades, 1, 'BACK');
 
     expect(avg).toBe(3.28);
   });
 
-  it('returns profit calculation of trades in array for 2.5 unit stake', () => {
-    const avg = profit(trades, 2.5);
+  it('returns profit calculation of trades in array for single unit stake for lay trades', () => {
+    const avg = profit(trades, 1, 'LAY');
+
+    expect(avg).toBe(1.23);
+  });
+
+  it('returns profit calculation of trades in array for 2.5 unit stake for back trades', () => {
+    const avg = profit(trades, 2.5, 'BACK');
 
     expect(avg).toBe(8.2);
+  });
+
+  it('returns profit calculation of trades in array for 2.5 unit stake for lay trades', () => {
+    const avg = profit(trades, 2.5, 'LAY');
+
+    expect(avg).toBe(3.07);
   });
 });
 
 describe('tradeYield', () => {
-  it('returns yield calculation of trades in array for single unit stake', () => {
-    const avg = tradeYield(trades, 1);
+  it('returns yield calculation of trades in array for single unit stake for back trades', () => {
+    const avg = tradeYield(trades, 1, 'BACK');
 
     expect(avg).toBe(27.33);
   });
@@ -174,8 +186,8 @@ describe('orderByEventDate', () => {
 });
 
 describe('cumulativeProfit', () => {
-  it('returns an array of objects containing the cumulative profit total', () => {
-    const totals = cumulativeProfit(trades, 1);
+  it('returns an array of objects containing the cumulative profit total for back trades', () => {
+    const totals = cumulativeProfit(trades, 1, 'BACK');
 
     expect(totals[0].profit).toBe(0.9299999999999999);
     expect(totals[1].profit).toBe(1.44);
@@ -189,6 +201,23 @@ describe('cumulativeProfit', () => {
     expect(totals[9].profit).toBe(5.28);
     expect(totals[10].profit).toBe(4.28);
     expect(totals[11].profit).toBe(3.2800000000000002);
+  });
+
+  it('returns an array of objects containing the cumulative profit total for lay trades', () => {
+    const totals = cumulativeProfit(trades, 1, 'LAY');
+
+    expect(totals[0].profit).toBe(1);
+    expect(totals[1].profit).toBe(2);
+    expect(totals[2].profit).toBe(1.65);
+    expect(totals[3].profit).toBe(0.5699999999999998);
+    expect(totals[4].profit).toBe(1.5699999999999998);
+    expect(totals[5].profit).toBe(1.3399999999999999);
+    expect(totals[6].profit).toBe(2.34);
+    expect(totals[7].profit).toBe(3.34);
+    expect(totals[8].profit).toBe(1.7799999999999998);
+    expect(totals[9].profit).toBe(2.78);
+    expect(totals[10].profit).toBe(2.2299999999999995);
+    expect(totals[11].profit).toBe(1.2299999999999995);
   });
 });
 

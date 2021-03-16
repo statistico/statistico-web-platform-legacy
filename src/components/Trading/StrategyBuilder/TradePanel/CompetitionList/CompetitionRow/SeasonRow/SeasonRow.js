@@ -16,9 +16,9 @@ const Count = styled(Td)`
 `;
 
 const SeasonRow = (props) => {
-  const { season, trades } = props;
-  const yd = tradeYield(trades, 1);
-  const p = profit(trades, 1);
+  const { season, trades, tradeSide } = props;
+  const yd = tradeYield(trades, 1, tradeSide);
+  const p = profit(trades, 1, tradeSide);
 
   return (
     <SeasonRowWrapper>
@@ -46,6 +46,7 @@ SeasonRow.propTypes = {
       seasonId: number.isRequired,
     })
   ).isRequired,
+  tradeSide: string.isRequired,
 };
 
 export default SeasonRow;

@@ -17,6 +17,7 @@ goog.exportSymbol('proto.statistico.LineEnum', null, global);
 goog.exportSymbol('proto.statistico.MeasureEnum', null, global);
 goog.exportSymbol('proto.statistico.MetricEnum', null, global);
 goog.exportSymbol('proto.statistico.ResultEnum', null, global);
+goog.exportSymbol('proto.statistico.SideEnum', null, global);
 goog.exportSymbol('proto.statistico.StatEnum', null, global);
 goog.exportSymbol('proto.statistico.TeamEnum', null, global);
 goog.exportSymbol('proto.statistico.TradeResultEnum', null, global);
@@ -42,7 +43,8 @@ proto.statistico.LineEnum = {
  */
 proto.statistico.MeasureEnum = {
   TOTAL: 0,
-  AVG: 1
+  AVERAGE: 1,
+  CONTINUOUS: 2
 };
 
 /**
@@ -61,7 +63,16 @@ proto.statistico.ResultEnum = {
   LOSE: 1,
   DRAW: 2,
   WIN_DRAW: 3,
-  LOSE_DRAW: 4
+  LOSE_DRAW: 4,
+  WIN_LOSE: 5
+};
+
+/**
+ * @enum {number}
+ */
+proto.statistico.SideEnum = {
+  BACK: 0,
+  LAY: 1
 };
 
 /**
@@ -69,8 +80,7 @@ proto.statistico.ResultEnum = {
  */
 proto.statistico.StatEnum = {
   GOALS: 0,
-  SHOTS_ON_GOAL: 1,
-  XG: 2
+  SHOTS_ON_GOAL: 1
 };
 
 /**
