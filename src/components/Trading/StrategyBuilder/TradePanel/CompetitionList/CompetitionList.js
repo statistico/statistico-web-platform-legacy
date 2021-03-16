@@ -35,6 +35,7 @@ const CompetitionList = () => {
               <CompetitionRow
                 competition={competition}
                 trades={filterByCompetition(tr, parseInt(competition.id, 10))}
+                tradeSide={filters.side ? filters.side.name : ''}
                 className="competition-row"
                 key={competition.id}
               />

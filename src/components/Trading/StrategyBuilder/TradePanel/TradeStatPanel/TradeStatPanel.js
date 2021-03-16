@@ -13,11 +13,12 @@ import {
 
 const TradeStatPanel = () => {
   const { tr, filters } = useContext(StrategyBuilderContext);
+  const side = filters.side ? filters.side.name : '';
   const trades = orderByEventDate(tr);
   const avgPrice = averageRunnerPrice(trades);
   const dd = maxDrawdown(trades);
-  const yieldPercentage = tradeYield(trades, 1, filters.side.name);
-  const prof = profit(trades, 1, filters.side.name);
+  const yieldPercentage = tradeYield(trades, 1, side);
+  const prof = profit(trades, 1, side);
 
   return (
     <TradeStatPanelWrapper>
