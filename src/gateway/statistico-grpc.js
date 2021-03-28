@@ -4,7 +4,7 @@ import StrategyClient from './grpc-client';
 const fetchStrategyTrades = (filters, updateFunc, endFunc, errorFunc) => {
   const request = strategyTradeRequest(filters);
 
-  const stream = StrategyClient().strategyTradeSearch(request, {});
+  const stream = StrategyClient().buildStrategy(request, {});
 
   stream.on('data', (t) => {
     updateFunc(t.toObject());

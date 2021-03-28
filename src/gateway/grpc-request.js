@@ -1,6 +1,6 @@
 import { FloatValue } from 'google-protobuf/google/protobuf/wrappers_pb';
 
-import { StrategyTradeSearchRequest } from '../proto/strategy_pb';
+import { BuildStrategyRequest } from '../proto/requests_pb';
 import {
   ActionEnum,
   LineEnum,
@@ -16,7 +16,7 @@ import { ResultFilter, StatFilter } from '../proto/filter_pb';
 import { parseFloatValue } from '../utility/strategy';
 
 const strategyTradeRequest = (filters) => {
-  const request = new StrategyTradeSearchRequest();
+  const request = new BuildStrategyRequest();
 
   const minOdds =
     filters.minOdds !== null

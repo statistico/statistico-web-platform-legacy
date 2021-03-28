@@ -9,6 +9,7 @@ const StrategyBuilderHeaderWrapper = styled.div`
   padding: 20px;
   border-radius: 10px;
   background-color: #1b1e22;
+  margin: 0 10px 0 0;
 `;
 
 export default StrategyBuilderHeaderWrapper;
