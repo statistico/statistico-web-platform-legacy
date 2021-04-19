@@ -6,6 +6,7 @@ import { StatRuleRow, StatRuleWrapper } from './StatRuleWrapper';
 import SingleFilter from '../../../../../SingleFilter/SingleFilter';
 import {
   action,
+  counts,
   games,
   measure,
   metric,
@@ -13,7 +14,6 @@ import {
   team,
   venue,
 } from '../../../../../../config/filters';
-import odds from '../../../../../../config/odds';
 import selectStyles from '../../../../../../config/form-styles';
 
 const SubmitButton = styled.button`
@@ -37,7 +37,7 @@ const StatRule = (props) => {
       metric: metric[0],
       games: games[0],
       venue: venue[0],
-      value: odds[0],
+      value: counts[0],
     }
   );
 
@@ -160,7 +160,7 @@ const StatRule = (props) => {
       <StatRuleRow>
         <SingleFilter
           selection={currentFilter.value}
-          selections={odds}
+          selections={counts}
           styles={selectStyles}
           title="Value"
           toggleSelection={(i) => updateFilter(i, 'Value')}
