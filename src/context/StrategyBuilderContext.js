@@ -44,8 +44,8 @@ const StrategyBuilderContextProvider = (props) => {
         setLoading(false);
         setBuilt(true);
       },
-      () => {
-        console.log('Error');
+      (e) => {
+        console.log(e);
       }
     );
   }, [setLoading, filters, update]);

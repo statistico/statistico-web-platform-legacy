@@ -1,10 +1,17 @@
+import { Auth } from 'aws-amplify';
 import strategyTradeRequest from './grpc-request';
 import StrategyClient from './grpc-client';
 
-const fetchStrategyTrades = (filters, updateFunc, endFunc, errorFunc) => {
+const fetchStrategyTrades = async (filters, updateFunc, endFunc, errorFunc) => {
+  const token = (await Auth.currentSession()).getAccessToken().getJwtToken();
+
   const request = strategyTradeRequest(filters);
 
-  const stream = StrategyClient().buildStrategy(request, {});
+  const meta = {
+    authorization: `bearer ${token}`,
+  };
+
+  const stream = StrategyClient().buildStrategy(request, meta);
 
   stream.on('data', (t) => {
     updateFunc(t.toObject());
