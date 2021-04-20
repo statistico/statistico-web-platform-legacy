@@ -3,7 +3,7 @@ const selectStyles = {
     ...provided,
     width: '100%',
     textAlign: 'left',
-    fontSize: '14px',
+    fontSize: '16px',
     color: 'black',
     cursor: 'pointer',
   }),
@@ -13,6 +13,7 @@ const selectStyles = {
     justifyContent: 'left',
     color: 'black',
     cursor: 'pointer',
+    padding: '8px',
   }),
 
   control: (provided) => ({

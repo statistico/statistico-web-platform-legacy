@@ -8,8 +8,8 @@ export const TradePanelWrapper = styled.div`
   width: 49%;
   border-radius: 10px;
   background-color: #1b1e22;
-  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.23);
-  height: 360px;
+  box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.23);
+  height: fit-content;
   padding: 15px;
   margin-bottom: 15px;
 
