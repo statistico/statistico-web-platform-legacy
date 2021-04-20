@@ -11,6 +11,7 @@ import {
 
 import MissingFilterError from './MissingFilterError/MissingFilterError';
 import Modal from '../../../Modal/Modal';
+import SaveStrategyForm from './SaveStrategyForm/SaveStrategyForm';
 import StrategyBuilderHeaderWrapper from './StrategyBuilderHeaderWrapper';
 import {
   StrategyBuilderActionContext,
@@ -51,6 +52,7 @@ const IconCollection = styled.div`
 const StrategyBuilderHeader = (props) => {
   const { filtersActive, selectFilters, selectTrades, tradesActive } = props;
   const [hasError, setHasError] = useState(false);
+  const [showSaveForm, setShowSaveForm] = useState(false);
   const { loadTrades } = useContext(StrategyBuilderActionContext);
   const { filters, loading } = useContext(StrategyBuilderContext);
 
@@ -91,6 +93,9 @@ const StrategyBuilderHeader = (props) => {
       <Modal clicked={() => setHasError(false)} show={hasError}>
         <MissingFilterError />
       </Modal>
+      <Modal clicked={() => setShowSaveForm(false)} show={showSaveForm}>
+        <SaveStrategyForm />
+      </Modal>
       <IconCollection>
         <FontAwesomeIcon
           icon={faFilter}
@@ -102,7 +107,7 @@ const StrategyBuilderHeader = (props) => {
           onClick={() => clickTrades()}
           style={{ color: tradesActive ? '#22ccde' : '#ccc' }}
         />
-        <FontAwesomeIcon icon={faSave} />
+        <FontAwesomeIcon icon={faSave} onClick={() => setShowSaveForm(true)} />
         <FontAwesomeIcon
           icon={faSearch}
           onClick={() => buildStrategy()}
