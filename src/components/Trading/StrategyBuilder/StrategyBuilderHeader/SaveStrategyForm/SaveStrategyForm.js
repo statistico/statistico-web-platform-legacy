@@ -35,11 +35,11 @@ const SaveStrategyForm = () => {
         selection={stakingPlanType}
         selections={stakingPlans}
         toggleSelection={setStakingPlanType}
-        placeholder="Staking Plan Name"
+        placeholder="Staking Plan Type"
       />
       <InputNumber
         onChange={setStakingPlanValue}
-        placeholder="Staking Plan Type"
+        placeholder="Staking Plan Value"
         step={0.25}
       />
       <Button
