@@ -9,7 +9,6 @@ import {
   SaveStrategyFormWrapper,
 } from './SaveStrategyFormWrapper';
 
-import selectStyles from '../../../../../config/form-styles';
 import stakingPlans from '../../../../../config/strategy';
 
 const SaveStrategyForm = () => {
@@ -35,7 +34,6 @@ const SaveStrategyForm = () => {
       <FormSelect
         selection={stakingPlanType}
         selections={stakingPlans}
-        styles={selectStyles}
         toggleSelection={setStakingPlanType}
         placeholder="Staking Plan Name"
       />
