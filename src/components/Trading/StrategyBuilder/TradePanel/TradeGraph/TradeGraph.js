@@ -17,10 +17,10 @@ import {
 } from '../../../../../utility/trade';
 
 const TradeGraph = () => {
-  const { tr, filters } = useContext(StrategyBuilderContext);
+  const { trades, filters } = useContext(StrategyBuilderContext);
   const side = filters.side ? filters.side.name : '';
-  const trades = orderByEventDate(tr);
-  const profit = cumulativeProfit(trades, 1, side);
+  const orderedTrades = orderByEventDate(trades);
+  const profit = cumulativeProfit(orderedTrades, 1, side);
 
   return (
     <TradeGraphWrapper>

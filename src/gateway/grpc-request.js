@@ -1,6 +1,10 @@
 import { FloatValue } from 'google-protobuf/google/protobuf/wrappers_pb';
 
-import { BuildStrategyRequest } from '../proto/requests_pb';
+import {
+  BuildStrategyRequest,
+  SaveStrategyRequest,
+  StakingPlan,
+} from '../proto/strategy_pb';
 import {
   ActionEnum,
   LineEnum,
@@ -15,19 +19,8 @@ import {
 import { ResultFilter, StatFilter } from '../proto/filter_pb';
 import { parseFloatValue } from '../utility/strategy';
 
-const strategyTradeRequest = (filters) => {
-  const request = new BuildStrategyRequest();
-
-  const minOdds =
-    filters.minOdds !== null
-      ? new FloatValue().setValue(parseFloatValue(filters.minOdds))
-      : null;
-  const maxOdds =
-    filters.maxOdds !== null
-      ? new FloatValue().setValue(parseFloatValue(filters.maxOdds))
-      : null;
-
-  const resultFilters = filters.resultFilters.map((f) => {
+const convertResultFilters = (filters) => {
+  return filters.map((f) => {
     const filter = new ResultFilter();
     filter.setTeam(TeamEnum[f.team.name]);
     filter.setResult(ResultEnum[f.result.name]);
@@ -35,8 +28,10 @@ const strategyTradeRequest = (filters) => {
     filter.setVenue(VenueEnum[f.venue.name]);
     return filter;
   });
+};
 
-  const statFilters = filters.statFilters.map((f) => {
+const convertStatFilters = (filters) => {
+  return filters.map((f) => {
     const filter = new StatFilter();
     filter.setAction(ActionEnum[f.action.name]);
     filter.setGames(parseInt(f.games.name, 10));
@@ -48,18 +43,54 @@ const strategyTradeRequest = (filters) => {
     filter.setVenue(VenueEnum[f.venue.name]);
     return filter;
   });
+};
+
+const parseOdds = (odds) => {
+  return odds !== null
+    ? new FloatValue().setValue(parseFloatValue(odds))
+    : null;
+};
+
+export const buildStrategyRequest = (filters) => {
+  const request = new BuildStrategyRequest();
 
   request.setMarket(filters.market.name);
   request.setRunner(filters.runner.name);
   request.setLine(LineEnum[filters.line.name]);
   request.setSide(SideEnum[filters.side.name]);
-  request.setMinOdds(minOdds);
-  request.setMaxOdds(maxOdds);
+  request.setMinOdds(parseOdds(filters.minOdds));
+  request.setMaxOdds(parseOdds(filters.maxOdds));
   request.setCompetitionIdsList(filters.competitions);
-  request.setResultFiltersList(resultFilters);
-  request.setStatFiltersList(statFilters);
+  request.setResultFiltersList(convertResultFilters(filters.resultFilters));
+  request.setStatFiltersList(convertStatFilters(filters.statFilters));
 
   return request;
 };
 
-export default strategyTradeRequest;
+export const saveStrategyRequest = (
+  name,
+  description,
+  stakingPlan,
+  filters
+) => {
+  const request = new SaveStrategyRequest();
+
+  const plan = new StakingPlan()
+    .setName(stakingPlan.name)
+    .setValue(stakingPlan.value);
+
+  request.setName(name);
+  request.setDescription(description);
+  request.setStakingPlan(plan);
+  request.setMarket(filters.market.name);
+  request.setRunner(filters.runner.name);
+  request.setLine(LineEnum[filters.line.name]);
+  request.setSide(SideEnum[filters.side.name]);
+  request.setMinOdds(parseOdds(filters.minOdds));
+  request.setMaxOdds(parseOdds(filters.maxOdds));
+  request.setCompetitionIdsList(filters.competitions);
+  request.setResultFiltersList(convertResultFilters(filters.resultFilters));
+  request.setStatFiltersList(convertStatFilters(filters.statFilters));
+
+  return request;
+};
