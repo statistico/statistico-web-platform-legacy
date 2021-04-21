@@ -24,6 +24,7 @@ const StrategyBuilderContextProvider = (props) => {
   const [error, setError] = useState(null);
   const [built, setBuilt] = useState(false);
   const [saved, setSaved] = useState(false);
+  const [saveLoading, setSaveLoading] = useState(false);
 
   const update = useCallback(
     (t) => {
@@ -47,14 +48,14 @@ const StrategyBuilderContextProvider = (props) => {
         setBuilt(true);
       },
       (e) => {
-        console.log(e);
+        setError(e.message);
       }
     );
   }, [setLoading, filters, update]);
 
   const save = useCallback(
-    (name, description, stakingPlan) => {
-      setLoading(true);
+    (name, description, stakingPlan, visibility) => {
+      setSaveLoading(true);
       setSaved(false);
 
       saveStrategy(
@@ -62,14 +63,15 @@ const StrategyBuilderContextProvider = (props) => {
         description,
         stakingPlan,
         filters,
+        visibility,
         () => setSaved(true),
         (e) => {
-          setLoading(false);
-          setError(e);
+          setSaveLoading(false);
+          setError(e.message);
         }
       );
     },
-    [filters, setLoading, setError]
+    [filters, setSaveLoading, setError]
   );
 
   const store = useMemo(
@@ -79,9 +81,10 @@ const StrategyBuilderContextProvider = (props) => {
       filters,
       loading,
       saved,
+      saveLoading,
       trades,
     }),
-    [built, error, filters, loading, saved, trades]
+    [built, error, filters, loading, saved, saveLoading, trades]
   );
 
   const actions = {

@@ -18,3 +18,12 @@ export const SaveStrategyInfo = styled.div`
   font-size: 16px;
   text-align: center;
 `;
+
+export const Error = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  font-size: 16px;
+  color: red;
+`;
