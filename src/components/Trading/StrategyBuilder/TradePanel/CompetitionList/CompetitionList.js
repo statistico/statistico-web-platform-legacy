@@ -9,7 +9,7 @@ import { filterByCompetition } from '../../../../../utility/trade';
 import competitions from '../../../../../config/competitions';
 
 const CompetitionList = () => {
-  const { filters, tr } = useContext(StrategyBuilderContext);
+  const { filters, trades } = useContext(StrategyBuilderContext);
 
   const selectedCompetitions = competitions.filter((c) =>
     filters.competitions.includes(c.id)
@@ -34,7 +34,10 @@ const CompetitionList = () => {
             return (
               <CompetitionRow
                 competition={competition}
-                trades={filterByCompetition(tr, parseInt(competition.id, 10))}
+                trades={filterByCompetition(
+                  trades,
+                  parseInt(competition.id, 10)
+                )}
                 tradeSide={filters.side ? filters.side.name : ''}
                 className="competition-row"
                 key={competition.id}

@@ -19,8 +19,6 @@ var enum_pb = require('./enum_pb.js')
 
 var filter_pb = require('./filter_pb.js')
 
-var requests_pb = require('./requests_pb.js')
-
 var google_protobuf_timestamp_pb = require('google-protobuf/google/protobuf/timestamp_pb.js')
 
 var google_protobuf_wrappers_pb = require('google-protobuf/google/protobuf/wrappers_pb.js')
@@ -88,7 +86,7 @@ proto.statistico.StrategyServicePromiseClient =
 const methodDescriptor_StrategyService_BuildStrategy = new grpc.web.MethodDescriptor(
   '/statistico.StrategyService/BuildStrategy',
   grpc.web.MethodType.SERVER_STREAMING,
-  requests_pb.BuildStrategyRequest,
+  proto.statistico.BuildStrategyRequest,
   proto.statistico.StrategyTrade,
   /**
    * @param {!proto.statistico.BuildStrategyRequest} request
@@ -163,7 +161,7 @@ proto.statistico.StrategyServicePromiseClient.prototype.buildStrategy =
 const methodDescriptor_StrategyService_SaveStrategy = new grpc.web.MethodDescriptor(
   '/statistico.StrategyService/SaveStrategy',
   grpc.web.MethodType.UNARY,
-  requests_pb.SaveStrategyRequest,
+  proto.statistico.SaveStrategyRequest,
   proto.statistico.Strategy,
   /**
    * @param {!proto.statistico.SaveStrategyRequest} request
@@ -243,7 +241,7 @@ proto.statistico.StrategyServicePromiseClient.prototype.saveStrategy =
 const methodDescriptor_StrategyService_ListUserStrategies = new grpc.web.MethodDescriptor(
   '/statistico.StrategyService/ListUserStrategies',
   grpc.web.MethodType.SERVER_STREAMING,
-  requests_pb.ListUserStrategiesRequest,
+  proto.statistico.ListUserStrategiesRequest,
   proto.statistico.Strategy,
   /**
    * @param {!proto.statistico.ListUserStrategiesRequest} request

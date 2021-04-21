@@ -1,11 +1,16 @@
 import { Auth } from 'aws-amplify';
-import strategyTradeRequest from './grpc-request';
+import { buildStrategyRequest, saveStrategyRequest } from './grpc-request';
 import StrategyClient from './grpc-client';
 
-const fetchStrategyTrades = async (filters, updateFunc, endFunc, errorFunc) => {
+export const buildStrategy = async (
+  filters,
+  updateFunc,
+  endFunc,
+  errorFunc
+) => {
   const token = (await Auth.currentSession()).getAccessToken().getJwtToken();
 
-  const request = strategyTradeRequest(filters);
+  const request = buildStrategyRequest(filters);
 
   const meta = {
     authorization: `bearer ${token}`,
@@ -26,4 +31,29 @@ const fetchStrategyTrades = async (filters, updateFunc, endFunc, errorFunc) => {
   });
 };
 
-export default fetchStrategyTrades;
+export const saveStrategy = async (
+  name,
+  description,
+  stakingPlan,
+  filters,
+  onSuccess,
+  onFailure
+) => {
+  const token = (await Auth.currentSession()).getAccessToken().getJwtToken();
+
+  const request = saveStrategyRequest(name, description, stakingPlan, filters);
+
+  const meta = {
+    authorization: `bearer ${token}`,
+  };
+
+  StrategyClient().saveStrategy(request, meta, (err, response) => {
+    if (err) {
+      onFailure(err);
+      return;
+    }
+
+    console.log(response);
+    onSuccess();
+  });
+};

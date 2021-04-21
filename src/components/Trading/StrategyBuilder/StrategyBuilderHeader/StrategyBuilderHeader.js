@@ -53,7 +53,7 @@ const StrategyBuilderHeader = (props) => {
   const { filtersActive, selectFilters, selectTrades, tradesActive } = props;
   const [hasError, setHasError] = useState(false);
   const [showSaveForm, setShowSaveForm] = useState(false);
-  const { loadTrades } = useContext(StrategyBuilderActionContext);
+  const { build } = useContext(StrategyBuilderActionContext);
   const { filters, loading } = useContext(StrategyBuilderContext);
 
   const clickFilters = () => {
@@ -80,7 +80,7 @@ const StrategyBuilderHeader = (props) => {
     }
     selectTrades(true);
     selectFilters(false);
-    loadTrades();
+    build();
   };
 
   if (loading) {

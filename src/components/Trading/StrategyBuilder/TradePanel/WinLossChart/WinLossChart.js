@@ -13,9 +13,9 @@ import { StrategyBuilderContext } from '../../../../../context/StrategyBuilderCo
 import { winPercentage } from '../../../../../utility/trade';
 
 const WinLossChart = () => {
-  const { tr } = useContext(StrategyBuilderContext);
+  const { trades } = useContext(StrategyBuilderContext);
 
-  const win = winPercentage(tr);
+  const win = winPercentage(trades);
 
   const data = [
     { name: 'Win', value: win, colour: 'green' },

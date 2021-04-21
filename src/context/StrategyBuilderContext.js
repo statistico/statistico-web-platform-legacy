@@ -1,7 +1,7 @@
 import React, { useState, createContext, useMemo, useCallback } from 'react';
 import { node } from 'prop-types';
 
-import fetchStrategyTrades from '../gateway/statistico-grpc';
+import { buildStrategy, saveStrategy } from '../gateway/statistico-grpc';
 
 export const StrategyBuilderContext = createContext(null);
 export const StrategyBuilderActionContext = createContext(null);
@@ -19,9 +19,11 @@ const StrategyBuilderContextProvider = (props) => {
     side: null,
     statFilters: [],
   });
-  const [tr, setTrades] = useState([]);
+  const [trades, setTrades] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   const [built, setBuilt] = useState(false);
+  const [saved, setSaved] = useState(false);
 
   const update = useCallback(
     (t) => {
@@ -32,12 +34,12 @@ const StrategyBuilderContextProvider = (props) => {
     [setTrades]
   );
 
-  const loadTrades = useCallback(() => {
+  const build = useCallback(() => {
     setTrades([]);
     setLoading(true);
     setBuilt(false);
 
-    fetchStrategyTrades(
+    buildStrategy(
       filters,
       update,
       () => {
@@ -50,19 +52,42 @@ const StrategyBuilderContextProvider = (props) => {
     );
   }, [setLoading, filters, update]);
 
+  const save = useCallback(
+    (name, description, stakingPlan) => {
+      setLoading(true);
+      setSaved(false);
+
+      saveStrategy(
+        name,
+        description,
+        stakingPlan,
+        filters,
+        () => setSaved(true),
+        (e) => {
+          setLoading(false);
+          setError(e);
+        }
+      );
+    },
+    [filters, setLoading, setError]
+  );
+
   const store = useMemo(
     () => ({
       built,
+      error,
       filters,
-      tr,
       loading,
+      saved,
+      trades,
     }),
-    [built, filters, loading, tr]
+    [built, error, filters, loading, saved, trades]
   );
 
   const actions = {
     setFilters,
-    loadTrades,
+    build,
+    save,
   };
 
   return (
