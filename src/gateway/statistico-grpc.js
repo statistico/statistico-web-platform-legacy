@@ -36,12 +36,19 @@ export const saveStrategy = async (
   description,
   stakingPlan,
   filters,
+  visibility,
   onSuccess,
   onFailure
 ) => {
   const token = (await Auth.currentSession()).getAccessToken().getJwtToken();
 
-  const request = saveStrategyRequest(name, description, stakingPlan, filters);
+  const request = saveStrategyRequest(
+    name,
+    description,
+    stakingPlan,
+    filters,
+    visibility
+  );
 
   const meta = {
     authorization: `bearer ${token}`,

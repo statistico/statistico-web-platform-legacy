@@ -12,9 +12,11 @@ import {
   MetricEnum,
   ResultEnum,
   SideEnum,
+  StakingPlanEnum,
   StatEnum,
   TeamEnum,
   VenueEnum,
+  VisibilityEnum,
 } from '../proto/enum_pb';
 import { ResultFilter, StatFilter } from '../proto/filter_pb';
 import { parseFloatValue } from '../utility/strategy';
@@ -71,20 +73,21 @@ export const saveStrategyRequest = (
   name,
   description,
   stakingPlan,
-  filters
+  filters,
+  visibility
 ) => {
   const request = new SaveStrategyRequest();
+  const plan = new StakingPlan();
 
-  const plan = new StakingPlan()
-    .setName(stakingPlan.name)
-    .setValue(stakingPlan.value);
+  plan.setName(StakingPlanEnum[stakingPlan.name]);
+  plan.setValue(stakingPlan.value);
 
   request.setName(name);
   request.setDescription(description);
+  request.setVisibility(VisibilityEnum[visibility]);
   request.setStakingPlan(plan);
   request.setMarket(filters.market.name);
   request.setRunner(filters.runner.name);
-  request.setLine(LineEnum[filters.line.name]);
   request.setSide(SideEnum[filters.side.name]);
   request.setMinOdds(parseOdds(filters.minOdds));
   request.setMaxOdds(parseOdds(filters.maxOdds));
