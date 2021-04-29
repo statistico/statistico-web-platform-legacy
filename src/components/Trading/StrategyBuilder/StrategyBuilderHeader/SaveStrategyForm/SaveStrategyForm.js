@@ -53,16 +53,16 @@ const SaveStrategyForm = () => {
           toggleSelection={setStakingPlanType}
           placeholder="Staking Plan Type"
         />
+        <InputNumber
+          onChange={setStakingPlanValue}
+          placeholder="Staking Plan Value"
+          step={0.25}
+        />
         <FormSelect
           selection={visibility}
           selections={visibilities}
           toggleSelection={setVisibility}
           placeholder="Visibility"
-        />
-        <InputNumber
-          onChange={setStakingPlanValue}
-          placeholder="Staking Plan Value"
-          step={0.25}
         />
         <Error>{error}</Error>
         <Button
