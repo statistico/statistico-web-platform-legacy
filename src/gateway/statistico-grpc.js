@@ -60,7 +60,6 @@ export const saveStrategy = async (
       return;
     }
 
-    console.log(response);
     onSuccess();
   });
 };
