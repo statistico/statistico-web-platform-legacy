@@ -27,7 +27,6 @@ export const buildStrategy = async (
   });
 
   stream.on('error', (e) => {
-    console.log(e);
     errorFunc(e);
   });
 };
