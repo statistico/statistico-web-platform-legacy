@@ -27,7 +27,6 @@ export const buildStrategy = async (
   });
 
   stream.on('error', (e) => {
-    console.log(e);
     errorFunc(e);
   });
 };
@@ -61,7 +60,6 @@ export const saveStrategy = async (
       return;
     }
 
-    console.log(response);
     onSuccess();
   });
 };
