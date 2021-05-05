@@ -1,3 +1,11 @@
+const calculateBackProfit = (price, stake) => {
+  return stake * (price - 1).toFixed(2);
+};
+
+const calculateLayProfit = (price, stake) => {
+  return stake / (price - 1).toFixed(2);
+};
+
 export const averageRunnerPrice = (trades) => {
   const sum = trades.reduce((prev, cur) => {
     return prev + cur.runnerPrice;
@@ -11,12 +19,17 @@ export const cumulativeProfit = (trades, stake, side) => {
 
   return trades.map((trade) => {
     if (side === 'BACK') {
-      total += trade.result === 1 ? trade.runnerPrice * stake - stake : -stake;
+      total +=
+        trade.result === 1
+          ? calculateBackProfit(trade.runnerPrice, stake)
+          : -stake;
     }
 
     if (side === 'LAY') {
       total +=
-        trade.result === 1 ? stake : -(trade.runnerPrice * stake - stake);
+        trade.result === 1
+          ? calculateLayProfit(trade.runnerPrice, stake)
+          : -stake;
     }
 
     return {
@@ -71,19 +84,15 @@ export const profit = (trades, stake, side) => {
 
     if (result === 1) {
       if (side === 'BACK') {
-        return prev + (runnerPrice * stake - stake);
+        return prev + calculateBackProfit(runnerPrice, stake);
       }
 
       if (side === 'LAY') {
-        return prev + stake;
+        return prev + calculateLayProfit(runnerPrice, stake);
       }
     }
 
-    if (side === 'BACK') {
-      return prev - stake;
-    }
-
-    return prev - (runnerPrice * stake - stake);
+    return prev - stake;
   }, 0);
 
   return +sum.toFixed(2);
