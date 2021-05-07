@@ -9,6 +9,7 @@ import {
 
 import MenuWrapper from './MenuWrapper';
 import MenuItem from './Menuitem/MenuItem';
+import { blog, stats, trading } from '../../../config/routes';
 
 const Menu = (props) => {
   const { clicked, open } = props;
@@ -21,6 +22,7 @@ const Menu = (props) => {
         open={open}
         link="/trading/strategy/builder"
         clicked={clicked}
+        items={trading}
       />
       <MenuItem
         icon={faChartPie}
@@ -28,6 +30,7 @@ const Menu = (props) => {
         open={open}
         link="/"
         clicked={clicked}
+        items={stats}
       />
       <MenuItem
         icon={faBlog}
@@ -35,6 +38,7 @@ const Menu = (props) => {
         open={open}
         link="/"
         clicked={clicked}
+        items={blog}
       />
     </MenuWrapper>
   );

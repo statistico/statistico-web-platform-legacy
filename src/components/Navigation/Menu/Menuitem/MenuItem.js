@@ -1,43 +1,44 @@
-import React from 'react';
-import styled from 'styled-components';
-import { array, bool, func, shape, string } from 'prop-types';
+import React, { useState } from 'react';
+import { array, arrayOf, bool, func, shape, string } from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import MenuItemWrapper from './MenuItemWrapper';
-
-const Icon = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  padding: 15px 0 15px 0;
-  width: 30%;
-
-  @media (max-width: 768px) {
-    width: 40%;
-    justify-content: flex-end;
-  }
-`;
-
-const Title = styled.div`
-  display: ${(props) => (props.open ? 'flex' : 'none')};
-  justify-content: flex-start;
-  padding: 15px 30px 15px 20px;
-  width: 70%;
-
-  @media (max-width: 768px) {
-    width: 60%;
-  }
-`;
+import Aux from '../../../../hoc/Aux/Aux';
+import { Icon, MenuItemWrapper, Title } from './MenuItemWrapper';
+import MenuArrow from './MenuArrow/MenuArrow';
+import SubMenuItem from './SubMenuItem/SubMenuItem';
 
 const MenuItem = (props) => {
-  const { clicked, open, icon, link, title } = props;
+  const { clicked, open, icon, items, link, title } = props;
+  const [collapsed, setCollapsed] = useState(false);
+
+  const clickItem = () => {
+    if (!open) {
+      clicked();
+    }
+
+    setCollapsed(open ? !collapsed : true);
+  };
+
   return (
-    <MenuItemWrapper open={open} to={link} onClick={() => clicked()}>
-      <Icon>
-        <FontAwesomeIcon icon={icon} size="1x" />
-      </Icon>
-      <Title open={open}>{title}</Title>
-    </MenuItemWrapper>
+    <Aux>
+      <MenuItemWrapper open={open} to={link} onClick={() => clickItem()}>
+        <Icon>
+          <FontAwesomeIcon icon={icon} size="1x" />
+        </Icon>
+        <Title open={open}>{title}</Title>
+        {open ? <MenuArrow collapsed={collapsed} /> : null}
+      </MenuItemWrapper>
+      {collapsed && open
+        ? items.map((i) => (
+            <SubMenuItem
+              clicked={clicked}
+              link={i.link}
+              title={i.title}
+              key={i.title}
+            />
+          ))
+        : null}
+    </Aux>
   );
 };
 
@@ -47,6 +48,12 @@ MenuItem.propTypes = {
   icon: shape({
     icon: array,
   }).isRequired,
+  items: arrayOf(
+    shape({
+      title: string,
+      link: string,
+    })
+  ).isRequired,
   link: string.isRequired,
   title: string.isRequired,
 };
