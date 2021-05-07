@@ -10,6 +10,7 @@ const MenuArrowWrapper = styled.div`
   @media (max-width: 768px) {
     width: 40%;
     justify-content: flex-end;
+    padding: 15px 45px 5px 0;
   }
 `;
 

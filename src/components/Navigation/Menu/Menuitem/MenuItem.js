@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { array, arrayOf, bool, func, shape, string } from 'prop-types';
-import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Aux from '../../../../hoc/Aux/Aux';
@@ -13,7 +12,10 @@ const MenuItem = (props) => {
   const [collapsed, setCollapsed] = useState(false);
 
   const clickItem = () => {
-    clicked();
+    if (!open) {
+      clicked();
+    }
+
     setCollapsed(open ? !collapsed : true);
   };
 
@@ -24,11 +26,16 @@ const MenuItem = (props) => {
           <FontAwesomeIcon icon={icon} size="1x" />
         </Icon>
         <Title open={open}>{title}</Title>
-        <MenuArrow collapsed={collapsed} />
+        {open ? <MenuArrow collapsed={collapsed} /> : null}
       </MenuItemWrapper>
       {collapsed && open
         ? items.map((i) => (
-            <SubMenuItem link={i.link} title={i.title} key={i.title} />
+            <SubMenuItem
+              clicked={clicked}
+              link={i.link}
+              title={i.title}
+              key={i.title}
+            />
           ))
         : null}
     </Aux>

@@ -1,15 +1,20 @@
 import React from 'react';
-import { string } from 'prop-types';
+import { func, string } from 'prop-types';
 
 import SubMenuItemWrapper from './SubMenuItemWrapper';
 
 const SubMenuItem = (props) => {
-  const { link, title } = props;
+  const { clicked, link, title } = props;
 
-  return <SubMenuItemWrapper to={link}>{title}</SubMenuItemWrapper>;
+  return (
+    <SubMenuItemWrapper onClick={() => clicked()} to={link}>
+      {title}
+    </SubMenuItemWrapper>
+  );
 };
 
 SubMenuItem.propTypes = {
+  clicked: func.isRequired,
   link: string.isRequired,
   title: string.isRequired,
 };

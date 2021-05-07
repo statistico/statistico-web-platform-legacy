@@ -13,6 +13,10 @@ const SubMenuItemWrapper = styled(NavLink)`
   &:hover {
     color: #22ccde;
   }
+
+  @media (max-width: 768px) {
+    padding-left: 130px;
+  }
 `;
 
 export default SubMenuItemWrapper;

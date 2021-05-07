@@ -22,22 +22,25 @@ export const Icon = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  padding: 15px 0 5px 10px;
+  padding: ${(props) =>
+    props.open ? '15px 0 5px 10px' : '15px 40px 5px 10px'};
   width: 15%;
 
   @media (max-width: 768px) {
     width: 40%;
     justify-content: flex-end;
+    padding: 15px 0 5px 0;
   }
 `;
 
 export const Title = styled.div`
   display: ${(props) => (props.open ? 'flex' : 'none')};
   justify-content: flex-start;
-  padding: 15px 30px 5px 20px;
+  padding: 15px 30px 5px 0;
   width: 70%;
 
   @media (max-width: 768px) {
     width: 60%;
+    padding-left: 20px;
   }
 `;
