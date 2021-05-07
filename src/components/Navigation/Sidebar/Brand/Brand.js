@@ -29,7 +29,7 @@ const brand = (props) => {
   const { menuOpen } = props;
 
   return (
-    <BrandWrapper>
+    <BrandWrapper to="/">
       <LogoIcon src={icon} open={menuOpen} />
       <LogoText src={text} open={menuOpen} />
     </BrandWrapper>

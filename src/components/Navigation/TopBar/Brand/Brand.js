@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { func } from 'prop-types';
 
 import BrandWrapper from './BrandWrapper';
 import icon from '../../../../assets/images/statistico-toolbar-small.png';
@@ -12,12 +13,22 @@ const LogoIcon = styled.img`
   margin: 0 10px 0 10px;
 `;
 
-const brand = () => {
+const Brand = (props) => {
+  const { clicked } = props;
+
+  const logoClicked = () => {
+    clicked(false);
+  };
+
   return (
-    <BrandWrapper>
+    <BrandWrapper to="/" onClick={() => logoClicked()}>
       <LogoIcon src={icon} />
     </BrandWrapper>
   );
 };
 
-export default brand;
+Brand.propTypes = {
+  clicked: func.isRequired,
+};
+
+export default Brand;

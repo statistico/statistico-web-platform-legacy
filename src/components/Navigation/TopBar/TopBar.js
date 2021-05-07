@@ -10,7 +10,7 @@ const TopBar = (props) => {
 
   return (
     <TopBarWrapper>
-      <Brand menuOpen={open} />
+      <Brand menuOpen={open} clicked={clicked} />
       <Toggle open={open} clicked={clicked} />
     </TopBarWrapper>
   );
