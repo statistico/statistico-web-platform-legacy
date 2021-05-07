@@ -20,7 +20,6 @@ const Menu = (props) => {
         icon={faMoneyBillAlt}
         title="Trading"
         open={open}
-        link="/trading/strategy/builder"
         clicked={clicked}
         items={trading}
       />
@@ -28,7 +27,6 @@ const Menu = (props) => {
         icon={faChartPie}
         title="Stats"
         open={open}
-        link="/"
         clicked={clicked}
         items={stats}
       />
@@ -36,7 +34,6 @@ const Menu = (props) => {
         icon={faBlog}
         title="Blog"
         open={open}
-        link="/"
         clicked={clicked}
         items={blog}
       />

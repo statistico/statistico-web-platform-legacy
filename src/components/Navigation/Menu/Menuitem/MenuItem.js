@@ -8,7 +8,7 @@ import MenuArrow from './MenuArrow/MenuArrow';
 import SubMenuItem from './SubMenuItem/SubMenuItem';
 
 const MenuItem = (props) => {
-  const { clicked, open, icon, items, link, title } = props;
+  const { clicked, open, icon, items, title } = props;
   const [collapsed, setCollapsed] = useState(false);
 
   const clickItem = () => {
@@ -21,7 +21,7 @@ const MenuItem = (props) => {
 
   return (
     <Aux>
-      <MenuItemWrapper open={open} to={link} onClick={() => clickItem()}>
+      <MenuItemWrapper open={open} onClick={() => clickItem()}>
         <Icon>
           <FontAwesomeIcon icon={icon} size="1x" />
         </Icon>
@@ -54,7 +54,6 @@ MenuItem.propTypes = {
       link: string,
     })
   ).isRequired,
-  link: string.isRequired,
   title: string.isRequired,
 };
 
