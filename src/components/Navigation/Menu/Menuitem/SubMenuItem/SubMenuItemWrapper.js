@@ -15,7 +15,7 @@ const SubMenuItemWrapper = styled(NavLink)`
   }
 
   @media (max-width: 768px) {
-    padding-left: 130px;
+    padding-left: 110px;
   }
 `;
 

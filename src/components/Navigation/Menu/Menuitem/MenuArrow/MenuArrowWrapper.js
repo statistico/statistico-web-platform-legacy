@@ -8,7 +8,7 @@ const MenuArrowWrapper = styled.div`
   width: 15%;
 
   @media (max-width: 768px) {
-    width: 40%;
+    width: 20%;
     justify-content: flex-end;
     padding: 15px 45px 5px 0;
   }

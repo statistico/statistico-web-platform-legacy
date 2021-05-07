@@ -27,7 +27,7 @@ export const Icon = styled.div`
   width: 15%;
 
   @media (max-width: 768px) {
-    width: 40%;
+    width: 20%;
     justify-content: flex-end;
     padding: 15px 0 5px 0;
   }
