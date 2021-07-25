@@ -5,11 +5,11 @@ const CompetitionListWrapper = styled.div`
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin: 20px 0 20px 0;
+  padding: 25px;
   height: fit-content;
 
   @media (max-width: 768px) {
-    margin-top: 10px;
+    padding: 0;
   }
 `;
 

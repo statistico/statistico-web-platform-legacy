@@ -1,6 +1,6 @@
 import React from 'react';
 
-import CompetitionList from '../../CompetitionList/CompetitionList';
+import CompetitionList from './CompetitionList/CompetitionList';
 import DashboardHeader from '../../Dashboard/DashboardHeader/DashboardHeader';
 import TeamRatingsDashboardWrapper from './TeamRatingsDashboard.styles';
 
