@@ -12,6 +12,11 @@ const CompetitionListItemWrapper = styled.div`
   align-items: center;
   cursor: pointer;
 
+  img {
+    height: 75%;
+    width: 75%;
+  }
+
   &:hover {
     background: #22ccde;
   }
