@@ -5,11 +5,12 @@ import {
   faBlog,
   faChartPie,
   faMoneyBillAlt,
+  faSortAmountDown,
 } from '@fortawesome/free-solid-svg-icons';
 
 import MenuWrapper from './MenuWrapper';
 import MenuItem from './Menuitem/MenuItem';
-import { blog, stats, trading } from '../../../config/routes';
+import { blog, ratings, stats, trading } from '../../../config/routes';
 
 const Menu = (props) => {
   const { clicked, open } = props;
@@ -29,6 +30,13 @@ const Menu = (props) => {
         open={open}
         clicked={clicked}
         items={stats}
+      />
+      <MenuItem
+        icon={faSortAmountDown}
+        title="Ratings"
+        open={open}
+        clicked={clicked}
+        items={ratings}
       />
       <MenuItem
         icon={faBlog}
