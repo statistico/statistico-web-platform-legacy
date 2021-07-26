@@ -7,6 +7,7 @@ const CompetitionListWrapper = styled.div`
   flex-wrap: wrap;
   padding: 25px;
   height: fit-content;
+  width: 100%;
 
   @media (max-width: 768px) {
     padding: 0;

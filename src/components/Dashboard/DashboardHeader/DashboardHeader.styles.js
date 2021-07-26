@@ -3,8 +3,8 @@ import styled from 'styled-components';
 const DashboardHeaderWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
-  background: #eaecef;
+  justify-content: flex-start;
+  background: #bdc1c6;
   width: 100%;
   padding: 20px 40px 20px 40px;
   font-size: 30px;

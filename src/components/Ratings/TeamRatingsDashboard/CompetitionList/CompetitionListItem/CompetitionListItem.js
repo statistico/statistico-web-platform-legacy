@@ -1,12 +1,15 @@
 import React from 'react';
-import { string } from 'prop-types';
+import { func, number, string } from 'prop-types';
 import CompetitionListItemWrapper from './CompetitionListItem.styles';
 
 const CompetitionListItem = (props) => {
-  const { id, name } = props;
+  const { id, name, selectedId, toggle } = props;
 
   return (
-    <CompetitionListItemWrapper>
+    <CompetitionListItemWrapper
+      onClick={() => toggle(selectedId === id ? null : id)}
+      selected={selectedId}
+    >
       <img
         alt={name}
         src={`https://cdn.sportmonks.com/images/soccer/leagues/${id}.png`}
@@ -16,8 +19,14 @@ const CompetitionListItem = (props) => {
 };
 
 CompetitionListItem.propTypes = {
-  id: string.isRequired,
+  id: number.isRequired,
   name: string.isRequired,
+  selectedId: number,
+  toggle: func.isRequired,
+};
+
+CompetitionListItem.defaultProps = {
+  selectedId: null,
 };
 
 export default CompetitionListItem;

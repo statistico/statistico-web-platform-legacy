@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const DashboardWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: #d1d6dd;
+  background-color: #bdc1c6;
   color: #1b1e22;
   flex-grow: 1;
   transition: width 0.25s ease, background 0.25s ease;
