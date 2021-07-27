@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const CompetitionListItemWrapper = styled.div`
   display: flex;
   justify-content: center;
-  background: #bdc1c6;
+  background: #d1d6dd;
   border-radius: 10px;
   height: 130px;
   width: 130px;

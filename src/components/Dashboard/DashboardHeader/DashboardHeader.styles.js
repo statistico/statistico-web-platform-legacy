@@ -4,7 +4,7 @@ const DashboardHeaderWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  background: #bdc1c6;
+  background: #d1d6dd;
   width: ${(props) => props.width};
   padding: 20px 40px 20px 40px;
   font-size: 30px;
