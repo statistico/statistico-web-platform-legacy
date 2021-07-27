@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const TeamRatingsDashboardWrapper = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: ${(props) => props.direction};
   width: 100%;
 `;
 
