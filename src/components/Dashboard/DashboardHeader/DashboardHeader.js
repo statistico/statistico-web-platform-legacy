@@ -1,16 +1,16 @@
 import React from 'react';
-import { node } from 'prop-types';
+import { string } from 'prop-types';
 
 import DashboardHeaderWrapper from './DashboardHeader.styles';
 
 const DashboardHeader = (props) => {
-  const { children } = props;
+  const { title } = props;
 
-  return <DashboardHeaderWrapper>{children}</DashboardHeaderWrapper>;
+  return <DashboardHeaderWrapper>{title}</DashboardHeaderWrapper>;
 };
 
 DashboardHeader.propTypes = {
-  children: node.isRequired,
+  title: string.isRequired,
 };
 
 export default DashboardHeader;

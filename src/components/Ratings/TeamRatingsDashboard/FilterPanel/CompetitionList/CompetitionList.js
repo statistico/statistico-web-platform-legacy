@@ -3,7 +3,7 @@ import { func, number } from 'prop-types';
 
 import CompetitionListWrapper from './CompetitionList.styles';
 import CompetitionListItem from './CompetitionListItem/CompetitionListItem';
-import competitions from '../../../../config/competitions';
+import competitions from '../../../../../config/competitions';
 
 const CompetitionList = (props) => {
   const { selectedId, toggle } = props;

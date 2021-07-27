@@ -4,6 +4,7 @@ const CompetitionListWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-content: center;
   flex-wrap: wrap;
   padding: 25px;
   height: fit-content;

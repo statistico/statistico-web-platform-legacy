@@ -4,11 +4,11 @@ const CompetitionListItemWrapper = styled.div`
   display: flex;
   justify-content: center;
   background: hsla(0, 0%, 100%, 0.55);
-  border-radius: ${(props) => (props.selected === null ? '0' : '10px')};
-  height: ${(props) => (props.selected === null ? '260px' : '110px')};
-  width: ${(props) => (props.selected === null ? '260px' : '110px')};
+  border-radius: 10px;
+  height: 130px;
+  width: 130px;
   box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.23);
-  margin: 10px 0 10px 0;
+  margin: 5px;
   align-items: center;
   cursor: pointer;
 
