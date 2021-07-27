@@ -7,7 +7,7 @@ import TeamRatingsDashboardWrapper from './TeamRatingsDashboard.styles';
 const TeamRatingsDashboard = () => {
   return (
     <TeamRatingsDashboardWrapper>
-      <DashboardHeader title="Team Ratings" />
+      <DashboardHeader title="Team Ratings" width="80%" />
       <FilterPanel />
     </TeamRatingsDashboardWrapper>
   );
