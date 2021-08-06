@@ -5,8 +5,8 @@ const CompetitionListItemWrapper = styled.div`
   justify-content: center;
   background: #d1d6dd;
   border-radius: 10px;
-  height: 130px;
-  width: 130px;
+  height: 125px;
+  width: 125px;
   box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.23);
   margin: 5px;
   align-items: center;

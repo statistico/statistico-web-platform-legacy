@@ -2,11 +2,10 @@ import styled from 'styled-components';
 
 const CompetitionListWrapper = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex: 50%;
   align-content: center;
   flex-wrap: wrap;
-  padding: 25px;
+  padding: 0px 25px 0px 25px;
   height: fit-content;
   width: 100%;
 
