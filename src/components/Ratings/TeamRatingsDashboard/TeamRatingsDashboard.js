@@ -9,7 +9,7 @@ const TeamRatingsDashboard = () => {
   const [panelOpen, setPanelOpen] = useState(false);
 
   return (
-    <TeamRatingsDashboardWrapper direction={panelOpen ? 'row' : 'column'}>
+    <TeamRatingsDashboardWrapper>
       <DashboardHeader
         title="Team Ratings"
         width={panelOpen ? '80%' : '100%'}
