@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
-import { Table, Thead, Tbody, Tr, Th } from 'react-super-responsive-table';
+import {
+  Table, Thead, Tbody, Tr, Th,
+} from 'react-super-responsive-table';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 
 import CompetitionListWrapper from './CompetitionListWrapper';
@@ -11,9 +13,7 @@ import competitions from '../../../../../config/competitions';
 const CompetitionList = () => {
   const { filters, trades } = useContext(StrategyBuilderContext);
 
-  const selectedCompetitions = competitions.filter((c) =>
-    filters.competitions.includes(c.id)
-  );
+  const selectedCompetitions = competitions.filter((c) => filters.competitions.includes(c.id));
 
   return (
     <CompetitionListWrapper>
@@ -30,20 +30,18 @@ const CompetitionList = () => {
           </Tr>
         </Thead>
         <Tbody>
-          {selectedCompetitions.map((competition) => {
-            return (
-              <CompetitionRow
-                competition={competition}
-                trades={filterByCompetition(
-                  trades,
-                  parseInt(competition.id, 10)
-                )}
-                tradeSide={filters.side ? filters.side.name : ''}
-                className="competition-row"
-                key={competition.id}
-              />
-            );
-          })}
+          {selectedCompetitions.map((competition) => (
+            <CompetitionRow
+              competition={competition}
+              trades={filterByCompetition(
+                trades,
+                parseInt(competition.id, 10),
+              )}
+              tradeSide={filters.side ? filters.side.name : ''}
+              className="competition-row"
+              key={competition.id}
+            />
+          ))}
         </Tbody>
       </Table>
     </CompetitionListWrapper>

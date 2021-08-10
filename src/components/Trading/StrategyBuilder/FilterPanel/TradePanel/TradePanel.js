@@ -7,18 +7,16 @@ import PanelTitle from '../PanelTitle/PanelTitle';
 import { FilterWrapper, TradePanelWrapper } from './TradePanelWrapper';
 import SideSelect from './SideSelect/SideSelect';
 
-const TradePanel = () => {
-  return (
-    <TradePanelWrapper>
-      <PanelTitle title="Trade" />
-      <FilterWrapper>
-        <MarketRunnerSelect />
-        <LineSelect />
-        <SideSelect />
-        <OddsSelect />
-      </FilterWrapper>
-    </TradePanelWrapper>
-  );
-};
+const TradePanel = () => (
+  <TradePanelWrapper>
+    <PanelTitle title="Trade" />
+    <FilterWrapper>
+      <MarketRunnerSelect />
+      <LineSelect />
+      <SideSelect />
+      <OddsSelect />
+    </FilterWrapper>
+  </TradePanelWrapper>
+);
 
 export default TradePanel;

@@ -12,14 +12,14 @@ import {
 import SingleFilterWrapper from './SingleFilterWrapper';
 
 const SingleFilter = (props) => {
-  const { selection, selections, styles, title, toggleSelection } = props;
+  const {
+    selection, selections, styles, title, toggleSelection,
+  } = props;
 
-  const options = selections.map((s) => {
-    return {
-      value: s.name,
-      label: s.label,
-    };
-  });
+  const options = selections.map((s) => ({
+    value: s.name,
+    label: s.label,
+  }));
 
   const onChangeInput = (input) => {
     if (input === null) {
@@ -44,7 +44,10 @@ const SingleFilter = (props) => {
 
   return (
     <SingleFilterWrapper>
-      <p>{title}:</p>
+      <p>
+        {title}
+        :
+      </p>
       <Select
         options={options}
         value={defaultValue()}
@@ -69,7 +72,7 @@ SingleFilter.propTypes = {
     shape({
       name: string.isRequired,
       label: string.isRequired,
-    })
+    }),
   ).isRequired,
   styles: shape({
     container: func.isRequired,

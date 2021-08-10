@@ -1,5 +1,7 @@
 import React from 'react';
-import { number, oneOf, oneOfType, string } from 'prop-types';
+import {
+  number, oneOf, oneOfType, string,
+} from 'prop-types';
 import CountUp from 'react-countup';
 
 import styled from 'styled-components';
@@ -36,7 +38,9 @@ const Title = styled.div`
 `;
 
 const TradeStat = (props) => {
-  const { colour, count, decimals, metric, title } = props;
+  const {
+    colour, count, decimals, metric, title,
+  } = props;
 
   return (
     <TradeStatWrapper>

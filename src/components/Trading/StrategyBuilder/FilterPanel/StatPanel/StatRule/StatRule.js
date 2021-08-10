@@ -38,21 +38,19 @@ const StatRule = (props) => {
       games: games[0],
       venue: venue[0],
       value: counts[0],
-    }
+    },
   );
 
-  const isDisabled = () => {
-    return (
-      !currentFilter.stat ||
-      !currentFilter.team ||
-      !currentFilter.games ||
-      !currentFilter.venue ||
-      !currentFilter.action ||
-      !currentFilter.measure ||
-      !currentFilter.metric ||
-      !currentFilter.value
-    );
-  };
+  const isDisabled = () => (
+    !currentFilter.stat
+      || !currentFilter.team
+      || !currentFilter.games
+      || !currentFilter.venue
+      || !currentFilter.action
+      || !currentFilter.measure
+      || !currentFilter.metric
+      || !currentFilter.value
+  );
 
   const updateFilter = useCallback(
     (i, title) => {
@@ -87,7 +85,7 @@ const StatRule = (props) => {
         setCurrentFilter({ ...currentFilter, value: i });
       }
     },
-    [currentFilter]
+    [currentFilter],
   );
 
   const submit = () => {

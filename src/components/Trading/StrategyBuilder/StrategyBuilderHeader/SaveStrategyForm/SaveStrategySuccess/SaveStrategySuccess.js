@@ -11,7 +11,11 @@ const SaveStrategySuccess = (props) => {
   return (
     <SaveStrategySuccessWrapper>
       <FontAwesomeIcon icon={faCheckCircle} size="3x" />
-      <p>{name} saved. Good Luck</p>
+      <p>
+        {name}
+        {' '}
+        saved. Good Luck
+      </p>
     </SaveStrategySuccessWrapper>
   );
 };

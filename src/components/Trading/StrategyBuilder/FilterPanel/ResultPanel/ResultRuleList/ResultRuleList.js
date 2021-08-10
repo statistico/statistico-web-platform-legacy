@@ -1,5 +1,7 @@
 import React, { useCallback, useContext } from 'react';
-import { Table, Thead, Tbody, Tr, Th } from 'react-super-responsive-table';
+import {
+  Table, Thead, Tbody, Tr, Th,
+} from 'react-super-responsive-table';
 import { v4 as uuidv4 } from 'uuid';
 
 import ResultRuleRow from './ResultRuleRow/ResultRuleRow';
@@ -21,7 +23,7 @@ const ResultRuleList = () => {
         ...filters,
       });
     },
-    [filters, setFilters]
+    [filters, setFilters],
   );
 
   const removeFilter = useCallback(
@@ -32,7 +34,7 @@ const ResultRuleList = () => {
         resultFilters: [...newList],
       });
     },
-    [filters, setFilters]
+    [filters, setFilters],
   );
 
   if (filters.resultFilters.length === 0) {
@@ -57,16 +59,14 @@ const ResultRuleList = () => {
           </Tr>
         </Thead>
         <Tbody>
-          {filters.resultFilters.map((f, index) => {
-            return (
-              <ResultRuleRow
-                filter={f}
-                removeFilter={() => removeFilter(index, filters.resultFilters)}
-                updateFilter={(filter) => updateFilter(index, filter)}
-                key={uuidv4()}
-              />
-            );
-          })}
+          {filters.resultFilters.map((f, index) => (
+            <ResultRuleRow
+              filter={f}
+              removeFilter={() => removeFilter(index, filters.resultFilters)}
+              updateFilter={(filter) => updateFilter(index, filter)}
+              key={uuidv4()}
+            />
+          ))}
         </Tbody>
       </Table>
     </ResultRuleListWrapper>

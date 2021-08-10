@@ -1,5 +1,7 @@
 import React from 'react';
-import { array, func, shape, string } from 'prop-types';
+import {
+  array, func, shape, string,
+} from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import {
@@ -9,7 +11,9 @@ import {
 } from './LoginInputWrapper';
 
 const LoginInput = (props) => {
-  const { icon, onChange, placeholder, type } = props;
+  const {
+    icon, onChange, placeholder, type,
+  } = props;
 
   return (
     <LoginInputWrapper>

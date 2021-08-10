@@ -3,7 +3,9 @@ import { func, number, string } from 'prop-types';
 import CompetitionListItemWrapper from './CompetitionListItem.styles';
 
 const CompetitionListItem = (props) => {
-  const { id, name, selectedId, toggle } = props;
+  const {
+    id, name, selectedId, toggle,
+  } = props;
 
   return (
     <CompetitionListItemWrapper

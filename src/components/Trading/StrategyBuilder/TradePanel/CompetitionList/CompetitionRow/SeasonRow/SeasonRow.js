@@ -1,5 +1,7 @@
 import React from 'react';
-import { arrayOf, number, shape, string } from 'prop-types';
+import {
+  arrayOf, number, shape, string,
+} from 'prop-types';
 import { Td } from 'react-super-responsive-table';
 import styled from 'styled-components';
 
@@ -44,7 +46,7 @@ SeasonRow.propTypes = {
       result: number.isRequired,
       runnerPrice: number.isRequired,
       seasonId: number.isRequired,
-    })
+    }),
   ).isRequired,
   tradeSide: string.isRequired,
 };

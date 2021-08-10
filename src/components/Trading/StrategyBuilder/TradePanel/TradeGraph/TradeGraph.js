@@ -27,7 +27,9 @@ const TradeGraph = () => {
       <ResponsiveContainer>
         <LineChart
           data={profit}
-          margin={{ top: 15, right: 50, left: 0, bottom: 15 }}
+          margin={{
+            top: 15, right: 50, left: 0, bottom: 15,
+          }}
         >
           <XAxis />
           <YAxis />

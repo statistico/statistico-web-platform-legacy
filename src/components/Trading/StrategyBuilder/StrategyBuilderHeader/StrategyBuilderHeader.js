@@ -50,7 +50,9 @@ const IconCollection = styled.div`
 `;
 
 const StrategyBuilderHeader = (props) => {
-  const { filtersActive, selectFilters, selectTrades, tradesActive } = props;
+  const {
+    filtersActive, selectFilters, selectTrades, tradesActive,
+  } = props;
   const [hasError, setHasError] = useState(false);
   const [showSaveForm, setShowSaveForm] = useState(false);
   const { build } = useContext(StrategyBuilderActionContext);
@@ -68,12 +70,12 @@ const StrategyBuilderHeader = (props) => {
 
   const buildStrategy = () => {
     if (
-      !filters.line ||
-      !filters.market ||
-      (!filters.maxOdds && !filters.minOdds) ||
-      !filters.runner ||
-      !filters.side ||
-      filters.competitions.length === 0
+      !filters.line
+      || !filters.market
+      || (!filters.maxOdds && !filters.minOdds)
+      || !filters.runner
+      || !filters.side
+      || filters.competitions.length === 0
     ) {
       setHasError(true);
       return;

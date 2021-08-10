@@ -10,7 +10,7 @@ describe('<ErrorBoundary />', () => {
     const wrapper = mount(
       <ErrorBoundary>
         <Dummy />
-      </ErrorBoundary>
+      </ErrorBoundary>,
     );
 
     const error = new Error('Oh No!!');
@@ -24,7 +24,7 @@ describe('<ErrorBoundary />', () => {
     const wrapper = mount(
       <ErrorBoundary>
         <Dummy />
-      </ErrorBoundary>
+      </ErrorBoundary>,
     );
 
     expect(wrapper.text()).toEqual('All ok!!');
@@ -36,11 +36,11 @@ describe('<ErrorBoundary />', () => {
     const wrapper = mount(
       <ErrorBoundary>
         <Dummy />
-      </ErrorBoundary>
+      </ErrorBoundary>,
     );
 
     expect(wrapper.text()).toEqual(
-      expect.not.stringContaining('There has been an error')
+      expect.not.stringContaining('There has been an error'),
     );
   });
 });

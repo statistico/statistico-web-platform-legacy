@@ -1,5 +1,7 @@
 import React, { useCallback, useContext } from 'react';
-import { Table, Thead, Tbody, Tr, Th } from 'react-super-responsive-table';
+import {
+  Table, Thead, Tbody, Tr, Th,
+} from 'react-super-responsive-table';
 import { v4 as uuidv4 } from 'uuid';
 
 import StatRuleRow from './StatRuleRow/StatRuleRow';
@@ -23,7 +25,7 @@ const StatRuleList = () => {
         ...filters,
       });
     },
-    [filters, setFilters]
+    [filters, setFilters],
   );
 
   const removeFilter = useCallback(
@@ -34,7 +36,7 @@ const StatRuleList = () => {
         statFilters: [...newList],
       });
     },
-    [filters, setFilters]
+    [filters, setFilters],
   );
 
   if (filters.statFilters.length === 0) {
@@ -63,16 +65,14 @@ const StatRuleList = () => {
           </Tr>
         </Thead>
         <Tbody>
-          {filters.statFilters.map((f, index) => {
-            return (
-              <StatRuleRow
-                filter={f}
-                removeFilter={() => removeFilter(index, filters.statFilters)}
-                updateFilter={(filter) => updateFilter(index, filter)}
-                key={uuidv4()}
-              />
-            );
-          })}
+          {filters.statFilters.map((f, index) => (
+            <StatRuleRow
+              filter={f}
+              removeFilter={() => removeFilter(index, filters.statFilters)}
+              updateFilter={(filter) => updateFilter(index, filter)}
+              key={uuidv4()}
+            />
+          ))}
         </Tbody>
       </Table>
     </StatRuleListWrapper>

@@ -9,7 +9,7 @@ describe('<Loader />', () => {
     const wrapper = shallow(
       <Loader loading>
         <Dummy />
-      </Loader>
+      </Loader>,
     );
     expect(wrapper.text()).toEqual('Loading');
   });
@@ -20,7 +20,7 @@ describe('<Loader />', () => {
     const wrapper = mount(
       <Loader loading={false}>
         <Dummy />
-      </Loader>
+      </Loader>,
     );
 
     expect(wrapper.text()).toEqual('Hello');

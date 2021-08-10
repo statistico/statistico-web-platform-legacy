@@ -13,7 +13,11 @@ const TradeLoader = () => {
       {trades.length === 0 ? (
         <p>Searching for matching trades...</p>
       ) : (
-        <p>{trades.length} trades found</p>
+        <p>
+          {trades.length}
+          {' '}
+          trades found
+        </p>
       )}
     </TradeLoaderWrapper>
   );

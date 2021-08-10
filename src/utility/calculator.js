@@ -30,12 +30,13 @@ export const calculateMode = (numbers) => {
   }
 
   // Object.prototype.hasOwnProperty.call(foo, "bar")
-  for (i in count)
+  for (i in count) {
     if (Object.prototype.hasOwnProperty.call(count, i)) {
       if (count[i] === maxIndex) {
         modes.push(Number(i));
       }
     }
+  }
 
   return modes;
 };

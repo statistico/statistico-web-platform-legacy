@@ -8,7 +8,9 @@ const PanelTitle = (props) => {
 
   return (
     <PanelTitleWrapper>
-      {title} {children}
+      {title}
+      {' '}
+      {children}
     </PanelTitleWrapper>
   );
 };

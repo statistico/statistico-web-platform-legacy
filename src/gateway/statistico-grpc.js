@@ -6,7 +6,7 @@ export const buildStrategy = async (
   filters,
   updateFunc,
   endFunc,
-  errorFunc
+  errorFunc,
 ) => {
   const token = (await Auth.currentSession()).getAccessToken().getJwtToken();
 
@@ -38,7 +38,7 @@ export const saveStrategy = async (
   filters,
   visibility,
   onSuccess,
-  onFailure
+  onFailure,
 ) => {
   const token = (await Auth.currentSession()).getAccessToken().getJwtToken();
 
@@ -47,7 +47,7 @@ export const saveStrategy = async (
     description,
     stakingPlan,
     filters,
-    visibility
+    visibility,
   );
 
   const meta = {

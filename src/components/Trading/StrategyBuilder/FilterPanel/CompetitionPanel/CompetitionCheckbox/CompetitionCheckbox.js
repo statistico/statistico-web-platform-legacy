@@ -4,7 +4,9 @@ import { bool, func, string } from 'prop-types';
 import CompetitionCheckboxWrapper from './CompetitionCheckboxWrapper';
 
 const CompetitionCheckbox = (props) => {
-  const { country, id, name, checked, onChange } = props;
+  const {
+    country, id, name, checked, onChange,
+  } = props;
 
   return (
     <CompetitionCheckboxWrapper checked={checked}>

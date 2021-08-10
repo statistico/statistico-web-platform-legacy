@@ -11,8 +11,10 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
-    "@typescript-eslint/eslint-plugin": "^2.10.0",
-    "@typescript-eslint/parser": "^2.10.0",
+    "@types/jest": "^26.0.24",
+    "@types/node": "^16.4.13",
+    "@types/react": "^17.0.16",
+    "@types/react-dom": "^17.0.9",
     "aws-amplify": "^3.3.23",
     "axios": "^0.21.1",
     "babel-jest": "^24.9.0",
@@ -25,8 +27,6 @@
     "dotenv-expand": "5.1.0",
     "eslint-config-react-app": "^5.2.1",
     "eslint-plugin-flowtype": "4.6.0",
-    "eslint-plugin-import": "2.20.1",
-    "eslint-plugin-react-hooks": "^1.6.1",
     "file-loader": "4.3.0",
     "fs-extra": "^8.1.0",
     "google-protobuf": "^3.14.0",
@@ -68,6 +68,7 @@
     "styled-components": "^5.1.1",
     "terser-webpack-plugin": "2.3.5",
     "ts-pnp": "1.1.6",
+    "typescript": "^4.3.5",
     "url-loader": "2.3.0",
     "uuid": "^8.3.2",
     "webpack": "4.42.0",
@@ -84,7 +85,11 @@
     "test": "node scripts/test.js"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "rules": {
+      "@typescript-eslint/no-redeclare": "off",
+      "no-redeclare": "off"
+    }
   },
   "browserslist": {
     "production": [
@@ -100,17 +105,23 @@
   },
   "devDependencies": {
     "@testing-library/react-hooks": "^3.3.0",
+    "@typescript-eslint/eslint-plugin": "^4.29.1",
+    "@typescript-eslint/parser": "^4.29.1",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb": "^18.2.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-airbnb-typescript": "^12.3.1",
     "eslint-config-prettier": "^6.11.0",
+    "eslint-import-resolver-typescript": "^2.4.0",
     "eslint-loader": "^3.0.3",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-import": "^2.24.0",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "prettier": "^2.0.5",
     "react-test-renderer": "^16.13.1",
     "typescript-eslint": "0.0.1-alpha.0"

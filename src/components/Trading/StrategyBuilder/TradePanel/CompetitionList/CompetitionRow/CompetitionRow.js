@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { arrayOf, number, shape, string } from 'prop-types';
+import {
+  arrayOf, number, shape, string,
+} from 'prop-types';
 import styled from 'styled-components';
 import { Td, Tr } from 'react-super-responsive-table';
 
@@ -40,16 +42,14 @@ const CompetitionRow = (props) => {
         <Count color={p > 0 ? 'green' : 'red'}>{p.toString()}</Count>
       </Tr>
       {showSeasons
-        ? competition.seasons.map((season) => {
-            return (
-              <SeasonRow
-                season={season}
-                trades={filterBySeason(trades, season.id)}
-                tradeSide={tradeSide}
-                key={season.id}
-              />
-            );
-          })
+        ? competition.seasons.map((season) => (
+          <SeasonRow
+            season={season}
+            trades={filterBySeason(trades, season.id)}
+            tradeSide={tradeSide}
+            key={season.id}
+          />
+        ))
         : null}
     </Aux>
   );
@@ -64,7 +64,7 @@ CompetitionRow.propTypes = {
       shape({
         id: number.isRequired,
         name: string.isRequired,
-      })
+      }),
     ).isRequired,
   }).isRequired,
   trades: arrayOf(
@@ -72,7 +72,7 @@ CompetitionRow.propTypes = {
       competitionId: number.isRequired,
       result: number.isRequired,
       runnerPrice: number.isRequired,
-    })
+    }),
   ).isRequired,
   tradeSide: string.isRequired,
 };

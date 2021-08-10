@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { array, arrayOf, bool, func, shape, string } from 'prop-types';
+import {
+  array, arrayOf, bool, func, shape, string,
+} from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Aux from '../../../../hoc/Aux/Aux';
@@ -8,7 +10,9 @@ import MenuArrow from './MenuArrow/MenuArrow';
 import SubMenuItem from './SubMenuItem/SubMenuItem';
 
 const MenuItem = (props) => {
-  const { clicked, open, icon, items, title } = props;
+  const {
+    clicked, open, icon, items, title,
+  } = props;
   const [collapsed, setCollapsed] = useState(false);
 
   const clickItem = () => {
@@ -30,13 +34,13 @@ const MenuItem = (props) => {
       </MenuItemWrapper>
       {collapsed && open
         ? items.map((i) => (
-            <SubMenuItem
-              clicked={clicked}
-              link={i.link}
-              title={i.title}
-              key={i.title}
-            />
-          ))
+          <SubMenuItem
+            clicked={clicked}
+            link={i.link}
+            title={i.title}
+            key={i.title}
+          />
+        ))
         : null}
     </Aux>
   );
@@ -52,7 +56,7 @@ MenuItem.propTypes = {
     shape({
       title: string,
       link: string,
-    })
+    }),
   ).isRequired,
   title: string.isRequired,
 };
