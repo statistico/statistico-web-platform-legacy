@@ -14,14 +14,14 @@ import FormSelectWrapper from './FormSelectWrapper';
 import selectStyles from '../../../config/form-styles';
 
 const FormSelect = (props) => {
-  const { placeholder, selection, selections, title, toggleSelection } = props;
+  const {
+    placeholder, selection, selections, title, toggleSelection,
+  } = props;
 
-  const options = selections.map((s) => {
-    return {
-      value: s.name,
-      label: s.label,
-    };
-  });
+  const options = selections.map((s) => ({
+    value: s.name,
+    label: s.label,
+  }));
 
   const onChangeInput = (input) => {
     if (input === null) {
@@ -72,7 +72,7 @@ FormSelect.propTypes = {
     shape({
       name: string.isRequired,
       label: string.isRequired,
-    })
+    }),
   ).isRequired,
   title: oneOfType([string, instanceOf(null)]),
   toggleSelection: func.isRequired,

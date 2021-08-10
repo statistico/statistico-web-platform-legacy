@@ -37,7 +37,7 @@ const Modal = (props) => {
         {children}
       </ModalWrapper>
     </Aux>,
-    document.querySelector('#modal-root')
+    document.querySelector('#modal-root'),
   );
 };
 

@@ -20,11 +20,13 @@ const Container = styled.div`
   }
 `;
 
-const App = () => {
+const App: React.FC = () => {
   const { menuOpen, menuToggleHandler } = useTogglesMenu(
-    window.innerWidth > 768
+    window.innerWidth > 768,
   );
-  const { isAuthenticated, loading, login, error } = useAuthenticatesUser();
+  const {
+    isAuthenticated, loading, login, error,
+  } = useAuthenticatesUser();
 
   if (!isAuthenticated) {
     return <UserLogin loading={loading} login={login} error={error} />;

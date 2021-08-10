@@ -32,9 +32,7 @@ const Table = (props) => {
           prepareRow(row);
           return (
             <tr {...row.getRowProps()}>
-              {row.cells.map((cell) => {
-                return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>;
-              })}
+              {row.cells.map((cell) => <td {...cell.getCellProps()}>{cell.render('Cell')}</td>)}
             </tr>
           );
         })}

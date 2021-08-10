@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "strictPropertyInitialization": true,
+    "strictNullChecks": true,
+    "sourceMap": true,
+    "jsx": "react",
+    "allowJs": true,
+    "experimentalDecorators": true,
+    "useDefineForClassFields": true,
+    "target": "ES5",
+    "lib": ["ES2019.Array"],
+    "esModuleInterop": true,
+    "noEmit": true,
+    "typeRoots": ["node_modules/@types", "**/@types"],
+    "resolveJsonModule": true,
+    "downlevelIteration": true,
+    "plugins": [
+      {
+        "name": "typescript-styled-plugin"
+      }
+    ],
+    "baseUrl": "src",
+    "paths": {
+      "@/components/*": ["src/components/*"],
+      "@/config": ["src/config/*"],
+    }
+  },
+  "include": ["*.*", "**/*"],
+  "exclude": [
+    "node_modules",
+    ".idea",
+    "public",
+    "src/utility/*"
+  ]
+}

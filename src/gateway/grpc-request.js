@@ -21,37 +21,31 @@ import {
 import { ResultFilter, StatFilter } from '../proto/filter_pb';
 import { parseFloatValue } from '../utility/strategy';
 
-const convertResultFilters = (filters) => {
-  return filters.map((f) => {
-    const filter = new ResultFilter();
-    filter.setTeam(TeamEnum[f.team.name]);
-    filter.setResult(ResultEnum[f.result.name]);
-    filter.setGames(parseInt(f.games.name, 10));
-    filter.setVenue(VenueEnum[f.venue.name]);
-    return filter;
-  });
-};
+const convertResultFilters = (filters) => filters.map((f) => {
+  const filter = new ResultFilter();
+  filter.setTeam(TeamEnum[f.team.name]);
+  filter.setResult(ResultEnum[f.result.name]);
+  filter.setGames(parseInt(f.games.name, 10));
+  filter.setVenue(VenueEnum[f.venue.name]);
+  return filter;
+});
 
-const convertStatFilters = (filters) => {
-  return filters.map((f) => {
-    const filter = new StatFilter();
-    filter.setAction(ActionEnum[f.action.name]);
-    filter.setGames(parseInt(f.games.name, 10));
-    filter.setMeasure(MeasureEnum[f.measure.name]);
-    filter.setMetric(MetricEnum[f.metric.name]);
-    filter.setStat(StatEnum[f.stat.name]);
-    filter.setTeam(TeamEnum[f.team.name]);
-    filter.setValue(parseFloat(f.value.name));
-    filter.setVenue(VenueEnum[f.venue.name]);
-    return filter;
-  });
-};
+const convertStatFilters = (filters) => filters.map((f) => {
+  const filter = new StatFilter();
+  filter.setAction(ActionEnum[f.action.name]);
+  filter.setGames(parseInt(f.games.name, 10));
+  filter.setMeasure(MeasureEnum[f.measure.name]);
+  filter.setMetric(MetricEnum[f.metric.name]);
+  filter.setStat(StatEnum[f.stat.name]);
+  filter.setTeam(TeamEnum[f.team.name]);
+  filter.setValue(parseFloat(f.value.name));
+  filter.setVenue(VenueEnum[f.venue.name]);
+  return filter;
+});
 
-const parseOdds = (odds) => {
-  return odds !== null
-    ? new FloatValue().setValue(parseFloatValue(odds))
-    : null;
-};
+const parseOdds = (odds) => (odds !== null
+  ? new FloatValue().setValue(parseFloatValue(odds))
+  : null);
 
 export const buildStrategyRequest = (filters) => {
   const request = new BuildStrategyRequest();
@@ -74,7 +68,7 @@ export const saveStrategyRequest = (
   description,
   stakingPlan,
   filters,
-  visibility
+  visibility,
 ) => {
   const request = new SaveStrategyRequest();
   const plan = new StakingPlan();

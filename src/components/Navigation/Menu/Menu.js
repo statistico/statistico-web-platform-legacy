@@ -10,7 +10,9 @@ import {
 
 import MenuWrapper from './MenuWrapper';
 import MenuItem from './Menuitem/MenuItem';
-import { blog, ratings, stats, trading } from '../../../config/routes';
+import {
+  blog, ratings, stats, trading,
+} from '../../../config/routes';
 
 const Menu = (props) => {
   const { clicked, open } = props;

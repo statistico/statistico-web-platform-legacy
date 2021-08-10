@@ -21,8 +21,7 @@ export const Icon = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  padding: ${(props) =>
-    props.open ? '15px 0 5px 10px' : '15px 40px 5px 10px'};
+  padding: ${(props) => (props.open ? '15px 0 5px 10px' : '15px 40px 5px 10px')};
   width: 15%;
 
   @media (max-width: 768px) {

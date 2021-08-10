@@ -10,17 +10,15 @@ const CompetitionList = (props) => {
 
   return (
     <CompetitionListWrapper selected={selectedId}>
-      {competitions.map((c) => {
-        return (
-          <CompetitionListItem
-            id={c.id}
-            name={c.name}
-            key={c.id}
-            selectedId={selectedId}
-            toggle={toggle}
-          />
-        );
-      })}
+      {competitions.map((c) => (
+        <CompetitionListItem
+          id={c.id}
+          name={c.name}
+          key={c.id}
+          selectedId={selectedId}
+          toggle={toggle}
+        />
+      ))}
     </CompetitionListWrapper>
   );
 };

@@ -4,7 +4,9 @@ import { func, shape, string } from 'prop-types';
 
 import ResultRuleWrapper from './ResultRuleWrapper';
 import SingleFilter from '../../../../../SingleFilter/SingleFilter';
-import { games, result, team, venue } from '../../../../../../config/filters';
+import {
+  games, result, team, venue,
+} from '../../../../../../config/filters';
 import selectStyles from '../../../../../../config/form-styles';
 
 const SubmitButton = styled.div`
@@ -25,17 +27,15 @@ const ResultRule = (props) => {
       result: result[0],
       games: games[0],
       venue: venue[0],
-    }
+    },
   );
 
-  const isDisabled = () => {
-    return (
-      !currentFilter.team ||
-      !currentFilter.result ||
-      !currentFilter.games ||
-      !currentFilter.venue
-    );
-  };
+  const isDisabled = () => (
+    !currentFilter.team
+      || !currentFilter.result
+      || !currentFilter.games
+      || !currentFilter.venue
+  );
 
   const updateFilter = useCallback(
     (i, title) => {
@@ -55,7 +55,7 @@ const ResultRule = (props) => {
         setCurrentFilter({ ...currentFilter, venue: i });
       }
     },
-    [currentFilter]
+    [currentFilter],
   );
 
   const submit = () => {

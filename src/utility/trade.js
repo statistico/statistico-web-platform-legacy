@@ -1,15 +1,9 @@
-const calculateBackProfit = (price, stake) => {
-  return stake * (price - 1).toFixed(2);
-};
+const calculateBackProfit = (price, stake) => stake * (price - 1).toFixed(2);
 
-const calculateLayProfit = (price, stake) => {
-  return stake / (price - 1).toFixed(2);
-};
+const calculateLayProfit = (price, stake) => stake / (price - 1).toFixed(2);
 
 export const averageRunnerPrice = (trades) => {
-  const sum = trades.reduce((prev, cur) => {
-    return prev + cur.runnerPrice;
-  }, 0);
+  const sum = trades.reduce((prev, cur) => prev + cur.runnerPrice, 0);
 
   return +(sum / trades.length).toFixed(2);
 };
@@ -19,15 +13,15 @@ export const cumulativeProfit = (trades, stake, side) => {
 
   return trades.map((trade) => {
     if (side === 'BACK') {
-      total +=
-        trade.result === 1
+      total
+        += trade.result === 1
           ? calculateBackProfit(trade.runnerPrice, stake)
           : -stake;
     }
 
     if (side === 'LAY') {
-      total +=
-        trade.result === 1
+      total
+        += trade.result === 1
           ? calculateLayProfit(trade.runnerPrice, stake)
           : -stake;
     }
@@ -39,19 +33,15 @@ export const cumulativeProfit = (trades, stake, side) => {
   });
 };
 
-export const filterByCompetition = (trades, id) => {
-  return trades.filter((trade) => {
-    const { competitionId } = trade;
-    return competitionId === id;
-  });
-};
+export const filterByCompetition = (trades, id) => trades.filter((trade) => {
+  const { competitionId } = trade;
+  return competitionId === id;
+});
 
-export const filterBySeason = (trades, id) => {
-  return trades.filter((trade) => {
-    const { seasonId } = trade;
-    return seasonId === id;
-  });
-};
+export const filterBySeason = (trades, id) => trades.filter((trade) => {
+  const { seasonId } = trade;
+  return seasonId === id;
+});
 
 export const maxDrawdown = (trades) => {
   let current = 0;
@@ -74,9 +64,7 @@ export const maxDrawdown = (trades) => {
   return max;
 };
 
-export const orderByEventDate = (trades) => {
-  return trades.sort((a, b) => a.eventDate.seconds - b.eventDate.seconds);
-};
+export const orderByEventDate = (trades) => trades.sort((a, b) => a.eventDate.seconds - b.eventDate.seconds);
 
 export const profit = (trades, stake, side) => {
   const sum = trades.reduce((prev, cur) => {
@@ -107,9 +95,7 @@ export const tradeYield = (trades, stake, side) => {
 };
 
 export const winPercentage = (trades) => {
-  const win = trades.filter((trade) => {
-    return trade.result === 1;
-  });
+  const win = trades.filter((trade) => trade.result === 1);
 
   return Math.round((win.length / trades.length) * 100);
 };

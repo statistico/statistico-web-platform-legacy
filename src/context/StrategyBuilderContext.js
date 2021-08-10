@@ -1,4 +1,6 @@
-import React, { useState, createContext, useMemo, useCallback } from 'react';
+import React, {
+  useState, createContext, useMemo, useCallback,
+} from 'react';
 import { node } from 'prop-types';
 
 import { buildStrategy, saveStrategy } from '../gateway/statistico-grpc';
@@ -28,11 +30,9 @@ const StrategyBuilderContextProvider = (props) => {
 
   const update = useCallback(
     (t) => {
-      setTrades((prev) => {
-        return [...prev, t];
-      });
+      setTrades((prev) => [...prev, t]);
     },
-    [setTrades]
+    [setTrades],
   );
 
   const build = useCallback(() => {
@@ -49,7 +49,7 @@ const StrategyBuilderContextProvider = (props) => {
       },
       (e) => {
         setError(e.message);
-      }
+      },
     );
   }, [setLoading, filters, update]);
 
@@ -68,10 +68,10 @@ const StrategyBuilderContextProvider = (props) => {
         (e) => {
           setSaveLoading(false);
           setError(e.message);
-        }
+        },
       );
     },
-    [filters, setSaveLoading, setError]
+    [filters, setSaveLoading, setError],
   );
 
   const store = useMemo(
@@ -84,7 +84,7 @@ const StrategyBuilderContextProvider = (props) => {
       saveLoading,
       trades,
     }),
-    [built, error, filters, loading, saved, saveLoading, trades]
+    [built, error, filters, loading, saved, saveLoading, trades],
   );
 
   const actions = {

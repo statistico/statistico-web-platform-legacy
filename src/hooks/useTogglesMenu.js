@@ -7,7 +7,7 @@ const useTogglesMenu = (open) => {
     (state) => {
       setMenuOpen(state ?? !menuOpen);
     },
-    [menuOpen]
+    [menuOpen],
   );
 
   return {
