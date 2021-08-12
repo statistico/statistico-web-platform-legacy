@@ -20,7 +20,7 @@ const Container = styled.div`
   }
 `;
 
-const App = () => {
+const App: React.FC = () => {
   const { menuOpen, menuToggleHandler } = useTogglesMenu(
     window.innerWidth > 768
   );
