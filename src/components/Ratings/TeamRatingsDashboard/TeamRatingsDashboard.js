@@ -1,24 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import DashboardHeader from '../../Dashboard/DashboardHeader/DashboardHeader';
-import FilterPanel from './FilterPanel/FilterPanel';
-import FilterPanelTab from './FilterPanelTab/FilterPanelTab';
 import TeamRatingsDashboardWrapper from './TeamRatingsDashboard.styles';
 
 const TeamRatingsDashboard = () => {
-  const [panelOpen, setPanelOpen] = useState(false);
-
   return (
     <TeamRatingsDashboardWrapper>
-      <DashboardHeader
-        title="Team Ratings"
-        width={panelOpen ? '80%' : '100%'}
-      />
-      {panelOpen ? (
-        <FilterPanel click={() => setPanelOpen(false)} />
-      ) : (
-        <FilterPanelTab click={() => setPanelOpen(true)} />
-      )}
+      <DashboardHeader title="Team Ratings" width="100%" />
     </TeamRatingsDashboardWrapper>
   );
 };
