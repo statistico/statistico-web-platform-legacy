@@ -16,6 +16,7 @@
     "config/*",
     "public/*",
     "scripts/*",
+    "src/components/Icon/**/*",
     "src/serviceWorker.js"
   ],
   "parser": "@typescript-eslint/parser",
