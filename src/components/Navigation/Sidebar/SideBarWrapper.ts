@@ -14,7 +14,7 @@ const SideBarWrapper = styled.div<{ open: boolean }>`
   padding: 0;
   z-index: 9999;
   transition: width 0.25s ease, background 0.25s ease;
-
+  border-right: 1px solid #414244;
   @media (max-width: 768px) {
     display: none;
   }
