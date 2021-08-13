@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Brand from './Brand/Brand';
+import Brand from './Brand';
 import Menu from '../Menu/Menu';
-import SideBarToggle from './SideBarToggle/SideBarToggle';
+import SideBarToggle from './SideBarToggle';
 import SideBarWrapper from './SideBarWrapper';
 import { NavigationProps } from '../Navigation.type';
 

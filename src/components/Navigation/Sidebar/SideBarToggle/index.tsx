@@ -7,8 +7,9 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 import SideBarToggleWrapper from './SideBarToggleWrapper';
+import { NavigationProps } from '../../Navigation.type';
 
-const SideBarToggle = (props) => {
+const SideBarToggle = (props: NavigationProps): JSX.Element => {
   const { open, clicked } = props;
 
   return (

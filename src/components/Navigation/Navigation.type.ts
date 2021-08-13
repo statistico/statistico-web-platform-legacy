@@ -1,4 +1,4 @@
 export type NavigationProps = {
-  clicked: (click: boolean | null) => void;
+  clicked: (click?: boolean | null) => void;
   open: boolean;
 };
