@@ -2,13 +2,9 @@ import React from 'react';
 
 import Aux from '../../hoc/Aux/Aux';
 import ResponsiveMenu from './ResponsiveMenu/ResponsiveMenu';
-import SideBar from './Sidebar/SideBar';
+import SideBar from './Sidebar';
 import TopBar from './TopBar/TopBar';
-
-type NavigationProps = {
-  clicked: () => void;
-  open: boolean;
-};
+import { NavigationProps } from './Navigation.type';
 
 const Navigation = (props: NavigationProps): JSX.Element => {
   const { open, clicked } = props;

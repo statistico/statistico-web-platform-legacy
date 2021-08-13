@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const SideBarWrapper = styled.div`
+const SideBarWrapper = styled.div<{ open: boolean }>`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
