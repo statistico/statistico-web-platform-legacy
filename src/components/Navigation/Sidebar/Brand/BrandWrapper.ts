@@ -6,9 +6,9 @@ export const BrandWrapper = styled(NavLink)`
   width: 100%;
   height: 10%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   cursor: pointer;
 `;
 
@@ -17,14 +17,16 @@ export const LogoIcon = styled.img<{ open: boolean }>`
   flex-direction: row;
   justify-content: center;
   max-width: 50px;
-  margin: ${(props) => (props.open ? '0 10px 15px 10px' : '0 10px 50px 10px')};
+  height: 45px;
+  margin: ${(props) => (props.open ? '0 10px 5px 20px' : '0 10px 50px 10px')};
 `;
 
 export const LogoText = styled.img<{ open: boolean }>`
-  height: 25px;
-  max-width: 200px;
-  margin: 0 5px 10px 5px;
+  height: 18px;
+  max-width: 160px;
+  margin: 0 15px 10px 0;
   display: ${(props) => (props.open ? 'flex' : 'none')};
+  padding-right: 10px;
 
   @media (max-width: 768px) {
     display: none;
