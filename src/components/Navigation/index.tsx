@@ -1,12 +1,12 @@
 import React from 'react';
-import { bool, func } from 'prop-types';
 
 import Aux from '../../hoc/Aux/Aux';
 import ResponsiveMenu from './ResponsiveMenu/ResponsiveMenu';
-import SideBar from './Sidebar/SideBar';
+import SideBar from './Sidebar';
 import TopBar from './TopBar/TopBar';
+import { NavigationProps } from './Navigation.type';
 
-const Navigation = (props) => {
+const Navigation = (props: NavigationProps): JSX.Element => {
   const { open, clicked } = props;
 
   return (
@@ -16,11 +16,6 @@ const Navigation = (props) => {
       <ResponsiveMenu open={open} clicked={clicked} />
     </Aux>
   );
-};
-
-Navigation.propTypes = {
-  open: bool.isRequired,
-  clicked: func.isRequired,
 };
 
 export default Navigation;

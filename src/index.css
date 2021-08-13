@@ -33,7 +33,7 @@ dd {
 
 /* Set core body defaults */
 body {
-  background-color: #23262b;
+  background-color: #1b1e22;
   min-height: 100vh;
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
@@ -81,11 +81,11 @@ select {
 }
 
 body {
-  background-color: #23262b;
+  background-color: #1b1e22;
   font-family: Muli, serif;
   font-style: normal;
   font-weight: normal;
   font-size: 20px;
   line-height: 26px;
-  color: #424147;
+  color: #6f7580;
 }

@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import Dashboard from './components/Dashboard/Dashboard';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
-import Navigation from './components/Navigation/Navigation';
+import Navigation from './components/Navigation';
 import Routes from './components/Routes/Routes';
 import UserLogin from './components/UserLogin/UserLogin';
 import useAuthenticatesUser from './hooks/useAuthenticatesUser';

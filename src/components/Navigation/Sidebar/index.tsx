@@ -1,12 +1,12 @@
 import React from 'react';
-import { bool, func } from 'prop-types';
 
-import Brand from './Brand/Brand';
+import Brand from './Brand';
 import Menu from '../Menu/Menu';
-import SideBarToggle from './SideBarToggle/SideBarToggle';
+import SideBarToggle from './SideBarToggle';
 import SideBarWrapper from './SideBarWrapper';
+import { NavigationProps } from '../Navigation.type';
 
-const SideBar = (props) => {
+const SideBar = (props: NavigationProps): JSX.Element => {
   const { open, clicked } = props;
 
   const menuItemClicked = () => {
@@ -20,11 +20,6 @@ const SideBar = (props) => {
       <SideBarToggle clicked={clicked} open={open} />
     </SideBarWrapper>
   );
-};
-
-SideBar.propTypes = {
-  open: bool.isRequired,
-  clicked: func.isRequired,
 };
 
 export default SideBar;
