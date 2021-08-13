@@ -13,7 +13,7 @@ const brand = (props: BrandProps): JSX.Element => {
   const { clicked, menuOpen } = props;
 
   return (
-    <BrandWrapper to="/" onClick={() => clicked()}>
+    <BrandWrapper open={menuOpen} to="/" onClick={() => clicked()}>
       <LogoIcon src={icon} open={menuOpen} />
       <LogoText src={text} open={menuOpen} />
     </BrandWrapper>

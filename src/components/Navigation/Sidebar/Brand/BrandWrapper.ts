@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-export const BrandWrapper = styled(NavLink)`
-  padding: 35px 10px 20px 10px;
+export const BrandWrapper = styled(NavLink)<{ open: boolean }>`
+  padding: 30px 10px;
   width: 100%;
   height: 10%;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: ${(props) => (props.open ? 'space-between' : 'center')};
   cursor: pointer;
 `;
 
@@ -18,7 +18,7 @@ export const LogoIcon = styled.img<{ open: boolean }>`
   justify-content: center;
   max-width: 50px;
   height: 45px;
-  margin: ${(props) => (props.open ? '0 10px 5px 20px' : '0 10px 50px 10px')};
+  margin: ${(props) => (props.open ? '0 10px 5px 20px' : '0 10px 5px 10px')};
 `;
 
 export const LogoText = styled.img<{ open: boolean }>`
