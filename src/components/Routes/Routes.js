@@ -3,7 +3,7 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 
 import HomePage from '../HomePage/HomePage';
 import StrategyBuilder from '../Trading/StrategyBuilder/StrategyBuilder';
-import TeamRatingsDashboard from '../Ratings/TeamRatingsDashboard/TeamRatingsDashboard';
+import TeamRatingsDashboard from '../Ratings/TeamRatingsDashboard';
 
 const routes = () => (
   <Switch>

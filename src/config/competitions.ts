@@ -1,4 +1,16 @@
-const competitions = [
+type Season = {
+  id: number;
+  name: string;
+};
+
+type Competition = {
+  id: string;
+  name: string;
+  country: string;
+  seasons: Season[];
+};
+
+const competitions: Competition[] = [
   {
     id: '208',
     name: 'Pro League',
