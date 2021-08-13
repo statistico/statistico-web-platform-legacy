@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Muli');
+@import url('https://fonts.googleapis.com/css2?family=Exo&display=swap');
 
 /* Box sizing rules */
 *,
@@ -82,7 +82,7 @@ select {
 
 body {
   background-color: #1b1e22;
-  font-family: Muli, serif;
+  font-family: 'Exo', sans-serif;;
   font-style: normal;
   font-weight: normal;
   font-size: 20px;
