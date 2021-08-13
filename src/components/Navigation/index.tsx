@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Aux from '../../hoc/Aux/Aux';
-import ResponsiveMenu from './ResponsiveMenu/ResponsiveMenu';
+import ResponsiveMenu from './ResponsiveMenu';
 import SideBar from './Sidebar';
 import TopBar from './TopBar/TopBar';
 import { NavigationProps } from './Navigation.type';

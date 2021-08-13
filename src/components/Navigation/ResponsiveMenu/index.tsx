@@ -1,10 +1,10 @@
 import React from 'react';
-import { bool, func } from 'prop-types';
 
 import Menu from '../Menu';
-import ResponsiveMenuWrapper from './ResponsiveMenuWrapper';
+import ResponsiveMenuWrapper from './ResponsiveMenu.styles';
+import { NavigationProps } from '../Navigation.type';
 
-const ResponsiveMenu = (props) => {
+const ResponsiveMenu = (props: NavigationProps) => {
   const { clicked, open } = props;
 
   const menuItemClick = () => {
@@ -16,11 +16,6 @@ const ResponsiveMenu = (props) => {
       <Menu open={open} selectItem={menuItemClick} />
     </ResponsiveMenuWrapper>
   );
-};
-
-ResponsiveMenu.propTypes = {
-  clicked: func.isRequired,
-  open: bool.isRequired,
 };
 
 export default ResponsiveMenu;

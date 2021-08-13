@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const ResponsiveMenuWrapper = styled.div`
+const ResponsiveMenuWrapper = styled.div<{ open: boolean }>`
   display: ${(props) => (props.open ? 'flex' : 'none')};
   flex-direction: column;
   justify-content: flex-start;
