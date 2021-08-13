@@ -1,24 +1,27 @@
-import IconName from '../names/IconName';
+import React from 'react';
+import BlogIcon from '../components/Icon/BlogIcon';
+import TeamRatingIcon from '../components/Icon/TeamRatingIcon';
+import TradingIcon from '../components/Icon/TradingIcon';
 
 type Route = {
-  icon: IconName;
+  Icon: React.FC<React.SVGProps<SVGSVGElement>>;
   link: string;
   title: string;
 };
 
 const routes: Route[] = [
   {
-    icon: IconName.Trading,
+    Icon: TradingIcon,
     link: '/trading/strategy/builder',
     title: 'Trading',
   },
   {
-    icon: IconName.TeamRatings,
+    Icon: TeamRatingIcon,
     link: '/team-ratings',
     title: 'Team Ratings',
   },
   {
-    icon: IconName.Blog,
+    Icon: BlogIcon,
     link: '/',
     title: 'Blog',
   },

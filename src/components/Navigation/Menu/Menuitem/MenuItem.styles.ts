@@ -37,7 +37,7 @@ export const IconWrapper = styled.div<{ open: boolean }>`
   display: flex;
   flex-direction: row;
   justify-content: ${(props) => (props.open ? 'flex-start' : 'center')};
-  padding: ${(props) => (props.open ? '15px 0 15px 25px' : '0')};
+  padding: ${(props) => (props.open ? '15px 0 15px 20px' : '0')};
   width: ${(props) => (props.open ? '25%' : '100%')};
 
   @media (max-width: 768px) {
@@ -51,7 +51,7 @@ export const Title = styled.div<{ open: boolean }>`
   display: ${(props) => (props.open ? 'flex' : 'none')};
   justify-content: flex-start;
   align-content: center;
-  padding: 15px 25px 15px 15px;
+  padding: 15px 0 15px 15px;
   width: 100%;
   font-size: 18px;
 

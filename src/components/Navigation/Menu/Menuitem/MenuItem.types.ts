@@ -1,7 +1,7 @@
-import IconName from '../../../../names/IconName';
+import React from 'react';
 
 export type MenuItemProps = {
-  icon: IconName;
+  Icon: React.FC<React.SVGProps<SVGSVGElement>>;
   link: string;
   open: boolean;
   select: (item: string) => void;
