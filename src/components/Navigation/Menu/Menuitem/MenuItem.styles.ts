@@ -11,7 +11,7 @@ export const MenuItemWrapper = styled(NavLink)<{
   height: 56px;
   cursor: pointer;
   width: 100%;
-  padding: ${(props) => (props.open ? '0 20px 0 20px' : '0')};
+  padding: ${(props) => (props.open ? '0 20px 0 30px' : '0')};
   justify-content: ${(props) => (props.open ? '' : 'center')};
   text-decoration: none;
   color: ${(props) => (props.selected ? '#22ccde' : '#dedcdc')};
