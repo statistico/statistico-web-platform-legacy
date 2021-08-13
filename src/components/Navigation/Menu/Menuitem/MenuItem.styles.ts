@@ -41,9 +41,9 @@ export const IconWrapper = styled.div<{ open: boolean }>`
   width: ${(props) => (props.open ? '25%' : '100%')};
 
   @media (max-width: 768px) {
-    width: 20%;
+    width: 30%;
     justify-content: flex-end;
-    padding: 15px 0 5px 0;
+    padding: 15px 0 15px 30px;
   }
 `;
 

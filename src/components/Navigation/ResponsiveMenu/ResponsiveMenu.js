@@ -13,7 +13,7 @@ const ResponsiveMenu = (props) => {
 
   return (
     <ResponsiveMenuWrapper open={open}>
-      <Menu open={open} clicked={menuItemClick} />
+      <Menu open={open} selectItem={menuItemClick} />
     </ResponsiveMenuWrapper>
   );
 };

@@ -5,6 +5,6 @@ export type MenuItemProps = {
   link: string;
   open: boolean;
   select: (item: string) => void;
-  selected: string;
+  selected?: string;
   title: string;
 };
