@@ -15,7 +15,7 @@ export const MenuItemWrapper = styled(NavLink)<{
   justify-content: ${(props) => (props.open ? '' : 'center')};
   text-decoration: none;
   color: ${(props) => (props.selected ? '#22ccde' : '#dedcdc')};
-  background-color: ${(props) => (props.selected ? '#2b2e34' : '')};
+  background-color: ${(props) => (props.selected ? '#20242a' : '')};
 
   svg {
     path {

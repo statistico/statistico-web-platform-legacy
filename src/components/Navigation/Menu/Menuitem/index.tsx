@@ -5,7 +5,7 @@ import { IconWrapper, MenuItemWrapper, Title } from './MenuItem.styles';
 import { MenuItemProps } from './MenuItem.types';
 
 const MenuItem = (props: MenuItemProps) => {
-  const { open, link, icon, select, selected, title } = props;
+  const { open, link, select, selected, title } = props;
   const isSelected = selected === title;
 
   const selectItem = () => {
