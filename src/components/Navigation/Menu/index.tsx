@@ -1,8 +1,7 @@
 import React from 'react';
-import { faMoneyBillAlt } from '@fortawesome/free-solid-svg-icons';
 
 import MenuWrapper from './Menu.styles';
-import MenuItem from './Menuitem/MenuItem';
+import MenuItem from './Menuitem';
 import routes from '../../../config/routes';
 import { NavigationProps } from '../Navigation.type';
 
@@ -14,7 +13,7 @@ const Menu = (props: NavigationProps) => {
       {routes.map((route) => {
         return (
           <MenuItem
-            icon={faMoneyBillAlt}
+            icon={route.icon}
             link={route.link}
             title={route.title}
             open={open}
