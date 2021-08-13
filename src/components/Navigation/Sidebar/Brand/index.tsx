@@ -4,9 +4,16 @@ import { BrandWrapper, LogoIcon, LogoText } from './BrandWrapper';
 import icon from '../../../../assets/images/statistico-toolbar-small.png';
 import text from '../../../../assets/images/statistico-logotype-blue_s.png';
 
-const brand = ({ menuOpen }: { menuOpen: boolean }): JSX.Element => {
+type BrandProps = {
+  clicked: () => void;
+  menuOpen: boolean;
+};
+
+const brand = (props: BrandProps): JSX.Element => {
+  const { clicked, menuOpen } = props;
+
   return (
-    <BrandWrapper to="/">
+    <BrandWrapper to="/" onClick={() => clicked()}>
       <LogoIcon src={icon} open={menuOpen} />
       <LogoText src={text} open={menuOpen} />
     </BrandWrapper>
