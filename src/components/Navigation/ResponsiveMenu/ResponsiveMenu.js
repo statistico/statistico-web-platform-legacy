@@ -1,7 +1,7 @@
 import React from 'react';
 import { bool, func } from 'prop-types';
 
-import Menu from '../Menu/Menu';
+import Menu from '../Menu';
 import ResponsiveMenuWrapper from './ResponsiveMenuWrapper';
 
 const ResponsiveMenu = (props) => {
