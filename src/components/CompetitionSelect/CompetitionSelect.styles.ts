@@ -6,6 +6,7 @@ const CompetitionSelectWrapper = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 10px;
+  width: 100%;
 
   p {
     padding: 10px 0 15px 5px;
