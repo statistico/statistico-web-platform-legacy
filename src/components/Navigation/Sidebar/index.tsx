@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Brand from './Brand';
 import Menu from '../Menu';
@@ -8,15 +8,12 @@ import { NavigationProps } from '../Navigation.type';
 
 const SideBar = (props: NavigationProps): JSX.Element => {
   const { open, clicked } = props;
-
-  const menuItemClicked = () => {
-    clicked(true);
-  };
+  const [selected, setSelected] = useState('');
 
   return (
     <SideBarWrapper open={open}>
-      <Brand menuOpen={open} />
-      <Menu open={open} clicked={menuItemClicked} />
+      <Brand clicked={() => setSelected('')} menuOpen={open} />
+      <Menu open={open} selected={selected} selectItem={setSelected} />
       <SideBarToggle clicked={clicked} open={open} />
     </SideBarWrapper>
   );
