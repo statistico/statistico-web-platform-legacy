@@ -18,7 +18,7 @@ const MenuItem = (props: MenuItemProps) => {
       selected={isSelected}
       to={link}
     >
-      <IconWrapper open={open}>
+      <IconWrapper open={open} selected={isSelected}>
         <Icon height={25} width={25} />
       </IconWrapper>
       <Title open={open}>{title}</Title>
