@@ -14,7 +14,7 @@ const Menu = (props: MenuProps) => {
         return (
           <MenuItem
             key={route.title}
-            icon={route.icon}
+            Icon={route.Icon}
             link={route.link}
             title={route.title}
             open={open}

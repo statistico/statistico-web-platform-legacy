@@ -1,11 +1,10 @@
 import React from 'react';
 
-import Icon from '../../../Icon';
 import { IconWrapper, MenuItemWrapper, Title } from './MenuItem.styles';
 import { MenuItemProps } from './MenuItem.types';
 
 const MenuItem = (props: MenuItemProps) => {
-  const { open, link, select, selected, title } = props;
+  const { open, Icon, link, select, selected, title } = props;
   const isSelected = selected === title;
 
   const selectItem = () => {
@@ -20,7 +19,7 @@ const MenuItem = (props: MenuItemProps) => {
       to={link}
     >
       <IconWrapper open={open}>
-        <Icon colour="#dedcdc" height={20} width={20} />
+        <Icon height={25} width={25} />
       </IconWrapper>
       <Title open={open}>{title}</Title>
     </MenuItemWrapper>
