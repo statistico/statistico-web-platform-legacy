@@ -1,12 +1,12 @@
 import React from 'react';
 
-import DashboardHeader from '../../Dashboard/DashboardHeader/DashboardHeader';
+import DashboardHeader from '../../Dashboard/DashboardHeader';
 import TeamRatingsDashboardWrapper from './TeamRatingsDashboard.styles';
 
 const TeamRatingsDashboard = () => {
   return (
     <TeamRatingsDashboardWrapper>
-      <DashboardHeader title="Team Ratings" width="100%" />
+      <DashboardHeader title="Team Ratings" />
     </TeamRatingsDashboardWrapper>
   );
 };
