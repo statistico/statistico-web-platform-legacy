@@ -22,7 +22,7 @@ const TeamSelect = (props: TeamSelectProps): JSX.Element => {
     }
 
     onSelect(null);
-  }
+  };
 
   return (
     <StyledSelect
