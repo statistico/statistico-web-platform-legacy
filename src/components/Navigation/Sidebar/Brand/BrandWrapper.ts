@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 export const BrandWrapper = styled(NavLink)<{ open: boolean }>`
   padding: 30px 10px;
+  margin-top: 20px;
   width: 100%;
   height: 10%;
   display: flex;

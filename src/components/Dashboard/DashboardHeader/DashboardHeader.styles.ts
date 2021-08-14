@@ -10,7 +10,7 @@ export const DashboardHeaderWrapper = styled.div`
   @media (min-width: 768px) {
     flex-direction: row;
     justify-content: space-between;
-    width: 50%;
+    width: 100%;
   }
 `;
 
