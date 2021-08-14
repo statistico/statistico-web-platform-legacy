@@ -15,6 +15,7 @@ export const MenuItemWrapper = styled(NavLink)<{
   justify-content: ${(props) => (props.open ? '' : 'center')};
   text-decoration: none;
   color: ${(props) => (props.selected ? '#22ccde' : '#dedcdc')};
+  background-color: ${(props) => (props.selected ? '#31363e' : '')};
 
   svg {
     path {
@@ -24,6 +25,7 @@ export const MenuItemWrapper = styled(NavLink)<{
 
   &:hover {
     color: #22ccde;
+    background-color: #31363e;
     
     svg {
       path {
@@ -39,9 +41,6 @@ export const IconWrapper = styled.div<{ open: boolean; selected: boolean }>`
   align-content: center;
   padding: 5px;
   width: ${(props) => (props.open ? '25%' : '60%')};
-  height: 35px;
-  background-color: #434a54;
-  border-radius: 5px;
 
   svg {
     path {
