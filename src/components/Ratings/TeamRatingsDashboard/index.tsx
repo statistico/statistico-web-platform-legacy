@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import DashboardHeader from '../../Dashboard/DashboardHeader';
 import TeamRatingsDashboardWrapper from './TeamRatingsDashboard.styles';
 import TeamSelect from '../../TeamSelect';
 
 const TeamRatingsDashboard = () => {
+  const [_, setTeamId] = useState<number | null>(null);
   const teams = [
     {
       id: 1,
@@ -16,8 +17,8 @@ const TeamRatingsDashboard = () => {
     },
   ];
 
-  const onSelect = (value) => {
-    console.log(value);
+  const onSelect = (id: number | null) => {
+    setTeamId(id);
   };
 
   return (

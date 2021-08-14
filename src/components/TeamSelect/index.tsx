@@ -4,7 +4,7 @@ import { Team } from '../../types/entity';
 import StyledSelect from './TeamSelect.styles';
 
 type TeamSelectProps = {
-  onSelect: (id?: number | null) => void;
+  onSelect: (id: number | null) => void;
   teams: Team[];
 };
 
