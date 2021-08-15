@@ -18,7 +18,7 @@ const useFetchesCompetitionTeams = (): {
     setLoading(true);
     getCompetitionTeams(ids, setTeams, setError);
     setLoading(false);
-  }, []);
+  }, [setLoading, setTeams]);
 
   return {
     teams,
