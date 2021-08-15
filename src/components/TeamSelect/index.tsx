@@ -38,9 +38,13 @@ const TeamSelect = (props: TeamSelectProps): JSX.Element => {
       closeOnScroll
       closeOnSelect
       clearOnSelect
-      style={{ borderRadius: '10px' }}
+      style={{
+        borderRadius: '10px',
+        boxShadow: '0 0 5px rgb(34 204 222 / 80%)',
+      }}
       noDataRenderer={noDataRenderer}
       dropdownGap={0}
+      autoFocus
     />
   );
 };
