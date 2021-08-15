@@ -69,11 +69,6 @@ const StyledSelect = styled(Select)`
     color: #dedcdc;
     font-size: 20px;
   }
-  .input:focus {
-    outline: none !important;
-    border:1px solid #22ccde;
-    box-shadow: 0 0 10px #719ECE;
-  }
 
   @media (min-width: 768px) {
     margin-top: 0;
