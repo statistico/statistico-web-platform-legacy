@@ -4,12 +4,13 @@ import { Team } from '../../types/entity';
 import StyledSelect from './TeamSelect.styles';
 
 type TeamSelectProps = {
+  loading: boolean;
   onSelect: (id: number | null) => void;
   teams: Team[];
 };
 
 const TeamSelect = (props: TeamSelectProps): JSX.Element => {
-  const { onSelect, teams } = props;
+  const { loading, onSelect, teams } = props;
 
   const noDataRenderer = () => {
     return <div>No teams match search</div>;
@@ -37,7 +38,6 @@ const TeamSelect = (props: TeamSelectProps): JSX.Element => {
       valueField="id"
       closeOnScroll
       closeOnSelect
-      clearOnSelect
       style={{
         borderRadius: '10px',
         boxShadow: '0 0 5px rgb(34 204 222 / 80%)',
@@ -45,6 +45,8 @@ const TeamSelect = (props: TeamSelectProps): JSX.Element => {
       noDataRenderer={noDataRenderer}
       dropdownGap={0}
       autoFocus
+      loading={loading}
+      backspaceDelete={false}
     />
   );
 };

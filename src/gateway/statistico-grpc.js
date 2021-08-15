@@ -1,6 +1,6 @@
 import { Auth } from 'aws-amplify';
 import { buildStrategyRequest, saveStrategyRequest } from './grpc-request';
-import StrategyClient from './grpc-client';
+import { StrategyClient } from './grpc-client';
 
 export const buildStrategy = async (
   filters,
