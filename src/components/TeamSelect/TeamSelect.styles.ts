@@ -27,7 +27,7 @@ const StyledSelect = styled(Select)`
   .react-dropdown-select-content {
     color: #dedcdc;
     width: 250px;
-    padding: 10px;
+    padding: 8px;
     
     span {
       font-weight: bold;
@@ -48,7 +48,7 @@ const StyledSelect = styled(Select)`
     background: #31363e;
     box-shadow: none;
     color: #dedcdc; !important;
-    font-size: 18px;
+    font-size: 16px;
   }
   .react-dropdown-select-item {
     color: #dedcdc;
@@ -67,7 +67,7 @@ const StyledSelect = styled(Select)`
   }
   input::placeholder {
     color: #dedcdc;
-    font-size: 20px;
+    font-size: 16px;
   }
 
   @media (min-width: 768px) {
@@ -83,6 +83,11 @@ const StyledSelect = styled(Select)`
       max-width: 368px;
       width: 368px;
       padding: 10px 15px;
+      font-size: 20px;
+    }
+
+    input::placeholder {
+      color: #dedcdc;
       font-size: 20px;
     }
   }
