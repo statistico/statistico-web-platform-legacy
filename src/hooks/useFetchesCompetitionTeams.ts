@@ -12,11 +12,14 @@ const useFetchesCompetitionTeams = (): {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
-  const ids = competitions.map((c) => c.id);
+  console.log('Rendering');
 
   useEffect(() => {
     setLoading(true);
+    const ids = competitions.map((c) => c.id);
+
     getCompetitionTeams(ids, setTeams, setError);
+
     setLoading(false);
   }, [setLoading, setTeams]);
 
