@@ -9,13 +9,10 @@ const useFetchesCompetitionTeams = (): {
   error: string | null;
 } => {
   const [teams, setTeams] = useState<Team[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  console.log('Rendering');
-
   useEffect(() => {
-    setLoading(true);
     const ids = competitions.map((c) => c.id);
 
     getCompetitionTeams(ids, setTeams, setError);
