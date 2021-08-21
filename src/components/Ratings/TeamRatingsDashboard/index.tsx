@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import DashboardHeader from '../../Dashboard/DashboardHeader';
+import TeamRatingsBody from './TeamRatingsBody';
 import TeamRatingsDashboardWrapper from './TeamRatingsDashboard.styles';
 import TeamSelect from '../../TeamSelect';
 import useFetchesCompetitionTeams from '../../../hooks/useFetchesCompetitionTeams';
@@ -19,7 +20,7 @@ const TeamRatingsDashboard = () => {
       <DashboardHeader title="Team Ratings">
         <TeamSelect loading={loading} onSelect={onSelect} teams={teams} />
       </DashboardHeader>
-      {team ? <p>Selected Team Id: {team.id}</p> : null}
+      {team ? <TeamRatingsBody team={team} /> : <p>Please select a team</p>}
     </TeamRatingsDashboardWrapper>
   );
 };

@@ -38,6 +38,7 @@ const TeamSelect = (props: TeamSelectProps): JSX.Element => {
       valueField="id"
       closeOnScroll
       closeOnSelect
+      clearOnSelect
       style={{
         borderRadius: '10px',
         boxShadow: '0 0 5px rgb(34 204 222 / 80%)',
