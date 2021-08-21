@@ -5,7 +5,7 @@ import StyledSelect from './TeamSelect.styles';
 
 type TeamSelectProps = {
   loading: boolean;
-  onSelect: (id: number | null) => void;
+  onSelect: (id: Team | null) => void;
   teams: Team[];
 };
 
@@ -18,7 +18,7 @@ const TeamSelect = (props: TeamSelectProps): JSX.Element => {
 
   const onChange = (values: any[]): void => {
     if (values.length === 1) {
-      onSelect(values[0].id);
+      onSelect(values[0]);
       return;
     }
 

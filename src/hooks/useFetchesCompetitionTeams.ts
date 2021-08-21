@@ -6,16 +6,14 @@ import competitions from '../config/competitions';
 const useFetchesCompetitionTeams = (): {
   teams: Team[];
   loading: boolean;
-  error: string | null;
 } => {
   const [teams, setTeams] = useState<Team[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const ids = competitions.map((c) => c.id);
 
-    getCompetitionTeams(ids, setTeams, setError);
+    getCompetitionTeams(ids, setTeams);
 
     setLoading(false);
   }, [setLoading, setTeams]);
@@ -23,7 +21,6 @@ const useFetchesCompetitionTeams = (): {
   return {
     teams,
     loading,
-    error,
   };
 };
 
