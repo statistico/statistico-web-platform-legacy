@@ -7,15 +7,14 @@ const getCompetitionTeams = (competitionIds, onSuccess, onFailure) => {
 
   TeamClient().getTeamsByCompetitionId(request, {}, (err, res) => {
     if (err) {
-      onFailure(err.message);
-      return;
+      throw new Error(err.message);
     }
 
     const teams = res.getTeamsList().map((t) => {
       return {
         id: t.getId(),
         name: t.getName(),
-        logo: t.getLogo(),
+        logo: t.getLogo().getValue(),
       };
     });
 

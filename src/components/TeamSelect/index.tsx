@@ -5,7 +5,7 @@ import StyledSelect from './TeamSelect.styles';
 
 type TeamSelectProps = {
   loading: boolean;
-  onSelect: (id: number | null) => void;
+  onSelect: (id: Team | null) => void;
   teams: Team[];
 };
 
@@ -18,7 +18,7 @@ const TeamSelect = (props: TeamSelectProps): JSX.Element => {
 
   const onChange = (values: any[]): void => {
     if (values.length === 1) {
-      onSelect(values[0].id);
+      onSelect(values[0]);
       return;
     }
 
@@ -38,6 +38,7 @@ const TeamSelect = (props: TeamSelectProps): JSX.Element => {
       valueField="id"
       closeOnScroll
       closeOnSelect
+      clearOnSelect
       style={{
         borderRadius: '10px',
         boxShadow: '0 0 5px rgb(34 204 222 / 80%)',

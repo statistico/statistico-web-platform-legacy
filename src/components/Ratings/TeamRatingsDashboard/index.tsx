@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 
 import DashboardHeader from '../../Dashboard/DashboardHeader';
+import TeamRatingsBody from './TeamRatingsBody';
 import TeamRatingsDashboardWrapper from './TeamRatingsDashboard.styles';
 import TeamSelect from '../../TeamSelect';
 import useFetchesCompetitionTeams from '../../../hooks/useFetchesCompetitionTeams';
+import { Team } from '../../../types/entity';
 
 const TeamRatingsDashboard = () => {
-  const [teamId, setTeamId] = useState<number | null>(null);
+  const [team, setTeam] = useState<Team | null>(null);
   const { teams, loading } = useFetchesCompetitionTeams();
 
-  const onSelect = (id: number | null) => {
-    setTeamId(id);
+  const onSelect = (value: Team | null) => {
+    setTeam(value);
   };
 
   return (
@@ -18,7 +20,7 @@ const TeamRatingsDashboard = () => {
       <DashboardHeader title="Team Ratings">
         <TeamSelect loading={loading} onSelect={onSelect} teams={teams} />
       </DashboardHeader>
-      {teamId ? <p>Selected Team Id: {teamId}</p> : null}
+      {team ? <TeamRatingsBody team={team} /> : <p>Please select a team</p>}
     </TeamRatingsDashboardWrapper>
   );
 };
