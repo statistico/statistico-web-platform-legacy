@@ -5,14 +5,18 @@ import { Season } from '../../../types/entity';
 
 type SeasonListItemProps = {
   isSelected: boolean;
+  onClick: (id: number) => void;
   season: Season;
 };
 
 const SeasonListItem = (props: SeasonListItemProps): JSX.Element => {
-  const { isSelected, season } = props;
+  const { isSelected, onClick, season } = props;
 
   return (
-    <SeasonListItemWrapper isSelected={isSelected}>
+    <SeasonListItemWrapper
+      isSelected={isSelected}
+      onClick={() => onClick(season.id)}
+    >
       {season.name}
     </SeasonListItemWrapper>
   );

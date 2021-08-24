@@ -15,11 +15,27 @@ const TeamRatingsBody = (props: TeamRatingsBodyProps): JSX.Element => {
   const seasons = [
     {
       id: 1,
-      name: '2019/2020',
+      name: '2020/2021',
     },
     {
       id: 2,
-      name: '2020/2021',
+      name: '2019/2020',
+    },
+    {
+      id: 3,
+      name: '2018/2019',
+    },
+    {
+      id: 4,
+      name: '2017/2018',
+    },
+    {
+      id: 5,
+      name: '2016/2017',
+    },
+    {
+      id: 6,
+      name: '2015/2016',
     },
   ];
 
