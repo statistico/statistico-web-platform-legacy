@@ -5,7 +5,10 @@ const SeasonListWrapper = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   width: 100%;
-  margin-top: 20px;
+
+  @media (min-width: 768px) {
+    margin-top: 30px;
+  }
 `;
 
 export default SeasonListWrapper;
