@@ -2,10 +2,10 @@ import React from 'react';
 
 import {
   CentrePanel,
-  FixturePanel,
   TeamSeasons,
   TeamRatingsBodyWrapper,
 } from './TeamRatingsBody.styles';
+import FixtureList from './FixtureList';
 import Loader from '../../../Loader/Loader';
 import TeamLogo from '../../../TeamLogo';
 import RatingCards from './RatingCards';
@@ -36,9 +36,7 @@ const TeamRatingsBody = (props: TeamRatingsBodyProps): JSX.Element => {
       <CentrePanel>
         <RatingCards />
       </CentrePanel>
-      <FixturePanel>
-        <p>Fixture list containing result and ratings go here</p>
-      </FixturePanel>
+      <FixtureList width="60%" />
     </TeamRatingsBodyWrapper>
   );
 };

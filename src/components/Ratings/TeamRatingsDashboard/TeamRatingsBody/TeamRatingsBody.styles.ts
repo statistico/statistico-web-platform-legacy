@@ -39,20 +39,3 @@ export const CentrePanel = styled.div`
     height: 100%;
   }
 `;
-
-export const FixturePanel = styled.div`
-  display: none;
-
-  @media (min-width: 768px) {
-    width: 60%;
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    background-color: #31363e;
-    box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.23);
-    border-radius: 10px;
-    padding: 10px;
-    margin-top: 10px;
-  }
-`;
