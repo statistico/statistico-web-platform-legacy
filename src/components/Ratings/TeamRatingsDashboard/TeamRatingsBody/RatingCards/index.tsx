@@ -11,8 +11,10 @@ type RatingCardsProps = {
 const RatingCards = (): JSX.Element => {
   return (
     <RatingCardsWrapper>
-      <RatingCard title="Attack" value={1956} />
-      <RatingCard title="Defence" value={240} />
+      <RatingCard color="#22ccde" title="Attack" value={1956} width="23%" />
+      <RatingCard color="#22ccde" title="Defence" value={240} width="23%" />
+      <RatingCard color="green" title="Latest Attack" value={5} width="23%" />
+      <RatingCard color="red" title="Latest Defence" value={-3} width="23%" />
     </RatingCardsWrapper>
   );
 };

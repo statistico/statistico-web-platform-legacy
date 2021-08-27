@@ -3,16 +3,18 @@ import React from 'react';
 import { Title, Total, RatingCardWrapper } from './RatingCard.styles';
 
 type RatingCardProps = {
+  color: string;
   title: string;
   value: number;
+  width: string;
 };
 
 const RatingCard = (props: RatingCardProps): JSX.Element => {
-  const { title, value } = props;
+  const { color, title, value, width } = props;
 
   return (
-    <RatingCardWrapper>
-      <Total>{value}</Total>
+    <RatingCardWrapper width={width}>
+      <Total color={color}>{value}</Total>
       <Title>{title}</Title>
     </RatingCardWrapper>
   );

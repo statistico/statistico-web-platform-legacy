@@ -1,11 +1,6 @@
 import React from 'react';
 
-import {
-  CentrePanel,
-  FixturePanel,
-  TeamSeasons,
-  TeamRatingsBodyWrapper,
-} from './TeamRatingsBody.styles';
+import { TeamSeasons, TeamRatingsBodyWrapper } from './TeamRatingsBody.styles';
 import Loader from '../../../Loader/Loader';
 import TeamLogo from '../../../TeamLogo';
 import RatingCards from './RatingCards';
@@ -33,12 +28,7 @@ const TeamRatingsBody = (props: TeamRatingsBodyProps): JSX.Element => {
           <SeasonList seasons={seasons} />
         </Loader>
       </TeamSeasons>
-      <CentrePanel>
-        <RatingCards />
-      </CentrePanel>
-      <FixturePanel>
-        <p>Fixture list containing result and ratings go here</p>
-      </FixturePanel>
+      <RatingCards />
     </TeamRatingsBodyWrapper>
   );
 };
