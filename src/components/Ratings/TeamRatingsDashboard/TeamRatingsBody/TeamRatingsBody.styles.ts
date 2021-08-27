@@ -11,7 +11,7 @@ export const TeamRatingsBodyWrapper = styled.div`
 
   @media (min-width: 768px) {
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: flex-start;
     margin-top: 40px;
   }
 `;
@@ -23,6 +23,6 @@ export const TeamSeasons = styled.div`
   width: 90%;
 
   @media (min-width: 768px) {
-    width: 370px;
+    width: 200px;
   }
 `;
