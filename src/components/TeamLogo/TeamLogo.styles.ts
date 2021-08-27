@@ -5,6 +5,7 @@ const TeamLogoWrapper = styled.div`
   flex-direction: row;
   justify-content: center;
   padding: 10px 0;
+  width: 100%;
 `;
 
 export default TeamLogoWrapper;

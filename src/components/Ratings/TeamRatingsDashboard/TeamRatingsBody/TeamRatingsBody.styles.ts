@@ -4,15 +4,16 @@ export const TeamRatingsBodyWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-content: center;
   align-items: center;
   width: 100%;
+  height: fit-content;
   margin-top: 20px;
 
   @media (min-width: 768px) {
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-between;
     margin-top: 40px;
+    align-items: flex-start;
   }
 `;
 
@@ -23,6 +24,35 @@ export const TeamSeasons = styled.div`
   width: 90%;
 
   @media (min-width: 768px) {
-    width: 200px;
+    width: 300px;
+  }
+`;
+
+export const CentrePanel = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 10px 40px;
+
+  @media (min-width: 768px) {
+    width: 100%;
+    height: 100%;
+  }
+`;
+
+export const FixturePanel = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  background-color: #31363e;
+  box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.23);
+  border-radius: 10px;
+  padding: 10px;
+
+  @media (min-width: 768px) {
+    width: 40%;
+    min-height: 100%;
   }
 `;
