@@ -1,6 +1,11 @@
 import React from 'react';
 
-import { TeamSeasons, TeamRatingsBodyWrapper } from './TeamRatingsBody.styles';
+import {
+  CentrePanel,
+  FixturePanel,
+  TeamSeasons,
+  TeamRatingsBodyWrapper,
+} from './TeamRatingsBody.styles';
 import Loader from '../../../Loader/Loader';
 import TeamLogo from '../../../TeamLogo';
 import SeasonList from '../../../SeasonList';
@@ -13,8 +18,6 @@ type TeamRatingsBodyProps = {
 
 const TeamRatingsBody = (props: TeamRatingsBodyProps): JSX.Element => {
   const { team } = props;
-
-  // Add loading state
   const { seasons, loading } = useFetchesTeamSeasons(
     team.id,
     false,
@@ -29,6 +32,13 @@ const TeamRatingsBody = (props: TeamRatingsBodyProps): JSX.Element => {
           <SeasonList seasons={seasons} />
         </Loader>
       </TeamSeasons>
+      <CentrePanel>
+        <div>Rating Bubbles go here</div>
+        <div>Rating graph go here</div>
+      </CentrePanel>
+      <FixturePanel>
+        <p>Fixture list containing result and ratings go here</p>
+      </FixturePanel>
     </TeamRatingsBodyWrapper>
   );
 };
