@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Team } from '../types/entity';
-import getCompetitionTeams from '../gateway/statistico-client';
+import { getCompetitionTeams } from '../gateway/statistico-client';
 import competitions from '../config/competitions';
 
 const useFetchesCompetitionTeams = (): {
