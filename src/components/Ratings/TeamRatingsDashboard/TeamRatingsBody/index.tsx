@@ -1,10 +1,15 @@
 import React from 'react';
 
-import { TeamSeasons, TeamRatingsBodyWrapper } from './TeamRatingsBody.styles';
+import {
+  RightPanel,
+  TeamSeasons,
+  TeamRatingsBodyWrapper,
+} from './TeamRatingsBody.styles';
 import Loader from '../../../Loader/Loader';
 import TeamLogo from '../../../TeamLogo';
 import RatingCards from './RatingCards';
 import SeasonList from '../../../SeasonList';
+import TeamRatingGraph from './TeamRatingGraph';
 import useFetchesTeamSeasons from '../../../../hooks/useFetchesTeamSeasons';
 import { Team } from '../../../../types/entity';
 
@@ -28,7 +33,11 @@ const TeamRatingsBody = (props: TeamRatingsBodyProps): JSX.Element => {
           <SeasonList seasons={seasons} />
         </Loader>
       </TeamSeasons>
-      <RatingCards />
+      <RightPanel>
+        <RatingCards />
+        <TeamRatingGraph />
+        <TeamRatingGraph />
+      </RightPanel>
     </TeamRatingsBodyWrapper>
   );
 };

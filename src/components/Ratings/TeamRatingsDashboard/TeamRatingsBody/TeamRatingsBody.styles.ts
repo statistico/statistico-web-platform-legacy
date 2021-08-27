@@ -27,3 +27,16 @@ export const TeamSeasons = styled.div`
     width: 220px;
   }
 `;
+
+export const RightPanel = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  margin-left: 50px;
+
+  @media (min-width: 768px) {
+    width: 100%;
+    height: 100%;
+  }
+`;
