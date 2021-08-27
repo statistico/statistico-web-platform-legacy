@@ -1,7 +1,12 @@
+import {
+  BoolValue,
+  StringValue,
+} from 'google-protobuf/google/protobuf/wrappers_pb';
 import { CompetitionTeamsRequest } from '../proto/team_pb';
-import { TeamClient } from './grpc-client';
+import { TeamSeasonsRequest } from '../proto/season_pb';
+import { SeasonClient, TeamClient } from './grpc-client';
 
-const getCompetitionTeams = (competitionIds, onSuccess, onFailure) => {
+export const getCompetitionTeams = (competitionIds, onSuccess) => {
   const request = new CompetitionTeamsRequest();
   request.setCompetitionIdsList(competitionIds);
 
@@ -22,4 +27,24 @@ const getCompetitionTeams = (competitionIds, onSuccess, onFailure) => {
   });
 };
 
-export default getCompetitionTeams;
+export const getTeamSeasons = (teamId, includeCup, sort, onSuccess) => {
+  const request = new TeamSeasonsRequest();
+  request.setTeamId(teamId);
+  request.setIncludeCup(new BoolValue().setValue(includeCup));
+  request.setSort(new StringValue().setValue(sort));
+
+  SeasonClient().getSeasonsForTeam(request, {}, (err, res) => {
+    if (err) {
+      throw new Error(err.message);
+    }
+
+    const seasons = res.getSeasonsList().map((s) => {
+      return {
+        id: s.getId(),
+        name: s.getName(),
+      };
+    });
+
+    onSuccess(seasons);
+  });
+};

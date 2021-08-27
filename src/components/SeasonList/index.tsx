@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import SeasonListWrapper from './SeasonList.styles';
 import SeasonListItem from './SeasonListItem';
@@ -10,7 +10,11 @@ type SeasonListProps = {
 
 const SeasonList = (props: SeasonListProps): JSX.Element => {
   const { seasons } = props;
-  const [selectedSeason, setSelectedSeason] = useState<number | null>(1);
+  const [selectedSeason, setSelectedSeason] = useState<number | null>(null);
+
+  useEffect(() => {
+    setSelectedSeason(seasons[0]?.id);
+  }, [seasons]);
 
   const onClickItem = (id: number) => {
     setSelectedSeason(id);
