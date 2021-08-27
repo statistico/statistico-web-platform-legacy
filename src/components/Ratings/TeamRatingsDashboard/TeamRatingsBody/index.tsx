@@ -8,6 +8,7 @@ import {
 } from './TeamRatingsBody.styles';
 import Loader from '../../../Loader/Loader';
 import TeamLogo from '../../../TeamLogo';
+import RatingCards from './RatingCards';
 import SeasonList from '../../../SeasonList';
 import useFetchesTeamSeasons from '../../../../hooks/useFetchesTeamSeasons';
 import { Team } from '../../../../types/entity';
@@ -33,8 +34,7 @@ const TeamRatingsBody = (props: TeamRatingsBodyProps): JSX.Element => {
         </Loader>
       </TeamSeasons>
       <CentrePanel>
-        <div>Rating Bubbles go here</div>
-        <div>Rating graph go here</div>
+        <RatingCards ratings={[]} />
       </CentrePanel>
       <FixturePanel>
         <p>Fixture list containing result and ratings go here</p>

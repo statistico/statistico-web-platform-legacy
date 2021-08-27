@@ -8,3 +8,13 @@ export type Team = {
   name: string;
   logo: string;
 };
+
+export type TeamRating = {
+  attackTotal: number;
+  attackDifference: number;
+  defenceTotal: number;
+  defenceDifference: number;
+  fixtureId: number;
+  teamId: number;
+  timestamp: number;
+};
