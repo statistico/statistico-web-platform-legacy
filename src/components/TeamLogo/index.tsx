@@ -4,7 +4,7 @@ import TeamLogoWrapper from './TeamLogo.styles';
 
 type TeamLogoProps = {
   name: string;
-  url: string;
+  url: string | null;
 };
 
 const TeamLogo = (props: TeamLogoProps): JSX.Element => {
@@ -12,7 +12,7 @@ const TeamLogo = (props: TeamLogoProps): JSX.Element => {
 
   return (
     <TeamLogoWrapper>
-      <img src={url} alt={name} />
+      <img src={url ?? ''} alt={name} />
     </TeamLogoWrapper>
   );
 };

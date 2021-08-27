@@ -5,13 +5,21 @@ const RatingCardsWrapper = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   width: 100%;
-  padding: 0 20px;
   align-items: center;
 
   @media (min-width: 768px) {
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-wrap: wrap;
+    margin-bottom: 10px;
+
+    div:nth-child(1) {
+      margin-left: 0;
+    }
+
+    div:nth-child(4) {
+      margin-right: 0;
+    }
   }
 `;
 

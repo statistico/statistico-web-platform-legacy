@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const RatingCardWrapper = styled.div`
+export const RatingCardWrapper = styled.div<{ width: string }>`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,25 +13,25 @@ export const RatingCardWrapper = styled.div`
   margin: 10px;
 
   @media (min-width: 768px) {
-    width: 45%;
+    width: ${(props) => props.width};
   }
 `;
 
 export const Title = styled.p`
   width: 100%;
   text-align: center;
-  font-size: 28px;
+  font-size: 24px;
   padding: 10px;
   color: #dedcdc;
   text-transform: uppercase;
 `;
 
-export const Total = styled.p`
+export const Total = styled.p<{ color: string }>`
   width: 100%;
   font-size: 60px;
   text-align: center;
   padding: 20px;
-  color: #22ccde;
+  color: ${(props) => props.color};
 `;
 
 export const Difference = styled.div`
