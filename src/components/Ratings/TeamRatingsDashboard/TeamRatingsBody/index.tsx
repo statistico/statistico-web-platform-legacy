@@ -10,6 +10,7 @@ import Loader from '../../../Loader/Loader';
 import TeamLogo from '../../../TeamLogo';
 import RatingCards from './RatingCards';
 import SeasonList from '../../../SeasonList';
+import TeamRatingGraph from './TeamRatingGraph';
 import useFetchesTeamSeasons from '../../../../hooks/useFetchesTeamSeasons';
 import { Team } from '../../../../types/entity';
 
@@ -35,6 +36,7 @@ const TeamRatingsBody = (props: TeamRatingsBodyProps): JSX.Element => {
       </TeamSeasons>
       <CentrePanel>
         <RatingCards />
+        <TeamRatingGraph />
       </CentrePanel>
       <FixturePanel>
         <p>Fixture list containing result and ratings go here</p>
