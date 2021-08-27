@@ -24,7 +24,7 @@ export const TeamSeasons = styled.div`
   width: 90%;
 
   @media (min-width: 768px) {
-    width: 300px;
+    width: 350px;
   }
 `;
 
@@ -33,7 +33,6 @@ export const CentrePanel = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   width: 100%;
-  padding: 10px 40px;
 
   @media (min-width: 768px) {
     width: 100%;
@@ -42,17 +41,18 @@ export const CentrePanel = styled.div`
 `;
 
 export const FixturePanel = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  width: 100%;
-  background-color: #31363e;
-  box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.23);
-  border-radius: 10px;
-  padding: 10px;
+  display: none;
 
   @media (min-width: 768px) {
-    width: 40%;
+    width: 60%;
     min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: #31363e;
+    box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.23);
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 10px;
   }
 `;
