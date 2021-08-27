@@ -34,7 +34,7 @@ const TeamRatingsBody = (props: TeamRatingsBodyProps): JSX.Element => {
         </Loader>
       </TeamSeasons>
       <CentrePanel>
-        <RatingCards ratings={[]} />
+        <RatingCards />
       </CentrePanel>
       <FixturePanel>
         <p>Fixture list containing result and ratings go here</p>

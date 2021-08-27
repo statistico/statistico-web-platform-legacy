@@ -8,9 +8,7 @@ type RatingCardsProps = {
   ratings: TeamRating[];
 };
 
-const RatingCards = (props: RatingCardsProps): JSX.Element => {
-  const { ratings } = props;
-
+const RatingCards = (): JSX.Element => {
   return (
     <RatingCardsWrapper>
       <RatingCard title="Attack" value={1956} />
