@@ -7,7 +7,7 @@ const SeasonListWrapper = styled.div`
   width: 100%;
 
   @media (min-width: 768px) {
-    margin-top: 30px;
+    margin-top: 10px;
   }
 `;
 

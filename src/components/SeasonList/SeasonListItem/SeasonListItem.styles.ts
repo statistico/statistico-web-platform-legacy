@@ -6,7 +6,7 @@ const SeasonListItemWrapper = styled.p<{ isSelected: boolean }>`
   align-content: center;
   padding: 15px;
   width: 100%;
-  font-size: 24px;
+  font-size: 20px;
   color: #22ccde;
   background-color: ${(props) => (props.isSelected ? '#31363e' : '')};
   cursor: pointer;
