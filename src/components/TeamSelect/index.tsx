@@ -32,6 +32,7 @@ const TeamSelect = (props: TeamSelectProps): JSX.Element => {
       onChange={(values) => onChange(values)}
       placeholder="Select a team"
       clearable
+      searchable={false}
       searchBy="name"
       sortBy="name"
       labelField="name"
