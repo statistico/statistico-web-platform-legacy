@@ -17,7 +17,7 @@ const useFetchesTeamSeasons = (
     getTeamSeasons(teamId, includeCup, sort, setSeasons);
 
     setLoading(false);
-  }, [teamId, includeCup, setLoading, setSeasons]);
+  }, [teamId, includeCup, sort, setLoading, setSeasons]);
 
   return {
     seasons,
