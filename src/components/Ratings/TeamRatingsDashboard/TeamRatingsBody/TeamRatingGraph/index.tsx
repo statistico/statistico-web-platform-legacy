@@ -23,7 +23,7 @@ const TeamRatingGraph = (props: TeamRatingGraphProps): JSX.Element => {
 
   return (
     <TeamRatingGraphWrapper>
-      <ResponsiveContainer width="100%" height="100%">
+      <ResponsiveContainer width="98%">
         <BarChart
           data={ratings}
           margin={{ top: 15, right: 50, left: 0, bottom: 15 }}
