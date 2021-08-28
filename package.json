@@ -106,6 +106,7 @@
   },
   "devDependencies": {
     "@testing-library/react-hooks": "^3.3.0",
+    "@types/recharts": "^2.0.0",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
     "enzyme": "^3.11.0",
