@@ -26,7 +26,7 @@ const TeamRatingGraph = (props: TeamRatingGraphProps): JSX.Element => {
       <ResponsiveContainer width="98%">
         <BarChart
           data={ratings}
-          margin={{ top: 15, right: 50, left: 0, bottom: 15 }}
+          margin={{ top: 15, right: 0, left: 0, bottom: 15 }}
         >
           <XAxis />
           <YAxis type="number" domain={['auto', 'dataMax']} />
