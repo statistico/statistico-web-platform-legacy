@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import {
   RightPanel,
@@ -19,11 +19,24 @@ type TeamRatingsBodyProps = {
 
 const TeamRatingsBody = (props: TeamRatingsBodyProps): JSX.Element => {
   const { team } = props;
+  const [selectedSeason, setSelectedSeason] = useState<number | null>(null);
   const { seasons, loading } = useFetchesTeamSeasons(
     team.id,
     false,
     'name_desc'
   );
+
+  useEffect(() => {
+    setSelectedSeason(seasons[0]?.id);
+  }, [seasons]);
+
+  const onSeasonSelect = (id: number | null): void => {
+    if (id === null) {
+      return;
+    }
+
+    setSelectedSeason(id);
+  };
 
   const ratings = [
     {
@@ -78,7 +91,11 @@ const TeamRatingsBody = (props: TeamRatingsBodyProps): JSX.Element => {
       <TeamSeasons>
         <Loader loading={loading}>
           <TeamLogo name={team.name} url={team.logo} />
-          <SeasonList seasons={seasons} />
+          <SeasonList
+            seasons={seasons}
+            selectedSeason={selectedSeason}
+            onSeasonSelect={onSeasonSelect}
+          />
         </Loader>
       </TeamSeasons>
       <RightPanel>
