@@ -1,6 +1,6 @@
 import React from 'react';
 
-import TeamRatingDisplayWrapper from './TeamRatingDisplay.styles';
+import { GraphRow, TeamRatingDisplayWrapper } from './TeamRatingDisplay.styles';
 import RatingCards from './RatingCards';
 import TeamRatingGraph from './TeamRatingGraph';
 
@@ -56,16 +56,30 @@ const TeamRatingDisplay = () => {
   return (
     <TeamRatingDisplayWrapper>
       <RatingCards />
-      <TeamRatingGraph
-        title="Attack Ratings"
-        dataKey="attackTotal"
-        ratings={ratings}
-      />
-      <TeamRatingGraph
-        title="Defence Ratings"
-        dataKey="defenceTotal"
-        ratings={ratings}
-      />
+      <GraphRow>
+        <TeamRatingGraph
+          title="Attack Ratings"
+          dataKey="attackTotal"
+          ratings={ratings}
+        />
+        <TeamRatingGraph
+          title="Defence Ratings"
+          dataKey="defenceTotal"
+          ratings={ratings}
+        />
+      </GraphRow>
+      <GraphRow>
+        <TeamRatingGraph
+          title="Attack Match Points"
+          dataKey="attackDifference"
+          ratings={ratings}
+        />
+        <TeamRatingGraph
+          title="Defence Match Points"
+          dataKey="defenceDifference"
+          ratings={ratings}
+        />
+      </GraphRow>
     </TeamRatingDisplayWrapper>
   );
 };
