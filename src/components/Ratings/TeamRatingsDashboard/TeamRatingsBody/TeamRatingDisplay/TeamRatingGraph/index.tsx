@@ -10,7 +10,7 @@ import {
 } from 'recharts';
 
 import TeamRatingGraphWrapper from './TeamRatingGraph.styles';
-import { TeamRating } from '../../../../../types/entity';
+import { TeamRating } from '../../../../../../types/entity';
 
 type TeamRatingGraphProps = {
   dataKey: string;
