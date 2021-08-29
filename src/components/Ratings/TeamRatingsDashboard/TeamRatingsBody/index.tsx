@@ -6,7 +6,7 @@ import TeamLogo from '../../../TeamLogo';
 import SeasonList from '../../../SeasonList';
 import TeamRatingDisplay from './TeamRatingDisplay';
 import useFetchesTeamSeasons from '../../../../hooks/useFetchesTeamSeasons';
-import { Team } from '@/types/entity';
+import { Team } from '../../../../types/entity';
 
 type TeamRatingsBodyProps = {
   team: Team;
