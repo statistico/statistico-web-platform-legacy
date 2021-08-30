@@ -55,7 +55,7 @@ export const getTeamRatings = (teamId, seasonId, sort, onSuccess) => {
   const request = new TeamRatingRequest();
   request.setTeamId(teamId);
   request.setSeasonId(new UInt64Value().setValue(seasonId));
-  request.setSort(new StringValue().setValue(sort));
+  request.setSort(sort);
 
   TeamRatingClient().getTeamRatings(request, {}, (err, res) => {
     if (err) {
@@ -70,7 +70,7 @@ export const getTeamRatings = (teamId, seasonId, sort, onSuccess) => {
         defenceDifference: r.getDefence().getDifference(),
         fixtureId: r.getFixtureId(),
         teamId: r.getTeamId(),
-        timestamp: r.getTimestamp().getValue(),
+        timestamp: r.getTimestamp().toLocaleString(),
       };
     });
 
