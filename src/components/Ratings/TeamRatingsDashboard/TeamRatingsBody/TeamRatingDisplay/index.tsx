@@ -6,38 +6,45 @@ import TeamRatingGraph from './TeamRatingGraph';
 import useFetchesTeamRatings from '../../../../../hooks/useFetchesTeamRatings';
 
 type TeamRatingDisplayProps = {
-  teamId: number;
+  loading: boolean;
   seasonId: number;
+  teamId: number;
 };
 
 const TeamRatingDisplay = (props: TeamRatingDisplayProps) => {
-  const { teamId, seasonId } = props;
+  const { loading, seasonId, teamId } = props;
   const { ratings } = useFetchesTeamRatings(teamId, seasonId, 'timestamp_asc');
 
   return (
     <TeamRatingDisplayWrapper>
-      {ratings.length > 0 && <RatingCards ratings={ratings} />}
+      {ratings.length > 0 && (
+        <RatingCards loading={loading} ratings={ratings} />
+      )}
       <GraphRow>
         <TeamRatingGraph
-          title="Attack Ratings"
           dataKey="attackTotal"
+          loading={loading}
+          title="Attack Ratings"
           ratings={ratings}
         />
         <TeamRatingGraph
-          title="Defence Ratings"
           dataKey="defenceTotal"
+          loading={loading}
+          title="Defence Ratings"
           ratings={ratings}
         />
       </GraphRow>
       <GraphRow>
         <TeamRatingGraph
-          title="Attack Match Points"
           dataKey="attackDifference"
+          loading={loading}
+          title="Attack Match Points"
           ratings={ratings}
         />
         <TeamRatingGraph
-          title="Defence Match Points"
+          loading={loading}
           dataKey="defenceDifference"
+          title="Defence Match Points"
           ratings={ratings}
         />
       </GraphRow>

@@ -38,7 +38,11 @@ const TeamRatingsBody = (props: TeamRatingsBodyProps): JSX.Element => {
         </Loader>
       </TeamSeasons>
       {selectedSeason && (
-        <TeamRatingDisplay teamId={team.id} seasonId={selectedSeason} />
+        <TeamRatingDisplay
+          loading={loading}
+          teamId={team.id}
+          seasonId={selectedSeason}
+        />
       )}
     </TeamRatingsBodyWrapper>
   );
