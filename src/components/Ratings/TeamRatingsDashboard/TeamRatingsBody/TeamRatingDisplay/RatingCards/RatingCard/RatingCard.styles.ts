@@ -28,7 +28,7 @@ export const Title = styled.p`
 
 export const Total = styled.p<{ color: string }>`
   width: 100%;
-  font-size: 60px;
+  font-size: 50px;
   text-align: center;
   padding: 20px;
   color: ${(props) => props.color};

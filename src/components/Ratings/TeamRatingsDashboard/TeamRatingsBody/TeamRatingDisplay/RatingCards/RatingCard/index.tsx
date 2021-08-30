@@ -14,7 +14,7 @@ const RatingCard = (props: RatingCardProps): JSX.Element => {
 
   return (
     <RatingCardWrapper width={width}>
-      <Total color={color}>{value}</Total>
+      <Total color={color}>{value.toFixed(2)}</Total>
       <Title>{title}</Title>
     </RatingCardWrapper>
   );
