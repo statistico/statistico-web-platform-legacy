@@ -8,7 +8,9 @@ type RatingCardsProps = {
   ratings: TeamRating[];
 };
 
-const RatingCards = (): JSX.Element => {
+const RatingCards = (props: RatingCardsProps): JSX.Element => {
+  const { ratings } = props;
+
   return (
     <RatingCardsWrapper>
       <RatingCard color="#22ccde" title="Attack" value={1956} width="23%" />

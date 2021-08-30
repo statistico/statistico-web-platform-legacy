@@ -16,7 +16,7 @@ const TeamRatingDisplay = (props: TeamRatingDisplayProps) => {
 
   return (
     <TeamRatingDisplayWrapper>
-      <RatingCards />
+      <RatingCards ratings={ratings} />
       <GraphRow>
         <TeamRatingGraph
           title="Attack Ratings"
