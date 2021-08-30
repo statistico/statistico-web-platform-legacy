@@ -1,10 +1,12 @@
 import {
   BoolValue,
   StringValue,
+  UInt64Value,
 } from 'google-protobuf/google/protobuf/wrappers_pb';
-import { CompetitionTeamsRequest } from '../proto/team_pb';
 import { TeamSeasonsRequest } from '../proto/season_pb';
-import { SeasonClient, TeamClient } from './grpc-client';
+import { CompetitionTeamsRequest } from '../proto/team_pb';
+import { TeamRatingRequest } from '../proto/ratings_pb';
+import { SeasonClient, TeamClient, TeamRatingClient } from './grpc-client';
 
 export const getCompetitionTeams = (competitionIds, onSuccess) => {
   const request = new CompetitionTeamsRequest();
@@ -46,5 +48,32 @@ export const getTeamSeasons = (teamId, includeCup, sort, onSuccess) => {
     });
 
     onSuccess(seasons);
+  });
+};
+
+export const getTeamRatings = (teamId, seasonId, sort, onSuccess) => {
+  const request = new TeamRatingRequest();
+  request.setTeamId(teamId);
+  request.setSeasonId(new UInt64Value().setValue(seasonId));
+  request.setSort(sort);
+
+  TeamRatingClient().getTeamRatings(request, {}, (err, res) => {
+    if (err) {
+      throw new Error(err.message);
+    }
+
+    const ratings = res.getRatingsList().map((r) => {
+      return {
+        attackTotal: r.getAttack().getPoints(),
+        attackDifference: r.getAttack().getDifference(),
+        defenceTotal: r.getDefence().getPoints(),
+        defenceDifference: r.getDefence().getDifference(),
+        fixtureId: r.getFixtureId(),
+        teamId: r.getTeamId(),
+        timestamp: r.getTimestamp().toLocaleString(),
+      };
+    });
+
+    onSuccess(ratings);
   });
 };
