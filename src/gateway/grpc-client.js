@@ -29,7 +29,7 @@ export const TeamClient = () => {
 
 export const TeamRatingClient = () => {
   return new TeamRatingServiceClient(
-    process.env.REACT_APP_STATISTICO_RATINGS_HOST,
+    process.env.REACT_APP_STATISTICO_SERVICES_HOST,
     null,
     null
   );
