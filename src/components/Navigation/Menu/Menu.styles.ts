@@ -2,16 +2,22 @@ import styled from 'styled-components';
 
 const MenuWrapper = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 10px 0 0 5px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
-  height: 80%;
+  height: 100%;
   color: #dedcdc;
-  font-weight: 500;
 
-  @media (max-width: 768px) {
-    padding-left: 60px;
+  @media (min-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100%;
+    color: #dedcdc;
+    font-weight: 500;
+    margin-top: 30px;
   }
 `;
 

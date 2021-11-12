@@ -9,7 +9,7 @@ const LogoIcon = styled.img`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  max-width: 50px;
+  max-width: 70px;
   margin: 0 10px 0 10px;
 `;
 

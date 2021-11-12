@@ -6,7 +6,7 @@ import routes from '../../../config/routes';
 import { MenuProps } from './Menu.types';
 
 const Menu = (props: MenuProps) => {
-  const { open, selected, selectItem } = props;
+  const { selected, selectItem } = props;
 
   return (
     <MenuWrapper>
@@ -17,7 +17,6 @@ const Menu = (props: MenuProps) => {
             Icon={route.Icon}
             link={route.link}
             title={route.title}
-            open={open}
             selected={selected}
             select={selectItem}
           />

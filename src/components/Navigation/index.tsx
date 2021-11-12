@@ -1,20 +1,15 @@
 import React from 'react';
 
-import Aux from '../../hoc/Aux/Aux';
-import ResponsiveMenu from './ResponsiveMenu';
-import SideBar from './Sidebar';
-import TopBar from './TopBar/TopBar';
-import { NavigationProps } from './Navigation.type';
+import NavigationWrapper from './NavigationWrapper';
+import Menu from './Menu';
+import Brand from './TopBar/Brand/Brand';
 
-const Navigation = (props: NavigationProps): JSX.Element => {
-  const { open, clicked } = props;
-
+const Navigation = (): JSX.Element => {
   return (
-    <Aux>
-      <SideBar open={open} clicked={clicked} />
-      <TopBar open={open} clicked={clicked} />
-      <ResponsiveMenu open={open} clicked={clicked} />
-    </Aux>
+    <NavigationWrapper>
+      <Brand clicked={() => {}} />
+      <Menu selectItem={() => {}} selected="Yes" />
+    </NavigationWrapper>
   );
 };
 

@@ -1,12 +1,12 @@
 import React from 'react';
 import { node } from 'prop-types';
 
-import DashboardWrapper from './DashboardWrapper';
+import ContainerWrapper from './ContainerWrapper';
 
 const dashboard = (props) => {
   const { children } = props;
 
-  return <DashboardWrapper>{children}</DashboardWrapper>;
+  return <ContainerWrapper>{children}</ContainerWrapper>;
 };
 
 dashboard.propTypes = {
