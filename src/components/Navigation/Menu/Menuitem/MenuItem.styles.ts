@@ -55,7 +55,7 @@ export const MenuItemWrapper = styled(NavLink)<{
 
 export const IconWrapper = styled.div<{ selected: boolean }>`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100%;

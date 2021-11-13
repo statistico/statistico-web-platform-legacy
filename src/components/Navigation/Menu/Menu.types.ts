@@ -1,4 +1,4 @@
 export type MenuProps = {
-  selectItem: (item: string) => void;
-  selected?: string;
+  selectItem: (item: number) => void;
+  selected?: number;
 };

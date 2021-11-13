@@ -13,10 +13,10 @@ const Menu = (props: MenuProps) => {
       {routes.map((route) => {
         return (
           <MenuItem
-            key={route.title}
+            key={route.id}
             Icon={route.Icon}
             link={route.link}
-            title={route.title}
+            id={route.id}
             selected={selected}
             select={selectItem}
           />

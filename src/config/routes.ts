@@ -1,29 +1,35 @@
 import React from 'react';
 import BlogIcon from '../components/Icon/BlogIcon';
+import HomeIcon from '../components/Icon/HomeIcon';
 import TeamRatingIcon from '../components/Icon/TeamRatingIcon';
 import TradingIcon from '../components/Icon/TradingIcon';
 
 type Route = {
   Icon: React.FC<React.SVGProps<SVGSVGElement>>;
   link: string;
-  title: string;
+  id: number;
 };
 
 const routes: Route[] = [
   {
+    Icon: HomeIcon,
+    link: '/',
+    id: 1,
+  },
+  {
     Icon: TradingIcon,
     link: '/trading/strategy/builder',
-    title: 'Trading',
+    id: 2,
   },
   {
     Icon: TeamRatingIcon,
     link: '/team-ratings',
-    title: 'Team Ratings',
+    id: 3,
   },
   {
     Icon: BlogIcon,
     link: '/',
-    title: 'Blog',
+    id: 4,
   },
 ];
 
