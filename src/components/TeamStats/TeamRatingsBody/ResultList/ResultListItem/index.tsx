@@ -7,7 +7,7 @@ import {
   Score,
   Venue,
 } from './ResultListItem.styles';
-import { Result } from '../../../../../../types/entity';
+import { Result } from '../../../../../types/entity';
 
 type ResultListItemProps = {
   teamId: number;

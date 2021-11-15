@@ -16,9 +16,6 @@ const StyledSelect = styled(Select)`
       color: #22ccde;
     }
   }
-  .react-dropdown-select-option {
-    border: 1px solid #fff;
-  }
   .react-dropdown-select-input,
   .react-dropdown-select-item {
     color: #dedcdc;
@@ -26,7 +23,7 @@ const StyledSelect = styled(Select)`
   }
   .react-dropdown-select-content {
     color: #dedcdc;
-    width: 230px;
+    width: 200px;
     padding: 8px;
     
     span {
@@ -37,12 +34,11 @@ const StyledSelect = styled(Select)`
     position: absolute;
     left: 0;
     border: none;
-    max-width: 320px;
-    width: 280px;
+    max-width: 260px;
+    width: 240px;
     padding: 5px 10px;
     display: flex;
     flex-direction: column;
-    border-radius: 10px;
     overflow: auto;
     z-index: 9;
     background: #31363e;

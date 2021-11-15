@@ -23,6 +23,7 @@ const NavigationWrapper = styled.div`
     margin: 30px;
     border-radius: 20px;
     top: 0;
+    padding-bottom: 20px;
   }
 `;
 

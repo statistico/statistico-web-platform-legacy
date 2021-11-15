@@ -23,7 +23,7 @@ const routes: Route[] = [
   },
   {
     Icon: TeamStatsIcon,
-    link: '/team-ratings',
+    link: '/team-stats',
     id: 3,
   },
   {

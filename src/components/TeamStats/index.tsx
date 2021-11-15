@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
-import DashboardHeader from '../../Dashboard/DashboardHeader';
+import DashboardHeader from '../Dashboard/DashboardHeader';
 import TeamRatingsBody from './TeamRatingsBody';
 import TeamRatingsDashboardWrapper from './TeamRatingsDashboard.styles';
-import TeamSelect from '../../TeamSelect';
-import useFetchesCompetitionTeams from '../../../hooks/useFetchesCompetitionTeams';
-import { Team } from '../../../types/entity';
+import TeamSelect from '../TeamSelect';
+import useFetchesCompetitionTeams from '../../hooks/useFetchesCompetitionTeams';
+import { Team } from '../../types/entity';
 
 const TeamRatingsDashboard = () => {
   const [team, setTeam] = useState<Team | null>(null);

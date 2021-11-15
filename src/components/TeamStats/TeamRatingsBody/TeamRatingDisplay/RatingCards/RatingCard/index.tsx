@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Loader from '../../../../../../Loader/Loader';
+import Loader from '../../../../../Loader/Loader';
 import { Title, Total, RatingCardWrapper } from './RatingCard.styles';
 
 type RatingCardProps = {

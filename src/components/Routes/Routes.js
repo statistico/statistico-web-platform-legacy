@@ -3,13 +3,13 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 
 import HomePage from '../HomePage/HomePage';
 import StrategyBuilder from '../Trading/StrategyBuilder/StrategyBuilder';
-import TeamRatingsDashboard from '../Ratings/TeamRatingsDashboard';
+import TeamStatsDashboard from '../TeamStats';
 
 const routes = () => (
   <Switch>
     <Route path="/" exact component={HomePage} />
     <Route path="/trading/strategy/builder" exact component={StrategyBuilder} />
-    <Route path="/team-ratings" exact component={TeamRatingsDashboard} />
+    <Route path="/team-stats" exact component={TeamStatsDashboard} />
     <Redirect to="/" />
   </Switch>
 );
