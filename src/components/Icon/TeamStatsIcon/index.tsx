@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TeamRatingIcon = (props: React.SVGProps<SVGSVGElement>) => {
+const TeamStatsIcon = (props: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg height="1em" width="1em" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" {...props}>
       <path d="m256 143.75 56.277344 29.589844-10.75-62.667969 45.558594-44.398437-62.945313-9.140626-28.140625-57.132812-28.140625 57.132812-62.945313 9.140626 45.558594 44.398437-10.75 62.667969zm0 0"/>
@@ -16,4 +16,4 @@ const TeamRatingIcon = (props: React.SVGProps<SVGSVGElement>) => {
   );
 };
 
-export default TeamRatingIcon;
+export default TeamStatsIcon;

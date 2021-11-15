@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import MenuWrapper from './Menu.styles';
 import MenuItem from './Menuitem';
 import routes from '../../../config/routes';
-import { MenuProps } from './Menu.types';
 
-const Menu = (props: MenuProps) => {
-  const { selected, selectItem } = props;
+const Menu = () => {
+  const [selected, setSelected] = useState(1);
 
   return (
     <MenuWrapper>
@@ -18,7 +17,7 @@ const Menu = (props: MenuProps) => {
             link={route.link}
             id={route.id}
             selected={selected}
-            select={selectItem}
+            select={setSelected}
           />
         );
       })}

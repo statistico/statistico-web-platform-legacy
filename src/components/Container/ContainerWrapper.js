@@ -5,7 +5,7 @@ const ContainerWrapper = styled.div`
   flex-direction: column;
   max-width: 100vw;
   min-height: 100vh;
-  background-color: #f8f9fa;
+  background-color: #31363e;
 
   @media (min-width: 768px) {
     flex-direction: row;

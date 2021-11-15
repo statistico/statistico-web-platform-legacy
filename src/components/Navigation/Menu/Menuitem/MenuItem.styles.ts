@@ -12,12 +12,11 @@ export const MenuItemWrapper = styled(NavLink)<{
   width: 100%;
   text-decoration: none;
   color: ${(props) => (props.selected ? '#22ccde' : '#dedcdc')};
-  background-color: ${(props) => (props.selected ? '#31363e' : '')};
+  // background-color: ${(props) => (props.selected ? '#31363e' : '')};
   padding: 10px;
 
   @media (min-width: 768px) {
     height: 80px;
-    margin: 5px 0;
 
     svg {
       path {
@@ -27,7 +26,6 @@ export const MenuItemWrapper = styled(NavLink)<{
 
     &:hover {
       color: #22ccde;
-      background-color: #31363e;
 
       svg {
         path {
@@ -44,7 +42,6 @@ export const MenuItemWrapper = styled(NavLink)<{
 
   &:hover {
     color: #22ccde;
-    background-color: #31363e;
 
     svg {
       path {

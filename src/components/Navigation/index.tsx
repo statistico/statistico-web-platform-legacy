@@ -8,7 +8,7 @@ const Navigation = (): JSX.Element => {
   return (
     <NavigationWrapper>
       <Brand clicked={() => {}} />
-      <Menu selectItem={() => {}} selected="Yes" />
+      <Menu />
     </NavigationWrapper>
   );
 };

@@ -17,10 +17,11 @@ const NavigationWrapper = styled.div`
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    width: 120px;
-    height: 100vh;
-    background-color: #1b1e22;
+    width: 110px;
+    height: 93vh;
     color: #6f7580;
+    margin: 30px;
+    border-radius: 20px;
     top: 0;
   }
 `;

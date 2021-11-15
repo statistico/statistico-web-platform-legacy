@@ -1,7 +1,7 @@
 import React from 'react';
 import BlogIcon from '../components/Icon/BlogIcon';
 import HomeIcon from '../components/Icon/HomeIcon';
-import TeamRatingIcon from '../components/Icon/TeamRatingIcon';
+import TeamStatsIcon from '../components/Icon/TeamStatsIcon';
 import TradingIcon from '../components/Icon/TradingIcon';
 
 type Route = {
@@ -22,7 +22,7 @@ const routes: Route[] = [
     id: 2,
   },
   {
-    Icon: TeamRatingIcon,
+    Icon: TeamStatsIcon,
     link: '/team-ratings',
     id: 3,
   },

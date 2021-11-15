@@ -12,12 +12,12 @@ const MenuWrapper = styled.div`
   @media (min-width: 768px) {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     width: 100%;
     height: 100%;
     color: #dedcdc;
     font-weight: 500;
-    margin-top: 30px;
+    margin-bottom: 30px;
   }
 `;
 
