@@ -1,7 +1,6 @@
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
 
-const BrandWrapper = styled(NavLink)`
+const BrandWrapper = styled.div`
   display: none;
 
   @media (min-width: 768px) {

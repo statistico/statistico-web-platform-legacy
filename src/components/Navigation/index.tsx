@@ -7,7 +7,7 @@ import Brand from './Brand/Brand';
 const Navigation = (): JSX.Element => {
   return (
     <NavigationWrapper>
-      <Brand clicked={() => {}} />
+      <Brand />
       <Menu />
     </NavigationWrapper>
   );
