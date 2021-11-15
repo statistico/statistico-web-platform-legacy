@@ -3,18 +3,17 @@ import styled from 'styled-components';
 const DashboardWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
-  transition: width 0.25s ease, background 0.25s ease;
-  width: calc(100% - ${(props) => (props.open ? '240px' : '80px')});
-  margin-left: ${(props) => (props.open ? '240px' : '80px')};
+  width: 100vw;
   min-height: 100vh;
   height: fit-content;
-  padding: 40px 60px;
 
-  @media (max-width: 768px) {
-    margin-left: 0;
-    padding: 15px;
-    width: 100vw;
+  @media (min-width: 768px) {
+    display: flex;
+    width: calc(100% - 80px);
+    margin-left: 130px;
+    min-height: 100vh;
+    height: fit-content;
+    padding: 40px 60px;
   }
 `;
 

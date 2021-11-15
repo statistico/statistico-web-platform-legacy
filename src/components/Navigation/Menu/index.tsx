@@ -1,25 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import MenuWrapper from './Menu.styles';
 import MenuItem from './Menuitem';
 import routes from '../../../config/routes';
-import { MenuProps } from './Menu.types';
 
-const Menu = (props: MenuProps) => {
-  const { open, selected, selectItem } = props;
+const Menu = () => {
+  const [selected, setSelected] = useState(1);
 
   return (
     <MenuWrapper>
       {routes.map((route) => {
         return (
           <MenuItem
-            key={route.title}
+            key={route.id}
             Icon={route.Icon}
             link={route.link}
-            title={route.title}
-            open={open}
+            id={route.id}
             selected={selected}
-            select={selectItem}
+            select={setSelected}
           />
         );
       })}

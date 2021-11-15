@@ -2,20 +2,37 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const MenuItemWrapper = styled(NavLink)<{
-  open: boolean;
   selected: boolean;
 }>`
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  height: 56px;
+  flex-direction: column;
+  align-content: center;
+  height: 100%;
   cursor: pointer;
   width: 100%;
-  padding: ${(props) => (props.open ? '0 20px 0 30px' : '0')};
-  justify-content: ${(props) => (props.open ? '' : 'center')};
   text-decoration: none;
   color: ${(props) => (props.selected ? '#22ccde' : '#dedcdc')};
-  background-color: ${(props) => (props.selected ? '#31363e' : '')};
+  // background-color: ${(props) => (props.selected ? '#31363e' : '')};
+  padding: 10px;
+
+  @media (min-width: 768px) {
+    height: 80px;
+
+    svg {
+      path {
+        fill: ${(props) => (props.selected ? '#22ccde' : '#dedcdc')};
+      }
+    }
+
+    &:hover {
+      color: #22ccde;
+
+      svg {
+        path {
+          fill: #22ccde;
+        }
+      }
+  }
 
   svg {
     path {
@@ -25,44 +42,43 @@ export const MenuItemWrapper = styled(NavLink)<{
 
   &:hover {
     color: #22ccde;
-    background-color: #31363e;
-    
+
     svg {
       path {
         fill: #22ccde;
+      }
     }
-  }
 `;
 
-export const IconWrapper = styled.div<{ open: boolean; selected: boolean }>`
+export const IconWrapper = styled.div<{ selected: boolean }>`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
-  align-content: center;
-  padding: 5px;
-  width: ${(props) => (props.open ? '25%' : '60%')};
+  align-items: center;
+  height: 100%;
+
+  @media (min-width: 768px) {
+    width: 100%;
+    height: 60px;
+  }
 
   svg {
     path {
       fill: ${(props) => (props.selected ? '#22ccde' : '#dedcdc')};
     }
   }
-
-  @media (max-width: 768px) {
-    width: 20%;
-  }
 `;
 
-export const Title = styled.div<{ open: boolean }>`
-  display: ${(props) => (props.open ? 'flex' : 'none')};
-  justify-content: flex-start;
-  align-content: center;
-  padding: 15px 0 15px 15px;
-  width: 100%;
-  font-size: 18px;
+export const Title = styled.div`
+  display: none;
 
-  @media (max-width: 768px) {
-    width: 60%;
-    padding-left: 20px;
+  @media (min-width: 768px) {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    font-size: 16px;
+    padding: 10px;
+    font-weight: 500;
   }
 `;
