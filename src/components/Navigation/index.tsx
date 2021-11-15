@@ -2,7 +2,7 @@ import React from 'react';
 
 import NavigationWrapper from './NavigationWrapper';
 import Menu from './Menu';
-import Brand from './TopBar/Brand/Brand';
+import Brand from './Brand/Brand';
 
 const Navigation = (): JSX.Element => {
   return (

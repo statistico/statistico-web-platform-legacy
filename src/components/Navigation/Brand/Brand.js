@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { func } from 'prop-types';
 
 import BrandWrapper from './BrandWrapper';
-import icon from '../../../../assets/images/statistico-toolbar-small.png';
+import icon from '../../../assets/images/statistico-toolbar-small.png';
 
 const LogoIcon = styled.img`
   display: flex;
