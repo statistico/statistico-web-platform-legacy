@@ -3,7 +3,7 @@ import Select from 'react-dropdown-select';
 
 const StyledSelect = styled(Select)`
   background: #31363e;
-  border: #dedcdc !important;
+  border: none;
   color: #dedcdc;
   margin-top: 25px;
   
@@ -16,9 +16,6 @@ const StyledSelect = styled(Select)`
       color: #22ccde;
     }
   }
-  .react-dropdown-select-option {
-    border: 1px solid #fff;
-  }
   .react-dropdown-select-input,
   .react-dropdown-select-item {
     color: #dedcdc;
@@ -26,7 +23,7 @@ const StyledSelect = styled(Select)`
   }
   .react-dropdown-select-content {
     color: #dedcdc;
-    width: 250px;
+    width: 300px;
     padding: 8px;
     
     span {
@@ -37,12 +34,11 @@ const StyledSelect = styled(Select)`
     position: absolute;
     left: 0;
     border: none;
-    max-width: 320px;
-    width: 320px;
+    max-width: 380px;
+    width: 325px;
     padding: 5px 10px;
     display: flex;
     flex-direction: column;
-    border-radius: 10px;
     overflow: auto;
     z-index: 9;
     background: #31363e;
@@ -67,7 +63,7 @@ const StyledSelect = styled(Select)`
   }
   input::placeholder {
     color: #dedcdc;
-    font-size: 16px;
+    font-size: 18px;
   }
 
   @media (min-width: 768px) {
@@ -83,12 +79,12 @@ const StyledSelect = styled(Select)`
       max-width: 368px;
       width: 368px;
       padding: 10px 15px;
-      font-size: 20px;
+      font-size: 24px;
     }
 
     input::placeholder {
       color: #dedcdc;
-      font-size: 20px;
+      font-size: 24px;
     }
   }
 `;

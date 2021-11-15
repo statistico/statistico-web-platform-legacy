@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 
 import { TeamSeasons, TeamRatingsBodyWrapper } from './TeamRatingsBody.styles';
-import Loader from '../../../Loader/Loader';
-import TeamLogo from '../../../TeamLogo';
-import SeasonList from '../../../SeasonList';
+import Loader from '../../Loader/Loader';
+import TeamLogo from '../../TeamLogo';
+import SeasonList from '../../SeasonList';
 import TeamRatingDisplay from './TeamRatingDisplay';
-import useFetchesTeamSeasons from '../../../../hooks/useFetchesTeamSeasons';
-import { Team } from '../../../../types/entity';
+import useFetchesTeamSeasons from '../../../hooks/useFetchesTeamSeasons';
+import { Team } from '../../../types/entity';
 
 type TeamRatingsBodyProps = {
   team: Team;

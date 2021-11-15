@@ -31,7 +31,6 @@ const TeamSelect = (props: TeamSelectProps): JSX.Element => {
       options={teams}
       onChange={(values) => onChange(values)}
       placeholder="Select a team"
-      clearable
       searchable={false}
       searchBy="name"
       sortBy="name"
@@ -41,8 +40,8 @@ const TeamSelect = (props: TeamSelectProps): JSX.Element => {
       closeOnSelect
       clearOnSelect
       style={{
-        borderRadius: '10px',
-        boxShadow: '0 0 5px rgb(34 204 222 / 80%)',
+        border: 'none',
+        boxShadow: 'none',
       }}
       noDataRenderer={noDataRenderer}
       dropdownGap={0}

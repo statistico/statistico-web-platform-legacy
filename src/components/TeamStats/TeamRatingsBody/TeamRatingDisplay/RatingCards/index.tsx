@@ -2,7 +2,7 @@ import React from 'react';
 
 import RatingCardsWrapper from './RatingCards.styles';
 import RatingCard from './RatingCard';
-import { TeamRating } from '../../../../../../types/entity';
+import { TeamRating } from '../../../../../types/entity';
 
 type RatingCardsProps = {
   loading: boolean;

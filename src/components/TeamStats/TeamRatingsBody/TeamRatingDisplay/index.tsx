@@ -3,7 +3,7 @@ import React from 'react';
 import { GraphRow, TeamRatingDisplayWrapper } from './TeamRatingDisplay.styles';
 import RatingCards from './RatingCards';
 import TeamRatingGraph from './TeamRatingGraph';
-import useFetchesTeamRatings from '../../../../../hooks/useFetchesTeamRatings';
+import useFetchesTeamRatings from '../../../../hooks/useFetchesTeamRatings';
 
 type TeamRatingDisplayProps = {
   loading: boolean;

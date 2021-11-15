@@ -9,9 +9,9 @@ import {
   YAxis,
 } from 'recharts';
 
-import Loader from '../../../../../Loader/Loader';
+import Loader from '../../../../Loader/Loader';
 import TeamRatingGraphWrapper from './TeamRatingGraph.styles';
-import { TeamRating } from '../../../../../../types/entity';
+import { TeamRating } from '../../../../../types/entity';
 
 type TeamRatingGraphProps = {
   dataKey: string;

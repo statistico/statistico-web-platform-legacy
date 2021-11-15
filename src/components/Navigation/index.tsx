@@ -1,7 +1,8 @@
 import React from 'react';
 
-import NavigationWrapper from './NavigationWrapper';
+import Avatar from '../Avatar';
 import Menu from './Menu';
+import NavigationWrapper from './NavigationWrapper';
 import Brand from './Brand/Brand';
 
 const Navigation = (): JSX.Element => {
@@ -9,6 +10,7 @@ const Navigation = (): JSX.Element => {
     <NavigationWrapper>
       <Brand />
       <Menu />
+      <Avatar />
     </NavigationWrapper>
   );
 };

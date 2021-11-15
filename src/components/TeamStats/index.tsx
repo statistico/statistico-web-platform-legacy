@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
-import DashboardHeader from '../../Dashboard/DashboardHeader';
+import DashboardHeader from '../Dashboard/DashboardHeader';
 import TeamRatingsBody from './TeamRatingsBody';
 import TeamRatingsDashboardWrapper from './TeamRatingsDashboard.styles';
-import TeamSelect from '../../TeamSelect';
-import useFetchesCompetitionTeams from '../../../hooks/useFetchesCompetitionTeams';
-import { Team } from '../../../types/entity';
+import TeamSelect from '../TeamSelect';
+import useFetchesCompetitionTeams from '../../hooks/useFetchesCompetitionTeams';
+import { Team } from '../../types/entity';
 
 const TeamRatingsDashboard = () => {
   const [team, setTeam] = useState<Team | null>(null);
@@ -20,7 +20,7 @@ const TeamRatingsDashboard = () => {
       <DashboardHeader title="Team Ratings">
         <TeamSelect loading={loading} onSelect={onSelect} teams={teams} />
       </DashboardHeader>
-      {team ? <TeamRatingsBody team={team} /> : <p>Please select a team</p>}
+      {team ? <TeamRatingsBody team={team} /> : null}
     </TeamRatingsDashboardWrapper>
   );
 };
