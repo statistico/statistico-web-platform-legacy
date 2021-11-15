@@ -23,7 +23,7 @@ const StyledSelect = styled(Select)`
   }
   .react-dropdown-select-content {
     color: #dedcdc;
-    width: 200px;
+    width: 300px;
     padding: 8px;
     
     span {
@@ -34,8 +34,8 @@ const StyledSelect = styled(Select)`
     position: absolute;
     left: 0;
     border: none;
-    max-width: 260px;
-    width: 240px;
+    max-width: 380px;
+    width: 325px;
     padding: 5px 10px;
     display: flex;
     flex-direction: column;
@@ -79,12 +79,12 @@ const StyledSelect = styled(Select)`
       max-width: 368px;
       width: 368px;
       padding: 10px 15px;
-      font-size: 20px;
+      font-size: 24px;
     }
 
     input::placeholder {
       color: #dedcdc;
-      font-size: 22px;
+      font-size: 24px;
     }
   }
 `;
