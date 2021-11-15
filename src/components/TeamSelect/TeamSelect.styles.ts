@@ -3,7 +3,7 @@ import Select from 'react-dropdown-select';
 
 const StyledSelect = styled(Select)`
   background: #31363e;
-  border: #dedcdc !important;
+  border: none;
   color: #dedcdc;
   margin-top: 25px;
   
@@ -26,7 +26,7 @@ const StyledSelect = styled(Select)`
   }
   .react-dropdown-select-content {
     color: #dedcdc;
-    width: 250px;
+    width: 230px;
     padding: 8px;
     
     span {
@@ -38,7 +38,7 @@ const StyledSelect = styled(Select)`
     left: 0;
     border: none;
     max-width: 320px;
-    width: 320px;
+    width: 280px;
     padding: 5px 10px;
     display: flex;
     flex-direction: column;
@@ -67,7 +67,7 @@ const StyledSelect = styled(Select)`
   }
   input::placeholder {
     color: #dedcdc;
-    font-size: 16px;
+    font-size: 18px;
   }
 
   @media (min-width: 768px) {
@@ -88,7 +88,7 @@ const StyledSelect = styled(Select)`
 
     input::placeholder {
       color: #dedcdc;
-      font-size: 20px;
+      font-size: 22px;
     }
   }
 `;
