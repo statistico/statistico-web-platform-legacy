@@ -10,7 +10,7 @@ const DashboardWrapper = styled.div`
   @media (min-width: 768px) {
     display: flex;
     width: calc(100% - 80px);
-    margin-left: 180px;
+    margin-left: 130px;
     min-height: 100vh;
     height: fit-content;
     padding: 40px 60px;
