@@ -3,14 +3,14 @@ import { node } from 'prop-types';
 
 import ContainerWrapper from './ContainerWrapper';
 
-const dashboard = (props) => {
+const Container = (props) => {
   const { children } = props;
 
   return <ContainerWrapper>{children}</ContainerWrapper>;
 };
 
-dashboard.propTypes = {
+Container.propTypes = {
   children: node.isRequired,
 };
 
-export default dashboard;
+export default Container;
