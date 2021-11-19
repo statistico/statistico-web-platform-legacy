@@ -5,18 +5,12 @@ const StyledSelect = styled(Select)`
   background: #31363e;
   border: none;
   color: #dedcdc;
-  margin: 5px 10px 0 10px;
-  
-  svg {
-    color: #dedcdc;
-    height: 0.85em;
-  }
-  
+  margin-top: 25px;
+
   .react-dropdown-select-clear,
   .react-dropdown-select-dropdown-handle {
     color: #dedcdc;
     font-size: 25px;
-
     :hover {
       color: #22ccde;
     }
@@ -24,17 +18,15 @@ const StyledSelect = styled(Select)`
   .react-dropdown-select-input,
   .react-dropdown-select-item {
     color: #dedcdc;
-    font-size: 16px;
-    margin-left: 0;
+    font-size: 18px;
   }
   .react-dropdown-select-content {
+    color: #dedcdc;
     width: 300px;
     padding: 8px;
-    font-size: 16px;
-    text-align: center;
-    
+
     span {
-      font-size: 22px;
+      font-weight: bold;
     }
   }
   .react-dropdown-select-dropdown {
@@ -42,8 +34,8 @@ const StyledSelect = styled(Select)`
     left: 0;
     border: none;
     max-width: 380px;
-    width: 300px;
-    padding: 5px 2px;
+    width: 325px;
+    padding: 5px 10px;
     display: flex;
     flex-direction: column;
     overflow: auto;
@@ -56,7 +48,6 @@ const StyledSelect = styled(Select)`
   .react-dropdown-select-item {
     color: #dedcdc;
     border-bottom: 1px solid #333;
-
     :hover {
       background-color: #1b1e22;
       font-weight: bold;
@@ -70,28 +61,24 @@ const StyledSelect = styled(Select)`
   }
   input::placeholder {
     color: #dedcdc;
-    font-size: 16px;
+    font-size: 18px;
   }
-
   @media (min-width: 768px) {
     margin-top: 0;
-
     .react-dropdown-select-content {
       color: #dedcdc;
-      width: 190px;
+      width: 220px;
       padding: 15px;
-      font-size: 22px;
     }
-
     .react-dropdown-select-dropdown {
-      width: 225px;
+      max-width: 368px;
+      width: 245px;
       padding: 10px 15px;
-      font-size: 10px;
+      font-size: 24px;
     }
-
     input::placeholder {
       color: #dedcdc;
-      font-size: 22px;
+      font-size: 24px;
     }
   }
 `;

@@ -6,6 +6,7 @@ export const TeamStatsHeaderWrapper = styled.div`
   justify-content: flex-start;
   width: 100%;
   align-items: center;
+  padding-top: 20px;
 
   @media (min-width: 768px) {
     flex-direction: row;
