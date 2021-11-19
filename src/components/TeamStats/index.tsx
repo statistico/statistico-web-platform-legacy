@@ -1,26 +1,24 @@
 import React, { useState } from 'react';
 
-import DashboardHeader from '../Dashboard/DashboardHeader';
 import TeamRatingsBody from './TeamRatingsBody';
 import TeamRatingsDashboardWrapper from './TeamRatingsDashboard.styles';
-import TeamSelect from '../TeamSelect';
-import useFetchesCompetitionTeams from '../../hooks/useFetchesCompetitionTeams';
-import { Team } from '../../types/entity';
+import TeamStatsHeader from './TeamStatsHeader';
+import { Season, Team } from '../../types/entity';
 
 const TeamRatingsDashboard = () => {
-  const [team, setTeam] = useState<Team | null>(null);
-  const { teams, loading } = useFetchesCompetitionTeams();
-
-  const onSelect = (value: Team | null) => {
-    setTeam(value);
-  };
+  const [selectedTeam, setSelectedTeam] = useState<Team | null>(null);
+  const [selectedSeason, setSelectedSeason] = useState<Season | null>(null);
 
   return (
     <TeamRatingsDashboardWrapper>
-      <DashboardHeader title="Team Ratings">
-        <TeamSelect loading={loading} onSelect={onSelect} teams={teams} />
-      </DashboardHeader>
-      {team ? <TeamRatingsBody team={team} /> : null}
+      <TeamStatsHeader
+        onSeasonSelect={setSelectedSeason}
+        onTeamSelect={setSelectedTeam}
+        selectedTeam={selectedTeam}
+      />
+      {selectedTeam && selectedSeason ? (
+        <TeamRatingsBody season={selectedSeason} team={selectedTeam} />
+      ) : null}
     </TeamRatingsDashboardWrapper>
   );
 };

@@ -13,7 +13,7 @@ const DashboardWrapper = styled.div`
     margin-left: 130px;
     min-height: 100vh;
     height: fit-content;
-    padding: 40px 60px;
+    padding: 40px;
   }
 `;
 

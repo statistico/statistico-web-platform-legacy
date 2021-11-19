@@ -30,6 +30,7 @@ export const getCompetitionTeams = (competitionIds, onSuccess) => {
 };
 
 export const getTeamSeasons = (teamId, includeCup, sort, onSuccess) => {
+  console.log(sort);
   const request = new TeamSeasonsRequest();
   request.setTeamId(teamId);
   request.setIncludeCup(new BoolValue().setValue(includeCup));
@@ -46,6 +47,8 @@ export const getTeamSeasons = (teamId, includeCup, sort, onSuccess) => {
         name: s.getName(),
       };
     });
+
+    console.log(seasons);
 
     onSuccess(seasons);
   });
