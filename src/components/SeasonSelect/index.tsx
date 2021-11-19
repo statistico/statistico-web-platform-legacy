@@ -35,7 +35,6 @@ const SeasonSelect = (props: SeasonSelectProps): JSX.Element => {
       searchable={false}
       clearable
       searchBy="name"
-      sortBy="name"
       labelField="name"
       valueField="id"
       closeOnScroll

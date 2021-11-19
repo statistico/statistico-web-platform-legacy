@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 
 import TeamRatingsBody from './TeamRatingsBody';
-import TeamRatingsDashboardWrapper from './TeamRatingsDashboard.styles';
+import TeamStatsDashboardWrapper from './TeamStatsDashboard.styles';
 import TeamStatsHeader from './TeamStatsHeader';
 import { Season, Team } from '../../types/entity';
 
-const TeamRatingsDashboard = () => {
+const TeamStatsDashboard = () => {
   const [selectedTeam, setSelectedTeam] = useState<Team | null>(null);
   const [selectedSeason, setSelectedSeason] = useState<Season | null>(null);
 
   return (
-    <TeamRatingsDashboardWrapper>
+    <TeamStatsDashboardWrapper>
       <TeamStatsHeader
         onSeasonSelect={setSelectedSeason}
         onTeamSelect={setSelectedTeam}
@@ -19,8 +19,8 @@ const TeamRatingsDashboard = () => {
       {selectedTeam && selectedSeason ? (
         <TeamRatingsBody season={selectedSeason} team={selectedTeam} />
       ) : null}
-    </TeamRatingsDashboardWrapper>
+    </TeamStatsDashboardWrapper>
   );
 };
 
-export default TeamRatingsDashboard;
+export default TeamStatsDashboard;

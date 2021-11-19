@@ -10,18 +10,21 @@ export const TeamStatsHeaderWrapper = styled.div`
   @media (min-width: 768px) {
     flex-direction: row;
     justify-content: space-between;
-    padding: 10px;
+    padding: 0 30px 20px 0;
   }
 `;
 
 export const Buttons = styled.div`
   display: flex;
   flex-direction: column;
+  order: 2;
+  width: 80%;
 
   @media (min-width: 768px) {
     flex-direction: row;
     justify-content: flex-start;
     width: 30%;
+    order: 1;
   }
 `;
 
@@ -29,13 +32,17 @@ export const Title = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
+  text-align: center;
   width: 100%;
   font-size: 26px;
   color: #22ccde;
+  padding: 30px 0 15px 0;
+  order: 1;
 
   @media (min-width: 768px) {
     justify-content: flex-end;
     font-size: 40px;
     width: 25%;
+    order: 2;
   }
 `;
