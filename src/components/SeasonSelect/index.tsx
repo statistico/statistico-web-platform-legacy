@@ -33,7 +33,6 @@ const SeasonSelect = (props: SeasonSelectProps): JSX.Element => {
       onChange={(values) => onChange(values)}
       placeholder="Select a season"
       searchable={false}
-      clearable
       searchBy="name"
       labelField="name"
       valueField="id"

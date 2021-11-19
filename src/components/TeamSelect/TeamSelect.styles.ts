@@ -74,20 +74,20 @@ const StyledSelect = styled(Select)`
 
     .react-dropdown-select-content {
       color: #dedcdc;
-      width: 300px;
+      width: 250px;
       padding: 15px;
     }
 
     .react-dropdown-select-dropdown {
       max-width: 368px;
-      width: 368px;
+      width: 310px;
       padding: 10px 15px;
       font-size: 10px;
     }
 
     input::placeholder {
       color: #dedcdc;
-      font-size: 18px;
+      font-size: 22px;
     }
   }
 `;

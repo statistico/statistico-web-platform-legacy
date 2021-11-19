@@ -16,7 +16,7 @@ const TeamRatingsBody = (props: TeamRatingsBodyProps): JSX.Element => {
   return (
     <TeamRatingsBodyWrapper>
       <TeamSeasons>
-        <TeamLogo name={team.name} url={team.logo} />
+        <TeamLogo name={team.name} url={team.logo} onClick={() => {}} />
       </TeamSeasons>
       <TeamRatingDisplay teamId={team.id} seasonId={season.id} />
     </TeamRatingsBodyWrapper>

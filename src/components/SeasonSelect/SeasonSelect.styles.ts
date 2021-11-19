@@ -5,7 +5,12 @@ const StyledSelect = styled(Select)`
   background: #31363e;
   border: none;
   color: #dedcdc;
-  margin-top: 5px;
+  margin: 5px 10px 0 10px;
+  
+  svg {
+    color: #dedcdc;
+    height: 0.85em;
+  }
   
   .react-dropdown-select-clear,
   .react-dropdown-select-dropdown-handle {
@@ -26,10 +31,10 @@ const StyledSelect = styled(Select)`
     width: 300px;
     padding: 8px;
     font-size: 16px;
+    text-align: center;
     
     span {
-      font-weight: bold;
-      color: #22ccde;
+      font-size: 22px;
     }
   }
   .react-dropdown-select-dropdown {
@@ -62,7 +67,6 @@ const StyledSelect = styled(Select)`
     border: none;
     font-weight: bold;
     background-color: #31363e;
-    color: #22ccde;
   }
   input::placeholder {
     color: #dedcdc;
@@ -74,20 +78,20 @@ const StyledSelect = styled(Select)`
 
     .react-dropdown-select-content {
       color: #dedcdc;
-      width: 300px;
+      width: 190px;
       padding: 15px;
+      font-size: 22px;
     }
 
     .react-dropdown-select-dropdown {
-      max-width: 368px;
-      width: 368px;
+      width: 225px;
       padding: 10px 15px;
       font-size: 10px;
     }
 
     input::placeholder {
       color: #dedcdc;
-      font-size: 18px;
+      font-size: 22px;
     }
   }
 `;

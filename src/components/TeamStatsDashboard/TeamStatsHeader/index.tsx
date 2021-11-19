@@ -1,6 +1,7 @@
 import React from 'react';
 
 import SeasonSelect from '../../SeasonSelect';
+import TeamLogo from '../../TeamLogo';
 import TeamSelect from '../../TeamSelect';
 import {
   TeamStatsHeaderWrapper,
@@ -18,10 +19,23 @@ type TeamStatsHeaderProps = {
 const TeamStatsHeader = (props: TeamStatsHeaderProps): JSX.Element => {
   const { onSeasonSelect, onTeamSelect, selectedTeam } = props;
 
+  const reset = () => {
+    onSeasonSelect(null);
+    onTeamSelect(null);
+  };
+
   return (
     <TeamStatsHeaderWrapper>
       <Buttons>
-        <TeamSelect onSelect={onTeamSelect} />
+        {selectedTeam === null ? (
+          <TeamSelect onSelect={onTeamSelect} />
+        ) : (
+          <TeamLogo
+            name={selectedTeam.name}
+            onClick={reset}
+            url={selectedTeam.logo}
+          />
+        )}
         {selectedTeam ? (
           <SeasonSelect onSelect={onSeasonSelect} teamId={selectedTeam.id} />
         ) : null}
