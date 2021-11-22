@@ -37,7 +37,7 @@ export const Title = styled.div`
   justify-content: center;
   text-align: center;
   width: 100%;
-  font-size: 26px;
+  font-size: 30px;
   color: #22ccde;
   padding: 15px 0;
   order: 1;

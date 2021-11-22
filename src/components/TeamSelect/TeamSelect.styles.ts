@@ -5,7 +5,6 @@ const StyledSelect = styled(Select)`
   background: #31363e;
   border: none;
   color: #dedcdc;
-  margin-top: 25px;
 
   .react-dropdown-select-clear,
   .react-dropdown-select-dropdown-handle {
