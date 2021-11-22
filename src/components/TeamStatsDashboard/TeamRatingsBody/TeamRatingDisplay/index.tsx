@@ -6,14 +6,17 @@ import TeamRatingGraph from './TeamRatingGraph';
 import useFetchesTeamRatings from '../../../../hooks/useFetchesTeamRatings';
 
 type TeamRatingDisplayProps = {
-  loading: boolean;
   seasonId: number;
   teamId: number;
 };
 
 const TeamRatingDisplay = (props: TeamRatingDisplayProps) => {
-  const { loading, seasonId, teamId } = props;
-  const { ratings } = useFetchesTeamRatings(teamId, seasonId, 'timestamp_asc');
+  const { seasonId, teamId } = props;
+  const { ratings, loading } = useFetchesTeamRatings(
+    teamId,
+    seasonId,
+    'timestamp_asc'
+  );
 
   return (
     <TeamRatingDisplayWrapper>

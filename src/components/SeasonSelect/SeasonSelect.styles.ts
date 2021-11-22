@@ -64,15 +64,14 @@ const StyledSelect = styled(Select)`
   }
   @media (min-width: 768px) {
     margin-top: 0;
-    
     .react-dropdown-select-content {
       color: #dedcdc;
-      width: 300px;
+      width: 220px;
       padding: 15px;
     }
     .react-dropdown-select-dropdown {
       max-width: 368px;
-      width: 325px;
+      width: 245px;
       padding: 10px 15px;
       font-size: 24px;
     }

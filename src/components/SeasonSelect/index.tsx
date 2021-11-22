@@ -1,16 +1,21 @@
 import React from 'react';
 
-import { Team } from '../../types/entity';
-import StyledSelect from './TeamSelect.styles';
-import useFetchesCompetitionTeams from '../../hooks/useFetchesCompetitionTeams';
+import StyledSelect from './SeasonSelect.styles';
+import { Season } from '../../types/entity';
+import useFetchesTeamSeasons from '../../hooks/useFetchesTeamSeasons';
 
-type TeamSelectProps = {
-  onSelect: (id: Team | null) => void;
+type SeasonSelectProps = {
+  onSelect: (id: Season | null) => void;
+  teamId: number;
 };
 
-const TeamSelect = (props: TeamSelectProps): JSX.Element => {
-  const { onSelect } = props;
-  const { teams, loading } = useFetchesCompetitionTeams();
+const SeasonSelect = (props: SeasonSelectProps): JSX.Element => {
+  const { onSelect, teamId } = props;
+  const { seasons, loading } = useFetchesTeamSeasons(
+    teamId,
+    false,
+    'name_desc'
+  );
 
   const onChange = (values: any[]): void => {
     if (values.length === 1) {
@@ -24,12 +29,11 @@ const TeamSelect = (props: TeamSelectProps): JSX.Element => {
   return (
     <StyledSelect
       values={[]}
-      options={teams}
+      options={seasons}
       onChange={(values) => onChange(values)}
-      placeholder="Select a team"
+      placeholder="Select a season"
       searchable={false}
       searchBy="name"
-      sortBy="name"
       labelField="name"
       valueField="id"
       closeOnScroll
@@ -47,4 +51,4 @@ const TeamSelect = (props: TeamSelectProps): JSX.Element => {
   );
 };
 
-export default TeamSelect;
+export default SeasonSelect;
