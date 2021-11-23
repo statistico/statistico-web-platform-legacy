@@ -3,13 +3,7 @@ import React from 'react';
 import FixtureListWrapper from './ResultList.styles';
 import ResultListItem from './ResultListItem';
 
-type ResultListProps = {
-  width: string;
-};
-
-const ResultList = (props: ResultListProps): JSX.Element => {
-  const { width } = props;
-
+const ResultList = (): JSX.Element => {
   const results = [
     {
       id: 3,
@@ -62,7 +56,7 @@ const ResultList = (props: ResultListProps): JSX.Element => {
   ];
 
   return (
-    <FixtureListWrapper width={width}>
+    <FixtureListWrapper>
       {results.map((r) => (
         <ResultListItem teamId={1} result={r} />
       ))}
