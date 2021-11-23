@@ -7,7 +7,7 @@ export const RatingCardWrapper = styled.div<{ width: string }>`
   align-content: center;
   width: 95%;
   padding: 30px;
-  background-color: #31363e;
+  background-color: #383b44;
   box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.23);
   border-radius: 10px;
   margin: 10px;

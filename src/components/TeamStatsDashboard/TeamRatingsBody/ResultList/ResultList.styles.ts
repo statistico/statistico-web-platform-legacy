@@ -1,10 +1,8 @@
 import styled from 'styled-components';
 
-const FixtureListWrapper = styled.div<{ width: string }>`
-  display: none;
-
+const FixtureListWrapper = styled.div`
   @media (min-width: 768px) {
-    width: ${(props) => props.width};
+    width: 700px;
     min-height: 100%;
     display: flex;
     flex-direction: column;
