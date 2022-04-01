@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Exo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@500&family=Patua+One&display=swap');
 
 /* Box sizing rules */
 *,
@@ -82,7 +84,7 @@ select {
 
 body {
   background-color: #1b1e22;
-  font-family: 'Exo', sans-serif;;
+  font-family: 'Maven Pro', sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 20px;
