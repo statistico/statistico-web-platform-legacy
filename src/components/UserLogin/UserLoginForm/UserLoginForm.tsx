@@ -27,6 +27,7 @@ const UserLoginForm = (props: UserLoginFormProps) => {
       <Loader loading={loading}>
         <InputText icon={faUser} onChange={setEmail} type="text" />
         <InputText icon={faLock} onChange={setPassword} type="password" />
+        {error && error}
         <Button text="LOGIN" onClick={onSubmit} />
       </Loader>
     </UserLoginFormWrapper>
