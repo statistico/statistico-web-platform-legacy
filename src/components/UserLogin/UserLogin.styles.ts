@@ -8,7 +8,11 @@ export const UserLoginWrapper = styled.div`
   align-items: center;
   height: 100vh;
   max-width: 100vw;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  background: linear-gradient(
+      0deg,
+      rgba(50, 50, 50, 0.5),
+      rgba(50, 50, 50, 0.5)
+    ),
     url(https://statistico-assets.s3.eu-west-2.amazonaws.com/login-background.jpg);
   background-size: cover;
 `;
@@ -43,6 +47,6 @@ export const UserLoginContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 60%;
+  height: 40%;
   width: 100%;
 `;

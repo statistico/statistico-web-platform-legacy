@@ -24,9 +24,9 @@ const InputTextElement = styled.input<{ selected: boolean }>`
   width: 100%;
   border: none;
   font-size: 18px;
-  margin: 5px 10px;
+  margin: 5px 15px;
   background: transparent;
-  text-align: center;
+  text-align: left;
   cursor: pointer;
   color: ${(props) => (props.selected ? '#F1F1F1' : 'black')};
 
