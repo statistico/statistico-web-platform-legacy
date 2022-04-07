@@ -47,6 +47,18 @@ export const UserLoginContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 40%;
+  height: fit-content;
   width: 100%;
+
+  @media (min-width: 768px) and (max-device-width: 1024px) {
+    width: 60%;
+  }
+
+  @media (min-width: 1024px) and (max-device-width: 1200px) {
+    width: 50%;
+  }
+
+  @media (min-width: 1200px) {
+    width: 25%;
+  }
 `;
