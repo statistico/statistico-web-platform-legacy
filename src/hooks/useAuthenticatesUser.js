@@ -40,6 +40,7 @@ const useAuthenticatesUser = () => {
     login,
     loading,
     error,
+    setError,
   };
 };
 

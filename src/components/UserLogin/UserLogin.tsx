@@ -15,10 +15,11 @@ type UserLoginProps = {
   error: string | null;
   loading: boolean;
   login: (email: string, password: string) => void;
+  setError: (e: null) => void;
 };
 
 const UserLogin = (props: UserLoginProps) => {
-  const { login, loading, error } = props;
+  const { login, loading, error, setError } = props;
 
   return (
     <UserLoginWrapper>
@@ -31,7 +32,12 @@ const UserLogin = (props: UserLoginProps) => {
             maxWidth="250px"
           />
         </LogoContainer>
-        <UserLoginForm error={error} loading={loading} login={login} />
+        <UserLoginForm
+          error={error}
+          loading={loading}
+          login={login}
+          resetError={() => setError(null)}
+        />
       </UserLoginContainer>
     </UserLoginWrapper>
   );
