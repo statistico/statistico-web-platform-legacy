@@ -26,7 +26,8 @@ const InputText = (props: InputTextProps) => {
     <InputTextContainer
       selected={selected}
       ref={ref}
-      onClick={() => setSelected(true)}
+      onFocus={() => setSelected(true)}
+      onBlur={() => setSelected(false)}
     >
       <InputTextIcon selected={selected}>
         {icon ? <FontAwesomeIcon icon={icon} size="1x" /> : null}

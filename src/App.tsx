@@ -10,10 +10,23 @@ import UserLogin from './components/UserLogin/UserLogin';
 import useAuthenticatesUser from './hooks/useAuthenticatesUser';
 
 const App: React.FC = () => {
-  const { isAuthenticated, loading, login, error } = useAuthenticatesUser();
+  const {
+    isAuthenticated,
+    loading,
+    login,
+    error,
+    setError,
+  } = useAuthenticatesUser();
 
   if (!isAuthenticated) {
-    return <UserLogin loading={loading} login={login} error={error} />;
+    return (
+      <UserLogin
+        loading={loading}
+        login={login}
+        error={error}
+        setError={setError}
+      />
+    );
   }
 
   return (
