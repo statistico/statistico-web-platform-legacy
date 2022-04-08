@@ -30,7 +30,7 @@ const useAuthenticatesUser = () => {
         updateState(true, false, null);
       })
       .catch((e) => {
-        const err = password ? e.message : 'Incorrect username or password.';
+        const err = password ? e.message : 'Incorrect username or password';
         updateState(false, false, err);
       });
   }, []);
