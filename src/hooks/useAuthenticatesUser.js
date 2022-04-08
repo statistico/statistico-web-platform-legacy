@@ -25,6 +25,8 @@ const useAuthenticatesUser = () => {
   }, []);
 
   const login = useCallback((email, password) => {
+    setLoading(true);
+
     Auth.signIn(email, password)
       .then(() => {
         updateState(true, false, null);
