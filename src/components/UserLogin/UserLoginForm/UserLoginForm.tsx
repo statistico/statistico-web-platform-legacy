@@ -4,7 +4,6 @@ import { faLock, faUser } from '@fortawesome/free-solid-svg-icons';
 import Button from '../../Form/Button/Button';
 import Error from '../../Error/Error';
 import InputText from '../../Form/Input/InputText';
-import Loader from '../../Loader/Loader';
 import UserLoginFormWrapper from './UserLoginForm.styles';
 
 type UserLoginFormProps = {
@@ -26,12 +25,10 @@ const UserLoginForm = (props: UserLoginFormProps) => {
 
   return (
     <UserLoginFormWrapper>
-      <Loader loading={loading}>
-        <InputText icon={faUser} onChange={setEmail} type="text" />
-        <InputText icon={faLock} onChange={setPassword} type="password" />
-        {error && <Error message={error} resetError={resetError} />}
-        <Button text="LOGIN" onClick={onSubmit} />
-      </Loader>
+      <InputText icon={faUser} onChange={setEmail} type="text" />
+      <InputText icon={faLock} onChange={setPassword} type="password" />
+      {error && <Error message={error} resetError={resetError} />}
+      <Button text="LOGIN" loading={loading} onClick={onSubmit} />
     </UserLoginFormWrapper>
   );
 };
