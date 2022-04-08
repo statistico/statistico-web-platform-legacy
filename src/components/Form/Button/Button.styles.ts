@@ -10,7 +10,7 @@ const ButtonWrapper = styled.button`
   font-size: 20px;
   width: 100%;
   text-align: center;
-  margin-top: 10px;
+  margin: 5px;
   padding: 15px;
   cursor: pointer;
   border-radius: 15px;
