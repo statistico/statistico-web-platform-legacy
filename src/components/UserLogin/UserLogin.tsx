@@ -25,12 +25,8 @@ const UserLogin = (props: UserLoginProps) => {
     <UserLoginWrapper>
       <UserLoginContainer>
         <LogoContainer>
-          <LogoIcon src={icon} maxWidth="50px" />
-          <LogoText
-            src="https://statistico-assets.s3.eu-west-2.amazonaws.com/statistico-logotype-white_l.png"
-            height="30px"
-            maxWidth="250px"
-          />
+          <LogoIcon src={icon} />
+          <LogoText src="https://statistico-assets.s3.eu-west-2.amazonaws.com/statistico-logotype-white_l.png" />
         </LogoContainer>
         <UserLoginForm
           error={error}

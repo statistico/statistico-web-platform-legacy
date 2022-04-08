@@ -5,10 +5,10 @@ export const InputTextContainer = styled.div<{ selected: boolean }>`
   justify-content: flex-start;
   align-items: center;
   padding: 10px 15px;
-  margin: 5px;
+  margin: 7px;
   width: 100%;
   border-radius: 15px;
-  background: rgba(196, 196, 196, 0.4);
+  background: rgba(196, 196, 196, 0.2);
   backdrop-filter: blur(3px);
   border: ${(props) => (props.selected ? '2px solid #F1F1F1' : 'none')};
 `;
